@@ -14,6 +14,7 @@
 		C412277E2B6CEE3000626D72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C412277D2B6CEE3000626D72 /* Assets.xcassets */; };
 		C41227812B6CEE3000626D72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C412277F2B6CEE3000626D72 /* LaunchScreen.storyboard */; };
 		C412278A2B6CEE6A00626D72 /* BlastTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41227892B6CEE6A00626D72 /* BlastTableViewController.swift */; };
+		C412278E2B6CF2DE00626D72 /* Text.xib in Resources */ = {isa = PBXBuildFile; fileRef = C412278D2B6CF2DE00626D72 /* Text.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		C41227822B6CEE3000626D72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C41227892B6CEE6A00626D72 /* BlastTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlastTableViewController.swift; sourceTree = "<group>"; };
 		C412278B2B6CF07000626D72 /* Blast.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = Blast.podspec; path = ../../Blast.podspec; sourceTree = "<group>"; };
+		C412278D2B6CF2DE00626D72 /* Text.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Text.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				C41227742B6CEE2F00626D72 /* AppDelegate.swift */,
 				C41227762B6CEE2F00626D72 /* SceneDelegate.swift */,
 				C41227782B6CEE2F00626D72 /* ViewController.swift */,
+				C412278C2B6CF29400626D72 /* Cells */,
 				C412277A2B6CEE2F00626D72 /* Main.storyboard */,
 				C412277D2B6CEE3000626D72 /* Assets.xcassets */,
 				C412277F2B6CEE3000626D72 /* LaunchScreen.storyboard */,
@@ -79,6 +82,14 @@
 			);
 			name = Blast;
 			path = ../../Blast;
+			sourceTree = "<group>";
+		};
+		C412278C2B6CF29400626D72 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C412278D2B6CF2DE00626D72 /* Text.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +152,7 @@
 			files = (
 				C41227812B6CEE3000626D72 /* LaunchScreen.storyboard in Resources */,
 				C412277E2B6CEE3000626D72 /* Assets.xcassets in Resources */,
+				C412278E2B6CF2DE00626D72 /* Text.xib in Resources */,
 				C412277C2B6CEE2F00626D72 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
