@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="5D8-Ox-K7z" customClass="BlastTableHeaderFooterView" customModule="BlastExample" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="349" height="361"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="poK-g7-hnm">
+                    <rect key="frame" x="24" y="10" width="301" height="341"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="poK-g7-hnm" secondAttribute="trailing" constant="24" id="2aX-OL-bET"/>
+                <constraint firstAttribute="bottom" secondItem="poK-g7-hnm" secondAttribute="bottom" constant="10" id="b8J-Ue-6iJ"/>
+                <constraint firstItem="poK-g7-hnm" firstAttribute="top" secondItem="5D8-Ox-K7z" secondAttribute="top" constant="10" id="tSC-Y6-wqy"/>
+                <constraint firstItem="poK-g7-hnm" firstAttribute="leading" secondItem="5D8-Ox-K7z" secondAttribute="leading" constant="24" id="yWQ-df-uXZ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="footerLabel" destination="poK-g7-hnm" id="09k-oL-xFP"/>
+            </connections>
+            <point key="canvasLocation" x="-955" y="-705"/>
+        </view>
+    </objects>
+</document>

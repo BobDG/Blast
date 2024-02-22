@@ -6,45 +6,132 @@
 //
 
 import UIKit
-import Foundation
 
 class BlastTableViewController:UITableViewController {
+    //Sections
+    var sections:[BlastTableViewSection] = []
+    var sectionDefaultHeaderHeight = 20
+    var sectionDefaultFooterHeight = 10
     
-    // Sample data for the table view
-    let items = ["Item 1", "Item 2", "Item 3"]
+    //Estimated heights (setting these can improve scrolling performance)
+    var estimatedRowHeight = 44
+    var estimatedHeaderHeight = 20
+    var estimatedFooterHeight = 10
+    
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Register the table view cell class and its reuse id
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
-    // Number of sections in the table view
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
+    // MARK: - UITableView Delegate -> Cell
     
-    // Number of rows in each section
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
-    }
-    
-    // Configure the cell for each row
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        // Set the text for the cell with the item that is at the nth index of items,
-        // where n = row this cell will appear in on the tableview
-        cell.textLabel?.text = items[indexPath.row]
+        let section = self.sections[indexPath.section]
+        let row = section.rows[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: row.xibName, for: indexPath) as! BlastTableViewCell
+        cell.row = row
         
         return cell
     }
     
-    // Optional: Handle row selection
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Do something when a row is selected
-        print("Selected item: \(items[indexPath.row])")
+    // MARK: - UITableView Delegate -> Header & Footer
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let section = self.sections[section]
+        if let xibName = section.headerXibName {
+            let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: xibName) as! BlastTableHeaderFooterView
+            view.section = section
+            return view
+        }
+        return nil
     }
     
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let section = self.sections[section]
+        if let xibName = section.footerXibName {
+            let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: xibName) as! BlastTableHeaderFooterView
+            view.section = section
+            return view
+        }
+        return nil
+    }
+    
+    // MARK: - UITableView Delegate -> Heights
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(self.estimatedRowHeight)
+    }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return CGFloat(self.estimatedHeaderHeight)
+    }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat(self.estimatedFooterHeight)
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        let section = self.sections[section]
+        //Precedence order: Section set -> Views -> Global
+        if let headerHeight = section.headerHeight {
+            return CGFloat(headerHeight)
+        }
+        if section.headerXibName != nil {
+            return UITableView.automaticDimension
+        }
+        return CGFloat(self.sectionDefaultHeaderHeight)
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        let section = self.sections[section]
+        //Precedence order: Section set -> Views -> Global
+        if let footerHeight = section.footerHeight {
+            return CGFloat(footerHeight)
+        }
+        if section.footerXibName != nil {
+            return UITableView.automaticDimension
+        }
+        return CGFloat(self.sectionDefaultFooterHeight)
+    }
+    
+    // MARK: - UITableView Delegate -> Number of sections/rows
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return self.sections.count
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.sections[section].rows.count
+    }
+    
+    // MARK: - UITableView Delegate -> Actions
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let section = self.sections[indexPath.section]
+        let row = section.rows[indexPath.row]
+        row.cellTapped?()
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    // MARK: - Registering cells
+    
+    func registerCells(_ xibNames:[String]) {
+        for xibName in xibNames {
+            let cellNib = UINib(nibName: xibName, bundle: nil)
+            self.tableView.register(cellNib, forCellReuseIdentifier: xibName)
+        }
+    }
+    
+    func registerHeaderFooters(_ xibNames:[String]) {
+        for xibName in xibNames {
+            let headerFooterNib = UINib(nibName: xibName, bundle: nil)
+            self.tableView.register(headerFooterNib, forHeaderFooterViewReuseIdentifier: xibName)
+        }
+    }
 }
