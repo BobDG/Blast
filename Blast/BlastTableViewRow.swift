@@ -31,8 +31,8 @@ class BlastTableViewRow {
     
     // MARK: - Textfields
     
-    var textfieldConfiguration1:TextFieldConfiguration?
-    var textfieldConfiguration2:TextFieldConfiguration?
+    var textFieldConfiguration1:TextFieldConfiguration?
+    var textFieldConfiguration2:TextFieldConfiguration?
     
     // MARK: - Switch
     

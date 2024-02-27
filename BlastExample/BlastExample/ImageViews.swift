@@ -28,7 +28,7 @@ class ImageViews: BlastTableViewController {
         var section:BlastTableViewSection
         
         section = BlastTableViewSection(headerXibName: XIBHeader)
-        section.headerTitle = "One imageview"
+        section.headerTitle = "One"
         self.sections.append(section)
         
         row = BlastTableViewRow(xibName: XIBCellOneImageView)

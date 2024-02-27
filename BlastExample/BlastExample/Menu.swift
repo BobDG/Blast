@@ -34,37 +34,37 @@ class Menu: BlastTableViewController {
         self.sections.append(section)
         
         row = BlastTableViewRow(xibName: XIBCellMenuItem)
-        row.labelConfiguration1 = LabelConfiguration(text: "Labels")
+        row.labelConfiguration1 = LabelConfiguration().text("Labels")
         row.cellTapped = { [weak self] in
             self?.showLabelExamples()
         }
         section.rows.append(row)
         
         row = BlastTableViewRow(xibName: XIBCellMenuItem)
-        row.labelConfiguration1 = LabelConfiguration(text: "Buttons")
+        row.labelConfiguration1 = LabelConfiguration().text("Buttons")
         row.cellTapped = { [weak self] in
             self?.showButtonExamples()
         }
         section.rows.append(row)
         
         row = BlastTableViewRow(xibName: XIBCellMenuItem)
-        row.labelConfiguration1 = LabelConfiguration(text: "Images")
+        row.labelConfiguration1 = LabelConfiguration().text("Images")
         row.cellTapped = { [weak self] in
             self?.showImagesExamples()
         }
         section.rows.append(row)
         
         row = BlastTableViewRow(xibName: XIBCellMenuItem)
-        row.labelConfiguration1 = LabelConfiguration(text: "Textfields")
+        row.labelConfiguration1 = LabelConfiguration().text("Switches")
         row.cellTapped = { [weak self] in
-            self?.showTextfieldExamples()
+            self?.showSwitchesExamples()
         }
         section.rows.append(row)
         
         row = BlastTableViewRow(xibName: XIBCellMenuItem)
-        row.labelConfiguration1 = LabelConfiguration(text: "Switches")
+        row.labelConfiguration1 = LabelConfiguration().text("Textfields")
         row.cellTapped = { [weak self] in
-            self?.showSwitchesExamples()
+            self?.showTextfieldExamples()
         }
         section.rows.append(row)
     }

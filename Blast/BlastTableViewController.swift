@@ -18,6 +18,9 @@ class BlastTableViewController:UITableViewController {
     var estimatedHeaderHeight = 20
     var estimatedFooterHeight = 10
     
+    //Textfields
+    var textFieldsArray: [UITextField] = []
+    
     
     // MARK: - Lifecycle
     
@@ -32,6 +35,8 @@ class BlastTableViewController:UITableViewController {
         let row = section.rows[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: row.xibName, for: indexPath) as! BlastTableViewCell
         cell.row = row
+        
+        self.registerTextfields(cell)
         
         return cell
     }
@@ -132,6 +137,38 @@ class BlastTableViewController:UITableViewController {
         for xibName in xibNames {
             let headerFooterNib = UINib(nibName: xibName, bundle: nil)
             self.tableView.register(headerFooterNib, forHeaderFooterViewReuseIdentifier: xibName)
+        }
+    }
+    
+    // MARK: - Textfields
+    
+    func registerTextfields(_ cell:BlastTableViewCell) {
+        if let textField = cell.textField1 {
+            if !textFieldsArray.contains(textField) {
+                textFieldsArray.append(textField)
+                textField.moveToNextTextField = { [weak self] textField in
+                    self?.moveToNextTextField(currentTextField: textField)
+                }
+            }
+        }
+        if let textField = cell.textField2 {
+            if !textFieldsArray.contains(textField) {
+                textFieldsArray.append(textField)
+                textField.moveToNextTextField = { [weak self] textField in
+                    self?.moveToNextTextField(currentTextField: textField)
+                }
+            }
+        }
+    }
+    
+    func moveToNextTextField(currentTextField:BlastTextField) {
+        print("Move to next field!")
+        if let currentIndex = textFieldsArray.firstIndex(of: currentTextField), currentIndex < (textFieldsArray.count - 1) {
+            let nextTextField = textFieldsArray[currentIndex + 1]
+            nextTextField.becomeFirstResponder()
+        }
+        else {
+            currentTextField.resignFirstResponder()
         }
     }
 }

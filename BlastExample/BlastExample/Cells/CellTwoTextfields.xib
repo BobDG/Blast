@@ -18,12 +18,12 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cfG-3V-yGb">
                         <rect key="frame" x="0.0" y="0.0" width="547" height="70"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mhd-mi-ENr" customClass="BlastTextfield" customModule="BlastExample" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mhd-mi-ENr" customClass="BlastTextField" customModule="BlastExample" customModuleProvider="target">
                                 <rect key="frame" x="19.999999999999986" y="20" width="218.66666666666663" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qng-46-p90" customClass="BlastTextfield" customModule="BlastExample" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qng-46-p90" customClass="BlastTextField" customModule="BlastExample" customModuleProvider="target">
                                 <rect key="frame" x="308.33333333333331" y="20" width="218.66666666666669" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -50,8 +50,8 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="textfield1" destination="mhd-mi-ENr" id="UFS-xw-Yho"/>
-                <outlet property="textfield2" destination="qng-46-p90" id="lAN-N6-0nx"/>
+                <outlet property="textField1" destination="mhd-mi-ENr" id="RQx-qb-o2g"/>
+                <outlet property="textField2" destination="qng-46-p90" id="BJT-Fj-bqL"/>
             </connections>
             <point key="canvasLocation" x="-336.64122137404581" y="-199.29577464788733"/>
         </tableViewCell>

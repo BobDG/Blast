@@ -38,9 +38,8 @@ class Textfields: BlastTableViewController {
         self.sections.append(section)
         
         row = BlastTableViewRow(xibName: XIBCellOneTextfield)
-        row.textfieldConfiguration1 = TextFieldConfiguration(
-            placeholder: "Simple placeholder".capitalized
-        )
+        row.textFieldConfiguration1 = TextFieldConfiguration()
+            .placeholder("Simple placeholder".capitalized)
         section.rows.append(row)
         
         section = BlastTableViewSection(headerXibName: XIBHeader)
@@ -48,9 +47,9 @@ class Textfields: BlastTableViewController {
         self.sections.append(section)
         
         row = BlastTableViewRow(xibName: XIBCellOneTextfield)
-        row.textfieldConfiguration1 = TextFieldConfiguration(
-            attributedPlaceholder:.init(string: "Italic & background", attributes: [.font: UIFont.italicSystemFont(ofSize: 14), .backgroundColor: UIColor.systemPink])
-        )
+        row.textFieldConfiguration1 = TextFieldConfiguration()
+            .attributedPlaceholder(.init(string: "Italic & background", 
+                                         attributes: [.font: UIFont.italicSystemFont(ofSize: 14), .backgroundColor: UIColor.systemPink]))
         section.rows.append(row)
         
         section = BlastTableViewSection(headerXibName: XIBHeader)
@@ -58,10 +57,11 @@ class Textfields: BlastTableViewController {
         self.sections.append(section)
         
         row = BlastTableViewRow(xibName: XIBCellOneTextfield)
-        row.textfieldConfiguration1 = TextFieldConfiguration(
-            font: UIFont.boldSystemFont(ofSize: 20),
-            attributedPlaceholder: .init(string: "Type to see it", attributes: [.font: UIFont.systemFont(ofSize: 12), .foregroundColor: UIColor.gray])
-        )
+        row.textFieldConfiguration1 = TextFieldConfiguration()
+            .nextFieldOnReturn(false)
+            .font(UIFont.boldSystemFont(ofSize: 20))
+            .attributedPlaceholder(.init(string: "Type to see it",
+                                         attributes: [.font: UIFont.systemFont(ofSize: 12), .foregroundColor: UIColor.gray]))
         section.rows.append(row)
         
         section = BlastTableViewSection(headerXibName: XIBHeader)
@@ -69,43 +69,40 @@ class Textfields: BlastTableViewController {
         self.sections.append(section)
         
         row = BlastTableViewRow(xibName: XIBCellTwoTextfields)
-        row.textfieldConfiguration1 = TextFieldConfiguration(
-            text: self.object.textString1,
-            font: UIFont.boldSystemFont(ofSize: 24),
-            attributedPlaceholder: .init(string: "Two textfields", attributes: [.font: UIFont.systemFont(ofSize: 12), .foregroundColor: UIColor.gray]),
-            textChanged: { [weak self] text in
+        row.textFieldConfiguration1 = TextFieldConfiguration()
+            .text(self.object.textString1)
+            .font(UIFont.boldSystemFont(ofSize: 24))
+            .attributedPlaceholder(.init(string: "Two textfields",
+                                         attributes: [.font: UIFont.systemFont(ofSize: 12), .foregroundColor: UIColor.gray]))
+            .textChanged { [weak self] text in
                 print("Callback text 1 changed: \(text)")
                 self?.object.textString1 = text
-            },
-            returnTapped: {
+            }
+            .returnTapped {
                 print("Textfield 1 return tapped!")
             }
-        )
-        row.textfieldConfiguration2 = TextFieldConfiguration(
-            text: self.object.textString2,
-            font: UIFont.italicSystemFont(ofSize: 14),
-            attributedPlaceholder: .init(string: "Go nuts", attributes: [.font: UIFont.italicSystemFont(ofSize: 21), .foregroundColor: UIColor.blue]),
-            textChanged: { [weak self] text in
+        row.textFieldConfiguration2 = TextFieldConfiguration()
+            .text(self.object.textString2)
+            .font(UIFont.italicSystemFont(ofSize: 14))
+            .attributedPlaceholder(.init(string: "Go nuts", 
+                                         attributes: [.font: UIFont.italicSystemFont(ofSize: 21), .foregroundColor: UIColor.blue]))
+            .textChanged { [weak self] text in
                 print("Callback text 2 changed: \(text)")
                 self?.object.textString2 = text
-            },
-            returnTapped: {
+            }
+            .returnTapped {
                 print("Textfield 2 return tapped!")
             }
-        )
         section.rows.append(row)
         
         row = BlastTableViewRow(xibName: XIBCellOneButton)
-        row.buttonConfiguration1 = ButtonConfiguration(
-            title: "Tap to print values in console",
-            tapped: {
-                #warning("Can't use weak here? Check for retain cycle issues!")
-                print("Object text 1: \(String(describing: self.object.textString1))")
-                print("Object text 2: \(String(describing: self.object.textString2))")
+        row.buttonConfiguration1 = ButtonConfiguration()
+            .title("Tap to print values in console")
+            .tapped { [weak self] in
+                print("Object text 1: \(String(describing: self?.object.textString1))")
+                print("Object text 2: \(String(describing: self?.object.textString2))")
             }
-        )
         section.rows.append(row)
-        
     }
     
 }
