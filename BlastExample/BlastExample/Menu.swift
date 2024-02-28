@@ -36,62 +36,44 @@ class Menu: BlastTableViewController {
         row = BlastTableViewRow(xibName: XIBCellMenuItem)
         row.labelConfiguration1 = LabelConfiguration().text("Labels")
         row.cellTapped = { [weak self] in
-            self?.showLabelExamples()
+            self?.navigationController?.pushViewController(Labels.init(style: .insetGrouped), animated: true)
         }
         section.rows.append(row)
         
         row = BlastTableViewRow(xibName: XIBCellMenuItem)
         row.labelConfiguration1 = LabelConfiguration().text("Buttons")
         row.cellTapped = { [weak self] in
-            self?.showButtonExamples()
+            self?.navigationController?.pushViewController(Buttons.init(style: .insetGrouped), animated: true)
         }
         section.rows.append(row)
         
         row = BlastTableViewRow(xibName: XIBCellMenuItem)
-        row.labelConfiguration1 = LabelConfiguration().text("Images")
+        row.labelConfiguration1 = LabelConfiguration().text("ImageViews")
         row.cellTapped = { [weak self] in
-            self?.showImagesExamples()
+            self?.navigationController?.pushViewController(ImageViews.init(style: .insetGrouped), animated: true)
         }
         section.rows.append(row)
         
         row = BlastTableViewRow(xibName: XIBCellMenuItem)
         row.labelConfiguration1 = LabelConfiguration().text("Switches")
         row.cellTapped = { [weak self] in
-            self?.showSwitchesExamples()
+            self?.navigationController?.pushViewController(Switches.init(style: .insetGrouped), animated: true)
         }
         section.rows.append(row)
         
         row = BlastTableViewRow(xibName: XIBCellMenuItem)
-        row.labelConfiguration1 = LabelConfiguration().text("Textfields")
+        row.labelConfiguration1 = LabelConfiguration().text("TextFields")
         row.cellTapped = { [weak self] in
-            self?.showTextfieldExamples()
+            self?.navigationController?.pushViewController(TextFields.init(style: .insetGrouped), animated: true)
         }
         section.rows.append(row)
-    }
-    
-    func showLabelExamples() {
-        let vc = Labels.init(style: .insetGrouped)
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func showButtonExamples() {
-        let vc = Buttons.init(style: .insetGrouped)
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func showImagesExamples() {
-        let vc = ImageViews.init(style: .insetGrouped)
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func showTextfieldExamples() {
-        let vc = Textfields.init(style: .insetGrouped)
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func showSwitchesExamples() {
-        let vc = Switches.init(style: .insetGrouped)
-        self.navigationController?.pushViewController(vc, animated: true)
+        
+        row = BlastTableViewRow(xibName: XIBCellMenuItem)
+        row.labelConfiguration1 = LabelConfiguration().text("TextViews")
+        row.cellTapped = { [weak self] in
+            self?.navigationController?.pushViewController(TextViews.init(style: .insetGrouped), animated: true)
+        }
+        section.rows.append(row)
     }
     
 }

@@ -1,5 +1,5 @@
 //
-//  Textfields.swift
+//  TextFields.swift
 //  BlastExample
 //
 //  Created by Bob de Graaf on 02/02/2024.
@@ -7,23 +7,23 @@
 
 import UIKit
 
-class MyObject {
-    var textString1: String = "Var 1 to update"
-    var textString2: String = "Var 2 to update"
-}
-
-class Textfields: BlastTableViewController {
+class TextFields: BlastTableViewController {
+    
+    class MyObject {
+        var textString1: String = "Var 1 to update"
+        var textString2: String = "Var 2 to update"
+    }
     var object = MyObject()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Styling
-        self.navigationItem.title = "Textfields"
+        self.navigationItem.title = "TextFields"
         
         //Register XIBs
         self.registerHeaderFooters([XIBHeader])
-        self.registerCells([XIBCellOneTextfield, XIBCellTwoTextfields, XIBCellOneButton])
+        self.registerCells([XIBCellOneTextField, XIBCellTwoTextFields, XIBCellOneButton])
         
         //Load
         self.loadContent()
@@ -37,7 +37,7 @@ class Textfields: BlastTableViewController {
         section.headerTitle = "Basic"
         self.sections.append(section)
         
-        row = BlastTableViewRow(xibName: XIBCellOneTextfield)
+        row = BlastTableViewRow(xibName: XIBCellOneTextField)
         row.textFieldConfiguration1 = TextFieldConfiguration()
             .placeholder("Simple placeholder".capitalized)
         section.rows.append(row)
@@ -46,7 +46,7 @@ class Textfields: BlastTableViewController {
         section.headerTitle = "Attributed"
         self.sections.append(section)
         
-        row = BlastTableViewRow(xibName: XIBCellOneTextfield)
+        row = BlastTableViewRow(xibName: XIBCellOneTextField)
         row.textFieldConfiguration1 = TextFieldConfiguration()
             .attributedPlaceholder(.init(string: "Italic & background", 
                                          attributes: [.font: UIFont.italicSystemFont(ofSize: 14), .backgroundColor: UIColor.systemPink]))
@@ -56,7 +56,7 @@ class Textfields: BlastTableViewController {
         section.headerTitle = "Custom fonts for placeholder & text "
         self.sections.append(section)
         
-        row = BlastTableViewRow(xibName: XIBCellOneTextfield)
+        row = BlastTableViewRow(xibName: XIBCellOneTextField)
         row.textFieldConfiguration1 = TextFieldConfiguration()
             .nextFieldOnReturn(false)
             .font(UIFont.boldSystemFont(ofSize: 20))
@@ -65,14 +65,14 @@ class Textfields: BlastTableViewController {
         section.rows.append(row)
         
         section = BlastTableViewSection(headerXibName: XIBHeader)
-        section.headerTitle = "Two textfields? Sure"
+        section.headerTitle = "Two textFields? Sure"
         self.sections.append(section)
         
-        row = BlastTableViewRow(xibName: XIBCellTwoTextfields)
+        row = BlastTableViewRow(xibName: XIBCellTwoTextFields)
         row.textFieldConfiguration1 = TextFieldConfiguration()
             .text(self.object.textString1)
             .font(UIFont.boldSystemFont(ofSize: 24))
-            .attributedPlaceholder(.init(string: "Two textfields",
+            .attributedPlaceholder(.init(string: "Two textFields",
                                          attributes: [.font: UIFont.systemFont(ofSize: 12), .foregroundColor: UIColor.gray]))
             .textChanged { [weak self] text in
                 print("Callback text 1 changed: \(text)")

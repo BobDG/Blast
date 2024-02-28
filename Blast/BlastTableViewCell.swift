@@ -27,6 +27,9 @@ class BlastTableViewCell:UITableViewCell {
     @IBOutlet weak var textField1:BlastTextField?
     @IBOutlet weak var textField2:BlastTextField?
     
+    //TextViews
+    @IBOutlet weak var textView1:BlastTextView?
+    
     //Switch
     @IBOutlet weak var switch1:UISwitch?
     
@@ -45,17 +48,21 @@ class BlastTableViewCell:UITableViewCell {
             self.setupButton(button2, row.buttonConfiguration2)
             self.setupButton(button3, row.buttonConfiguration3)
             
-            //Textfield
-            self.setupTextfield(textField1, row.textFieldConfiguration1)
-            self.setupTextfield(textField2, row.textFieldConfiguration2)
-
-            //Switch
-            self.setupSwitch(switch1, row.switchConfiguration1)
-            
             //ImageViews
             self.imageView1?.image = row.image1
             self.imageView2?.image = row.image2
             self.imageView3?.image = row.image3
+            
+            //Switch
+            self.setupSwitch(switch1, row.switchConfiguration1)
+            
+            //TextFields
+            self.setupTextField(textField1, row.textFieldConfiguration1)
+            self.setupTextField(textField2, row.textFieldConfiguration2)
+
+            //TextViews
+            self.setupTextView(textView1, row.textViewConfiguration1)
+            
         }
     }
     
@@ -108,9 +115,31 @@ class BlastTableViewCell:UITableViewCell {
         }
     }
     
-    // MARK: - Textfields
+    // MARK: - Switch
     
-    func setupTextfield(_ textField:BlastTextField?, _ config:TextFieldConfiguration?) {
+    func setupSwitch(_ rowSwitch:UISwitch?, _ config:SwitchConfiguration?) {
+        guard let rowSwitch,
+              let config
+        else { return }
+        
+        rowSwitch.isOn = config.isOn
+        
+        if let color = config.color {
+            rowSwitch.onTintColor = color
+        }
+        
+        rowSwitch.addTarget(self, action: #selector(switchTapped(_:)), for: .valueChanged)
+    }
+    
+    @objc func switchTapped(_ sender: UISwitch) {
+        if sender == switch1, let tapped = self.row?.switchConfiguration1?.tapped {
+            tapped(sender.isOn)
+        }
+    }
+    
+    // MARK: - TextFields
+    
+    func setupTextField(_ textField:BlastTextField?, _ config:TextFieldConfiguration?) {
         guard let textField,
               let config
         else { return }
@@ -136,26 +165,21 @@ class BlastTableViewCell:UITableViewCell {
         textField.returnTapped = config.returnTapped
     }
     
-    // MARK: - Switch
+    // MARK: - TextViews
     
-    func setupSwitch(_ rowSwitch:UISwitch?, _ config:SwitchConfiguration?) {
-        guard let rowSwitch,
+    func setupTextView(_ textView:BlastTextView?, _ config:TextViewConfiguration?) {
+        guard let textView,
               let config
         else { return }
         
-        rowSwitch.isOn = config.isOn
+        textView.text = config.text
+        textView.font = config.font
+        textView.isEditable = config.isEditable
+        textView.isSelectable = config.isSelectable
+        textView.isScrollEnabled = config.isScrollEnabled
         
-        if let color = config.color {
-            rowSwitch.onTintColor = color
-        }
-        
-        rowSwitch.addTarget(self, action: #selector(switchTapped(_:)), for: .valueChanged)
-    }
-    
-    @objc func switchTapped(_ sender: UISwitch) {
-        if sender == switch1, let tapped = self.row?.switchConfiguration1?.tapped {
-            tapped(sender.isOn)
-        }
+        textView.doneTapped = config.doneTapped
+        textView.textChanged = config.textChanged
     }
 
 }

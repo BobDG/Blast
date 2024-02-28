@@ -19,19 +19,22 @@ let XIBCellOneLabel = "CellOneLabel"
 let XIBCellTwoLabels = "CellTwoLabels"
 let XIBCellThreeLabels = "CellThreeLabels"
 
-//ImageViews
-let XIBCellOneImageView = "CellOneImageView"
-let XIBCellTwoImageViews = "CellTwoImageViews"
-let XIBCellThreeImageViews = "CellThreeImageViews"
-
 //Buttons
 let XIBCellOneButton = "CellOneButton"
 let XIBCellTwoButtons = "CellTwoButtons"
 let XIBCellThreeButtons = "CellThreeButtons"
 
-//Textfields
-let XIBCellOneTextfield = "CellOneTextfield"
-let XIBCellTwoTextfields = "CellTwoTextfields"
+//ImageViews
+let XIBCellOneImageView = "CellOneImageView"
+let XIBCellTwoImageViews = "CellTwoImageViews"
+let XIBCellThreeImageViews = "CellThreeImageViews"
 
 //Switches
 let XIBCellOneSwitch = "CellOneSwitch"
+
+//TextFields
+let XIBCellOneTextField = "CellOneTextField"
+let XIBCellTwoTextFields = "CellTwoTextFields"
+
+//TextViews
+let XIBCellTextView = "CellTextView"

@@ -29,20 +29,24 @@ class BlastTableViewRow {
     var buttonConfiguration2:ButtonConfiguration?
     var buttonConfiguration3:ButtonConfiguration?
     
-    // MARK: - Textfields
-    
-    var textFieldConfiguration1:TextFieldConfiguration?
-    var textFieldConfiguration2:TextFieldConfiguration?
-    
-    // MARK: - Switch
-    
-    var switchConfiguration1:SwitchConfiguration?
-    
     // MARK: - Images
     
     var image1:UIImage?
     var image2:UIImage?
     var image3:UIImage?
+    
+    // MARK: - Switches
+    
+    var switchConfiguration1:SwitchConfiguration?
+    
+    // MARK: - TextFields
+    
+    var textFieldConfiguration1:TextFieldConfiguration?
+    var textFieldConfiguration2:TextFieldConfiguration?
+    
+    // MARK: - TextViews
+    
+    var textViewConfiguration1:TextViewConfiguration?
     
     // MARK: - Lifecycle
     

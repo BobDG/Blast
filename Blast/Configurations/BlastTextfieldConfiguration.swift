@@ -1,5 +1,5 @@
 //
-//  BlastTextfieldConfiguration.swift
+//  BlastTextFieldConfiguration.swift
 //  BlastExample
 //
 //  Created by Bob de Graaf on 27/02/2024.
@@ -96,5 +96,6 @@ public class TextFieldConfiguration {
         self.textChanged = textChanged
         return self
     }
+    
 }
 

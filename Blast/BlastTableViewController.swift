@@ -19,6 +19,7 @@ class BlastTableViewController:UITableViewController {
     var estimatedFooterHeight = 10
     
     //Textfields
+    var textViewsArray: [UITextView] = []
     var textFieldsArray: [UITextField] = []
     
     
@@ -36,7 +37,9 @@ class BlastTableViewController:UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: row.xibName, for: indexPath) as! BlastTableViewCell
         cell.row = row
         
+        //Register textFields & textViews
         self.registerTextfields(cell)
+        self.registerTextViews(cell)
         
         return cell
     }
@@ -143,17 +146,9 @@ class BlastTableViewController:UITableViewController {
     // MARK: - Textfields
     
     func registerTextfields(_ cell:BlastTableViewCell) {
-        if let textField = cell.textField1 {
-            if !textFieldsArray.contains(textField) {
-                textFieldsArray.append(textField)
-                textField.moveToNextTextField = { [weak self] textField in
-                    self?.moveToNextTextField(currentTextField: textField)
-                }
-            }
-        }
-        if let textField = cell.textField2 {
-            if !textFieldsArray.contains(textField) {
-                textFieldsArray.append(textField)
+        [cell.textField1, cell.textField2].forEach { textField in
+            if let textField = textField, !self.textFieldsArray.contains(textField) {
+                self.textFieldsArray.append(textField)
                 textField.moveToNextTextField = { [weak self] textField in
                     self?.moveToNextTextField(currentTextField: textField)
                 }
@@ -162,13 +157,30 @@ class BlastTableViewController:UITableViewController {
     }
     
     func moveToNextTextField(currentTextField:BlastTextField) {
-        print("Move to next field!")
         if let currentIndex = textFieldsArray.firstIndex(of: currentTextField), currentIndex < (textFieldsArray.count - 1) {
             let nextTextField = textFieldsArray[currentIndex + 1]
             nextTextField.becomeFirstResponder()
         }
         else {
             currentTextField.resignFirstResponder()
+        }
+    }
+    
+    // MARK: - Textviews
+    
+    func registerTextViews(_ cell:BlastTableViewCell) {
+        if let textView = cell.textView1 {
+            if !textViewsArray.contains(textView) {
+                textViewsArray.append(textView)
+                
+                textView.heightChanged = { [weak self] in
+                    guard let self else { return }
+                    UIView.setAnimationsEnabled(false)
+                    self.tableView.beginUpdates()
+                    self.tableView.endUpdates()
+                    UIView.setAnimationsEnabled(true)
+                }
+            }
         }
     }
 }
