@@ -39,14 +39,14 @@ class BlastTableViewCell:UITableViewCell {
             guard let row else { return }
             
             //Labels
-            self.setupLabel(label1, row.labelConfiguration1)
-            self.setupLabel(label2, row.labelConfiguration2)
-            self.setupLabel(label3, row.labelConfiguration3)
+            self.setupLabel(label1, row.label1)
+            self.setupLabel(label2, row.label2)
+            self.setupLabel(label3, row.label3)
             
             //Buttons
-            self.setupButton(button1, row.buttonConfiguration1)
-            self.setupButton(button2, row.buttonConfiguration2)
-            self.setupButton(button3, row.buttonConfiguration3)
+            self.setupButton(button1, row.button1)
+            self.setupButton(button2, row.button2)
+            self.setupButton(button3, row.button3)
             
             //ImageViews
             self.imageView1?.image = row.image1
@@ -54,14 +54,14 @@ class BlastTableViewCell:UITableViewCell {
             self.imageView3?.image = row.image3
             
             //Switch
-            self.setupSwitch(switch1, row.switchConfiguration1)
+            self.setupSwitch(switch1, row.switch1)
             
             //TextFields
-            self.setupTextField(textField1, row.textFieldConfiguration1)
-            self.setupTextField(textField2, row.textFieldConfiguration2)
+            self.setupTextField(textField1, row.textField1)
+            self.setupTextField(textField2, row.textField2)
 
             //TextViews
-            self.setupTextView(textView1, row.textViewConfiguration1)
+            self.setupTextView(textView1, row.textView1)
             
         }
     }
@@ -106,11 +106,11 @@ class BlastTableViewCell:UITableViewCell {
     }
     
     @objc func buttonTapped(_ sender: UIButton) {
-        if sender == button1, let tapped = self.row?.buttonConfiguration1?.tapped {
+        if sender == button1, let tapped = self.row?.button1?.tapped {
             tapped()
-        } else if sender == button2, let tapped = self.row?.buttonConfiguration2?.tapped {
+        } else if sender == button2, let tapped = self.row?.button2?.tapped {
             tapped()
-        } else if sender == button3, let tapped = self.row?.buttonConfiguration3?.tapped {
+        } else if sender == button3, let tapped = self.row?.button3?.tapped {
             tapped()
         }
     }
@@ -132,7 +132,7 @@ class BlastTableViewCell:UITableViewCell {
     }
     
     @objc func switchTapped(_ sender: UISwitch) {
-        if sender == switch1, let tapped = self.row?.switchConfiguration1?.tapped {
+        if sender == switch1, let tapped = self.row?.switch1?.tapped {
             tapped(sender.isOn)
         }
     }
@@ -163,6 +163,7 @@ class BlastTableViewCell:UITableViewCell {
         
         textField.textChanged = config.textChanged
         textField.returnTapped = config.returnTapped
+        textField.shouldChangeCharactersIn = config.shouldChangeCharactersIn
     }
     
     // MARK: - TextViews

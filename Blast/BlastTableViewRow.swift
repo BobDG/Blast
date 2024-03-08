@@ -14,20 +14,23 @@ class BlastTableViewRow {
     //Required
     let xibName:String
     
+    //Section
+    weak var section:BlastTableViewSection?
+    
     //Cell tap
     var cellTapped:(() -> Void)?
     
     // MARK: - Labels
     
-    var labelConfiguration1:LabelConfiguration?
-    var labelConfiguration2:LabelConfiguration?
-    var labelConfiguration3:LabelConfiguration?
+    var label1:LabelConfiguration?
+    var label2:LabelConfiguration?
+    var label3:LabelConfiguration?
     
     // MARK: - Buttons
     
-    var buttonConfiguration1:ButtonConfiguration?
-    var buttonConfiguration2:ButtonConfiguration?
-    var buttonConfiguration3:ButtonConfiguration?
+    var button1:ButtonConfiguration?
+    var button2:ButtonConfiguration?
+    var button3:ButtonConfiguration?
     
     // MARK: - Images
     
@@ -37,16 +40,16 @@ class BlastTableViewRow {
     
     // MARK: - Switches
     
-    var switchConfiguration1:SwitchConfiguration?
+    var switch1:SwitchConfiguration?
     
     // MARK: - TextFields
     
-    var textFieldConfiguration1:TextFieldConfiguration?
-    var textFieldConfiguration2:TextFieldConfiguration?
+    var textField1:TextFieldConfiguration?
+    var textField2:TextFieldConfiguration?
     
     // MARK: - TextViews
     
-    var textViewConfiguration1:TextViewConfiguration?
+    var textView1:TextViewConfiguration?
     
     // MARK: - Lifecycle
     

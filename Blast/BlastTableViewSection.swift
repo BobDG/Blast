@@ -21,11 +21,19 @@ class BlastTableViewSection {
     var headerHeight:Int?
     var footerHeight:Int?
     
+    
     // MARK: - Lifecycle
     
     convenience init(headerXibName: String?) {
         self.init()
         self.headerXibName = headerXibName
+    }
+    
+    // MARK: - Adding rows
+    
+    func addRow(_ row: BlastTableViewRow) {
+        self.rows.append(row)
+        row.section = self
     }
     
 }

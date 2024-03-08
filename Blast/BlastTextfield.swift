@@ -8,11 +8,17 @@
 import UIKit
 
 class BlastTextField:UITextField, UITextFieldDelegate {
-    
+    //Default values
     var nextFieldOnReturn:Bool = true
+    
+    //Closures for controller
+    var moveToNextTextField:((BlastTextField) -> Void)?
+    
+    //Closures for row
     var returnTapped:(() -> Void)?
     var textChanged:((String) -> Void)?
-    var moveToNextTextField:((BlastTextField) -> Void)?
+    var shouldChangeCharactersIn:((UITextField, NSRange, String) -> Bool)?
+    
     
     // MARK: - Lifecycle for Interface Builder
     
@@ -55,6 +61,9 @@ class BlastTextField:UITextField, UITextFieldDelegate {
             let finalText = originalText.replacingCharacters(in: range, with: replacementText)
         }
         **/
+        if let shouldChangeCharactersInClosure = self.shouldChangeCharactersIn {
+            return shouldChangeCharactersInClosure(textField, range, string)
+        }
         return true
     }
     

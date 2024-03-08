@@ -10,6 +10,7 @@ import UIKit
 class BlastTableViewController:UITableViewController {
     //Sections
     var sections:[BlastTableViewSection] = []
+    var retainedSections: [BlastTableViewSection] = []
     var sectionDefaultHeaderHeight = 20
     var sectionDefaultFooterHeight = 10
     
@@ -125,6 +126,19 @@ class BlastTableViewController:UITableViewController {
         let row = section.rows[indexPath.row]
         row.cellTapped?()
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    // MARK: - Registering sections
+    
+    func addSection(_ section:BlastTableViewSection) {
+        self.sections.append(section)
+    }
+    
+    func retainSection(_ section:BlastTableViewSection) {
+        if self.retainedSections.contains(where: { $0 === section }) {
+            return
+        }
+        self.retainedSections.append(section)
     }
     
     // MARK: - Registering cells

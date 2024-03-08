@@ -10,8 +10,8 @@ import UIKit
 class TextFields: BlastTableViewController {
     
     class MyObject {
-        var textString1: String = "Var 1 to update"
-        var textString2: String = "Var 2 to update"
+        var textString1: String = "Var 1"
+        var textString2: String = "Var 2"
     }
     var object = MyObject()
 
@@ -35,41 +35,93 @@ class TextFields: BlastTableViewController {
         
         section = BlastTableViewSection(headerXibName: XIBHeader)
         section.headerTitle = "Basic"
-        self.sections.append(section)
+        self.addSection(section)
         
         row = BlastTableViewRow(xibName: XIBCellOneTextField)
-        row.textFieldConfiguration1 = TextFieldConfiguration()
+        row.textField1 = TextFieldConfiguration()
             .placeholder("Simple placeholder".capitalized)
-        section.rows.append(row)
+        section.addRow(row)
         
         section = BlastTableViewSection(headerXibName: XIBHeader)
         section.headerTitle = "Attributed"
-        self.sections.append(section)
+        self.addSection(section)
         
         row = BlastTableViewRow(xibName: XIBCellOneTextField)
-        row.textFieldConfiguration1 = TextFieldConfiguration()
+        row.textField1 = TextFieldConfiguration()
             .attributedPlaceholder(.init(string: "Italic & background", 
                                          attributes: [.font: UIFont.italicSystemFont(ofSize: 14), .backgroundColor: UIColor.systemPink]))
-        section.rows.append(row)
+        section.addRow(row)
         
         section = BlastTableViewSection(headerXibName: XIBHeader)
         section.headerTitle = "Custom fonts for placeholder & text "
-        self.sections.append(section)
+        self.addSection(section)
         
         row = BlastTableViewRow(xibName: XIBCellOneTextField)
-        row.textFieldConfiguration1 = TextFieldConfiguration()
-            .nextFieldOnReturn(false)
+        row.textField1 = TextFieldConfiguration()
             .font(UIFont.boldSystemFont(ofSize: 20))
             .attributedPlaceholder(.init(string: "Type to see it",
                                          attributes: [.font: UIFont.systemFont(ofSize: 12), .foregroundColor: UIColor.gray]))
-        section.rows.append(row)
+        section.addRow(row)
+        
+        
+        section = BlastTableViewSection(headerXibName: XIBHeader)
+        section.headerTitle = "No next-field on return"
+        self.addSection(section)
+        
+        row = BlastTableViewRow(xibName: XIBCellOneTextField)
+        row.textField1 = TextFieldConfiguration()
+            .placeholder("And capitalize everything".capitalized)
+            .capitalizationType(.allCharacters)
+            .nextFieldOnReturn(false)
+        section.addRow(row)
+        
+        
+        section = BlastTableViewSection(headerXibName: XIBHeader)
+        section.headerTitle = "Number pad"
+        self.addSection(section)
+        
+        row = BlastTableViewRow(xibName: XIBCellOneTextField)
+        row.textField1 = TextFieldConfiguration()
+            .placeholder("Only numbers (with decimals) allowed")
+            .keyboardType(.decimalPad)
+        section.addRow(row)
+        
+        
+        section = BlastTableViewSection(headerXibName: XIBHeader)
+        section.headerTitle = "Using shouldChangeCharactersIn"
+        self.addSection(section)
+        
+        row = BlastTableViewRow(xibName: XIBCellOneTextField)
+        row.textField1 = TextFieldConfiguration()
+            .placeholder("No numbers allowed".capitalized)
+            .shouldChangeCharactersIn({ textField, range, replacementString in
+                let originalText = textField.text ?? ""
+                print("Original: \(originalText)")
+                print("Replacement: \(replacementString)")
+                if let range = Range(range, in: originalText) {
+                    let finalText = originalText.replacingCharacters(in: range, with: replacementString)
+                    print("Final: \(finalText)")
+                }
+                
+                let lettersCharacterSet = CharacterSet.letters
+                if replacementString.rangeOfCharacter(from: lettersCharacterSet.inverted) != nil {
+                    print("Nothing besides letters I said!")
+                    return false
+                }
+                
+                return true
+            })
+            
+        section.addRow(row)
+        
+        
         
         section = BlastTableViewSection(headerXibName: XIBHeader)
         section.headerTitle = "Two textFields? Sure"
-        self.sections.append(section)
+        self.addSection(section)
         
         row = BlastTableViewRow(xibName: XIBCellTwoTextFields)
-        row.textFieldConfiguration1 = TextFieldConfiguration()
+        row.textField1 = TextFieldConfiguration()
             .text(self.object.textString1)
             .font(UIFont.boldSystemFont(ofSize: 24))
             .attributedPlaceholder(.init(string: "Two textFields",
@@ -81,7 +133,7 @@ class TextFields: BlastTableViewController {
             .returnTapped {
                 print("Textfield 1 return tapped!")
             }
-        row.textFieldConfiguration2 = TextFieldConfiguration()
+        row.textField2 = TextFieldConfiguration()
             .text(self.object.textString2)
             .font(UIFont.italicSystemFont(ofSize: 14))
             .attributedPlaceholder(.init(string: "Go nuts", 
@@ -93,16 +145,16 @@ class TextFields: BlastTableViewController {
             .returnTapped {
                 print("Textfield 2 return tapped!")
             }
-        section.rows.append(row)
+        section.addRow(row)
         
         row = BlastTableViewRow(xibName: XIBCellOneButton)
-        row.buttonConfiguration1 = ButtonConfiguration()
+        row.button1 = ButtonConfiguration()
             .title("Tap to print values in console")
             .tapped { [weak self] in
                 print("Object text 1: \(String(describing: self?.object.textString1))")
                 print("Object text 2: \(String(describing: self?.object.textString2))")
             }
-        section.rows.append(row)
+        section.addRow(row)
     }
     
 }

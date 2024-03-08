@@ -33,12 +33,12 @@ class TextViews: BlastTableViewController {
         
         section = BlastTableViewSection(headerXibName: XIBHeader)
         section.headerTitle = "Basic"
-        self.sections.append(section)
+        self.addSection(section)
         
         row = BlastTableViewRow(xibName: XIBCellTextView)
-        row.labelConfiguration1 = LabelConfiguration()
+        row.label1 = LabelConfiguration()
             .text("A cool uitextview with a custom font that should automatically resize to become longer")
-        row.textViewConfiguration1 = TextViewConfiguration()
+        row.textView1 = TextViewConfiguration()
             .text("Try it out and see that the cell grows when necessary!")
             .isEditable(false)
             .font(.systemFont(ofSize: 18.0))
@@ -49,7 +49,7 @@ class TextViews: BlastTableViewController {
             .doneTapped {
                 print("Done tapped!")
             }
-        section.rows.append(row)
+        section.addRow(row)
     }
     
 }

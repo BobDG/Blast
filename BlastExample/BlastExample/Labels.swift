@@ -29,60 +29,60 @@ class Labels: BlastTableViewController {
         
         section = BlastTableViewSection(headerXibName: XIBHeader)
         section.headerTitle = "Basic"
-        self.sections.append(section)
+        self.addSection(section)
         
         row = BlastTableViewRow(xibName: XIBCellOneLabel)
-        row.labelConfiguration1 = LabelConfiguration()
+        row.label1 = LabelConfiguration()
             .text("Hello, World!")
             .font(UIFont.systemFont(ofSize: 16))
-        section.rows.append(row)
+        section.addRow(row)
         
         row = BlastTableViewRow(xibName: XIBCellTwoLabels)
-        row.labelConfiguration1 = LabelConfiguration()
+        row.label1 = LabelConfiguration()
             .text("Two labels - set your constraints correctly")
-        row.labelConfiguration2 = LabelConfiguration()
+        row.label2 = LabelConfiguration()
             .text("Set 'lines' to 0 and your content compression resistance priority vertical to 1000")
-        section.rows.append(row)
+        section.addRow(row)
         
         row = BlastTableViewRow(xibName: XIBCellThreeLabels)
-        row.labelConfiguration1 = LabelConfiguration()
+        row.label1 = LabelConfiguration()
             .text("Three labels")
-        row.labelConfiguration2 = LabelConfiguration()
+        row.label2 = LabelConfiguration()
             .text("When labels are attached autolayout requires different content hugging priorities")
-        row.labelConfiguration3 = LabelConfiguration()
+        row.label3 = LabelConfiguration()
             .text("Label1 is 251, label2 = 252, label3 = 253. Which number doesn't matter, as long as they are different")
-        section.rows.append(row)
+        section.addRow(row)
         
         section = BlastTableViewSection(headerXibName: XIBHeader)
         section.headerTitle = "Attributed Strings"
-        self.sections.append(section)
+        self.addSection(section)
         
         row = BlastTableViewRow(xibName: XIBCellOneLabel)
-        row.labelConfiguration1 = LabelConfiguration()
+        row.label1 = LabelConfiguration()
             .attributedText(.init(string: "Attributed strings work as well", 
                                   attributes: [.font: UIFont.systemFont(ofSize: 16), .foregroundColor: UIColor.black]))
-        section.rows.append(row)
+        section.addRow(row)
         
         row = BlastTableViewRow(xibName: XIBCellTwoLabels)
-        row.labelConfiguration1 = LabelConfiguration()
+        row.label1 = LabelConfiguration()
             .attributedText(.init(string: "Just use attributedTitle instead of title", 
                                   attributes: [.font: UIFont.boldSystemFont(ofSize: 16), .foregroundColor: UIColor.black]))
-        row.labelConfiguration2 = LabelConfiguration()
+        row.label2 = LabelConfiguration()
             .attributedText(.init(string: "And go completely nuts and style it in whichever way you want", 
                                   attributes: [.font: UIFont.systemFont(ofSize: 15), .foregroundColor: UIColor.green]))
-        section.rows.append(row)
+        section.addRow(row)
         
         row = BlastTableViewRow(xibName: XIBCellThreeLabels)
-        row.labelConfiguration1 = LabelConfiguration()
+        row.label1 = LabelConfiguration()
             .attributedText(.init(string: "Bold",
                                   attributes: [.font: UIFont.boldSystemFont(ofSize: 16), .underlineColor: UIColor.black]))
-        row.labelConfiguration2 = LabelConfiguration()
+        row.label2 = LabelConfiguration()
             .attributedText(.init(string: "Italic & background", 
                                   attributes: [.font: UIFont.italicSystemFont(ofSize: 14), .backgroundColor: UIColor.systemPink]))
-        row.labelConfiguration3 = LabelConfiguration()
+        row.label3 = LabelConfiguration()
             .attributedText(.init(string: "Custom fonts with names like Helvetica Neueu",
                                   attributes: [.font: UIFont(name: "HelveticaNeue", size: 16)!]))
-        section.rows.append(row)
+        section.addRow(row)
     }
     
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C40581ED2B986308000C93FD /* BlastTableViewController+DeleteSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40581EC2B986308000C93FD /* BlastTableViewController+DeleteSections.swift */; };
+		C40581EF2B986CE9000C93FD /* BlastTableViewController+AddSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40581EE2B986CE9000C93FD /* BlastTableViewController+AddSections.swift */; };
+		C40581F12B986EB4000C93FD /* BlastTableViewController+ReplaceSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40581F02B986EB4000C93FD /* BlastTableViewController+ReplaceSections.swift */; };
 		C41227752B6CEE2F00626D72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41227742B6CEE2F00626D72 /* AppDelegate.swift */; };
 		C41227772B6CEE2F00626D72 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41227762B6CEE2F00626D72 /* SceneDelegate.swift */; };
 		C41227792B6CEE2F00626D72 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41227782B6CEE2F00626D72 /* Menu.swift */; };
@@ -18,6 +21,10 @@
 		C41227902B6CF5E500626D72 /* BlastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C412278F2B6CF5E500626D72 /* BlastTableViewCell.swift */; };
 		C41227952B6CF80600626D72 /* BlastTableViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41227932B6CF80600626D72 /* BlastTableViewRow.swift */; };
 		C41227962B6CF80600626D72 /* BlastTableViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41227942B6CF80600626D72 /* BlastTableViewSection.swift */; };
+		C4187A382B9750CF00190BAC /* BlastTableViewController+DeleteRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4187A372B9750CF00190BAC /* BlastTableViewController+DeleteRows.swift */; };
+		C4187A3A2B97542900190BAC /* BlastTableViewController+ReplaceRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4187A392B97542900190BAC /* BlastTableViewController+ReplaceRows.swift */; };
+		C4187A3C2B97598700190BAC /* ReplaceRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4187A3B2B97598700190BAC /* ReplaceRows.swift */; };
+		C4187A3E2B975E4400190BAC /* BlastTableViewController+FindRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4187A3D2B975E4400190BAC /* BlastTableViewController+FindRows.swift */; };
 		C41938CF2B6D2AD40033D6F0 /* XIBS.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41938CE2B6D2AD40033D6F0 /* XIBS.swift */; };
 		C41938D12B6D2CB50033D6F0 /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41938D02B6D2CB50033D6F0 /* Labels.swift */; };
 		C41938D32B6D2D180033D6F0 /* TextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41938D22B6D2D180033D6F0 /* TextFields.swift */; };
@@ -37,6 +44,7 @@
 		C41938F42B6FB5300033D6F0 /* CellTwoImageViews.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41938F22B6FB5300033D6F0 /* CellTwoImageViews.xib */; };
 		C41938F72B6FDA0D0033D6F0 /* BlastTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41938F62B6FDA0D0033D6F0 /* BlastTextField.swift */; };
 		C41938F92B6FDDC20033D6F0 /* CellOneTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41938F82B6FDDC20033D6F0 /* CellOneTextField.xib */; };
+		C42B56FC2B9B27970073D055 /* BlastTableViewController+FindSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42B56FB2B9B27970073D055 /* BlastTableViewController+FindSections.swift */; };
 		C43CE24C2B8B3FB200283FC7 /* BlastLabelConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43CE24B2B8B3FB200283FC7 /* BlastLabelConfiguration.swift */; };
 		C444709E2B8E3A6400F274E3 /* BlastButtonConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C444709D2B8E3A6400F274E3 /* BlastButtonConfiguration.swift */; };
 		C44470A02B8E3D0900F274E3 /* BlastTextFieldConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C444709F2B8E3D0900F274E3 /* BlastTextFieldConfiguration.swift */; };
@@ -44,13 +52,19 @@
 		C44470A42B8E422900F274E3 /* BlastTextViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44470A32B8E422900F274E3 /* BlastTextViewConfiguration.swift */; };
 		C44470A62B8E428300F274E3 /* BlastTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44470A52B8E428300F274E3 /* BlastTextView.swift */; };
 		C44470A82B8E492B00F274E3 /* CellTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C44470A72B8E492B00F274E3 /* CellTextView.xib */; };
+		C4609FE22B90F8C7007D6D10 /* BlastTableViewController+AddRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4609FE12B90F8C7007D6D10 /* BlastTableViewController+AddRows.swift */; };
+		C49145062B99DBC500BE9B58 /* AddAndDeleteSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49145052B99DBC500BE9B58 /* AddAndDeleteSections.swift */; };
 		C4AA879D2B8760A500D719A5 /* CellTwoTextFields.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4AA879C2B8760A500D719A5 /* CellTwoTextFields.xib */; };
 		C4AA879F2B877AA500D719A5 /* CellOneSwitch.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4AA879E2B877AA500D719A5 /* CellOneSwitch.xib */; };
 		C4AA87A12B877E1B00D719A5 /* Switches.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AA87A02B877E1B00D719A5 /* Switches.swift */; };
 		C4AA87A32B87AE6600D719A5 /* BlastSwitchConfigurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AA87A22B87AE6600D719A5 /* BlastSwitchConfigurations.swift */; };
+		C4FC68DA2B95DAF500E7D03E /* AddAndDeleteRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FC68D92B95DAF500E7D03E /* AddAndDeleteRows.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C40581EC2B986308000C93FD /* BlastTableViewController+DeleteSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlastTableViewController+DeleteSections.swift"; sourceTree = "<group>"; };
+		C40581EE2B986CE9000C93FD /* BlastTableViewController+AddSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlastTableViewController+AddSections.swift"; sourceTree = "<group>"; };
+		C40581F02B986EB4000C93FD /* BlastTableViewController+ReplaceSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlastTableViewController+ReplaceSections.swift"; sourceTree = "<group>"; };
 		C41227712B6CEE2F00626D72 /* BlastExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlastExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C41227742B6CEE2F00626D72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C41227762B6CEE2F00626D72 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +79,10 @@
 		C412278F2B6CF5E500626D72 /* BlastTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlastTableViewCell.swift; sourceTree = "<group>"; };
 		C41227932B6CF80600626D72 /* BlastTableViewRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlastTableViewRow.swift; sourceTree = "<group>"; };
 		C41227942B6CF80600626D72 /* BlastTableViewSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlastTableViewSection.swift; sourceTree = "<group>"; };
+		C4187A372B9750CF00190BAC /* BlastTableViewController+DeleteRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlastTableViewController+DeleteRows.swift"; sourceTree = "<group>"; };
+		C4187A392B97542900190BAC /* BlastTableViewController+ReplaceRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlastTableViewController+ReplaceRows.swift"; sourceTree = "<group>"; };
+		C4187A3B2B97598700190BAC /* ReplaceRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplaceRows.swift; sourceTree = "<group>"; };
+		C4187A3D2B975E4400190BAC /* BlastTableViewController+FindRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlastTableViewController+FindRows.swift"; sourceTree = "<group>"; };
 		C41938CE2B6D2AD40033D6F0 /* XIBS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XIBS.swift; sourceTree = "<group>"; };
 		C41938D02B6D2CB50033D6F0 /* Labels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Labels.swift; sourceTree = "<group>"; };
 		C41938D22B6D2D180033D6F0 /* TextFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFields.swift; sourceTree = "<group>"; };
@@ -85,6 +103,7 @@
 		C41938F52B6FB6750033D6F0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		C41938F62B6FDA0D0033D6F0 /* BlastTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlastTextField.swift; sourceTree = "<group>"; };
 		C41938F82B6FDDC20033D6F0 /* CellOneTextField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellOneTextField.xib; sourceTree = "<group>"; };
+		C42B56FB2B9B27970073D055 /* BlastTableViewController+FindSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlastTableViewController+FindSections.swift"; sourceTree = "<group>"; };
 		C43CE24B2B8B3FB200283FC7 /* BlastLabelConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlastLabelConfiguration.swift; sourceTree = "<group>"; };
 		C444709D2B8E3A6400F274E3 /* BlastButtonConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlastButtonConfiguration.swift; sourceTree = "<group>"; };
 		C444709F2B8E3D0900F274E3 /* BlastTextFieldConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlastTextFieldConfiguration.swift; sourceTree = "<group>"; };
@@ -92,10 +111,13 @@
 		C44470A32B8E422900F274E3 /* BlastTextViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlastTextViewConfiguration.swift; sourceTree = "<group>"; };
 		C44470A52B8E428300F274E3 /* BlastTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlastTextView.swift; sourceTree = "<group>"; };
 		C44470A72B8E492B00F274E3 /* CellTextView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellTextView.xib; sourceTree = "<group>"; };
+		C4609FE12B90F8C7007D6D10 /* BlastTableViewController+AddRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlastTableViewController+AddRows.swift"; sourceTree = "<group>"; };
+		C49145052B99DBC500BE9B58 /* AddAndDeleteSections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAndDeleteSections.swift; sourceTree = "<group>"; };
 		C4AA879C2B8760A500D719A5 /* CellTwoTextFields.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellTwoTextFields.xib; sourceTree = "<group>"; };
 		C4AA879E2B877AA500D719A5 /* CellOneSwitch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellOneSwitch.xib; sourceTree = "<group>"; };
 		C4AA87A02B877E1B00D719A5 /* Switches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switches.swift; sourceTree = "<group>"; };
 		C4AA87A22B87AE6600D719A5 /* BlastSwitchConfigurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlastSwitchConfigurations.swift; sourceTree = "<group>"; };
+		C4FC68D92B95DAF500E7D03E /* AddAndDeleteRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAndDeleteRows.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +160,11 @@
 				C4AA87A02B877E1B00D719A5 /* Switches.swift */,
 				C41938D22B6D2D180033D6F0 /* TextFields.swift */,
 				C44470A12B8E415700F274E3 /* TextViews.swift */,
-				C41938D42B6D2D870033D6F0 /* Sections */,
+				C4FC68D92B95DAF500E7D03E /* AddAndDeleteRows.swift */,
+				C49145052B99DBC500BE9B58 /* AddAndDeleteSections.swift */,
+				C4187A3B2B97598700190BAC /* ReplaceRows.swift */,
+				C41938D42B6D2D870033D6F0 /* Headers */,
+				C49145072B99DC5A00BE9B58 /* Footers */,
 				C412278C2B6CF29400626D72 /* Cells */,
 				C41227882B6CEE4B00626D72 /* Blast */,
 				C412277A2B6CEE2F00626D72 /* Main.storyboard */,
@@ -161,6 +187,7 @@
 				C41227892B6CEE6A00626D72 /* BlastTableViewController.swift */,
 				C41938F62B6FDA0D0033D6F0 /* BlastTextField.swift */,
 				C44470A52B8E428300F274E3 /* BlastTextView.swift */,
+				C4609FE02B90F88E007D6D10 /* Extensions */,
 				C4AA87A42B88DBA300D719A5 /* Configurations */,
 			);
 			name = Blast;
@@ -188,13 +215,35 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		C41938D42B6D2D870033D6F0 /* Sections */ = {
+		C41938D42B6D2D870033D6F0 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
 				C41938D52B6D2DA60033D6F0 /* Header.xib */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		C4609FE02B90F88E007D6D10 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C4187A3D2B975E4400190BAC /* BlastTableViewController+FindRows.swift */,
+				C42B56FB2B9B27970073D055 /* BlastTableViewController+FindSections.swift */,
+				C4609FE12B90F8C7007D6D10 /* BlastTableViewController+AddRows.swift */,
+				C40581EE2B986CE9000C93FD /* BlastTableViewController+AddSections.swift */,
+				C4187A372B9750CF00190BAC /* BlastTableViewController+DeleteRows.swift */,
+				C40581EC2B986308000C93FD /* BlastTableViewController+DeleteSections.swift */,
+				C4187A392B97542900190BAC /* BlastTableViewController+ReplaceRows.swift */,
+				C40581F02B986EB4000C93FD /* BlastTableViewController+ReplaceSections.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C49145072B99DC5A00BE9B58 /* Footers */ = {
+			isa = PBXGroup;
+			children = (
 				C41938D92B6D44F60033D6F0 /* Footer.xib */,
 			);
-			path = Sections;
+			path = Footers;
 			sourceTree = "<group>";
 		};
 		C4AA87A42B88DBA300D719A5 /* Configurations */ = {
@@ -298,6 +347,7 @@
 			files = (
 				C41938F72B6FDA0D0033D6F0 /* BlastTextField.swift in Sources */,
 				C41938CF2B6D2AD40033D6F0 /* XIBS.swift in Sources */,
+				C4FC68DA2B95DAF500E7D03E /* AddAndDeleteRows.swift in Sources */,
 				C41938D32B6D2D180033D6F0 /* TextFields.swift in Sources */,
 				C41227902B6CF5E500626D72 /* BlastTableViewCell.swift in Sources */,
 				C44470A62B8E428300F274E3 /* BlastTextView.swift in Sources */,
@@ -306,12 +356,22 @@
 				C4AA87A32B87AE6600D719A5 /* BlastSwitchConfigurations.swift in Sources */,
 				C41227952B6CF80600626D72 /* BlastTableViewRow.swift in Sources */,
 				C44470A42B8E422900F274E3 /* BlastTextViewConfiguration.swift in Sources */,
+				C4187A3C2B97598700190BAC /* ReplaceRows.swift in Sources */,
 				C41227752B6CEE2F00626D72 /* AppDelegate.swift in Sources */,
+				C4187A3A2B97542900190BAC /* BlastTableViewController+ReplaceRows.swift in Sources */,
 				C41938D82B6D2E170033D6F0 /* BlastTableHeaderFooterView.swift in Sources */,
+				C4187A382B9750CF00190BAC /* BlastTableViewController+DeleteRows.swift in Sources */,
+				C4609FE22B90F8C7007D6D10 /* BlastTableViewController+AddRows.swift in Sources */,
+				C40581F12B986EB4000C93FD /* BlastTableViewController+ReplaceSections.swift in Sources */,
+				C49145062B99DBC500BE9B58 /* AddAndDeleteSections.swift in Sources */,
 				C41938E22B6E8F7E0033D6F0 /* Buttons.swift in Sources */,
+				C42B56FC2B9B27970073D055 /* BlastTableViewController+FindSections.swift in Sources */,
 				C4AA87A12B877E1B00D719A5 /* Switches.swift in Sources */,
+				C40581ED2B986308000C93FD /* BlastTableViewController+DeleteSections.swift in Sources */,
+				C4187A3E2B975E4400190BAC /* BlastTableViewController+FindRows.swift in Sources */,
 				C41227962B6CF80600626D72 /* BlastTableViewSection.swift in Sources */,
 				C44470A22B8E415700F274E3 /* TextViews.swift in Sources */,
+				C40581EF2B986CE9000C93FD /* BlastTableViewController+AddSections.swift in Sources */,
 				C41938EE2B6FB3CA0033D6F0 /* ImageViews.swift in Sources */,
 				C412278A2B6CEE6A00626D72 /* BlastTableViewController.swift in Sources */,
 				C41938D12B6D2CB50033D6F0 /* Labels.swift in Sources */,

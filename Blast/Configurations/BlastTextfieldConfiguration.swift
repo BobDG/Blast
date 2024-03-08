@@ -24,6 +24,7 @@ public class TextFieldConfiguration {
     
     var returnTapped: (() -> Void)?
     var textChanged: ((String) -> Void)?
+    var shouldChangeCharactersIn:((UITextField, NSRange, String) -> Bool)?
     
     @discardableResult
     func text(_ text: String) -> Self {
@@ -94,6 +95,12 @@ public class TextFieldConfiguration {
     @discardableResult
     func textChanged(_ textChanged: ((String) -> Void)?) -> Self {
         self.textChanged = textChanged
+        return self
+    }
+    
+    @discardableResult
+    func shouldChangeCharactersIn(_ shouldChangeCharactersIn: ((UITextField, NSRange, String) -> Bool)?) -> Self {
+        self.shouldChangeCharactersIn = shouldChangeCharactersIn
         return self
     }
     

@@ -29,30 +29,30 @@ class ImageViews: BlastTableViewController {
         
         section = BlastTableViewSection(headerXibName: XIBHeader)
         section.headerTitle = "One"
-        self.sections.append(section)
+        self.addSection(section)
         
         row = BlastTableViewRow(xibName: XIBCellOneImageView)
         row.image1 = .init(named: "Image1")
-        section.rows.append(row)
+        section.addRow(row)
         
         section = BlastTableViewSection(headerXibName: XIBHeader)
         section.headerTitle = "Two"
-        self.sections.append(section)
+        self.addSection(section)
         
         row = BlastTableViewRow(xibName: XIBCellTwoImageViews)
         row.image1 = .init(named: "Image1")
         row.image2 = .init(named: "Image2")
-        section.rows.append(row)
+        section.addRow(row)
         
         section = BlastTableViewSection(headerXibName: XIBHeader)
         section.headerTitle = "Three"
-        self.sections.append(section)
+        self.addSection(section)
         
         row = BlastTableViewRow(xibName: XIBCellThreeImageViews)
         row.image1 = .init(named: "Image1")
         row.image2 = .init(named: "Image2")
         row.image3 = .init(named: "Image3")
-        section.rows.append(row)
+        section.addRow(row)
         
     }
     

@@ -29,27 +29,27 @@ class Switches: BlastTableViewController {
         
         section = BlastTableViewSection(headerXibName: XIBHeader)
         section.headerTitle = "Simple switch - off by default"
-        self.sections.append(section)
+        self.addSection(section)
         
         row = BlastTableViewRow(xibName: XIBCellOneSwitch)
-        row.switchConfiguration1 = SwitchConfiguration()
+        row.switch1 = SwitchConfiguration()
             .tapped { isOn in
                 print("Switch 1 isOn value: \(isOn)")
             }
-        section.rows.append(row)
+        section.addRow(row)
         
         section = BlastTableViewSection(headerXibName: XIBHeader)
         section.headerTitle = "Default on and colored"
-        self.sections.append(section)
+        self.addSection(section)
         
         row = BlastTableViewRow(xibName: XIBCellOneSwitch)
-        row.switchConfiguration1 = SwitchConfiguration()
+        row.switch1 = SwitchConfiguration()
             .isOn(true)
             .color(.purple)
             .tapped { isOn in
                 print("Switch 2 isOn value: \(isOn)")
             }
-        section.rows.append(row)
+        section.addRow(row)
         
     }
     
