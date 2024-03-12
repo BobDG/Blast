@@ -7,18 +7,17 @@
 
 import UIKit
 
-class BlastTextField:UITextField, UITextFieldDelegate {
+class BlastTextField: UITextField, UITextFieldDelegate {    
     //Default values
-    var nextFieldOnReturn:Bool = true
-    
-    //Closures for controller
-    var moveToNextTextField:((BlastTextField) -> Void)?
+    var nextFieldOnReturn: Bool = true
     
     //Closures for row
     var returnTapped:(() -> Void)?
     var textChanged:((String) -> Void)?
     var shouldChangeCharactersIn:((UITextField, NSRange, String) -> Bool)?
     
+    //Closures for controller
+    var moveToNextTextField:((BlastTextField) -> Void)?
     
     // MARK: - Lifecycle for Interface Builder
     

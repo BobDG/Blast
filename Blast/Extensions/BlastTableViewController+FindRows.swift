@@ -9,7 +9,7 @@ import UIKit
 
 extension BlastTableViewController {
     
-    func previousRow(before row:BlastTableViewRow) -> BlastTableViewRow? {
+    func previousRow(before row: BlastTableViewRow) -> BlastTableViewRow? {
         guard let section = row.section,
               let rowIndex = section.rows.firstIndex(where: { $0 === row }),
               rowIndex > 0 else {
@@ -19,7 +19,7 @@ extension BlastTableViewController {
         return section.rows[rowIndex - 1]
     }
     
-    func previousRows(before row:BlastTableViewRow) -> [BlastTableViewRow] {
+    func previousRows(before row: BlastTableViewRow) -> [BlastTableViewRow] {
         guard let section = row.section,
               let rowIndex = section.rows.firstIndex(where: { $0 === row }) else {
             print("BlastTableViewController -> previousRows -> Row or its section not found...")
@@ -28,7 +28,7 @@ extension BlastTableViewController {
         return Array(section.rows[0..<rowIndex])
     }
     
-    func rowsBetween(startRow:BlastTableViewRow, endRow:BlastTableViewRow) -> [BlastTableViewRow] {
+    func rowsBetween(startRow: BlastTableViewRow, endRow: BlastTableViewRow) -> [BlastTableViewRow] {
         guard let startSection = startRow.section, startSection === endRow.section else {
             print("BlastTableViewController -> rowsBetween -> Start and end rows are not in the same section.")
             return []
@@ -46,7 +46,7 @@ extension BlastTableViewController {
         return Array(startSection.rows[(startIndex + 1)..<endIndex])
     }
     
-    func nextRow(after row:BlastTableViewRow) -> BlastTableViewRow? {
+    func nextRow(after row: BlastTableViewRow) -> BlastTableViewRow? {
         guard let section = row.section,
               let rowIndex = section.rows.firstIndex(where: { $0 === row }),
               rowIndex < section.rows.count - 1 else {
@@ -56,7 +56,7 @@ extension BlastTableViewController {
         return section.rows[rowIndex + 1]
     }
     
-    func nextRows(after row:BlastTableViewRow) -> [BlastTableViewRow] {
+    func nextRows(after row: BlastTableViewRow) -> [BlastTableViewRow] {
         guard let section = row.section,
               let rowIndex = section.rows.firstIndex(where: { $0 === row }),
               rowIndex < section.rows.count - 1 else {

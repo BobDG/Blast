@@ -7,12 +7,16 @@
 
 import UIKit
 
-class BlastTextView:UITextView, UITextViewDelegate {
-    var height:Int = 0
+class BlastTextView: UITextView, UITextViewDelegate {    
+    //Default values
+    var height: Int = 0
     
+    //Closures for row
     var doneTapped:(() -> Void)?
-    var heightChanged:(() -> Void)?
     var textChanged:((String) -> Void)?
+    
+    //Closures for controller
+    var heightChanged:(() -> Void)?
     
     // MARK: - Lifecycle for Interface Builder
     

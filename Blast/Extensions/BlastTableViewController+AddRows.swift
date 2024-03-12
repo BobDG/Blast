@@ -12,8 +12,7 @@ extension BlastTableViewController {
     func addRows(_ newRows: [BlastTableViewRow],
                  beforeRow: BlastTableViewRow? = nil,
                  afterRow: BlastTableViewRow? = nil,
-                 animation: UITableView.RowAnimation = .automatic,
-                 update: Bool = true) {
+                 animation: UITableView.RowAnimation = .automatic) {
 
         //Safety checks
         guard let referenceRow = beforeRow ?? afterRow,
@@ -38,13 +37,13 @@ extension BlastTableViewController {
         }
         
         //Begin
-        if update { self.tableView.beginUpdates() }
+        self.tableView.beginUpdates()
         
         //Assign section
         newRows.forEach { $0.section = section }
         
         //Insertion index
-        var insertionIndex:Int = section.rows.count
+        var insertionIndex: Int = section.rows.count
         if let beforeRow = beforeRow, let rowIndex = section.rows.firstIndex(where: { $0 === beforeRow }) {
             insertionIndex = rowIndex
         } else if let afterRow = afterRow, let rowIndex = section.rows.firstIndex(where: { $0 === afterRow }) {
@@ -61,7 +60,7 @@ extension BlastTableViewController {
         self.tableView.insertRows(at: indexPaths, with: animation)
         
         //End
-        if update { self.tableView.endUpdates() }
+        self.tableView.endUpdates()
     }
 
     func addRows(_ newRows: [BlastTableViewRow],
@@ -69,11 +68,10 @@ extension BlastTableViewController {
                           atTheTop: Bool? = nil,
                           atTheBottom: Bool? = nil,
                           startingIndex: Int? = nil,
-                          animation: UITableView.RowAnimation = .automatic,
-                          update: Bool = true) {
+                          animation: UITableView.RowAnimation = .automatic) {
         
         //Insertion index
-        var insertionIndex:Int = section.rows.count
+        var insertionIndex: Int = section.rows.count
         if atTheTop != nil {
             insertionIndex = 0
         } else if atTheBottom != nil {
@@ -96,7 +94,7 @@ extension BlastTableViewController {
         }
         
         //Begin
-        if update { self.tableView.beginUpdates() }
+        self.tableView.beginUpdates()
         
         //Assign section
         newRows.forEach { $0.section = section }
@@ -111,7 +109,7 @@ extension BlastTableViewController {
         self.tableView.insertRows(at: indexPaths, with: animation)
         
         //End
-        if update { self.tableView.endUpdates() }
+        self.tableView.endUpdates()
     }
 
 }

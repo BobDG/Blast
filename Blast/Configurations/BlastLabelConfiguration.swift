@@ -12,6 +12,8 @@ public class LabelConfiguration {
     var font: UIFont? = nil
     var attributedText: NSAttributedString? = nil
     
+    // MARK: - SwiftUI style parameters
+    
     @discardableResult
     func text(_ text: String) -> Self {
         self.text = text

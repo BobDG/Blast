@@ -12,8 +12,8 @@ extension BlastTableViewController {
     // MARK: - Basic
     
     func deleteRows(_ rows:[BlastTableViewRow],
-                    animation:UITableView.RowAnimation = .automatic,
-                    update:Bool = true) {
+                    animation: UITableView.RowAnimation = .automatic) {
+        
         //Generate indexPaths
         var indexPathsToDelete: [IndexPath] = []
         for (index, row) in rows.enumerated() {
@@ -30,7 +30,7 @@ extension BlastTableViewController {
         let sortedIndexPathsToDelete = indexPathsToDelete.sorted { $0.section != $1.section ? $0.section < $1.section : $0.row < $1.row }
 
         //Begin
-        if update { self.tableView.beginUpdates() }
+        self.tableView.beginUpdates()
 
         //Delete from sections array
         for indexPath in sortedIndexPathsToDelete.reversed() {
@@ -41,15 +41,15 @@ extension BlastTableViewController {
         self.tableView.deleteRows(at: sortedIndexPathsToDelete, with: animation)
         
         //End
-        if update { self.tableView.endUpdates() }
+        self.tableView.endUpdates()
     }
     
     // MARK: - Specific first row & optional last
 
     func deleteRows(firstRow: BlastTableViewRow, 
                     lastRow: BlastTableViewRow? = nil,
-                    animation: UITableView.RowAnimation = .automatic,
-                    update: Bool = true) {
+                    animation: UITableView.RowAnimation = .automatic) {
+        
         //Ensure that if a lastRow is provided, it belongs to the same section as the firstRow
         if let lastRow = lastRow, firstRow.section !== lastRow.section {
             print("The first and last rows do not belong to the same section.")
@@ -82,7 +82,7 @@ extension BlastTableViewController {
         let indexPaths = range.map { IndexPath(row: $0, section: sectionIndex) }
         
         //Begin
-        if update { self.tableView.beginUpdates() }
+        self.tableView.beginUpdates()
         
         //Delete from sections array
         section.rows.removeSubrange(range)
@@ -91,15 +91,14 @@ extension BlastTableViewController {
         self.tableView.deleteRows(at: indexPaths, with: animation)
         
         //End
-        if update { self.tableView.endUpdates() }
+        self.tableView.endUpdates()
     }
     
     // MARK: - Using starting index
 
     func deleteRows(startingIndex: Int,
                     inSection: BlastTableViewSection,
-                    animation: UITableView.RowAnimation = .automatic,
-                    update: Bool = true) {
+                    animation: UITableView.RowAnimation = .automatic) {
 
         guard startingIndex >= 0, startingIndex < inSection.rows.count else {
             print("Starting index is out of bounds.")
@@ -111,7 +110,7 @@ extension BlastTableViewController {
         let indexPaths = range.map { IndexPath(row: $0, section: self.sections.firstIndex(where: { $0 === inSection })!) }
 
         // Begin
-        if update { self.tableView.beginUpdates() }
+        self.tableView.beginUpdates()
         
         // Delete from the section's rows array
         inSection.rows.removeSubrange(range)
@@ -120,7 +119,7 @@ extension BlastTableViewController {
         self.tableView.deleteRows(at: indexPaths, with: animation)
         
         // End
-        if update { self.tableView.endUpdates() }
+        self.tableView.endUpdates()
     }
     
 }

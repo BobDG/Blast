@@ -131,7 +131,7 @@ class AddAndDeleteSections: BlastTableViewController {
             .title("Tap to add a section")
             .tapped { [weak self] in
                 guard let self else { return }
-                self.addSections([self.createSection(title:"Added to the bottom")], atTheBottom:true)
+                self.addSections([self.createSection(title:"Added to the bottom")], atTheBottom: true)
             }
         section.addRow(addRow)
         
@@ -161,11 +161,11 @@ class AddAndDeleteSections: BlastTableViewController {
         section.addRow(deleteRow)
     }
     
-    func createSection(title:String) -> BlastTableViewSection {
+    func createSection(title: String) -> BlastTableViewSection {
         let section = BlastTableViewSection(headerXibName: XIBHeader)
         section.headerHeight = 5
         section.footerHeight = 5
-        let row:BlastTableViewRow = .init(xibName: XIBCellOneLabel)
+        let row: BlastTableViewRow = .init(xibName: XIBCellOneLabel)
         row.label1 = LabelConfiguration().text("Basic section")
         section.addRow(row)
         return section

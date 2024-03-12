@@ -28,8 +28,8 @@ class TextViews: BlastTableViewController {
     }
     
     func loadContent() {
-        var row:BlastTableViewRow
-        var section:BlastTableViewSection
+        var row: BlastTableViewRow
+        var section: BlastTableViewSection
         
         section = BlastTableViewSection(headerXibName: XIBHeader)
         section.headerTitle = "Basic"
@@ -40,7 +40,7 @@ class TextViews: BlastTableViewController {
             .text("A cool uitextview with a custom font that should automatically resize to become longer")
         row.textView1 = TextViewConfiguration()
             .text("Try it out and see that the cell grows when necessary!")
-            .isEditable(false)
+            .isEditable(true)
             .font(.systemFont(ofSize: 18.0))
             .textChanged { [weak self] text in
                 print("Callback text  changed: \(text)")

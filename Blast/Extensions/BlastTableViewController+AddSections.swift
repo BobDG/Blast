@@ -67,7 +67,7 @@ extension BlastTableViewController {
                      update: Bool = true) {
         
         //Insertion index
-        var insertionIndex:Int = self.sections.count
+        var insertionIndex: Int = self.sections.count
         if atTheTop != nil {
             insertionIndex = 0
         } else if atTheBottom != nil {
@@ -85,7 +85,7 @@ extension BlastTableViewController {
         }
         
         //Begin
-        if update { self.tableView.beginUpdates() }
+        self.tableView.beginUpdates()
         
         //Add to sections array
         self.sections.insert(contentsOf: newSections, at: insertionIndex)
@@ -97,7 +97,7 @@ extension BlastTableViewController {
         self.tableView.insertSections(indexSet, with: animation)
         
         //End
-        if update { self.tableView.endUpdates() }
+        self.tableView.endUpdates()
     }
 
     

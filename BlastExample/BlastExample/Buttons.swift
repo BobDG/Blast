@@ -24,8 +24,8 @@ class Buttons: BlastTableViewController {
     }
     
     func loadContent() {
-        var row:BlastTableViewRow
-        var section:BlastTableViewSection
+        var row: BlastTableViewRow
+        var section: BlastTableViewSection
         
         section = BlastTableViewSection(headerXibName: XIBHeader)
         section.headerTitle = "Just one"

@@ -157,8 +157,8 @@ class AddAndDeleteRows: BlastTableViewController {
         section.addRow(deleteRow)
     }
     
-    func createRow(title:String) -> BlastTableViewRow {
-        let row:BlastTableViewRow = .init(xibName: XIBCellOneLabel)
+    func createRow(title: String) -> BlastTableViewRow {
+        let row: BlastTableViewRow = .init(xibName: XIBCellOneLabel)
         row.label1 = LabelConfiguration().text(title)
         return row
     }

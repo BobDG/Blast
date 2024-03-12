@@ -11,12 +11,14 @@ public class TextViewConfiguration {
     var text: String = ""
     var font: UIFont?
     
-    var isEditable:Bool = true
-    var isSelectable:Bool = true
-    var isScrollEnabled:Bool = false
+    var isEditable: Bool = true
+    var isSelectable: Bool = true
+    var isScrollEnabled: Bool = false
     
     var doneTapped: (() -> Void)?
     var textChanged: ((String) -> Void)?
+    
+    // MARK: - SwiftUI style parameters
     
     @discardableResult
     func text(_ text: String) -> Self {

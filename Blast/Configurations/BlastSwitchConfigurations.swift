@@ -12,6 +12,8 @@ public class SwitchConfiguration {
     var color: UIColor?
     var tapped: ((Bool) -> Void)?
 
+    // MARK: - SwiftUI style parameters
+    
     @discardableResult
     func isOn(_ isOn: Bool) -> Self {
         self.isOn = isOn

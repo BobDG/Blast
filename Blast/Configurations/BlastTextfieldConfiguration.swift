@@ -26,6 +26,8 @@ public class TextFieldConfiguration {
     var textChanged: ((String) -> Void)?
     var shouldChangeCharactersIn:((UITextField, NSRange, String) -> Bool)?
     
+    // MARK: - SwiftUI style parameters
+    
     @discardableResult
     func text(_ text: String) -> Self {
         self.text = text

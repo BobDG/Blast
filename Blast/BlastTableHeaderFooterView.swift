@@ -7,10 +7,10 @@
 
 import UIKit
 
-class BlastTableHeaderFooterView:UITableViewHeaderFooterView {
-    //Outlets
-    @IBOutlet weak var headerLabel:UILabel?
-    @IBOutlet weak var footerLabel:UILabel?
+class BlastTableHeaderFooterView: UITableViewHeaderFooterView {    
+    //Labels
+    @IBOutlet weak var headerLabel: UILabel?
+    @IBOutlet weak var footerLabel: UILabel?
     
     //Section
     var section: BlastTableViewSection? {

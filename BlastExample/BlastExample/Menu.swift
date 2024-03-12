@@ -24,8 +24,8 @@ class Menu: BlastTableViewController {
     }
     
     func loadContent() {
-        var row:BlastTableViewRow
-        var section:BlastTableViewSection
+        var row: BlastTableViewRow
+        var section: BlastTableViewSection
         
         section = BlastTableViewSection(headerXibName: XIBHeader)        
         section.footerXibName = XIBFooter
@@ -76,6 +76,13 @@ class Menu: BlastTableViewController {
         section.addRow(row)
         
         row = BlastTableViewRow(xibName: XIBCellMenuItem)
+        row.label1 = LabelConfiguration().text("Floating action button")
+        row.cellTapped = { [weak self] in
+            self?.navigationController?.pushViewController(FloatingActionButton.init(style: .insetGrouped), animated: true)
+        }
+        section.addRow(row)
+        
+        row = BlastTableViewRow(xibName: XIBCellMenuItem)
         row.label1 = LabelConfiguration().text("Add & delete rows")
         row.cellTapped = { [weak self] in
             self?.navigationController?.pushViewController(AddAndDeleteRows.init(style: .insetGrouped), animated: true)
@@ -93,6 +100,13 @@ class Menu: BlastTableViewController {
         row.label1 = LabelConfiguration().text("Replace rows")
         row.cellTapped = { [weak self] in
             self?.navigationController?.pushViewController(ReplaceRows.init(style: .insetGrouped), animated: true)
+        }
+        section.addRow(row)
+        
+        row = BlastTableViewRow(xibName: XIBCellMenuItem)
+        row.label1 = LabelConfiguration().text("Replace sections")
+        row.cellTapped = { [weak self] in
+            self?.navigationController?.pushViewController(ReplaceSections.init(style: .insetGrouped), animated: true)
         }
         section.addRow(row)
     }

@@ -9,7 +9,7 @@ import UIKit
 
 extension BlastTableViewController {
     
-    func previousSection(before section:BlastTableViewSection) -> BlastTableViewSection? {
+    func previousSection(before section: BlastTableViewSection) -> BlastTableViewSection? {
         guard let sectionIndex = self.sections.firstIndex(where: { $0 === section }),
               sectionIndex > 0 else {
             print("BlastTableViewController -> previousSection -> No previous section found...")
@@ -18,7 +18,7 @@ extension BlastTableViewController {
         return self.sections[sectionIndex - 1]
     }
     
-    func previousSections(before section:BlastTableViewSection) -> [BlastTableViewSection] {
+    func previousSections(before section: BlastTableViewSection) -> [BlastTableViewSection] {
         guard let sectionIndex = self.sections.firstIndex(where: { $0 === section }) else {
             print("BlastTableViewController -> previousSection -> No previous sections found...")
             return []
@@ -26,7 +26,7 @@ extension BlastTableViewController {
         return Array(self.sections[0..<sectionIndex])
     }
     
-    func sectionsBetween(startSection:BlastTableViewSection, endSection:BlastTableViewSection) -> [BlastTableViewSection] {
+    func sectionsBetween(startSection: BlastTableViewSection, endSection: BlastTableViewSection) -> [BlastTableViewSection] {
         guard let startIndex = self.sections.firstIndex(where: { $0 === startSection }),
               let endIndex = self.sections.firstIndex(where: { $0 === endSection }),
               startIndex < endIndex else {
@@ -40,7 +40,7 @@ extension BlastTableViewController {
         return Array(self.sections[(startIndex + 1)..<endIndex])
     }
     
-    func nextSection(after section:BlastTableViewSection) -> BlastTableViewSection? {
+    func nextSection(after section: BlastTableViewSection) -> BlastTableViewSection? {
         guard let sectionIndex = self.sections.firstIndex(where: { $0 === section }),
               sectionIndex < self.sections.count - 1 else {
             print("BlastTableViewController -> nextSection -> No next section found...")
@@ -49,7 +49,7 @@ extension BlastTableViewController {
         return self.sections[sectionIndex + 1]
     }
     
-    func nextSections(after section:BlastTableViewSection) -> [BlastTableViewSection] {
+    func nextSections(after section: BlastTableViewSection) -> [BlastTableViewSection] {
         guard let sectionIndex = self.sections.firstIndex(where: { $0 === section }),
               sectionIndex < self.sections.count - 1 else {
             print("BlastTableViewController -> sectionsAfter -> No sections found after the provided section...")

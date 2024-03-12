@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BlastTableViewController:UITableViewController {
+class BlastTableViewController: UITableViewController {    
     //Sections
     var sections:[BlastTableViewSection] = []
     var retainedSections: [BlastTableViewSection] = []
@@ -130,11 +130,11 @@ class BlastTableViewController:UITableViewController {
     
     // MARK: - Registering sections
     
-    func addSection(_ section:BlastTableViewSection) {
+    func addSection(_ section: BlastTableViewSection) {
         self.sections.append(section)
     }
     
-    func retainSection(_ section:BlastTableViewSection) {
+    func retainSection(_ section: BlastTableViewSection) {
         if self.retainedSections.contains(where: { $0 === section }) {
             return
         }
@@ -159,7 +159,7 @@ class BlastTableViewController:UITableViewController {
     
     // MARK: - Textfields
     
-    func registerTextfields(_ cell:BlastTableViewCell) {
+    func registerTextfields(_ cell: BlastTableViewCell) {
         [cell.textField1, cell.textField2].forEach { textField in
             if let textField = textField, !self.textFieldsArray.contains(textField) {
                 self.textFieldsArray.append(textField)
@@ -170,7 +170,7 @@ class BlastTableViewController:UITableViewController {
         }
     }
     
-    func moveToNextTextField(currentTextField:BlastTextField) {
+    func moveToNextTextField(currentTextField: BlastTextField) {
         if let currentIndex = textFieldsArray.firstIndex(of: currentTextField), currentIndex < (textFieldsArray.count - 1) {
             let nextTextField = textFieldsArray[currentIndex + 1]
             nextTextField.becomeFirstResponder()
@@ -182,7 +182,7 @@ class BlastTableViewController:UITableViewController {
     
     // MARK: - Textviews
     
-    func registerTextViews(_ cell:BlastTableViewCell) {
+    func registerTextViews(_ cell: BlastTableViewCell) {
         if let textView = cell.textView1 {
             if !textViewsArray.contains(textView) {
                 textViewsArray.append(textView)

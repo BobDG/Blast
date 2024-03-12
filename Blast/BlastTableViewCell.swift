@@ -7,31 +7,31 @@
 
 import UIKit
 
-class BlastTableViewCell:UITableViewCell {
+class BlastTableViewCell: UITableViewCell {    
     //Labels
-    @IBOutlet weak var label1:UILabel?
-    @IBOutlet weak var label2:UILabel?
-    @IBOutlet weak var label3:UILabel?
+    @IBOutlet weak var label1: UILabel?
+    @IBOutlet weak var label2: UILabel?
+    @IBOutlet weak var label3: UILabel?
     
     //Imageviews
-    @IBOutlet weak var imageView1:UIImageView?
-    @IBOutlet weak var imageView2:UIImageView?
-    @IBOutlet weak var imageView3:UIImageView?
+    @IBOutlet weak var imageView1: UIImageView?
+    @IBOutlet weak var imageView2: UIImageView?
+    @IBOutlet weak var imageView3: UIImageView?
     
     //Buttons
-    @IBOutlet weak var button1:UIButton?
-    @IBOutlet weak var button2:UIButton?
-    @IBOutlet weak var button3:UIButton?
+    @IBOutlet weak var button1: UIButton?
+    @IBOutlet weak var button2: UIButton?
+    @IBOutlet weak var button3: UIButton?
     
     //Textfields
-    @IBOutlet weak var textField1:BlastTextField?
-    @IBOutlet weak var textField2:BlastTextField?
+    @IBOutlet weak var textField1: BlastTextField?
+    @IBOutlet weak var textField2: BlastTextField?
     
     //TextViews
-    @IBOutlet weak var textView1:BlastTextView?
+    @IBOutlet weak var textView1: BlastTextView?
     
     //Switch
-    @IBOutlet weak var switch1:UISwitch?
+    @IBOutlet weak var switch1: UISwitch?
     
     //Row
     var row: BlastTableViewRow? {
@@ -68,7 +68,7 @@ class BlastTableViewCell:UITableViewCell {
     
     // MARK: - Labels
     
-    func setupLabel(_ label: UILabel?, _ config:LabelConfiguration?) {
+    func setupLabel(_ label: UILabel?, _ config: LabelConfiguration?) {
         guard let label,
               let config
         else { return }
@@ -86,7 +86,7 @@ class BlastTableViewCell:UITableViewCell {
     
     // MARK: - Buttons
     
-    func setupButton(_ button: UIButton?, _ config:ButtonConfiguration?) {
+    func setupButton(_ button: UIButton?, _ config: ButtonConfiguration?) {
         guard let button,
               let config
         else { return }
@@ -117,7 +117,7 @@ class BlastTableViewCell:UITableViewCell {
     
     // MARK: - Switch
     
-    func setupSwitch(_ rowSwitch:UISwitch?, _ config:SwitchConfiguration?) {
+    func setupSwitch(_ rowSwitch: UISwitch?, _ config: SwitchConfiguration?) {
         guard let rowSwitch,
               let config
         else { return }
@@ -139,7 +139,7 @@ class BlastTableViewCell:UITableViewCell {
     
     // MARK: - TextFields
     
-    func setupTextField(_ textField:BlastTextField?, _ config:TextFieldConfiguration?) {
+    func setupTextField(_ textField: BlastTextField?, _ config: TextFieldConfiguration?) {
         guard let textField,
               let config
         else { return }
@@ -168,7 +168,7 @@ class BlastTableViewCell:UITableViewCell {
     
     // MARK: - TextViews
     
-    func setupTextView(_ textView:BlastTextView?, _ config:TextViewConfiguration?) {
+    func setupTextView(_ textView: BlastTextView?, _ config: TextViewConfiguration?) {
         guard let textView,
               let config
         else { return }

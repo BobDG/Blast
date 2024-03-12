@@ -13,6 +13,8 @@ public class ButtonConfiguration {
     var backgroundColor: UIColor?
     var tapped: (() -> Void)?
     
+    // MARK: - SwiftUI style parameters
+    
     @discardableResult
     func title(_ title: String) -> Self {
         self.title = title
