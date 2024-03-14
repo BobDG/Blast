@@ -63,7 +63,7 @@ extension BlastTableViewController {
         self.tableView.beginUpdates()
         
         //Delete old rows
-        section.rows.remove(atOffsets: IndexSet(indexPathsToDelete.map { $0.row }))
+        indexPathsToDelete.map { $0.row }.sorted(by: >).forEach { section.rows.remove(at: $0) }
         self.tableView.deleteRows(at: indexPathsToDelete, with: animation)
         
         //Insert new rows

@@ -28,8 +28,6 @@ extension BlastTableViewController {
         self.tableView.beginUpdates()
 
         //Delete from sections array
-        #warning("TESTING")
-        //self.sections.remove(atOffsets: indexesToDelete)
         indexesToDelete.sorted(by: >).forEach { self.sections.remove(at: $0) }
         
         //Delete from tableView
