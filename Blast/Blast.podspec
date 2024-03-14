@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.authors        	= {"Bob de Graaf" => "graafict@gmail.com"}
   s.source         	= { :git => "https://github.com/BobDG/Blast.git", :tag => s.version.to_s }
   s.source_files   	= "Blast/**/*.{swift}"
-  s.swift_versions  = "5.0"
+  s.swift_version   = "5.0"
   s.platform       	= :ios, "14.0"
   s.requires_arc   	= true
   s.module_name 	= "Blast"
