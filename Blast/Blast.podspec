@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name           	= "Blast"
   s.version        	= "0.0.6"
   s.summary        	= "High-performance Swift framework to accelerate iOS app development with UITableViewControllers for every view"
-  s.license 	    	= "MIT"
+  s.license 	    = "MIT"
   s.description    	= "Blast is engineered to support rapid, yet stable, app construction in Swift. In the end, every viewcontroller needs a screen, and SwiftUI simply isn't ready yet. The UIKit tableviewcontroller is still the best viewcontroller for every view, and my previous framework Blaze has been used by many companies to create their Apps blazingly fast. Blast is the Swift version of Blaze, updated with a better structure and even better performance."
   s.homepage       	= "https://github.com/BobDG/Blast"
   s.authors        	= {"Bob de Graaf" => "graafict@gmail.com"}
