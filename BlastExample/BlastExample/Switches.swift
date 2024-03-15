@@ -48,6 +48,7 @@ class Switches: BlastTableViewController {
             .color(.purple)
             .tapped { isOn in
                 print("Switch 2 isOn value: \(isOn)")
+                print("Row value isOn: \(String(describing: row.switch1?.isOn))")
             }
         section.addRow(row)
         

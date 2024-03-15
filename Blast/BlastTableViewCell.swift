@@ -133,6 +133,7 @@ class BlastTableViewCell: UITableViewCell {
     
     @objc func switchTapped(_ sender: UISwitch) {
         if sender == switch1, let tapped = self.row?.switch1?.tapped {
+            self.row?.switch1?.isOn = sender.isOn
             tapped(sender.isOn)
         }
     }
