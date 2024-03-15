@@ -10,8 +10,9 @@ import UIKit
 class TextFields: BlastTableViewController {
     
     class MyObject {
-        var textString1: String = "Var 1"
-        var textString2: String = "Var 2"
+        var textString1: String = "Var1"
+        var textString2: String = "Var2"
+        var textString3: String = "abc"
     }
     var object = MyObject()
 
@@ -91,28 +92,31 @@ class TextFields: BlastTableViewController {
         section.headerTitle = "Using shouldChangeCharactersIn"
         self.addSection(section)
         
-        row = BlastTableViewRow(xibName: XIBCellOneTextField)
-        row.textField1 = TextFieldConfiguration()
+        let cRow = BlastTableViewRow(xibName: XIBCellOneTextField)
+        cRow.textField1 = TextFieldConfiguration()
+            .text(self.object.textString3)
             .placeholder("No numbers allowed".capitalized)
             .shouldChangeCharactersIn({ textField, range, replacementString in
                 let originalText = textField.text ?? ""
                 print("Original: \(originalText)")
                 print("Replacement: \(replacementString)")
-                if let range = Range(range, in: originalText) {
-                    let finalText = originalText.replacingCharacters(in: range, with: replacementString)
-                    print("Final: \(finalText)")
+                guard let range = Range(range, in: originalText) else {
+                    print("Can't create range..")
+                    return false
                 }
-                
+                let finalText = originalText.replacingCharacters(in: range, with: replacementString)
                 let lettersCharacterSet = CharacterSet.letters
                 if replacementString.rangeOfCharacter(from: lettersCharacterSet.inverted) != nil {
                     print("Nothing besides letters I said!")
+                    print("Returning false - Row text value: \(String(describing: cRow.textField1?.text))")
                     return false
                 }
-                
+                print("Returning true - Row text value: \(String(describing: cRow.textField1?.text))")
+                self.object.textString3 = finalText
                 return true
             })
             
-        section.addRow(row)
+        section.addRow(cRow)
         
         
         
@@ -120,20 +124,21 @@ class TextFields: BlastTableViewController {
         section.headerTitle = "Two textFields? Sure"
         self.addSection(section)
         
-        row = BlastTableViewRow(xibName: XIBCellTwoTextFields)
-        row.textField1 = TextFieldConfiguration()
+        let tRow = BlastTableViewRow(xibName: XIBCellTwoTextFields)
+        tRow.textField1 = TextFieldConfiguration()
             .text(self.object.textString1)
             .font(UIFont.boldSystemFont(ofSize: 24))
             .attributedPlaceholder(.init(string: "Two textFields",
                                          attributes: [.font: UIFont.systemFont(ofSize: 12), .foregroundColor: UIColor.gray]))
             .textChanged { [weak self] text in
                 print("Callback text 1 changed: \(text)")
+                print("Row text value: \(String(describing: tRow.textField1?.text))")
                 self?.object.textString1 = text
             }
             .returnTapped {
                 print("Textfield 1 return tapped!")
             }
-        row.textField2 = TextFieldConfiguration()
+        tRow.textField2 = TextFieldConfiguration()
             .text(self.object.textString2)
             .font(UIFont.italicSystemFont(ofSize: 14))
             .attributedPlaceholder(.init(string: "Go nuts", 
@@ -145,7 +150,7 @@ class TextFields: BlastTableViewController {
             .returnTapped {
                 print("Textfield 2 return tapped!")
             }
-        section.addRow(row)
+        section.addRow(tRow)
         
         row = BlastTableViewRow(xibName: XIBCellOneButton)
         row.button1 = ButtonConfiguration()
@@ -153,6 +158,7 @@ class TextFields: BlastTableViewController {
             .tapped { [weak self] in
                 print("Object text 1: \(String(describing: self?.object.textString1))")
                 print("Object text 2: \(String(describing: self?.object.textString2))")
+                print("Object text 3: \(String(describing: self?.object.textString3))")
             }
         section.addRow(row)
     }

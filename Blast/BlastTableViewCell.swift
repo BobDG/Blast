@@ -161,7 +161,16 @@ class BlastTableViewCell: UITableViewCell {
             textField.textContentType = textContentType
         }
         
-        textField.textChanged = config.textChanged
+        //Update config value, otherwise it will be reset when cell disappears from view and then appears again
+        //This will automatically work for shouldChangeCharactersIn as well
+        textField.textChanged = { [weak config] value in
+            guard let config else { return }
+            config.text = value
+            if let rowTextChanged = config.textChanged {
+                rowTextChanged(value)
+            }
+        }
+        
         textField.returnTapped = config.returnTapped
         textField.shouldChangeCharactersIn = config.shouldChangeCharactersIn
     }
@@ -180,7 +189,16 @@ class BlastTableViewCell: UITableViewCell {
         textView.isScrollEnabled = config.isScrollEnabled
         
         textView.doneTapped = config.doneTapped
-        textView.textChanged = config.textChanged
+        
+        //Update config value, otherwise it will be reset when cell disappears from view and then appears again
+        //This will automatically work for shouldChangeCharactersIn as well
+        textView.textChanged = { [weak config] value in
+            guard let config else { return }
+            config.text = value
+            if let rowTextChanged = config.textChanged {
+                rowTextChanged(value)
+            }
+        }
     }
 
 }

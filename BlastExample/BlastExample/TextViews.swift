@@ -45,6 +45,7 @@ class TextViews: BlastTableViewController {
             .textChanged { [weak self] text in
                 print("Callback text  changed: \(text)")
                 self?.object.textString = text
+                print("Row text value \(row.textView1?.text)")
             }
             .doneTapped {
                 print("Done tapped!")
