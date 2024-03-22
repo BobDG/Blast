@@ -8,15 +8,15 @@
 import UIKit
 
 public class TextViewConfiguration {
-    var text: String = ""
-    var font: UIFont?
+    public var text: String = ""
+    public var font: UIFont?
     
-    var isEditable: Bool = true
-    var isSelectable: Bool = true
-    var isScrollEnabled: Bool = false
+    public var isEditable: Bool = true
+    public var isSelectable: Bool = true
+    public var isScrollEnabled: Bool = false
     
-    var doneTapped: (() -> Void)?
-    var textChanged: ((String) -> Void)?
+    public var doneTapped: (() -> Void)?
+    public var textChanged: ((String) -> Void)?
     
     // MARK: - SwiftUI style parameters
     

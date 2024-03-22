@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension BlastTableViewController {
+public extension BlastTableViewController {
     
     func addSections(_ newSections: [BlastTableViewSection],
                      beforeSection: BlastTableViewSection? = nil,

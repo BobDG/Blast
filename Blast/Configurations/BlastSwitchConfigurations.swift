@@ -8,9 +8,9 @@
 import UIKit
 
 public class SwitchConfiguration {
-    var isOn: Bool = false
-    var color: UIColor?
-    var tapped: ((Bool) -> Void)?
+    public var isOn: Bool = false
+    public var color: UIColor?
+    public var tapped: ((Bool) -> Void)?
 
     // MARK: - SwiftUI style parameters
     

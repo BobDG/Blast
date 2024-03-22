@@ -8,10 +8,10 @@
 import UIKit
 
 public class ButtonConfiguration {
-    var title: String = ""
-    var attributedTitle: NSAttributedString?
-    var backgroundColor: UIColor?
-    var tapped: (() -> Void)?
+    public var title: String = ""
+    public var attributedTitle: NSAttributedString?
+    public var backgroundColor: UIColor?
+    public var tapped: (() -> Void)?
     
     // MARK: - SwiftUI style parameters
     

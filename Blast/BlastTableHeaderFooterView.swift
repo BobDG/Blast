@@ -7,13 +7,13 @@
 
 import UIKit
 
-class BlastTableHeaderFooterView: UITableViewHeaderFooterView {    
+public class BlastTableHeaderFooterView: UITableViewHeaderFooterView {
     //Labels
     @IBOutlet weak var headerLabel: UILabel?
     @IBOutlet weak var footerLabel: UILabel?
     
     //Section
-    var section: BlastTableViewSection? {
+    public var section: BlastTableViewSection? {
         didSet {
             guard let section else { return }
             headerLabel?.text = section.headerTitle

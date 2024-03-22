@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension BlastTableViewController {
+public extension BlastTableViewController {
     
     func previousSection(before section: BlastTableViewSection) -> BlastTableViewSection? {
         guard let sectionIndex = self.sections.firstIndex(where: { $0 === section }),

@@ -5,26 +5,26 @@
 //  Created by Bob de Graaf on 02/02/2024.
 //
 
-class BlastTableViewSection {    
+public class BlastTableViewSection {
     //XIBs
-    var headerXibName: String?
-    var footerXibName: String?
+    public var headerXibName: String?
+    public var footerXibName: String?
     
     //Rows
-    var rows:[BlastTableViewRow] = []
+    public var rows:[BlastTableViewRow] = []
     
     //Labels
-    var headerTitle: String?
-    var footerTitle: String?    
+    public var headerTitle: String?
+    public var footerTitle: String?
     
     //Heights
-    var headerHeight: Int?
-    var footerHeight: Int?
+    public var headerHeight: Int?
+    public var footerHeight: Int?
     
     
     // MARK: - Lifecycle
     
-    convenience init(headerXibName: String?, footerXibName:String? = nil) {
+    public convenience init(headerXibName: String?, footerXibName:String? = nil) {
         self.init()
         self.headerXibName = headerXibName
         self.footerXibName = footerXibName
@@ -32,7 +32,7 @@ class BlastTableViewSection {
     
     // MARK: - Adding rows
     
-    func addRow(_ row: BlastTableViewRow) {
+    public func addRow(_ row: BlastTableViewRow) {
         self.rows.append(row)
         row.section = self
     }

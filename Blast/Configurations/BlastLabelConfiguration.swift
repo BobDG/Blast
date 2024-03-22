@@ -8,9 +8,9 @@
 import UIKit
 
 public class LabelConfiguration {
-    var text: String = ""
-    var font: UIFont? = nil
-    var attributedText: NSAttributedString? = nil
+    public var text: String = ""
+    public var font: UIFont? = nil
+    public var attributedText: NSAttributedString? = nil
     
     // MARK: - SwiftUI style parameters
     

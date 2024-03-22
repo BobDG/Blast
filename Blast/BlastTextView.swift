@@ -7,20 +7,20 @@
 
 import UIKit
 
-class BlastTextView: UITextView, UITextViewDelegate {    
+public class BlastTextView: UITextView, UITextViewDelegate {
     //Default values
-    var height: Int = 0
+    public var height: Int = 0
     
     //Closures for row
-    var doneTapped:(() -> Void)?
-    var textChanged:((String) -> Void)?
+    public var doneTapped:(() -> Void)?
+    public var textChanged:((String) -> Void)?
     
     //Closures for controller
-    var heightChanged:(() -> Void)?
+    public var heightChanged:(() -> Void)?
     
     // MARK: - Lifecycle for Interface Builder
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         self.delegate = self
@@ -36,7 +36,7 @@ class BlastTextView: UITextView, UITextViewDelegate {
     
     // MARK: - Done Button
     
-    func addDoneButtonOnKeyboard() {
+    public func addDoneButtonOnKeyboard() {
         let keyboardToolbar = UIToolbar()
         keyboardToolbar.sizeToFit()
 
@@ -54,7 +54,7 @@ class BlastTextView: UITextView, UITextViewDelegate {
     
     // MARK: - Delegate methods
     
-    func textViewDidChange(_ textView: UITextView) {
+    public func textViewDidChange(_ textView: UITextView) {
         self.textChanged?(text ?? "")
         
         //Automatically resize cell if scrolling is disabled

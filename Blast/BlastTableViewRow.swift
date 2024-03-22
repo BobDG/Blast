@@ -7,50 +7,50 @@
 
 import UIKit
 
-class BlastTableViewRow {
+public class BlastTableViewRow {
     //Required
     let xibName: String
     
     //Section
-    weak var section: BlastTableViewSection?
+    public weak var section: BlastTableViewSection?
     
     //Cell tap
-    var cellTapped:(() -> Void)?
+    public var cellTapped:(() -> Void)?
     
     // MARK: - Labels
     
-    var label1: LabelConfiguration?
-    var label2: LabelConfiguration?
-    var label3: LabelConfiguration?
+    public var label1: LabelConfiguration?
+    public var label2: LabelConfiguration?
+    public var label3: LabelConfiguration?
     
     // MARK: - Buttons
     
-    var button1: ButtonConfiguration?
-    var button2: ButtonConfiguration?
-    var button3: ButtonConfiguration?
+    public var button1: ButtonConfiguration?
+    public var button2: ButtonConfiguration?
+    public var button3: ButtonConfiguration?
     
     // MARK: - Images
     
-    var image1: UIImage?
-    var image2: UIImage?
-    var image3: UIImage?
+    public var image1: UIImage?
+    public var image2: UIImage?
+    public var image3: UIImage?
     
     // MARK: - Switches
     
-    var switch1: SwitchConfiguration?
+    public var switch1: SwitchConfiguration?
     
     // MARK: - TextFields
     
-    var textField1: TextFieldConfiguration?
-    var textField2: TextFieldConfiguration?
+    public var textField1: TextFieldConfiguration?
+    public var textField2: TextFieldConfiguration?
     
     // MARK: - TextViews
     
-    var textView1: TextViewConfiguration?
+    public var textView1: TextViewConfiguration?
     
     // MARK: - Lifecycle
     
-    init(xibName: String) {
+    public init(xibName: String) {
         self.xibName = xibName
     }
     

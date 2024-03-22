@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension BlastTableViewController {
+public extension BlastTableViewController {
     
     func previousRow(before row: BlastTableViewRow) -> BlastTableViewRow? {
         guard let section = row.section,

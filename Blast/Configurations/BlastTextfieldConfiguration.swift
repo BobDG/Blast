@@ -8,23 +8,23 @@
 import UIKit
 
 public class TextFieldConfiguration {
-    var text: String = ""
-    var font: UIFont?
+    public var text: String = ""
+    public var font: UIFont?
     
-    var placeholder: String = ""
-    var attributedPlaceholder: NSAttributedString?
+    public var placeholder: String = ""
+    public var attributedPlaceholder: NSAttributedString?
     
-    var secureTextEntry: Bool = false
-    var nextFieldOnReturn: Bool = true
+    public var secureTextEntry: Bool = false
+    public var nextFieldOnReturn: Bool = true
     
-    var textContentType: UITextContentType?
-    var keyboardType: UIKeyboardType = .default
-    var autoCorrectionType: UITextAutocorrectionType = .default
-    var capitalizationType: UITextAutocapitalizationType = .sentences
+    public var textContentType: UITextContentType?
+    public var keyboardType: UIKeyboardType = .default
+    public var autoCorrectionType: UITextAutocorrectionType = .default
+    public var capitalizationType: UITextAutocapitalizationType = .sentences
     
-    var returnTapped: (() -> Void)?
-    var textChanged: ((String) -> Void)?
-    var shouldChangeCharactersIn:((UITextField, NSRange, String) -> Bool)?
+    public var returnTapped: (() -> Void)?
+    public var textChanged: ((String) -> Void)?
+    public var shouldChangeCharactersIn:((UITextField, NSRange, String) -> Bool)?
     
     // MARK: - SwiftUI style parameters
     

@@ -7,32 +7,32 @@
 
 import UIKit
 
-class BlastTableViewController: UITableViewController {    
+public class BlastTableViewController: UITableViewController {
     //Sections
-    var sections:[BlastTableViewSection] = []
-    var retainedSections: [BlastTableViewSection] = []
-    var sectionDefaultHeaderHeight = 20
-    var sectionDefaultFooterHeight = 10
+    public var sections:[BlastTableViewSection] = []
+    public var retainedSections: [BlastTableViewSection] = []
+    public var sectionDefaultHeaderHeight = 20
+    public var sectionDefaultFooterHeight = 10
     
     //Estimated heights (setting these can improve scrolling performance)
-    var estimatedRowHeight = 44
-    var estimatedHeaderHeight = 20
-    var estimatedFooterHeight = 10
+    public var estimatedRowHeight = 44
+    public var estimatedHeaderHeight = 20
+    public var estimatedFooterHeight = 10
     
     //Textfields
-    var textViewsArray: [UITextView] = []
-    var textFieldsArray: [UITextField] = []
+    public var textViewsArray: [UITextView] = []
+    public var textFieldsArray: [UITextField] = []
     
     
     // MARK: - Lifecycle
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     // MARK: - UITableView Delegate -> Cell
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = self.sections[indexPath.section]
         let row = section.rows[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: row.xibName, for: indexPath) as! BlastTableViewCell
@@ -47,7 +47,7 @@ class BlastTableViewController: UITableViewController {
     
     // MARK: - UITableView Delegate -> Header & Footer
     
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    public override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let section = self.sections[section]
         if let xibName = section.headerXibName {
             let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: xibName) as! BlastTableHeaderFooterView
@@ -57,7 +57,7 @@ class BlastTableViewController: UITableViewController {
         return nil
     }
     
-    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    public override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let section = self.sections[section]
         if let xibName = section.footerXibName {
             let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: xibName) as! BlastTableHeaderFooterView
@@ -69,23 +69,23 @@ class BlastTableViewController: UITableViewController {
     
     // MARK: - UITableView Delegate -> Heights
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    public override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
     
-    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    public override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(self.estimatedRowHeight)
     }
     
-    override func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+    public override func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
         return CGFloat(self.estimatedHeaderHeight)
     }
     
-    override func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
+    public override func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
         return CGFloat(self.estimatedFooterHeight)
     }
     
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    public override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         let section = self.sections[section]
         //Precedence order: Section set -> Views -> Global
         if let headerHeight = section.headerHeight {
@@ -97,7 +97,7 @@ class BlastTableViewController: UITableViewController {
         return CGFloat(self.sectionDefaultHeaderHeight)
     }
     
-    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    public override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         let section = self.sections[section]
         //Precedence order: Section set -> Views -> Global
         if let footerHeight = section.footerHeight {
@@ -111,17 +111,17 @@ class BlastTableViewController: UITableViewController {
     
     // MARK: - UITableView Delegate -> Number of sections/rows
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    public override func numberOfSections(in tableView: UITableView) -> Int {
         return self.sections.count
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.sections[section].rows.count
     }
     
     // MARK: - UITableView Delegate -> Actions
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let section = self.sections[indexPath.section]
         let row = section.rows[indexPath.row]
         row.cellTapped?()
@@ -130,11 +130,11 @@ class BlastTableViewController: UITableViewController {
     
     // MARK: - Registering sections
     
-    func addSection(_ section: BlastTableViewSection) {
+    public func addSection(_ section: BlastTableViewSection) {
         self.sections.append(section)
     }
     
-    func retainSection(_ section: BlastTableViewSection) {
+    public func retainSection(_ section: BlastTableViewSection) {
         if self.retainedSections.contains(where: { $0 === section }) {
             return
         }
@@ -143,14 +143,14 @@ class BlastTableViewController: UITableViewController {
     
     // MARK: - Registering cells
     
-    func registerCells(_ xibNames:[String]) {
+    public func registerCells(_ xibNames:[String]) {
         for xibName in xibNames {
             let cellNib = UINib(nibName: xibName, bundle: nil)
             self.tableView.register(cellNib, forCellReuseIdentifier: xibName)
         }
     }
     
-    func registerHeaderFooters(_ xibNames:[String]) {
+    public func registerHeaderFooters(_ xibNames:[String]) {
         for xibName in xibNames {
             let headerFooterNib = UINib(nibName: xibName, bundle: nil)
             self.tableView.register(headerFooterNib, forHeaderFooterViewReuseIdentifier: xibName)
@@ -159,7 +159,7 @@ class BlastTableViewController: UITableViewController {
     
     // MARK: - Textfields
     
-    func registerTextfields(_ cell: BlastTableViewCell) {
+    public func registerTextfields(_ cell: BlastTableViewCell) {
         [cell.textField1, cell.textField2].forEach { textField in
             if let textField = textField, !self.textFieldsArray.contains(textField) {
                 self.textFieldsArray.append(textField)
@@ -170,7 +170,7 @@ class BlastTableViewController: UITableViewController {
         }
     }
     
-    func moveToNextTextField(currentTextField: BlastTextField) {
+    public func moveToNextTextField(currentTextField: BlastTextField) {
         if let currentIndex = textFieldsArray.firstIndex(of: currentTextField), currentIndex < (textFieldsArray.count - 1) {
             let nextTextField = textFieldsArray[currentIndex + 1]
             nextTextField.becomeFirstResponder()
@@ -182,7 +182,7 @@ class BlastTableViewController: UITableViewController {
     
     // MARK: - Textviews
     
-    func registerTextViews(_ cell: BlastTableViewCell) {
+    public func registerTextViews(_ cell: BlastTableViewCell) {
         if let textView = cell.textView1 {
             if !textViewsArray.contains(textView) {
                 textViewsArray.append(textView)

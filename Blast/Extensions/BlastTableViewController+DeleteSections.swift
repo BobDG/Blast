@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension BlastTableViewController {
+public extension BlastTableViewController {
     
     // MARK: - Basic
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BlastTableViewCell: UITableViewCell {    
+public class BlastTableViewCell: UITableViewCell {    
     //Labels
     @IBOutlet weak var label1: UILabel?
     @IBOutlet weak var label2: UILabel?
@@ -34,7 +34,7 @@ class BlastTableViewCell: UITableViewCell {
     @IBOutlet weak var switch1: UISwitch?
     
     //Row
-    var row: BlastTableViewRow? {
+    public var row: BlastTableViewRow? {
         didSet {
             guard let row else { return }
             

@@ -7,21 +7,21 @@
 
 import UIKit
 
-class BlastTextField: UITextField, UITextFieldDelegate {    
+public class BlastTextField: UITextField, UITextFieldDelegate {
     //Default values
-    var nextFieldOnReturn: Bool = true
+    public var nextFieldOnReturn: Bool = true
     
     //Closures for row
-    var returnTapped:(() -> Void)?
-    var textChanged:((String) -> Void)?
-    var shouldChangeCharactersIn:((UITextField, NSRange, String) -> Bool)?
+    public var returnTapped:(() -> Void)?
+    public var textChanged:((String) -> Void)?
+    public var shouldChangeCharactersIn:((UITextField, NSRange, String) -> Bool)?
     
     //Closures for controller
-    var moveToNextTextField:((BlastTextField) -> Void)?
+    public var moveToNextTextField:((BlastTextField) -> Void)?
     
     // MARK: - Lifecycle for Interface Builder
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         self.delegate = self
@@ -36,23 +36,23 @@ class BlastTextField: UITextField, UITextFieldDelegate {
     
     // MARK: - Delegate methods
     
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+    public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         return true
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+    public func textFieldDidBeginEditing(_ textField: UITextField) {
         
     }
     
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+    public func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         return true
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    public func textFieldDidEndEditing(_ textField: UITextField) {
         
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         /** Code to use  in viewController that uses this delegate method
         let originalText = textField.text ?? ""
         let replacementText = string
@@ -66,15 +66,15 @@ class BlastTextField: UITextField, UITextFieldDelegate {
         return true
     }
     
-    func textFieldDidChangeSelection(_ textField: UITextField) {
+    public func textFieldDidChangeSelection(_ textField: UITextField) {
         
     }
     
-    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+    public func textFieldShouldClear(_ textField: UITextField) -> Bool {
         return true
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         //Return tapped
         self.returnTapped?()
         

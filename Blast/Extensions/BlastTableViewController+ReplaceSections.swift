@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension BlastTableViewController {
+public extension BlastTableViewController {
     
     func replaceSection(_ oldSection: BlastTableViewSection, 
                         with newSection: BlastTableViewSection,

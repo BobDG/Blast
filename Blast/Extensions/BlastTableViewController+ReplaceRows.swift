@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension BlastTableViewController {
+public extension BlastTableViewController {
     
     func replaceRow(_ oldRow: BlastTableViewRow, with newRow: BlastTableViewRow, useReloadRows: Bool = false, animation: UITableView.RowAnimation = .automatic) {
         guard let section = oldRow.section,

@@ -10,7 +10,7 @@ import ObjectiveC
 
 private var floatingButtonKey: Void?
 
-extension BlastTableViewController {
+public extension BlastTableViewController {
     
     enum FloatingButtonPosition {
         case left, center, right

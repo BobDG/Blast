@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension BlastTableViewController {
+public extension BlastTableViewController {
     
     func addRows(_ newRows: [BlastTableViewRow],
                  beforeRow: BlastTableViewRow? = nil,
