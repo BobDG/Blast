@@ -11,6 +11,12 @@ public class SwitchConfiguration {
     public var isOn: Bool = false
     public var color: UIColor?
     public var tapped: ((Bool) -> Void)?
+    
+    // MARK: - Lifecycle
+    
+    public init() {
+        //Only here because default swift init is private...
+    }
 
     // MARK: - SwiftUI style parameters
     

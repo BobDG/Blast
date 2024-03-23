@@ -14,6 +14,9 @@ public class BlastTableViewRow {
     //Section
     public weak var section: BlastTableViewSection?
     
+    //Cell
+    public weak var cell: BlastTableViewCell?
+    
     //Cell tap
     public var cellTapped:(() -> Void)?
     

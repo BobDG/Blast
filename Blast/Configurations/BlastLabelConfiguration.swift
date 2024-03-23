@@ -12,6 +12,12 @@ public class LabelConfiguration {
     public var font: UIFont? = nil
     public var attributedText: NSAttributedString? = nil
     
+    // MARK: - Lifecycle
+    
+    public init() {
+        //Only here because default swift init is private...
+    }
+    
     // MARK: - SwiftUI style parameters
     
     @discardableResult

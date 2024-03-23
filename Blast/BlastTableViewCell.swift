@@ -38,6 +38,9 @@ public class BlastTableViewCell: UITableViewCell {
         didSet {
             guard let row else { return }
             
+            //Link back (weak)
+            row.cell = self
+            
             //Labels
             self.setupLabel(label1, row.label1)
             self.setupLabel(label2, row.label2)
@@ -62,7 +65,6 @@ public class BlastTableViewCell: UITableViewCell {
 
             //TextViews
             self.setupTextView(textView1, row.textView1)
-            
         }
     }
     

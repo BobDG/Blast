@@ -18,6 +18,12 @@ public class TextViewConfiguration {
     public var doneTapped: (() -> Void)?
     public var textChanged: ((String) -> Void)?
     
+    // MARK: - Lifecycle
+    
+    public init() {
+        //Only here because default swift init is private...
+    }
+    
     // MARK: - SwiftUI style parameters
     
     @discardableResult

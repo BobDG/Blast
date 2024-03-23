@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class BlastTableViewController: UITableViewController {
+open class BlastTableViewController: UITableViewController {
     //Sections
     public var sections:[BlastTableViewSection] = []
     public var retainedSections: [BlastTableViewSection] = []
@@ -26,7 +26,7 @@ public class BlastTableViewController: UITableViewController {
     
     // MARK: - Lifecycle
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
     }
     

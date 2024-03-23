@@ -24,6 +24,10 @@ public class BlastTableViewSection {
     
     // MARK: - Lifecycle
     
+    public init() {
+        //Only here because default swift init is private...
+    }
+    
     public convenience init(headerXibName: String?, footerXibName:String? = nil) {
         self.init()
         self.headerXibName = headerXibName

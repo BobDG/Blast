@@ -26,6 +26,12 @@ public class TextFieldConfiguration {
     public var textChanged: ((String) -> Void)?
     public var shouldChangeCharactersIn:((UITextField, NSRange, String) -> Bool)?
     
+    // MARK: - Lifecycle
+    
+    public init() {
+        //Only here because default swift init is private...
+    }
+    
     // MARK: - SwiftUI style parameters
     
     @discardableResult
