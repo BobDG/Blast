@@ -17,14 +17,17 @@ public class BlastTableViewRow {
     //Cell
     public weak var cell: BlastTableViewCell?
     
-    //Cell tap
+    //Closures
     public var cellTapped:(() -> Void)?
+    public var configureCell:((BlastTableViewCell) -> Void)?
     
     // MARK: - Labels
     
     public var label1: LabelConfiguration?
     public var label2: LabelConfiguration?
     public var label3: LabelConfiguration?
+    public var label4: LabelConfiguration?
+    public var label5: LabelConfiguration?
     
     // MARK: - Buttons
     

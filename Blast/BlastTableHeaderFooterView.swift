@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class BlastTableHeaderFooterView: UITableViewHeaderFooterView {
+open class BlastTableHeaderFooterView: UITableViewHeaderFooterView {
     //Labels
     @IBOutlet weak var headerLabel: UILabel?
     @IBOutlet weak var footerLabel: UILabel?

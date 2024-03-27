@@ -12,8 +12,9 @@ public extension BlastTableViewController {
     // MARK: - Basic
     
     func deleteSections(_ sectionsToDelete: [BlastTableViewSection],
-                        animation: UITableView.RowAnimation = .automatic) {
-        //Indexes
+                        animation: UITableView.RowAnimation = .automatic,
+                        completion: ((Bool) -> Void)? = nil) {
+        //Safety checks
         var indexesToDelete = IndexSet()
         for section in sectionsToDelete {
             if let index = self.sections.firstIndex(where: { $0 === section }) {
@@ -24,17 +25,14 @@ public extension BlastTableViewController {
             }
         }
 
-        //Begin
-        self.tableView.beginUpdates()
-
-        //Delete from sections array
-        indexesToDelete.sorted(by: >).forEach { self.sections.remove(at: $0) }
-        
-        //Delete from tableView
-        self.tableView.deleteSections(indexesToDelete, with: animation)
-        
-        //End
-        self.tableView.endUpdates()
+        //Let's go
+        self.tableView.performBatchUpdates({
+            //Delete from sections array
+            indexesToDelete.sorted(by: >).forEach { self.sections.remove(at: $0) }
+            
+            //Delete from tableView
+            self.tableView.deleteSections(indexesToDelete, with: animation)
+        }, completion: completion)
     }
 
     
@@ -42,8 +40,9 @@ public extension BlastTableViewController {
     
     func deleteSections(firstSection: BlastTableViewSection, 
                         lastSection: BlastTableViewSection? = nil,
-                        animation: UITableView.RowAnimation = .automatic) {
-        //Start index
+                        animation: UITableView.RowAnimation = .automatic,
+                        completion: ((Bool) -> Void)? = nil) {
+        //Safety checks
         guard let startIndex = self.sections.firstIndex(where: { $0 === firstSection }) else {
             print("BlastTableViewController -> deleteSections -> First section not found")
             return
@@ -64,25 +63,22 @@ public extension BlastTableViewController {
         //IndexSet
         let indexSet = IndexSet(integersIn: startIndex...endIndex)
         
-        //Begin
-        self.tableView.beginUpdates()
-        
-        //Delete from sections array
-        self.sections.removeSubrange(startIndex...endIndex)
-        
-        //Delete from tableView
-        self.tableView.deleteSections(indexSet, with: animation)
-        
-        //End
-        self.tableView.endUpdates()
+        //Let's go
+        self.tableView.performBatchUpdates({
+            //Delete from sections array
+            self.sections.removeSubrange(startIndex...endIndex)
+            
+            //Delete from tableView
+            self.tableView.deleteSections(indexSet, with: animation)
+        }, completion: completion)
     }
     
     // MARK: - Using starting index
     
     func deleteSections(startingIndex: Int,
-                        animation: UITableView.RowAnimation = .automatic) {
-
-        //Index check
+                        animation: UITableView.RowAnimation = .automatic,
+                        completion: ((Bool) -> Void)? = nil) {
+        //Safety checks
         guard startingIndex >= 0, startingIndex < self.sections.count else {
             print("BlastTableViewController -> deleteSections -> Starting index is out of bounds.")
             return
@@ -92,17 +88,14 @@ public extension BlastTableViewController {
         let range = startingIndex..<self.sections.count
         let indexSet = IndexSet(integersIn: range)
         
-        //Begin
-        self.tableView.beginUpdates()
-        
-        //Delete from sections array
-        self.sections.removeSubrange(range)
-        
-        //Delete from tableView
-        self.tableView.deleteSections(indexSet, with: animation)
-        
-        //End
-        self.tableView.endUpdates()
+        //Let's go
+        self.tableView.performBatchUpdates({
+            //Delete from sections array
+            self.sections.removeSubrange(range)
+            
+            //Delete from tableView
+            self.tableView.deleteSections(indexSet, with: animation)
+        }, completion: completion)
     }
 
 }

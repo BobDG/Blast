@@ -21,19 +21,19 @@ public class LabelConfiguration {
     // MARK: - SwiftUI style parameters
     
     @discardableResult
-    func text(_ text: String) -> Self {
+    public func text(_ text: String) -> Self {
         self.text = text
         return self
     }
     
     @discardableResult
-    func font(_ font: UIFont?) -> Self {
+    public func font(_ font: UIFont?) -> Self {
         self.font = font
         return self
     }
     
     @discardableResult
-    func attributedText(_ attributedText: NSAttributedString?) -> Self {
+    public func attributedText(_ attributedText: NSAttributedString?) -> Self {
         self.attributedText = attributedText
         return self
     }

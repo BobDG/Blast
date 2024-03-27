@@ -21,19 +21,19 @@ public class SwitchConfiguration {
     // MARK: - SwiftUI style parameters
     
     @discardableResult
-    func isOn(_ isOn: Bool) -> Self {
+    public func isOn(_ isOn: Bool) -> Self {
         self.isOn = isOn
         return self
     }
 
     @discardableResult
-    func color(_ color: UIColor?) -> Self {
+    public func color(_ color: UIColor?) -> Self {
         self.color = color
         return self
     }
 
     @discardableResult
-    func tapped(_ tapped: ((Bool) -> Void)?) -> Self {
+    public func tapped(_ tapped: ((Bool) -> Void)?) -> Self {
         self.tapped = tapped
         return self
     }

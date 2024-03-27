@@ -12,8 +12,8 @@ public extension BlastTableViewController {
     // MARK: - Basic
     
     func deleteRows(_ rows:[BlastTableViewRow],
-                    animation: UITableView.RowAnimation = .automatic) {
-        
+                    animation: UITableView.RowAnimation = .automatic,
+                    completion: ((Bool) -> Void)? = nil) {        
         //Generate indexPaths
         var indexPathsToDelete: [IndexPath] = []
         for (index, row) in rows.enumerated() {
@@ -29,27 +29,24 @@ public extension BlastTableViewController {
         //Sort indexPaths (always delete rows in the right order)
         let sortedIndexPathsToDelete = indexPathsToDelete.sorted { $0.section != $1.section ? $0.section < $1.section : $0.row < $1.row }
 
-        //Begin
-        self.tableView.beginUpdates()
-
-        //Delete from sections array
-        for indexPath in sortedIndexPathsToDelete.reversed() {
-            self.sections[indexPath.section].rows.remove(at: indexPath.row)
-        }
-
-        //Delete from tableView
-        self.tableView.deleteRows(at: sortedIndexPathsToDelete, with: animation)
-        
-        //End
-        self.tableView.endUpdates()
+        //Let's go
+        self.tableView.performBatchUpdates({
+            //Delete from sections array
+            for indexPath in sortedIndexPathsToDelete.reversed() {
+                self.sections[indexPath.section].rows.remove(at: indexPath.row)
+            }
+            
+            //Delete from tableView
+            self.tableView.deleteRows(at: sortedIndexPathsToDelete, with: animation)
+        }, completion: completion)
     }
     
     // MARK: - Specific first row & optional last
 
     func deleteRows(firstRow: BlastTableViewRow, 
                     lastRow: BlastTableViewRow? = nil,
-                    animation: UITableView.RowAnimation = .automatic) {
-        
+                    animation: UITableView.RowAnimation = .automatic,
+                    completion: ((Bool) -> Void)? = nil) {
         //Ensure that if a lastRow is provided, it belongs to the same section as the firstRow
         if let lastRow = lastRow, firstRow.section !== lastRow.section {
             print("The first and last rows do not belong to the same section.")
@@ -81,25 +78,23 @@ public extension BlastTableViewController {
         let range = firstRowIndex...lastRowIndex
         let indexPaths = range.map { IndexPath(row: $0, section: sectionIndex) }
         
-        //Begin
-        self.tableView.beginUpdates()
-        
-        //Delete from sections array
-        section.rows.removeSubrange(range)
-        
-        //Delete from tableView
-        self.tableView.deleteRows(at: indexPaths, with: animation)
-        
-        //End
-        self.tableView.endUpdates()
+        //Let's go
+        self.tableView.performBatchUpdates({
+            //Delete from sections array
+            section.rows.removeSubrange(range)
+            
+            //Delete from tableView
+            self.tableView.deleteRows(at: indexPaths, with: animation)
+        }, completion: completion)
     }
     
     // MARK: - Using starting index
 
     func deleteRows(startingIndex: Int,
                     inSection: BlastTableViewSection,
-                    animation: UITableView.RowAnimation = .automatic) {
-
+                    animation: UITableView.RowAnimation = .automatic,
+                    completion: ((Bool) -> Void)? = nil) {
+        //Safety checks
         guard startingIndex >= 0, startingIndex < inSection.rows.count else {
             print("Starting index is out of bounds.")
             return
@@ -109,17 +104,14 @@ public extension BlastTableViewController {
         let range = startingIndex..<inSection.rows.count
         let indexPaths = range.map { IndexPath(row: $0, section: self.sections.firstIndex(where: { $0 === inSection })!) }
 
-        // Begin
-        self.tableView.beginUpdates()
-        
-        // Delete from the section's rows array
-        inSection.rows.removeSubrange(range)
-        
-        // Delete from tableView
-        self.tableView.deleteRows(at: indexPaths, with: animation)
-        
-        // End
-        self.tableView.endUpdates()
+        //Let's go
+        self.tableView.performBatchUpdates({
+            // Delete from the section's rows array
+            inSection.rows.removeSubrange(range)
+            
+            // Delete from tableView
+            self.tableView.deleteRows(at: indexPaths, with: animation)
+        }, completion: completion)
     }
     
 }

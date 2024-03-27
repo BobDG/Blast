@@ -12,8 +12,8 @@ public extension BlastTableViewController {
     func addRows(_ newRows: [BlastTableViewRow],
                  beforeRow: BlastTableViewRow? = nil,
                  afterRow: BlastTableViewRow? = nil,
-                 animation: UITableView.RowAnimation = .automatic) {
-
+                 animation: UITableView.RowAnimation = .automatic,
+                 completion: ((Bool) -> Void)? = nil) {
         //Safety checks
         guard let referenceRow = beforeRow ?? afterRow,
               let section = referenceRow.section,
@@ -36,40 +36,37 @@ public extension BlastTableViewController {
             }
         }
         
-        //Begin
-        self.tableView.beginUpdates()
-        
-        //Assign section
-        newRows.forEach { $0.section = section }
-        
-        //Insertion index
-        var insertionIndex: Int = section.rows.count
-        if let beforeRow = beforeRow, let rowIndex = section.rows.firstIndex(where: { $0 === beforeRow }) {
-            insertionIndex = rowIndex
-        } else if let afterRow = afterRow, let rowIndex = section.rows.firstIndex(where: { $0 === afterRow }) {
-            insertionIndex = rowIndex + 1
-        }
-
-        //Add to sections array
-        section.rows.insert(contentsOf: newRows, at: insertionIndex)
-        
-        //Generate indexPaths
-        let indexPaths = (0..<newRows.count).map { IndexPath(row: insertionIndex + $0, section: sectionIndex) }
-        
-        //Insert into tableView
-        self.tableView.insertRows(at: indexPaths, with: animation)
-        
-        //End
-        self.tableView.endUpdates()
+        //Let's go
+        self.tableView.performBatchUpdates({
+            //Assign section
+            newRows.forEach { $0.section = section }
+            
+            //Insertion index
+            var insertionIndex: Int = section.rows.count
+            if let beforeRow = beforeRow, let rowIndex = section.rows.firstIndex(where: { $0 === beforeRow }) {
+                insertionIndex = rowIndex
+            } else if let afterRow = afterRow, let rowIndex = section.rows.firstIndex(where: { $0 === afterRow }) {
+                insertionIndex = rowIndex + 1
+            }
+            
+            //Add to sections array
+            section.rows.insert(contentsOf: newRows, at: insertionIndex)
+            
+            //Generate indexPaths
+            let indexPaths = (0..<newRows.count).map { IndexPath(row: insertionIndex + $0, section: sectionIndex) }
+            
+            //Insert into tableView
+            self.tableView.insertRows(at: indexPaths, with: animation)
+        }, completion: completion)
     }
 
     func addRows(_ newRows: [BlastTableViewRow],
-                          toSection section: BlastTableViewSection,
-                          atTheTop: Bool? = nil,
-                          atTheBottom: Bool? = nil,
-                          startingIndex: Int? = nil,
-                          animation: UITableView.RowAnimation = .automatic) {
-        
+                 toSection section: BlastTableViewSection,
+                 atTheTop: Bool? = nil,
+                 atTheBottom: Bool? = nil,
+                 startingIndex: Int? = nil,
+                 animation: UITableView.RowAnimation = .automatic,
+                 completion: ((Bool) -> Void)? = nil) {
         //Insertion index
         var insertionIndex: Int = section.rows.count
         if atTheTop != nil {
@@ -93,23 +90,20 @@ public extension BlastTableViewController {
             }
         }
         
-        //Begin
-        self.tableView.beginUpdates()
-        
-        //Assign section
-        newRows.forEach { $0.section = section }
-        
-        //Add to sections array
-        section.rows.insert(contentsOf: newRows, at: insertionIndex)
-        
-        //Generate indexPaths
-        let indexPaths = (0..<newRows.count).map { IndexPath(row: insertionIndex + $0, section: sectionIndex) }
-        
-        //Insert into tableview
-        self.tableView.insertRows(at: indexPaths, with: animation)
-        
-        //End
-        self.tableView.endUpdates()
+        //Let's go
+        self.tableView.performBatchUpdates({
+            //Assign section
+            newRows.forEach { $0.section = section }
+            
+            //Add to sections array
+            section.rows.insert(contentsOf: newRows, at: insertionIndex)
+            
+            //Generate indexPaths
+            let indexPaths = (0..<newRows.count).map { IndexPath(row: insertionIndex + $0, section: sectionIndex) }
+            
+            //Insert into tableview
+            self.tableView.insertRows(at: indexPaths, with: animation)
+        }, completion: completion)
     }
 
 }

@@ -23,7 +23,6 @@ open class BlastTableViewController: UITableViewController {
     public var textViewsArray: [UITextView] = []
     public var textFieldsArray: [UITextField] = []
     
-    
     // MARK: - Lifecycle
     
     open override func viewDidLoad() {
@@ -37,6 +36,7 @@ open class BlastTableViewController: UITableViewController {
         let row = section.rows[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: row.xibName, for: indexPath) as! BlastTableViewCell
         cell.row = row
+        row.configureCell?(cell)
         
         //Register textFields & textViews
         self.registerTextfields(cell)
@@ -126,6 +126,16 @@ open class BlastTableViewController: UITableViewController {
         let row = section.rows[indexPath.row]
         row.cellTapped?()
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    // MARK: - Clear & Reload
+    
+    public func clear() {
+        self.sections.removeAll()
+    }
+    
+    public func reload() {
+        self.tableView.reloadData()
     }
     
     // MARK: - Registering sections

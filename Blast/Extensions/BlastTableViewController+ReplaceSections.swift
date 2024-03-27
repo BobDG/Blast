@@ -12,7 +12,9 @@ public extension BlastTableViewController {
     func replaceSection(_ oldSection: BlastTableViewSection, 
                         with newSection: BlastTableViewSection,
                         useReloadSections: Bool = false,
-                        animation: UITableView.RowAnimation = .automatic) {
+                        animation: UITableView.RowAnimation = .automatic,
+                        completion: ((Bool) -> Void)? = nil) {        
+        //Safety checks
         guard let sectionIndex = self.sections.firstIndex(where: { $0 === oldSection }) else {
             print("BlastTableViewController -> replaceSection -> Specified section not found.")
             return
@@ -28,18 +30,19 @@ public extension BlastTableViewController {
         if useReloadSections {
             self.tableView.reloadSections(indexSet, with: animation)
         } else {
-            self.tableView.beginUpdates()
-            self.tableView.deleteSections(indexSet, with: animation)
-            self.tableView.insertSections(indexSet, with: animation)
-            self.tableView.endUpdates()
+            self.tableView.performBatchUpdates({
+                self.tableView.deleteSections(indexSet, with: animation)
+                self.tableView.insertSections(indexSet, with: animation)
+            }, completion: completion)
         }
     }
     
     
     func replaceSections(deleting oldSections: [BlastTableViewSection],
                          with newSections: [BlastTableViewSection],
-                         animation: UITableView.RowAnimation = .automatic) {
-        //Checks
+                         animation: UITableView.RowAnimation = .automatic,
+                         completion: ((Bool) -> Void)? = nil) {
+        // Safety Checks
         var indexesToDelete = IndexSet()
         for (index, oldSection) in oldSections.enumerated() {
             if let sectionIndex = self.sections.firstIndex(where: { $0 === oldSection }) {
@@ -54,24 +57,21 @@ public extension BlastTableViewController {
             return
         }
         
-        //Begin
-        self.tableView.beginUpdates()
-        
-        //Delete from sections array
-        self.sections.removeSubrange(startIndex...endIndex)
-        
-        //Delete from tableView
-        self.tableView.deleteSections(indexesToDelete, with: animation)
-        
-        //Add to sections array
-        self.sections.insert(contentsOf: newSections, at: startIndex)
-        
-        //Insert into tableview
-        let insertIndexSet = IndexSet(integersIn: startIndex..<(startIndex + newSections.count))
-        self.tableView.insertSections(insertIndexSet, with: animation)
-        
-        //End
-        self.tableView.endUpdates()
+        //Let's go
+        self.tableView.performBatchUpdates({
+            // Delete from sections array
+            self.sections.removeSubrange(startIndex...endIndex)
+            
+            // Delete from tableView
+            self.tableView.deleteSections(indexesToDelete, with: animation)
+            
+            // Add to sections array
+            self.sections.insert(contentsOf: newSections, at: startIndex)
+            
+            // Insert into tableview
+            let insertIndexSet = IndexSet(integersIn: startIndex..<(startIndex + newSections.count))
+            self.tableView.insertSections(insertIndexSet, with: animation)
+        }, completion: completion)
     }
     
 }

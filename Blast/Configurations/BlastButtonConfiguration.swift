@@ -22,25 +22,25 @@ public class ButtonConfiguration {
     // MARK: - SwiftUI style parameters
     
     @discardableResult
-    func title(_ title: String) -> Self {
+    public func title(_ title: String) -> Self {
         self.title = title
         return self
     }
     
     @discardableResult
-    func attributedTitle(_ attributedTitle: NSAttributedString?) -> Self {
+    public func attributedTitle(_ attributedTitle: NSAttributedString?) -> Self {
         self.attributedTitle = attributedTitle
         return self
     }
     
     @discardableResult
-    func backgroundColor(_ backgroundColor: UIColor?) -> Self {
+    public func backgroundColor(_ backgroundColor: UIColor?) -> Self {
         self.backgroundColor = backgroundColor
         return self
     }
     
     @discardableResult
-    func tapped(_ tapped: (() -> Void)?) -> Self {
+    public func tapped(_ tapped: (() -> Void)?) -> Self {
         self.tapped = tapped
         return self
     }

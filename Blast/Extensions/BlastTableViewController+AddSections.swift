@@ -12,9 +12,9 @@ public extension BlastTableViewController {
     func addSections(_ newSections: [BlastTableViewSection],
                      beforeSection: BlastTableViewSection? = nil,
                      afterSection: BlastTableViewSection? = nil,
-                     animation: UITableView.RowAnimation = .automatic) {
-        
-        //Check if already added
+                     animation: UITableView.RowAnimation = .automatic,
+                     completion: ((Bool) -> Void)? = nil) {
+        //Safety checks
         for(index, section) in newSections.enumerated() {
             if self.sections.firstIndex(where: { $0 === section }) != nil {
                 print("BlastTableViewController -> addSections -> Section at index \(index) is already in the tableArray...")
@@ -43,20 +43,17 @@ public extension BlastTableViewController {
             insertionIndex = self.sections.count
         }
         
-        //Begin
-        self.tableView.beginUpdates()
-        
-        //Add to sections array
-        self.sections.insert(contentsOf: newSections, at: insertionIndex)
-        
-        //Generate IndexSet
-        let indexSet = IndexSet(integersIn: insertionIndex..<(insertionIndex + newSections.count))
-        
-        //Insert into tableview
-        self.tableView.insertSections(indexSet, with: animation)
-        
-        //End
-        self.tableView.endUpdates()
+        //Let's go
+        self.tableView.performBatchUpdates({
+            //Add to sections array
+            self.sections.insert(contentsOf: newSections, at: insertionIndex)
+            
+            //Generate IndexSet
+            let indexSet = IndexSet(integersIn: insertionIndex..<(insertionIndex + newSections.count))
+            
+            //Insert into tableview
+            self.tableView.insertSections(indexSet, with: animation)
+        }, completion: completion)
     }
     
     func addSections(_ newSections: [BlastTableViewSection],
@@ -64,8 +61,7 @@ public extension BlastTableViewController {
                      atTheBottom: Bool? = nil,
                      startingIndex: Int? = nil,
                      animation: UITableView.RowAnimation = .automatic,
-                     update: Bool = true) {
-        
+                     completion: ((Bool) -> Void)? = nil) {
         //Insertion index
         var insertionIndex: Int = self.sections.count
         if atTheTop != nil {
@@ -84,21 +80,17 @@ public extension BlastTableViewController {
             }
         }
         
-        //Begin
-        self.tableView.beginUpdates()
-        
-        //Add to sections array
-        self.sections.insert(contentsOf: newSections, at: insertionIndex)
-        
-        //Generate IndexSet
-        let indexSet = IndexSet(integersIn: insertionIndex..<(insertionIndex + newSections.count))
-        
-        //Insert into tableView
-        self.tableView.insertSections(indexSet, with: animation)
-        
-        //End
-        self.tableView.endUpdates()
+        //Let's go
+        self.tableView.performBatchUpdates({
+            //Add to sections array
+            self.sections.insert(contentsOf: newSections, at: insertionIndex)
+            
+            //Generate IndexSet
+            let indexSet = IndexSet(integersIn: insertionIndex..<(insertionIndex + newSections.count))
+            
+            //Insert into tableView
+            self.tableView.insertSections(indexSet, with: animation)
+        }, completion: completion)
     }
-
     
 }

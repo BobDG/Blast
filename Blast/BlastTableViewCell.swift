@@ -7,11 +7,13 @@
 
 import UIKit
 
-public class BlastTableViewCell: UITableViewCell {    
+open class BlastTableViewCell: UITableViewCell {    
     //Labels
     @IBOutlet weak var label1: UILabel?
     @IBOutlet weak var label2: UILabel?
     @IBOutlet weak var label3: UILabel?
+    @IBOutlet weak var label4: UILabel?
+    @IBOutlet weak var label5: UILabel?
     
     //Imageviews
     @IBOutlet weak var imageView1: UIImageView?
@@ -26,6 +28,11 @@ public class BlastTableViewCell: UITableViewCell {
     //Textfields
     @IBOutlet weak var textField1: BlastTextField?
     @IBOutlet weak var textField2: BlastTextField?
+    
+    //Views
+    @IBOutlet public weak var view1: UIView?
+    @IBOutlet weak var view2: UIView?
+    @IBOutlet weak var view3: UIView?
     
     //TextViews
     @IBOutlet weak var textView1: BlastTextView?
@@ -45,6 +52,8 @@ public class BlastTableViewCell: UITableViewCell {
             self.setupLabel(label1, row.label1)
             self.setupLabel(label2, row.label2)
             self.setupLabel(label3, row.label3)
+            self.setupLabel(label4, row.label4)
+            self.setupLabel(label5, row.label5)
             
             //Buttons
             self.setupButton(button1, row.button1)
@@ -65,7 +74,14 @@ public class BlastTableViewCell: UITableViewCell {
 
             //TextViews
             self.setupTextView(textView1, row.textView1)
+            
+            //Additional configuration
+            self.configure()
         }
+    }
+    
+    open func configure() {
+        //To be overriden
     }
     
     // MARK: - Labels
