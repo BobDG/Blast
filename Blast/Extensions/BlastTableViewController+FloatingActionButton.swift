@@ -29,7 +29,7 @@ public extension BlastTableViewController {
         objc_setAssociatedObject(self, &floatingButtonKey, action, .OBJC_ASSOCIATION_RETAIN)
         button.addTarget(self, action: #selector(floatingButtonTapped), for: .touchUpInside)
     }
-
+    
     private func setupFloatingButtonConstraints(button: UIButton, position: FloatingButtonPosition, paddingBottom: CGFloat, paddingSide: CGFloat?) {
         button.translatesAutoresizingMaskIntoConstraints = false
         let safeArea = view.safeAreaLayoutGuide
@@ -51,10 +51,17 @@ public extension BlastTableViewController {
             button.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
-
+    
     @objc func floatingButtonTapped() {
         if let action = objc_getAssociatedObject(self, &floatingButtonKey) as? (() -> Void) {
             action()
+        }
+    }
+    
+    func removeFloatingActionButton() {
+        if let button = objc_getAssociatedObject(self, &floatingButtonKey) as? UIButton {
+            button.removeFromSuperview()
+            objc_setAssociatedObject(self, &floatingButtonKey, nil, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     

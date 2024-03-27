@@ -9,36 +9,36 @@ import UIKit
 
 open class BlastTableViewCell: UITableViewCell {    
     //Labels
-    @IBOutlet weak var label1: UILabel?
-    @IBOutlet weak var label2: UILabel?
-    @IBOutlet weak var label3: UILabel?
-    @IBOutlet weak var label4: UILabel?
-    @IBOutlet weak var label5: UILabel?
+    @IBOutlet public weak var label1: UILabel?
+    @IBOutlet public weak var label2: UILabel?
+    @IBOutlet public weak var label3: UILabel?
+    @IBOutlet public weak var label4: UILabel?
+    @IBOutlet public weak var label5: UILabel?
     
     //Imageviews
-    @IBOutlet weak var imageView1: UIImageView?
-    @IBOutlet weak var imageView2: UIImageView?
-    @IBOutlet weak var imageView3: UIImageView?
+    @IBOutlet public weak var imageView1: UIImageView?
+    @IBOutlet public weak var imageView2: UIImageView?
+    @IBOutlet public weak var imageView3: UIImageView?
     
     //Buttons
-    @IBOutlet weak var button1: UIButton?
-    @IBOutlet weak var button2: UIButton?
-    @IBOutlet weak var button3: UIButton?
+    @IBOutlet public weak var button1: UIButton?
+    @IBOutlet public weak var button2: UIButton?
+    @IBOutlet public weak var button3: UIButton?
     
     //Textfields
-    @IBOutlet weak var textField1: BlastTextField?
-    @IBOutlet weak var textField2: BlastTextField?
+    @IBOutlet public weak var textField1: BlastTextField?
+    @IBOutlet public weak var textField2: BlastTextField?
     
     //Views
     @IBOutlet public weak var view1: UIView?
-    @IBOutlet weak var view2: UIView?
-    @IBOutlet weak var view3: UIView?
+    @IBOutlet public weak var view2: UIView?
+    @IBOutlet public weak var view3: UIView?
     
     //TextViews
-    @IBOutlet weak var textView1: BlastTextView?
+    @IBOutlet public weak var textView1: BlastTextView?
     
     //Switch
-    @IBOutlet weak var switch1: UISwitch?
+    @IBOutlet public weak var switch1: UISwitch?
     
     //Row
     public var row: BlastTableViewRow? {
