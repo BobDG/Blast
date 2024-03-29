@@ -6,6 +6,7 @@ import UIKit
 import ObjectiveC
 
 private var floatingButtonKey: Void?
+private var floatingButtonActionKey: UInt8 = 0
 
 public extension BlastController {
     
@@ -23,8 +24,8 @@ public extension BlastController {
         self.setupFloatingButtonConstraints(button: button, position: position, paddingBottom: paddingBottom, paddingSide: paddingSide)
         
         // Tapped
-        objc_setAssociatedObject(self, &floatingButtonKey, action, .OBJC_ASSOCIATION_RETAIN)
-        button.addTarget(self, action: #selector(floatingButtonTapped), for: .touchUpInside)
+        objc_setAssociatedObject(button, &floatingButtonActionKey, action, .OBJC_ASSOCIATION_RETAIN)
+        button.addTarget(self, action: #selector(floatingButtonTapped(_:)), for: .touchUpInside)
     }
     
     private func setupFloatingButtonConstraints(button: UIButton, position: FloatingButtonPosition, paddingBottom: CGFloat, paddingSide: CGFloat?) {
@@ -49,15 +50,20 @@ public extension BlastController {
         ])
     }
     
-    @objc func floatingButtonTapped() {
-        if let action = objc_getAssociatedObject(self, &floatingButtonKey) as? (() -> Void) {
+    @objc func floatingButtonTapped(_ sender: UIButton) {
+        // Retrieve the action using the sender (button) as the reference
+        if let action = objc_getAssociatedObject(sender, &floatingButtonActionKey) as? (() -> Void) {
             action()
         }
     }
+
     
     func removeFloatingActionButton() {
         if let button = objc_getAssociatedObject(self, &floatingButtonKey) as? UIButton {
             button.removeFromSuperview()
+            
+            //First remove action, then button
+            objc_setAssociatedObject(button, &floatingButtonActionKey, nil, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             objc_setAssociatedObject(self, &floatingButtonKey, nil, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
