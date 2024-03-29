@@ -1,21 +1,18 @@
 //
 //  BlastTextView.swift
-//  BlastExample
-//
-//  Created by Bob de Graaf on 27/02/2024.
 //
 
 import UIKit
 
 public class BlastTextView: UITextView, UITextViewDelegate {
-    //Default values
+    // Default values
     public var height: Int = 0
     
-    //Closures for row
+    // Closures for row
     public var doneTapped:(() -> Void)?
     public var textChanged:((String) -> Void)?
     
-    //Closures for controller
+    // Closures for controller
     public var heightChanged:(() -> Void)?
     
     // MARK: - Lifecycle for Interface Builder
@@ -25,10 +22,10 @@ public class BlastTextView: UITextView, UITextViewDelegate {
         
         self.delegate = self
         
-        //Remove default padding
+        // Remove default padding
         self.textContainer.lineFragmentPadding = 0
         
-        //Done button (only when editable)
+        // Done button (only when editable)
         if self.isEditable {
             self.addDoneButtonOnKeyboard()
         }
@@ -57,7 +54,7 @@ public class BlastTextView: UITextView, UITextViewDelegate {
     public func textViewDidChange(_ textView: UITextView) {
         self.textChanged?(text ?? "")
         
-        //Automatically resize cell if scrolling is disabled
+        // Automatically resize cell if scrolling is disabled
         if self.isScrollEnabled {
            return
         }

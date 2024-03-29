@@ -1,19 +1,16 @@
 //
-//  BlastTableHeaderFooterView.swift
-//  BlastExample
-//
-//  Created by Bob de Graaf on 02/02/2024.
+//  BlastHeaderFooterView.swift
 //
 
 import UIKit
 
-open class BlastTableHeaderFooterView: UITableViewHeaderFooterView {
-    //Labels
+open class BlastHeaderFooterView: UITableViewHeaderFooterView {
+    // Labels
     @IBOutlet weak var headerLabel: UILabel?
     @IBOutlet weak var footerLabel: UILabel?
     
-    //Section
-    public var section: BlastTableViewSection? {
+    // Section
+    public var section: BlastSection? {
         didSet {
             guard let section else { return }
             headerLabel?.text = section.headerTitle

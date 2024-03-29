@@ -1,27 +1,24 @@
 //
 //  ReplaceRows.swift
-//  BlastExample
-//
-//  Created by Bob de Graaf on 05/03/2024.
 //
 
 import UIKit
 
-class ReplaceRows: BlastTableViewController {
+class ReplaceRows: BlastController {
     
     var singleNewRowsCount = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Styling
+        // Styling
         self.navigationItem.title = "Replace rows"
         
-        //Register XIBs
+        // Register XIBs
         self.registerCells([XIBCellOneLabel, XIBCellOneButton, XIBCellTwoButtons])
         self.registerHeaderFooters([XIBHeader])
         
-        //Load
+        // Load
         self.loadContent()
     }
     
@@ -32,18 +29,18 @@ class ReplaceRows: BlastTableViewController {
     }
     
     func loadSingleRows() {
-        var row: BlastTableViewRow
-        var section: BlastTableViewSection
+        var row: BlastRow
+        var section: BlastSection
         
-        section = BlastTableViewSection(headerXibName: XIBHeader)
+        section = BlastSection(headerXibName: XIBHeader)
         section.headerTitle = "Single - new rows"
         self.addSection(section)
                 
-        //First row
+        // First row
         section.addRow(self.createRow(title: "Row 1"))
         
-        let replaceWithCreateRow = BlastTableViewRow(xibName: XIBCellOneButton)
-        replaceWithCreateRow.button1 = ButtonConfiguration()
+        let replaceWithCreateRow = BlastRow(xibName: XIBCellOneButton)
+        replaceWithCreateRow.button1 = ButtonConfig()
             .title("Replace by a new row")
             .tapped { [weak self] in
                 guard let self else { return }
@@ -55,22 +52,22 @@ class ReplaceRows: BlastTableViewController {
             }
         section.addRow(replaceWithCreateRow)
         
-        section = BlastTableViewSection(headerXibName: XIBHeader)
+        section = BlastSection(headerXibName: XIBHeader)
         section.headerTitle = "Single - lazy rows"
         self.addSection(section)
                 
-        //First row
+        // First row
         section.addRow(self.singleRow1)
         
-        //Replace row
-        row = BlastTableViewRow(xibName: XIBCellTwoButtons)
-        row.button1 = ButtonConfiguration()
+        // Replace row
+        row = BlastRow(xibName: XIBCellTwoButtons)
+        row.button1 = ButtonConfig()
             .title("Replace row 1 with 2")
             .tapped { [weak self] in
                 guard let self else { return }
                 self.replaceRow(self.singleRow1, with: self.singleRow2, useReloadRows: true, animation: .right)
             }
-        row.button2 = ButtonConfiguration()
+        row.button2 = ButtonConfig()
             .title("Replace row 2 with 1")
             .tapped { [weak self] in
                 guard let self else { return }
@@ -80,26 +77,26 @@ class ReplaceRows: BlastTableViewController {
     }
     
     func loadPluralRows() {
-        var row: BlastTableViewRow
-        var section: BlastTableViewSection
+        var row: BlastRow
+        var section: BlastSection
         
-        section = BlastTableViewSection(headerXibName: XIBHeader)
+        section = BlastSection(headerXibName: XIBHeader)
         section.headerTitle = "Plural"
         self.addSection(section)
         
-        //First rows
+        // First rows
         section.addRow(self.pluralRow1)
         section.addRow(self.pluralRow2)
                 
-        //Replace row
-        row = BlastTableViewRow(xibName: XIBCellTwoButtons)
-        row.button1 = ButtonConfiguration()
+        // Replace row
+        row = BlastRow(xibName: XIBCellTwoButtons)
+        row.button1 = ButtonConfig()
             .title("Replace row 1 & 2 with 3 & 4")
             .tapped { [weak self] in
                 guard let self else { return }
                 self.replaceRows(deleting: [self.pluralRow1, self.pluralRow2], with: [self.pluralRow3, self.pluralRow4], animation: .fade)
             }
-        row.button2 = ButtonConfiguration()
+        row.button2 = ButtonConfig()
             .title("Replace row 3 & 4 with 1 & 2")
             .tapped { [weak self] in
                 guard let self else { return }
@@ -109,25 +106,25 @@ class ReplaceRows: BlastTableViewController {
     }
     
     func loadCustomRows() {
-        var row: BlastTableViewRow
-        var section: BlastTableViewSection
+        var row: BlastRow
+        var section: BlastSection
         
-        section = BlastTableViewSection(headerXibName: XIBHeader)
+        section = BlastSection(headerXibName: XIBHeader)
         section.headerTitle = "Custom (2 by 1 or vice versa)"
         self.addSection(section)
         
-        //First rows
+        // First rows
         section.addRow(self.customRow1)
                 
-        //Replace row
-        row = BlastTableViewRow(xibName: XIBCellTwoButtons)
-        row.button1 = ButtonConfiguration()
+        // Replace row
+        row = BlastRow(xibName: XIBCellTwoButtons)
+        row.button1 = ButtonConfig()
             .title("Replace row 1 with 2 & 3")
             .tapped { [weak self] in
                 guard let self else { return }
                 self.replaceRows(deleting: [self.customRow1], with: [self.customRow2, self.customRow3], animation: .left)
             }
-        row.button2 = ButtonConfiguration()
+        row.button2 = ButtonConfig()
             .title("Replace row 2 & 3 with 1")
             .tapped { [weak self] in
                 guard let self else { return }
@@ -138,63 +135,63 @@ class ReplaceRows: BlastTableViewController {
     
     // MARK: - Rows
     
-    func createRow(title: String) -> BlastTableViewRow {
-        let row: BlastTableViewRow = .init(xibName: XIBCellOneLabel)
-        row.label1 = LabelConfiguration().text(title)
+    func createRow(title: String) -> BlastRow {
+        let row: BlastRow = .init(xibName: XIBCellOneLabel)
+        row.label1 = LabelConfig().text(title)
         return row
     }
     
-    lazy var singleRow1: BlastTableViewRow = {
-        var row: BlastTableViewRow = .init(xibName: XIBCellOneLabel)
-        row.label1 = LabelConfiguration().text("Lazy single row 1 - replace uses reloadIndexPath")
+    lazy var singleRow1: BlastRow = {
+        var row: BlastRow = .init(xibName: XIBCellOneLabel)
+        row.label1 = LabelConfig().text("Lazy single row 1 - replace uses reloadIndexPath")
         return row
     }()
     
-    lazy var singleRow2: BlastTableViewRow = {
-        var row: BlastTableViewRow = .init(xibName: XIBCellOneLabel)
-        row.label1 = LabelConfiguration().text("Lazy single row 2 - replaces uses tableView begin & end updates ")
+    lazy var singleRow2: BlastRow = {
+        var row: BlastRow = .init(xibName: XIBCellOneLabel)
+        row.label1 = LabelConfig().text("Lazy single row 2 - replaces uses  begin & end updates ")
         return row
     }()
     
-    lazy var pluralRow1: BlastTableViewRow = {
-        var row: BlastTableViewRow = .init(xibName: XIBCellOneLabel)
-        row.label1 = LabelConfiguration().text("Lazy plural 1")
+    lazy var pluralRow1: BlastRow = {
+        var row: BlastRow = .init(xibName: XIBCellOneLabel)
+        row.label1 = LabelConfig().text("Lazy plural 1")
         return row
     }()
     
-    lazy var pluralRow2: BlastTableViewRow = {
-        var row: BlastTableViewRow = .init(xibName: XIBCellOneLabel)
-        row.label1 = LabelConfiguration().text("Lazy plural 2")
+    lazy var pluralRow2: BlastRow = {
+        var row: BlastRow = .init(xibName: XIBCellOneLabel)
+        row.label1 = LabelConfig().text("Lazy plural 2")
         return row
     }()
     
-    lazy var pluralRow3: BlastTableViewRow = {
-        var row: BlastTableViewRow = .init(xibName: XIBCellOneLabel)
-        row.label1 = LabelConfiguration().text("Lazy plural 3")
+    lazy var pluralRow3: BlastRow = {
+        var row: BlastRow = .init(xibName: XIBCellOneLabel)
+        row.label1 = LabelConfig().text("Lazy plural 3")
         return row
     }()
     
-    lazy var pluralRow4: BlastTableViewRow = {
-        var row: BlastTableViewRow = .init(xibName: XIBCellOneLabel)
-        row.label1 = LabelConfiguration().text("Lazy plural 4")
+    lazy var pluralRow4: BlastRow = {
+        var row: BlastRow = .init(xibName: XIBCellOneLabel)
+        row.label1 = LabelConfig().text("Lazy plural 4")
         return row
     }()
     
-    lazy var customRow1: BlastTableViewRow = {
-        var row: BlastTableViewRow = .init(xibName: XIBCellOneLabel)
-        row.label1 = LabelConfiguration().text("Lazy custom 1")
+    lazy var customRow1: BlastRow = {
+        var row: BlastRow = .init(xibName: XIBCellOneLabel)
+        row.label1 = LabelConfig().text("Lazy custom 1")
         return row
     }()
     
-    lazy var customRow2: BlastTableViewRow = {
-        var row: BlastTableViewRow = .init(xibName: XIBCellOneLabel)
-        row.label1 = LabelConfiguration().text("Lazy custom 2")
+    lazy var customRow2: BlastRow = {
+        var row: BlastRow = .init(xibName: XIBCellOneLabel)
+        row.label1 = LabelConfig().text("Lazy custom 2")
         return row
     }()
     
-    lazy var customRow3: BlastTableViewRow = {
-        var row: BlastTableViewRow = .init(xibName: XIBCellOneLabel)
-        row.label1 = LabelConfiguration().text("Lazy custom 3")
+    lazy var customRow3: BlastRow = {
+        var row: BlastRow = .init(xibName: XIBCellOneLabel)
+        row.label1 = LabelConfig().text("Lazy custom 3")
         return row
     }()
 }

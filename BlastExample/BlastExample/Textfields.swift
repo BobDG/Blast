@@ -1,13 +1,10 @@
 //
 //  TextFields.swift
-//  BlastExample
-//
-//  Created by Bob de Graaf on 02/02/2024.
 //
 
 import UIKit
 
-class TextFields: BlastTableViewController {
+class TextFields: BlastController {
     
     class MyObject {
         var textString1: String = "Var1"
@@ -19,81 +16,81 @@ class TextFields: BlastTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Styling
+        // Styling
         self.navigationItem.title = "TextFields"
         
-        //Register XIBs
+        // Register XIBs
         self.registerHeaderFooters([XIBHeader])
         self.registerCells([XIBCellOneTextField, XIBCellTwoTextFields, XIBCellOneButton])
         
-        //Load
+        // Load
         self.loadContent()
     }
     
     func loadContent() {
-        var row: BlastTableViewRow
-        var section: BlastTableViewSection
+        var row: BlastRow
+        var section: BlastSection
         
-        section = BlastTableViewSection(headerXibName: XIBHeader)
+        section = BlastSection(headerXibName: XIBHeader)
         section.headerTitle = "Basic"
         self.addSection(section)
         
-        row = BlastTableViewRow(xibName: XIBCellOneTextField)
-        row.textField1 = TextFieldConfiguration()
+        row = BlastRow(xibName: XIBCellOneTextField)
+        row.textField1 = TextFieldConfig()
             .placeholder("Simple placeholder".capitalized)
         section.addRow(row)
         
-        section = BlastTableViewSection(headerXibName: XIBHeader)
+        section = BlastSection(headerXibName: XIBHeader)
         section.headerTitle = "Attributed"
         self.addSection(section)
         
-        row = BlastTableViewRow(xibName: XIBCellOneTextField)
-        row.textField1 = TextFieldConfiguration()
+        row = BlastRow(xibName: XIBCellOneTextField)
+        row.textField1 = TextFieldConfig()
             .attributedPlaceholder(.init(string: "Italic & background", 
                                          attributes: [.font: UIFont.italicSystemFont(ofSize: 14), .backgroundColor: UIColor.systemPink]))
         section.addRow(row)
         
-        section = BlastTableViewSection(headerXibName: XIBHeader)
+        section = BlastSection(headerXibName: XIBHeader)
         section.headerTitle = "Custom fonts for placeholder & text "
         self.addSection(section)
         
-        row = BlastTableViewRow(xibName: XIBCellOneTextField)
-        row.textField1 = TextFieldConfiguration()
+        row = BlastRow(xibName: XIBCellOneTextField)
+        row.textField1 = TextFieldConfig()
             .font(UIFont.boldSystemFont(ofSize: 20))
             .attributedPlaceholder(.init(string: "Type to see it",
                                          attributes: [.font: UIFont.systemFont(ofSize: 12), .foregroundColor: UIColor.gray]))
         section.addRow(row)
         
         
-        section = BlastTableViewSection(headerXibName: XIBHeader)
+        section = BlastSection(headerXibName: XIBHeader)
         section.headerTitle = "No next-field on return"
         self.addSection(section)
         
-        row = BlastTableViewRow(xibName: XIBCellOneTextField)
-        row.textField1 = TextFieldConfiguration()
+        row = BlastRow(xibName: XIBCellOneTextField)
+        row.textField1 = TextFieldConfig()
             .placeholder("And capitalize everything".capitalized)
             .capitalizationType(.allCharacters)
             .nextFieldOnReturn(false)
         section.addRow(row)
         
         
-        section = BlastTableViewSection(headerXibName: XIBHeader)
+        section = BlastSection(headerXibName: XIBHeader)
         section.headerTitle = "Number pad"
         self.addSection(section)
         
-        row = BlastTableViewRow(xibName: XIBCellOneTextField)
-        row.textField1 = TextFieldConfiguration()
+        row = BlastRow(xibName: XIBCellOneTextField)
+        row.textField1 = TextFieldConfig()
             .placeholder("Only numbers (with decimals) allowed")
             .keyboardType(.decimalPad)
         section.addRow(row)
         
         
-        section = BlastTableViewSection(headerXibName: XIBHeader)
+        section = BlastSection(headerXibName: XIBHeader)
         section.headerTitle = "Using shouldChangeCharactersIn"
         self.addSection(section)
         
-        let cRow = BlastTableViewRow(xibName: XIBCellOneTextField)
-        cRow.textField1 = TextFieldConfiguration()
+        let cRow = BlastRow(xibName: XIBCellOneTextField)
+        cRow.textField1 = TextFieldConfig()
             .text(self.object.textString3)
             .placeholder("No numbers allowed".capitalized)
             .shouldChangeCharactersIn({ textField, range, replacementString in
@@ -120,12 +117,12 @@ class TextFields: BlastTableViewController {
         
         
         
-        section = BlastTableViewSection(headerXibName: XIBHeader)
+        section = BlastSection(headerXibName: XIBHeader)
         section.headerTitle = "Two textFields? Sure"
         self.addSection(section)
         
-        let tRow = BlastTableViewRow(xibName: XIBCellTwoTextFields)
-        tRow.textField1 = TextFieldConfiguration()
+        let tRow = BlastRow(xibName: XIBCellTwoTextFields)
+        tRow.textField1 = TextFieldConfig()
             .text(self.object.textString1)
             .font(UIFont.boldSystemFont(ofSize: 24))
             .attributedPlaceholder(.init(string: "Two textFields",
@@ -138,7 +135,7 @@ class TextFields: BlastTableViewController {
             .returnTapped {
                 print("Textfield 1 return tapped!")
             }
-        tRow.textField2 = TextFieldConfiguration()
+        tRow.textField2 = TextFieldConfig()
             .text(self.object.textString2)
             .font(UIFont.italicSystemFont(ofSize: 14))
             .attributedPlaceholder(.init(string: "Go nuts", 
@@ -152,8 +149,8 @@ class TextFields: BlastTableViewController {
             }
         section.addRow(tRow)
         
-        row = BlastTableViewRow(xibName: XIBCellOneButton)
-        row.button1 = ButtonConfiguration()
+        row = BlastRow(xibName: XIBCellOneButton)
+        row.button1 = ButtonConfig()
             .title("Tap to print values in console")
             .tapped { [weak self] in
                 print("Object text 1: \(String(describing: self?.object.textString1))")

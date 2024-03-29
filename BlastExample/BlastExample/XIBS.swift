@@ -1,40 +1,37 @@
 //
 //  XIBS.swift
-//  BlastExample
-//
-//  Created by Bob de Graaf on 02/02/2024.
 //
 
-//Headers
+// Headers
 let XIBHeader = "Header"
 
-//Footers
+// Footers
 let XIBFooter = "Footer"
 
-//Menu
+// Menu
 let XIBCellMenuItem = "CellMenuItem"
 
-//Labels
+// Labels
 let XIBCellOneLabel = "CellOneLabel"
 let XIBCellTwoLabels = "CellTwoLabels"
 let XIBCellThreeLabels = "CellThreeLabels"
 
-//Buttons
+// Buttons
 let XIBCellOneButton = "CellOneButton"
 let XIBCellTwoButtons = "CellTwoButtons"
 let XIBCellThreeButtons = "CellThreeButtons"
 
-//ImageViews
+// ImageViews
 let XIBCellOneImageView = "CellOneImageView"
 let XIBCellTwoImageViews = "CellTwoImageViews"
 let XIBCellThreeImageViews = "CellThreeImageViews"
 
-//Switches
+// Switches
 let XIBCellOneSwitch = "CellOneSwitch"
 
-//TextFields
+// TextFields
 let XIBCellOneTextField = "CellOneTextField"
 let XIBCellTwoTextFields = "CellTwoTextFields"
 
-//TextViews
+// TextViews
 let XIBCellTextView = "CellTextView"

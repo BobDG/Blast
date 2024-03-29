@@ -1,13 +1,10 @@
 //
-//  BlastTextFieldConfiguration.swift
-//  BlastExample
-//
-//  Created by Bob de Graaf on 27/02/2024.
+//  BlastTextFieldConfig.swift
 //
 
 import UIKit
 
-public class TextFieldConfiguration {
+public class TextFieldConfig {
     public var text: String = ""
     public var font: UIFont?
     
@@ -29,7 +26,7 @@ public class TextFieldConfiguration {
     // MARK: - Lifecycle
     
     public init() {
-        //Only here because default swift init is private...
+        // Only here because default swift init is private...
     }
     
     // MARK: - SwiftUI style parameters

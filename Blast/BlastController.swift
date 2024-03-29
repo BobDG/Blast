@@ -1,25 +1,22 @@
 //
-//  BlastTableViewController.swift
-//  BlastExample
-//
-//  Created by Bob de Graaf on 02/02/2024.
+//  BlastController.swift
 //
 
 import UIKit
 
-open class BlastTableViewController: UITableViewController {
-    //Sections
-    public var sections:[BlastTableViewSection] = []
-    public var retainedSections: [BlastTableViewSection] = []
+open class BlastController: UITableViewController {
+    // Sections
+    public var sections:[BlastSection] = []
+    public var retainedSections: [BlastSection] = []
     public var sectionDefaultHeaderHeight = 20
     public var sectionDefaultFooterHeight = 10
     
-    //Estimated heights (setting these can improve scrolling performance)
+    // Estimated heights (setting these can improve scrolling performance)
     public var estimatedRowHeight = 44
     public var estimatedHeaderHeight = 20
     public var estimatedFooterHeight = 10
     
-    //Textfields
+    // Textfields
     public var textViewsArray: [UITextView] = []
     public var textFieldsArray: [UITextField] = []
     
@@ -34,11 +31,11 @@ open class BlastTableViewController: UITableViewController {
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = self.sections[indexPath.section]
         let row = section.rows[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: row.xibName, for: indexPath) as! BlastTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: row.xibName, for: indexPath) as! BlastCell
         cell.row = row
         row.configureCell?(cell)
         
-        //Register textFields & textViews
+        // Register textFields & textViews
         self.registerTextfields(cell)
         self.registerTextViews(cell)
         
@@ -50,7 +47,7 @@ open class BlastTableViewController: UITableViewController {
     public override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let section = self.sections[section]
         if let xibName = section.headerXibName {
-            let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: xibName) as! BlastTableHeaderFooterView
+            let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: xibName) as! BlastHeaderFooterView
             view.section = section
             return view
         }
@@ -60,7 +57,7 @@ open class BlastTableViewController: UITableViewController {
     public override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let section = self.sections[section]
         if let xibName = section.footerXibName {
-            let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: xibName) as! BlastTableHeaderFooterView
+            let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: xibName) as! BlastHeaderFooterView
             view.section = section
             return view
         }
@@ -87,7 +84,7 @@ open class BlastTableViewController: UITableViewController {
     
     public override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         let section = self.sections[section]
-        //Precedence order: Section set -> Views -> Global
+        // Precedence order: Section set -> Views -> Global
         if let headerHeight = section.headerHeight {
             return CGFloat(headerHeight)
         }
@@ -99,7 +96,7 @@ open class BlastTableViewController: UITableViewController {
     
     public override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         let section = self.sections[section]
-        //Precedence order: Section set -> Views -> Global
+        // Precedence order: Section set -> Views -> Global
         if let footerHeight = section.footerHeight {
             return CGFloat(footerHeight)
         }
@@ -140,11 +137,11 @@ open class BlastTableViewController: UITableViewController {
     
     // MARK: - Registering sections
     
-    public func addSection(_ section: BlastTableViewSection) {
+    public func addSection(_ section: BlastSection) {
         self.sections.append(section)
     }
     
-    public func retainSection(_ section: BlastTableViewSection) {
+    public func retainSection(_ section: BlastSection) {
         if self.retainedSections.contains(where: { $0 === section }) {
             return
         }
@@ -169,7 +166,7 @@ open class BlastTableViewController: UITableViewController {
     
     // MARK: - Textfields
     
-    public func registerTextfields(_ cell: BlastTableViewCell) {
+    public func registerTextfields(_ cell: BlastCell) {
         [cell.textField1, cell.textField2].forEach { textField in
             if let textField = textField, !self.textFieldsArray.contains(textField) {
                 self.textFieldsArray.append(textField)
@@ -192,7 +189,7 @@ open class BlastTableViewController: UITableViewController {
     
     // MARK: - Textviews
     
-    public func registerTextViews(_ cell: BlastTableViewCell) {
+    public func registerTextViews(_ cell: BlastCell) {
         if let textView = cell.textView1 {
             if !textViewsArray.contains(textView) {
                 textViewsArray.append(textView)

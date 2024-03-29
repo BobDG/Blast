@@ -7,29 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C40581ED2B986308000C93FD /* BlastTableViewController+DeleteSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40581EC2B986308000C93FD /* BlastTableViewController+DeleteSections.swift */; };
-		C40581EF2B986CE9000C93FD /* BlastTableViewController+AddSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40581EE2B986CE9000C93FD /* BlastTableViewController+AddSections.swift */; };
-		C40581F12B986EB4000C93FD /* BlastTableViewController+ReplaceSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40581F02B986EB4000C93FD /* BlastTableViewController+ReplaceSections.swift */; };
+		C40581ED2B986308000C93FD /* BlastController+DeleteSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40581EC2B986308000C93FD /* BlastController+DeleteSections.swift */; };
+		C40581EF2B986CE9000C93FD /* BlastController+AddSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40581EE2B986CE9000C93FD /* BlastController+AddSections.swift */; };
+		C40581F12B986EB4000C93FD /* BlastController+ReplaceSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40581F02B986EB4000C93FD /* BlastController+ReplaceSections.swift */; };
 		C41227752B6CEE2F00626D72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41227742B6CEE2F00626D72 /* AppDelegate.swift */; };
 		C41227772B6CEE2F00626D72 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41227762B6CEE2F00626D72 /* SceneDelegate.swift */; };
 		C41227792B6CEE2F00626D72 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41227782B6CEE2F00626D72 /* Menu.swift */; };
 		C412277C2B6CEE2F00626D72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C412277A2B6CEE2F00626D72 /* Main.storyboard */; };
 		C412277E2B6CEE3000626D72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C412277D2B6CEE3000626D72 /* Assets.xcassets */; };
 		C41227812B6CEE3000626D72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C412277F2B6CEE3000626D72 /* LaunchScreen.storyboard */; };
-		C412278A2B6CEE6A00626D72 /* BlastTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41227892B6CEE6A00626D72 /* BlastTableViewController.swift */; };
+		C412278A2B6CEE6A00626D72 /* BlastController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41227892B6CEE6A00626D72 /* BlastController.swift */; };
 		C412278E2B6CF2DE00626D72 /* CellOneLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = C412278D2B6CF2DE00626D72 /* CellOneLabel.xib */; };
-		C41227902B6CF5E500626D72 /* BlastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C412278F2B6CF5E500626D72 /* BlastTableViewCell.swift */; };
-		C41227952B6CF80600626D72 /* BlastTableViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41227932B6CF80600626D72 /* BlastTableViewRow.swift */; };
-		C41227962B6CF80600626D72 /* BlastTableViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41227942B6CF80600626D72 /* BlastTableViewSection.swift */; };
-		C4187A382B9750CF00190BAC /* BlastTableViewController+DeleteRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4187A372B9750CF00190BAC /* BlastTableViewController+DeleteRows.swift */; };
-		C4187A3A2B97542900190BAC /* BlastTableViewController+ReplaceRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4187A392B97542900190BAC /* BlastTableViewController+ReplaceRows.swift */; };
+		C41227902B6CF5E500626D72 /* BlastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C412278F2B6CF5E500626D72 /* BlastCell.swift */; };
+		C41227952B6CF80600626D72 /* BlastRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41227932B6CF80600626D72 /* BlastRow.swift */; };
+		C41227962B6CF80600626D72 /* BlastSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41227942B6CF80600626D72 /* BlastSection.swift */; };
+		C4187A382B9750CF00190BAC /* BlastController+DeleteRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4187A372B9750CF00190BAC /* BlastController+DeleteRows.swift */; };
+		C4187A3A2B97542900190BAC /* BlastController+ReplaceRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4187A392B97542900190BAC /* BlastController+ReplaceRows.swift */; };
 		C4187A3C2B97598700190BAC /* ReplaceRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4187A3B2B97598700190BAC /* ReplaceRows.swift */; };
-		C4187A3E2B975E4400190BAC /* BlastTableViewController+FindRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4187A3D2B975E4400190BAC /* BlastTableViewController+FindRows.swift */; };
+		C4187A3E2B975E4400190BAC /* BlastController+FindRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4187A3D2B975E4400190BAC /* BlastController+FindRows.swift */; };
 		C41938CF2B6D2AD40033D6F0 /* XIBS.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41938CE2B6D2AD40033D6F0 /* XIBS.swift */; };
 		C41938D12B6D2CB50033D6F0 /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41938D02B6D2CB50033D6F0 /* Labels.swift */; };
 		C41938D32B6D2D180033D6F0 /* TextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41938D22B6D2D180033D6F0 /* TextFields.swift */; };
 		C41938D62B6D2DA60033D6F0 /* Header.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41938D52B6D2DA60033D6F0 /* Header.xib */; };
-		C41938D82B6D2E170033D6F0 /* BlastTableHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41938D72B6D2E170033D6F0 /* BlastTableHeaderFooterView.swift */; };
+		C41938D82B6D2E170033D6F0 /* BlastHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41938D72B6D2E170033D6F0 /* BlastHeaderFooterView.swift */; };
 		C41938DA2B6D44F60033D6F0 /* Footer.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41938D92B6D44F60033D6F0 /* Footer.xib */; };
 		C41938DE2B6E85520033D6F0 /* CellTwoLabels.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41938DC2B6E85520033D6F0 /* CellTwoLabels.xib */; };
 		C41938E02B6E85E00033D6F0 /* CellThreeLabels.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41938DF2B6E85E00033D6F0 /* CellThreeLabels.xib */; };
@@ -44,30 +44,31 @@
 		C41938F42B6FB5300033D6F0 /* CellTwoImageViews.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41938F22B6FB5300033D6F0 /* CellTwoImageViews.xib */; };
 		C41938F72B6FDA0D0033D6F0 /* BlastTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41938F62B6FDA0D0033D6F0 /* BlastTextField.swift */; };
 		C41938F92B6FDDC20033D6F0 /* CellOneTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41938F82B6FDDC20033D6F0 /* CellOneTextField.xib */; };
-		C42B56FC2B9B27970073D055 /* BlastTableViewController+FindSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42B56FB2B9B27970073D055 /* BlastTableViewController+FindSections.swift */; };
+		C42B56FC2B9B27970073D055 /* BlastController+FindSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42B56FB2B9B27970073D055 /* BlastController+FindSections.swift */; };
 		C42B56FE2B9B56560073D055 /* ReplaceSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42B56FD2B9B56560073D055 /* ReplaceSections.swift */; };
-		C43CE24C2B8B3FB200283FC7 /* BlastLabelConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43CE24B2B8B3FB200283FC7 /* BlastLabelConfiguration.swift */; };
-		C444709E2B8E3A6400F274E3 /* BlastButtonConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C444709D2B8E3A6400F274E3 /* BlastButtonConfiguration.swift */; };
-		C44470A02B8E3D0900F274E3 /* BlastTextFieldConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C444709F2B8E3D0900F274E3 /* BlastTextFieldConfiguration.swift */; };
+		C43CE24C2B8B3FB200283FC7 /* BlastLabelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43CE24B2B8B3FB200283FC7 /* BlastLabelConfig.swift */; };
+		C444709E2B8E3A6400F274E3 /* BlastButtonConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C444709D2B8E3A6400F274E3 /* BlastButtonConfig.swift */; };
+		C44470A02B8E3D0900F274E3 /* BlastTextFieldConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C444709F2B8E3D0900F274E3 /* BlastTextFieldConfig.swift */; };
 		C44470A22B8E415700F274E3 /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44470A12B8E415700F274E3 /* TextViews.swift */; };
-		C44470A42B8E422900F274E3 /* BlastTextViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44470A32B8E422900F274E3 /* BlastTextViewConfiguration.swift */; };
+		C44470A42B8E422900F274E3 /* BlastTextViewConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44470A32B8E422900F274E3 /* BlastTextViewConfig.swift */; };
 		C44470A62B8E428300F274E3 /* BlastTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44470A52B8E428300F274E3 /* BlastTextView.swift */; };
 		C44470A82B8E492B00F274E3 /* CellTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C44470A72B8E492B00F274E3 /* CellTextView.xib */; };
-		C4609FE22B90F8C7007D6D10 /* BlastTableViewController+AddRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4609FE12B90F8C7007D6D10 /* BlastTableViewController+AddRows.swift */; };
+		C4609FE22B90F8C7007D6D10 /* BlastController+AddRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4609FE12B90F8C7007D6D10 /* BlastController+AddRows.swift */; };
+		C46E3AFA2BB5F538004F4023 /* BlastImageViewConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46E3AF92BB5F538004F4023 /* BlastImageViewConfig.swift */; };
 		C49145062B99DBC500BE9B58 /* AddAndDeleteSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49145052B99DBC500BE9B58 /* AddAndDeleteSections.swift */; };
 		C4AA879D2B8760A500D719A5 /* CellTwoTextFields.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4AA879C2B8760A500D719A5 /* CellTwoTextFields.xib */; };
 		C4AA879F2B877AA500D719A5 /* CellOneSwitch.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4AA879E2B877AA500D719A5 /* CellOneSwitch.xib */; };
 		C4AA87A12B877E1B00D719A5 /* Switches.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AA87A02B877E1B00D719A5 /* Switches.swift */; };
-		C4AA87A32B87AE6600D719A5 /* BlastSwitchConfigurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AA87A22B87AE6600D719A5 /* BlastSwitchConfigurations.swift */; };
-		C4E7A8392B9F3B930041AF8C /* BlastTableViewController+FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E7A8382B9F3B930041AF8C /* BlastTableViewController+FloatingActionButton.swift */; };
+		C4AA87A32B87AE6600D719A5 /* BlastSwitchConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AA87A22B87AE6600D719A5 /* BlastSwitchConfig.swift */; };
+		C4E7A8392B9F3B930041AF8C /* BlastController+FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E7A8382B9F3B930041AF8C /* BlastController+FloatingActionButton.swift */; };
 		C4E7A83B2B9F3CA30041AF8C /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E7A83A2B9F3CA30041AF8C /* FloatingActionButton.swift */; };
 		C4FC68DA2B95DAF500E7D03E /* AddAndDeleteRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FC68D92B95DAF500E7D03E /* AddAndDeleteRows.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C40581EC2B986308000C93FD /* BlastTableViewController+DeleteSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlastTableViewController+DeleteSections.swift"; sourceTree = "<group>"; };
-		C40581EE2B986CE9000C93FD /* BlastTableViewController+AddSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlastTableViewController+AddSections.swift"; sourceTree = "<group>"; };
-		C40581F02B986EB4000C93FD /* BlastTableViewController+ReplaceSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlastTableViewController+ReplaceSections.swift"; sourceTree = "<group>"; };
+		C40581EC2B986308000C93FD /* BlastController+DeleteSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlastController+DeleteSections.swift"; sourceTree = "<group>"; };
+		C40581EE2B986CE9000C93FD /* BlastController+AddSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlastController+AddSections.swift"; sourceTree = "<group>"; };
+		C40581F02B986EB4000C93FD /* BlastController+ReplaceSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlastController+ReplaceSections.swift"; sourceTree = "<group>"; };
 		C41227712B6CEE2F00626D72 /* BlastExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlastExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C41227742B6CEE2F00626D72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C41227762B6CEE2F00626D72 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,21 +77,21 @@
 		C412277D2B6CEE3000626D72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C41227802B6CEE3000626D72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C41227822B6CEE3000626D72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C41227892B6CEE6A00626D72 /* BlastTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlastTableViewController.swift; sourceTree = "<group>"; };
+		C41227892B6CEE6A00626D72 /* BlastController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlastController.swift; sourceTree = "<group>"; };
 		C412278B2B6CF07000626D72 /* Blast.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Blast.podspec; sourceTree = "<group>"; };
 		C412278D2B6CF2DE00626D72 /* CellOneLabel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellOneLabel.xib; sourceTree = "<group>"; };
-		C412278F2B6CF5E500626D72 /* BlastTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlastTableViewCell.swift; sourceTree = "<group>"; };
-		C41227932B6CF80600626D72 /* BlastTableViewRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlastTableViewRow.swift; sourceTree = "<group>"; };
-		C41227942B6CF80600626D72 /* BlastTableViewSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlastTableViewSection.swift; sourceTree = "<group>"; };
-		C4187A372B9750CF00190BAC /* BlastTableViewController+DeleteRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlastTableViewController+DeleteRows.swift"; sourceTree = "<group>"; };
-		C4187A392B97542900190BAC /* BlastTableViewController+ReplaceRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlastTableViewController+ReplaceRows.swift"; sourceTree = "<group>"; };
+		C412278F2B6CF5E500626D72 /* BlastCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlastCell.swift; sourceTree = "<group>"; };
+		C41227932B6CF80600626D72 /* BlastRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlastRow.swift; sourceTree = "<group>"; };
+		C41227942B6CF80600626D72 /* BlastSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlastSection.swift; sourceTree = "<group>"; };
+		C4187A372B9750CF00190BAC /* BlastController+DeleteRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlastController+DeleteRows.swift"; sourceTree = "<group>"; };
+		C4187A392B97542900190BAC /* BlastController+ReplaceRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlastController+ReplaceRows.swift"; sourceTree = "<group>"; };
 		C4187A3B2B97598700190BAC /* ReplaceRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplaceRows.swift; sourceTree = "<group>"; };
-		C4187A3D2B975E4400190BAC /* BlastTableViewController+FindRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlastTableViewController+FindRows.swift"; sourceTree = "<group>"; };
+		C4187A3D2B975E4400190BAC /* BlastController+FindRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlastController+FindRows.swift"; sourceTree = "<group>"; };
 		C41938CE2B6D2AD40033D6F0 /* XIBS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XIBS.swift; sourceTree = "<group>"; };
 		C41938D02B6D2CB50033D6F0 /* Labels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Labels.swift; sourceTree = "<group>"; };
 		C41938D22B6D2D180033D6F0 /* TextFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFields.swift; sourceTree = "<group>"; };
 		C41938D52B6D2DA60033D6F0 /* Header.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Header.xib; sourceTree = "<group>"; };
-		C41938D72B6D2E170033D6F0 /* BlastTableHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlastTableHeaderFooterView.swift; sourceTree = "<group>"; };
+		C41938D72B6D2E170033D6F0 /* BlastHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlastHeaderFooterView.swift; sourceTree = "<group>"; };
 		C41938D92B6D44F60033D6F0 /* Footer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Footer.xib; sourceTree = "<group>"; };
 		C41938DC2B6E85520033D6F0 /* CellTwoLabels.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellTwoLabels.xib; sourceTree = "<group>"; };
 		C41938DF2B6E85E00033D6F0 /* CellThreeLabels.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellThreeLabels.xib; sourceTree = "<group>"; };
@@ -106,22 +107,23 @@
 		C41938F52B6FB6750033D6F0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		C41938F62B6FDA0D0033D6F0 /* BlastTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlastTextField.swift; sourceTree = "<group>"; };
 		C41938F82B6FDDC20033D6F0 /* CellOneTextField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellOneTextField.xib; sourceTree = "<group>"; };
-		C42B56FB2B9B27970073D055 /* BlastTableViewController+FindSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlastTableViewController+FindSections.swift"; sourceTree = "<group>"; };
+		C42B56FB2B9B27970073D055 /* BlastController+FindSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlastController+FindSections.swift"; sourceTree = "<group>"; };
 		C42B56FD2B9B56560073D055 /* ReplaceSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplaceSections.swift; sourceTree = "<group>"; };
-		C43CE24B2B8B3FB200283FC7 /* BlastLabelConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlastLabelConfiguration.swift; sourceTree = "<group>"; };
-		C444709D2B8E3A6400F274E3 /* BlastButtonConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlastButtonConfiguration.swift; sourceTree = "<group>"; };
-		C444709F2B8E3D0900F274E3 /* BlastTextFieldConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlastTextFieldConfiguration.swift; sourceTree = "<group>"; };
+		C43CE24B2B8B3FB200283FC7 /* BlastLabelConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlastLabelConfig.swift; sourceTree = "<group>"; };
+		C444709D2B8E3A6400F274E3 /* BlastButtonConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlastButtonConfig.swift; sourceTree = "<group>"; };
+		C444709F2B8E3D0900F274E3 /* BlastTextFieldConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlastTextFieldConfig.swift; sourceTree = "<group>"; };
 		C44470A12B8E415700F274E3 /* TextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViews.swift; sourceTree = "<group>"; };
-		C44470A32B8E422900F274E3 /* BlastTextViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlastTextViewConfiguration.swift; sourceTree = "<group>"; };
+		C44470A32B8E422900F274E3 /* BlastTextViewConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlastTextViewConfig.swift; sourceTree = "<group>"; };
 		C44470A52B8E428300F274E3 /* BlastTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlastTextView.swift; sourceTree = "<group>"; };
 		C44470A72B8E492B00F274E3 /* CellTextView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellTextView.xib; sourceTree = "<group>"; };
-		C4609FE12B90F8C7007D6D10 /* BlastTableViewController+AddRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlastTableViewController+AddRows.swift"; sourceTree = "<group>"; };
+		C4609FE12B90F8C7007D6D10 /* BlastController+AddRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlastController+AddRows.swift"; sourceTree = "<group>"; };
+		C46E3AF92BB5F538004F4023 /* BlastImageViewConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlastImageViewConfig.swift; sourceTree = "<group>"; };
 		C49145052B99DBC500BE9B58 /* AddAndDeleteSections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAndDeleteSections.swift; sourceTree = "<group>"; };
 		C4AA879C2B8760A500D719A5 /* CellTwoTextFields.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellTwoTextFields.xib; sourceTree = "<group>"; };
 		C4AA879E2B877AA500D719A5 /* CellOneSwitch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellOneSwitch.xib; sourceTree = "<group>"; };
 		C4AA87A02B877E1B00D719A5 /* Switches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switches.swift; sourceTree = "<group>"; };
-		C4AA87A22B87AE6600D719A5 /* BlastSwitchConfigurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlastSwitchConfigurations.swift; sourceTree = "<group>"; };
-		C4E7A8382B9F3B930041AF8C /* BlastTableViewController+FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlastTableViewController+FloatingActionButton.swift"; sourceTree = "<group>"; };
+		C4AA87A22B87AE6600D719A5 /* BlastSwitchConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlastSwitchConfig.swift; sourceTree = "<group>"; };
+		C4E7A8382B9F3B930041AF8C /* BlastController+FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlastController+FloatingActionButton.swift"; sourceTree = "<group>"; };
 		C4E7A83A2B9F3CA30041AF8C /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
 		C4FC68D92B95DAF500E7D03E /* AddAndDeleteRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAndDeleteRows.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -188,11 +190,11 @@
 			children = (
 				C41938F52B6FB6750033D6F0 /* README.md */,
 				C412278B2B6CF07000626D72 /* Blast.podspec */,
-				C412278F2B6CF5E500626D72 /* BlastTableViewCell.swift */,
-				C41938D72B6D2E170033D6F0 /* BlastTableHeaderFooterView.swift */,
-				C41227932B6CF80600626D72 /* BlastTableViewRow.swift */,
-				C41227942B6CF80600626D72 /* BlastTableViewSection.swift */,
-				C41227892B6CEE6A00626D72 /* BlastTableViewController.swift */,
+				C412278F2B6CF5E500626D72 /* BlastCell.swift */,
+				C41938D72B6D2E170033D6F0 /* BlastHeaderFooterView.swift */,
+				C41227932B6CF80600626D72 /* BlastRow.swift */,
+				C41227942B6CF80600626D72 /* BlastSection.swift */,
+				C41227892B6CEE6A00626D72 /* BlastController.swift */,
 				C41938F62B6FDA0D0033D6F0 /* BlastTextField.swift */,
 				C44470A52B8E428300F274E3 /* BlastTextView.swift */,
 				C4609FE02B90F88E007D6D10 /* Extensions */,
@@ -234,15 +236,15 @@
 		C4609FE02B90F88E007D6D10 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				C4187A3D2B975E4400190BAC /* BlastTableViewController+FindRows.swift */,
-				C42B56FB2B9B27970073D055 /* BlastTableViewController+FindSections.swift */,
-				C4609FE12B90F8C7007D6D10 /* BlastTableViewController+AddRows.swift */,
-				C40581EE2B986CE9000C93FD /* BlastTableViewController+AddSections.swift */,
-				C4187A372B9750CF00190BAC /* BlastTableViewController+DeleteRows.swift */,
-				C40581EC2B986308000C93FD /* BlastTableViewController+DeleteSections.swift */,
-				C4187A392B97542900190BAC /* BlastTableViewController+ReplaceRows.swift */,
-				C40581F02B986EB4000C93FD /* BlastTableViewController+ReplaceSections.swift */,
-				C4E7A8382B9F3B930041AF8C /* BlastTableViewController+FloatingActionButton.swift */,
+				C4187A3D2B975E4400190BAC /* BlastController+FindRows.swift */,
+				C42B56FB2B9B27970073D055 /* BlastController+FindSections.swift */,
+				C4609FE12B90F8C7007D6D10 /* BlastController+AddRows.swift */,
+				C40581EE2B986CE9000C93FD /* BlastController+AddSections.swift */,
+				C4187A372B9750CF00190BAC /* BlastController+DeleteRows.swift */,
+				C40581EC2B986308000C93FD /* BlastController+DeleteSections.swift */,
+				C4187A392B97542900190BAC /* BlastController+ReplaceRows.swift */,
+				C40581F02B986EB4000C93FD /* BlastController+ReplaceSections.swift */,
+				C4E7A8382B9F3B930041AF8C /* BlastController+FloatingActionButton.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -258,11 +260,12 @@
 		C4AA87A42B88DBA300D719A5 /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
-				C43CE24B2B8B3FB200283FC7 /* BlastLabelConfiguration.swift */,
-				C444709D2B8E3A6400F274E3 /* BlastButtonConfiguration.swift */,
-				C4AA87A22B87AE6600D719A5 /* BlastSwitchConfigurations.swift */,
-				C444709F2B8E3D0900F274E3 /* BlastTextFieldConfiguration.swift */,
-				C44470A32B8E422900F274E3 /* BlastTextViewConfiguration.swift */,
+				C43CE24B2B8B3FB200283FC7 /* BlastLabelConfig.swift */,
+				C444709D2B8E3A6400F274E3 /* BlastButtonConfig.swift */,
+				C4AA87A22B87AE6600D719A5 /* BlastSwitchConfig.swift */,
+				C444709F2B8E3D0900F274E3 /* BlastTextFieldConfig.swift */,
+				C44470A32B8E422900F274E3 /* BlastTextViewConfig.swift */,
+				C46E3AF92BB5F538004F4023 /* BlastImageViewConfig.swift */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -358,38 +361,39 @@
 				C41938CF2B6D2AD40033D6F0 /* XIBS.swift in Sources */,
 				C4FC68DA2B95DAF500E7D03E /* AddAndDeleteRows.swift in Sources */,
 				C41938D32B6D2D180033D6F0 /* TextFields.swift in Sources */,
-				C41227902B6CF5E500626D72 /* BlastTableViewCell.swift in Sources */,
+				C41227902B6CF5E500626D72 /* BlastCell.swift in Sources */,
 				C44470A62B8E428300F274E3 /* BlastTextView.swift in Sources */,
 				C41227792B6CEE2F00626D72 /* Menu.swift in Sources */,
 				C4E7A83B2B9F3CA30041AF8C /* FloatingActionButton.swift in Sources */,
-				C444709E2B8E3A6400F274E3 /* BlastButtonConfiguration.swift in Sources */,
-				C4AA87A32B87AE6600D719A5 /* BlastSwitchConfigurations.swift in Sources */,
-				C41227952B6CF80600626D72 /* BlastTableViewRow.swift in Sources */,
-				C44470A42B8E422900F274E3 /* BlastTextViewConfiguration.swift in Sources */,
+				C444709E2B8E3A6400F274E3 /* BlastButtonConfig.swift in Sources */,
+				C4AA87A32B87AE6600D719A5 /* BlastSwitchConfig.swift in Sources */,
+				C41227952B6CF80600626D72 /* BlastRow.swift in Sources */,
+				C44470A42B8E422900F274E3 /* BlastTextViewConfig.swift in Sources */,
 				C4187A3C2B97598700190BAC /* ReplaceRows.swift in Sources */,
 				C41227752B6CEE2F00626D72 /* AppDelegate.swift in Sources */,
-				C4187A3A2B97542900190BAC /* BlastTableViewController+ReplaceRows.swift in Sources */,
-				C41938D82B6D2E170033D6F0 /* BlastTableHeaderFooterView.swift in Sources */,
-				C4187A382B9750CF00190BAC /* BlastTableViewController+DeleteRows.swift in Sources */,
+				C4187A3A2B97542900190BAC /* BlastController+ReplaceRows.swift in Sources */,
+				C41938D82B6D2E170033D6F0 /* BlastHeaderFooterView.swift in Sources */,
+				C4187A382B9750CF00190BAC /* BlastController+DeleteRows.swift in Sources */,
+				C46E3AFA2BB5F538004F4023 /* BlastImageViewConfig.swift in Sources */,
 				C42B56FE2B9B56560073D055 /* ReplaceSections.swift in Sources */,
-				C4609FE22B90F8C7007D6D10 /* BlastTableViewController+AddRows.swift in Sources */,
-				C40581F12B986EB4000C93FD /* BlastTableViewController+ReplaceSections.swift in Sources */,
+				C4609FE22B90F8C7007D6D10 /* BlastController+AddRows.swift in Sources */,
+				C40581F12B986EB4000C93FD /* BlastController+ReplaceSections.swift in Sources */,
 				C49145062B99DBC500BE9B58 /* AddAndDeleteSections.swift in Sources */,
 				C41938E22B6E8F7E0033D6F0 /* Buttons.swift in Sources */,
-				C42B56FC2B9B27970073D055 /* BlastTableViewController+FindSections.swift in Sources */,
+				C42B56FC2B9B27970073D055 /* BlastController+FindSections.swift in Sources */,
 				C4AA87A12B877E1B00D719A5 /* Switches.swift in Sources */,
-				C40581ED2B986308000C93FD /* BlastTableViewController+DeleteSections.swift in Sources */,
-				C4187A3E2B975E4400190BAC /* BlastTableViewController+FindRows.swift in Sources */,
-				C41227962B6CF80600626D72 /* BlastTableViewSection.swift in Sources */,
+				C40581ED2B986308000C93FD /* BlastController+DeleteSections.swift in Sources */,
+				C4187A3E2B975E4400190BAC /* BlastController+FindRows.swift in Sources */,
+				C41227962B6CF80600626D72 /* BlastSection.swift in Sources */,
 				C44470A22B8E415700F274E3 /* TextViews.swift in Sources */,
-				C40581EF2B986CE9000C93FD /* BlastTableViewController+AddSections.swift in Sources */,
+				C40581EF2B986CE9000C93FD /* BlastController+AddSections.swift in Sources */,
 				C41938EE2B6FB3CA0033D6F0 /* ImageViews.swift in Sources */,
-				C412278A2B6CEE6A00626D72 /* BlastTableViewController.swift in Sources */,
+				C412278A2B6CEE6A00626D72 /* BlastController.swift in Sources */,
 				C41938D12B6D2CB50033D6F0 /* Labels.swift in Sources */,
 				C41227772B6CEE2F00626D72 /* SceneDelegate.swift in Sources */,
-				C4E7A8392B9F3B930041AF8C /* BlastTableViewController+FloatingActionButton.swift in Sources */,
-				C44470A02B8E3D0900F274E3 /* BlastTextFieldConfiguration.swift in Sources */,
-				C43CE24C2B8B3FB200283FC7 /* BlastLabelConfiguration.swift in Sources */,
+				C4E7A8392B9F3B930041AF8C /* BlastController+FloatingActionButton.swift in Sources */,
+				C44470A02B8E3D0900F274E3 /* BlastTextFieldConfig.swift in Sources */,
+				C43CE24C2B8B3FB200283FC7 /* BlastLabelConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,47 +1,44 @@
 //
-//  BlastTableViewController+AddRows.swift
-//  BlastExample
-//
-//  Created by Bob de Graaf on 29/02/2024.
+//  BlastController+AddRows.swift
 //
 
 import UIKit
 
-public extension BlastTableViewController {
+public extension BlastController {
     
-    func addRows(_ newRows: [BlastTableViewRow],
-                 beforeRow: BlastTableViewRow? = nil,
-                 afterRow: BlastTableViewRow? = nil,
+    func addRows(_ newRows: [BlastRow],
+                 beforeRow: BlastRow? = nil,
+                 afterRow: BlastRow? = nil,
                  animation: UITableView.RowAnimation = .automatic,
                  completion: ((Bool) -> Void)? = nil) {
-        //Safety checks
+        // Safety checks
         guard let referenceRow = beforeRow ?? afterRow,
               let section = referenceRow.section,
               let sectionIndex = self.sections.firstIndex(where: { $0 === section }) else {
-            print("BlastTableViewController -> addRows -> Reference row or section not found...")
+            print("BlastController -> addRows -> Reference row or section not found...")
             return
         }
         
-        //Check if referenceRow is in the section
+        // Check if referenceRow is in the section
         if !section.rows.contains(where: { $0 === referenceRow }) {
-            print("BlastTableViewController -> addRows -> Reference row is not currently in the section...")
+            print("BlastController -> addRows -> Reference row is not currently in the section...")
             return
         }
 
-        //Prevent adding the same row multiple times
+        // Prevent adding the same row multiple times
         for (index, row) in newRows.enumerated() {
             if section.rows.contains(where: { $0 === row }) {
-                print("BlastTableViewController -> addRows -> Row at index \(index) is already in the section...")
+                print("BlastController -> addRows -> Row at index \(index) is already in the section...")
                 return
             }
         }
         
-        //Let's go
+        // Let's go
         self.tableView.performBatchUpdates({
-            //Assign section
+            // Assign section
             newRows.forEach { $0.section = section }
             
-            //Insertion index
+            // Insertion index
             var insertionIndex: Int = section.rows.count
             if let beforeRow = beforeRow, let rowIndex = section.rows.firstIndex(where: { $0 === beforeRow }) {
                 insertionIndex = rowIndex
@@ -49,25 +46,25 @@ public extension BlastTableViewController {
                 insertionIndex = rowIndex + 1
             }
             
-            //Add to sections array
+            // Add to sections array
             section.rows.insert(contentsOf: newRows, at: insertionIndex)
             
-            //Generate indexPaths
+            // Generate indexPaths
             let indexPaths = (0..<newRows.count).map { IndexPath(row: insertionIndex + $0, section: sectionIndex) }
             
-            //Insert into tableView
+            // Insert into 
             self.tableView.insertRows(at: indexPaths, with: animation)
         }, completion: completion)
     }
 
-    func addRows(_ newRows: [BlastTableViewRow],
-                 toSection section: BlastTableViewSection,
+    func addRows(_ newRows: [BlastRow],
+                 toSection section: BlastSection,
                  atTheTop: Bool? = nil,
                  atTheBottom: Bool? = nil,
                  startingIndex: Int? = nil,
                  animation: UITableView.RowAnimation = .automatic,
                  completion: ((Bool) -> Void)? = nil) {
-        //Insertion index
+        // Insertion index
         var insertionIndex: Int = section.rows.count
         if atTheTop != nil {
             insertionIndex = 0
@@ -78,30 +75,30 @@ public extension BlastTableViewController {
         }
         
         guard let sectionIndex = self.sections.firstIndex(where: { $0 === section }) else {
-            print("BlastTableViewController -> addRowsToSection -> Section not found...")
+            print("BlastController -> addRowsToSection -> Section not found...")
             return
         }
         
-        //Prevent adding the same row multiple times
+        // Prevent adding the same row multiple times
         for (index, row) in newRows.enumerated() {
             if section.rows.contains(where: { $0 === row }) {
-                print("BlastTableViewController -> addRows -> Row at index \(index) is already in the section...")
+                print("BlastController -> addRows -> Row at index \(index) is already in the section...")
                 return
             }
         }
         
-        //Let's go
+        // Let's go
         self.tableView.performBatchUpdates({
-            //Assign section
+            // Assign section
             newRows.forEach { $0.section = section }
             
-            //Add to sections array
+            // Add to sections array
             section.rows.insert(contentsOf: newRows, at: insertionIndex)
             
-            //Generate indexPaths
+            // Generate indexPaths
             let indexPaths = (0..<newRows.count).map { IndexPath(row: insertionIndex + $0, section: sectionIndex) }
             
-            //Insert into tableview
+            // Insert into 
             self.tableView.insertRows(at: indexPaths, with: animation)
         }, completion: completion)
     }

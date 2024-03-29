@@ -1,34 +1,31 @@
 //
-//  BlastTableViewController+AddSections.swift
-//  BlastExample
-//
-//  Created by Bob de Graaf on 06/03/2024.
+//  BlastController+AddSections.swift
 //
 
 import UIKit
 
-public extension BlastTableViewController {
+public extension BlastController {
     
-    func addSections(_ newSections: [BlastTableViewSection],
-                     beforeSection: BlastTableViewSection? = nil,
-                     afterSection: BlastTableViewSection? = nil,
+    func addSections(_ newSections: [BlastSection],
+                     beforeSection: BlastSection? = nil,
+                     afterSection: BlastSection? = nil,
                      animation: UITableView.RowAnimation = .automatic,
                      completion: ((Bool) -> Void)? = nil) {
-        //Safety checks
+        // Safety checks
         for(index, section) in newSections.enumerated() {
             if self.sections.firstIndex(where: { $0 === section }) != nil {
-                print("BlastTableViewController -> addSections -> Section at index \(index) is already in the tableArray...")
+                print("BlastController -> addSections -> Section at index \(index) is already in the tableArray...")
                 return
             }
         }
 
-        //Insertion index
+        // Insertion index
         let insertionIndex: Int
         if let beforeSection = beforeSection {
             if let index = self.sections.firstIndex(where: { $0 === beforeSection }) {
                 insertionIndex = index
             } else {
-                print("BlastTableViewController -> addSections -> beforeSection not found")
+                print("BlastController -> addSections -> beforeSection not found")
                 return
             }
         }
@@ -36,33 +33,33 @@ public extension BlastTableViewController {
             if let index = self.sections.firstIndex(where: { $0 === afterSection }) {
                 insertionIndex = index + 1
             } else {
-                print("BlastTableViewController -> addSections -> belowSection not found")
+                print("BlastController -> addSections -> belowSection not found")
                 return
             }
         } else {
             insertionIndex = self.sections.count
         }
         
-        //Let's go
+        // Let's go
         self.tableView.performBatchUpdates({
-            //Add to sections array
+            // Add to sections array
             self.sections.insert(contentsOf: newSections, at: insertionIndex)
             
-            //Generate IndexSet
+            // Generate IndexSet
             let indexSet = IndexSet(integersIn: insertionIndex..<(insertionIndex + newSections.count))
             
-            //Insert into tableview
+            // Insert into 
             self.tableView.insertSections(indexSet, with: animation)
         }, completion: completion)
     }
     
-    func addSections(_ newSections: [BlastTableViewSection],
+    func addSections(_ newSections: [BlastSection],
                      atTheTop: Bool? = nil,
                      atTheBottom: Bool? = nil,
                      startingIndex: Int? = nil,
                      animation: UITableView.RowAnimation = .automatic,
                      completion: ((Bool) -> Void)? = nil) {
-        //Insertion index
+        // Insertion index
         var insertionIndex: Int = self.sections.count
         if atTheTop != nil {
             insertionIndex = 0
@@ -72,23 +69,23 @@ public extension BlastTableViewController {
             insertionIndex = startIndex
         }
         
-        //Prevent adding the same section multiple times
+        // Prevent adding the same section multiple times
         for (index, section) in newSections.enumerated() {
             if self.sections.contains(where: { $0 === section }) {
-                print("BlastTableViewController -> addSections -> Section at index \(index) is already in the tableView...")
+                print("BlastController -> addSections -> Section at index \(index) is already in the ...")
                 return
             }
         }
         
-        //Let's go
+        // Let's go
         self.tableView.performBatchUpdates({
-            //Add to sections array
+            // Add to sections array
             self.sections.insert(contentsOf: newSections, at: insertionIndex)
             
-            //Generate IndexSet
+            // Generate IndexSet
             let indexSet = IndexSet(integersIn: insertionIndex..<(insertionIndex + newSections.count))
             
-            //Insert into tableView
+            // Insert into 
             self.tableView.insertSections(indexSet, with: animation)
         }, completion: completion)
     }

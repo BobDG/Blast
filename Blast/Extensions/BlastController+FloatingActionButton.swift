@@ -1,8 +1,5 @@
 //
-//  BlastTableViewController+FloatingActionButton.swift
-//  BlastExample
-//
-//  Created by Bob de Graaf on 06/03/2024.
+//  BlastController+FloatingActionButton.swift
 //
 
 import UIKit
@@ -10,7 +7,7 @@ import ObjectiveC
 
 private var floatingButtonKey: Void?
 
-public extension BlastTableViewController {
+public extension BlastController {
     
     enum FloatingButtonPosition {
         case left, center, right
@@ -22,10 +19,10 @@ public extension BlastTableViewController {
         objc_setAssociatedObject(self, &floatingButtonKey, button, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         self.view.addSubview(button)
         
-        //Constraints
+        // Constraints
         self.setupFloatingButtonConstraints(button: button, position: position, paddingBottom: paddingBottom, paddingSide: paddingSide)
         
-        //Tapped
+        // Tapped
         objc_setAssociatedObject(self, &floatingButtonKey, action, .OBJC_ASSOCIATION_RETAIN)
         button.addTarget(self, action: #selector(floatingButtonTapped), for: .touchUpInside)
     }

@@ -1,37 +1,34 @@
 //
-//  BlastTableViewController+ReplaceRows.swift
-//  BlastExample
-//
-//  Created by Bob de Graaf on 05/03/2024.
+//  BlastController+ReplaceRows.swift
 //
 
 import UIKit
 
-public extension BlastTableViewController {
+public extension BlastController {
     
-    func replaceRow(_ oldRow: BlastTableViewRow, 
-                    with newRow: BlastTableViewRow,
+    func replaceRow(_ oldRow: BlastRow, 
+                    with newRow: BlastRow,
                     useReloadRows: Bool = false,
                     animation: UITableView.RowAnimation = .automatic,
                     completion: ((Bool) -> Void)? = nil) {        
-        //Safety checks
+        // Safety checks
         guard let section = oldRow.section,
               let sectionIndex = self.sections.firstIndex(where: { $0 === section }),
               let rowIndex = section.rows.firstIndex(where: { $0 === oldRow }) else {
-            print("BlastTableViewController -> replaceRow -> Specified row or its section not found.")
+            print("BlastController -> replaceRow -> Specified row or its section not found.")
             return
         }
 
-        //Assign section just in case
+        // Assign section just in case
         newRow.section = section
         
-        //Replace in sections array
+        // Replace in sections array
         self.sections[sectionIndex].rows[rowIndex] = newRow
 
-        //Indexpath
+        // Indexpath
         let indexPath = IndexPath(row: rowIndex, section: sectionIndex)
         
-        //Reload
+        // Reload
         if useReloadRows {
             self.tableView.reloadRows(at: [indexPath], with: animation)
         } else {
@@ -42,39 +39,39 @@ public extension BlastTableViewController {
         }
     }
     
-    func replaceRows(deleting oldRows: [BlastTableViewRow], 
-                     with newRows: [BlastTableViewRow],
+    func replaceRows(deleting oldRows: [BlastRow], 
+                     with newRows: [BlastRow],
                      animation: UITableView.RowAnimation = .automatic,
                      completion: ((Bool) -> Void)? = nil) {
-        //Safety checks
+        // Safety checks
         guard !oldRows.isEmpty, let section = oldRows.first?.section,
               let sectionIndex = self.sections.firstIndex(where: { $0 === section }) else {
-            print("BlastTableViewController -> replaceRows -> Section not found or no rows to delete.")
+            print("BlastController -> replaceRows -> Section not found or no rows to delete.")
             return
         }
         
-        //IndexPaths
+        // IndexPaths
         var indexPathsToDelete: [IndexPath] = []
         for (index, oldRow) in oldRows.enumerated() {
             if let rowIndex = section.rows.firstIndex(where: { $0 === oldRow }) {
                 indexPathsToDelete.append(IndexPath(row: rowIndex, section: sectionIndex))
             }
             else {
-                print("BlastTableViewController -> replaceRows -> Row at \(index) -> Row or its section not found.")
+                print("BlastController -> replaceRows -> Row at \(index) -> Row or its section not found.")
                 return
             }
         }
         
-        //Insertion index
+        // Insertion index
         let insertionIndex = indexPathsToDelete.first?.row ?? section.rows.count
         
-        //Let's go
+        // Let's go
         self.tableView.performBatchUpdates({            
-            //Delete old rows
+            // Delete old rows
             indexPathsToDelete.map { $0.row }.sorted(by: >).forEach { section.rows.remove(at: $0) }
             self.tableView.deleteRows(at: indexPathsToDelete, with: animation)
             
-            //Insert new rows
+            // Insert new rows
             var indexPathsToInsert: [IndexPath] = []
             for offset in 0..<newRows.count {
                 let indexPath = IndexPath(row: insertionIndex + offset, section: sectionIndex)

@@ -1,22 +1,19 @@
 //
 //  BlastTextField.swift
-//  BlastExample
-//
-//  Created by Bob de Graaf on 04/02/2024.
 //
 
 import UIKit
 
 public class BlastTextField: UITextField, UITextFieldDelegate {
-    //Default values
+    // Default values
     public var nextFieldOnReturn: Bool = true
     
-    //Closures for row
+    // Closures for row
     public var returnTapped:(() -> Void)?
     public var textChanged:((String) -> Void)?
     public var shouldChangeCharactersIn:((UITextField, NSRange, String) -> Bool)?
     
-    //Closures for controller
+    // Closures for controller
     public var moveToNextTextField:((BlastTextField) -> Void)?
     
     // MARK: - Lifecycle for Interface Builder
@@ -75,10 +72,10 @@ public class BlastTextField: UITextField, UITextFieldDelegate {
     }
     
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        //Return tapped
+        // Return tapped
         self.returnTapped?()
         
-        //Next field
+        // Next field
         if self.nextFieldOnReturn {
             self.moveToNextTextField?(self)
             return false

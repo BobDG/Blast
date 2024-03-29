@@ -1,35 +1,32 @@
 //
 //  FloatingActionButton.swift
-//  BlastExample
-//
-//  Created by Bob de Graaf on 02/02/2024.
 //
 
 import UIKit
 
-class FloatingActionButton: BlastTableViewController {
+class FloatingActionButton: BlastController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Styling
+        // Styling
         self.navigationItem.title = "Floating action button"
         
-        //Register XIBs
+        // Register XIBs
         self.registerCells([XIBCellOneLabel, XIBCellOneButton])
         self.registerHeaderFooters([XIBHeader])
         
-        //Load
+        // Load
         self.loadContent()
         
-        //Floating action button
+        // Floating action button
         self.addFloatingActionButton(image: .init(named: "FloatingActionButton")!, position: .right, paddingBottom: 40, paddingSide:120, action: {
             print("Floating action button tapped!")
         })
     }
     
     func loadContent() {
-        let section = BlastTableViewSection(headerXibName: XIBHeader)
+        let section = BlastSection(headerXibName: XIBHeader)
         section.headerTitle = "Some random rows"
         self.addSection(section)
         for index in 1...20 {
@@ -37,8 +34,8 @@ class FloatingActionButton: BlastTableViewController {
             section.addRow(row)
         }
         
-        let addRow = BlastTableViewRow(xibName: XIBCellOneButton)
-        addRow.button1 = ButtonConfiguration()
+        let addRow = BlastRow(xibName: XIBCellOneButton)
+        addRow.button1 = ButtonConfig()
             .title("Tap to add a row")
             .tapped { [weak self] in
                 guard let self else { return }
@@ -47,9 +44,9 @@ class FloatingActionButton: BlastTableViewController {
         section.addRow(addRow)
     }
     
-    func createRow(title: String, index:Int) -> BlastTableViewRow {
-        let row: BlastTableViewRow = .init(xibName: XIBCellOneLabel)
-        row.label1 = LabelConfiguration().text(title)
+    func createRow(title: String, index:Int) -> BlastRow {
+        let row: BlastRow = .init(xibName: XIBCellOneLabel)
+        row.label1 = LabelConfig().text(title)
         row.cellTapped = {
             print("Row \(index) tapped")
         }

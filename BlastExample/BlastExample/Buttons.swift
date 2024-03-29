@@ -1,55 +1,52 @@
 //
 //  Buttons.swift
-//  BlastExample
-//
-//  Created by Bob de Graaf on 02/02/2024.
 //
 
 import UIKit
 
-class Buttons: BlastTableViewController {
+class Buttons: BlastController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Styling
+        // Styling
         self.navigationItem.title = "Buttons"
         
-        //Register XIBs
+        // Register XIBs
         self.registerCells([XIBCellOneButton, XIBCellTwoButtons, XIBCellThreeButtons])
         self.registerHeaderFooters([XIBHeader])
         
-        //Load
+        // Load
         self.loadContent()
     }
     
     func loadContent() {
-        var row: BlastTableViewRow
-        var section: BlastTableViewSection
+        var row: BlastRow
+        var section: BlastSection
         
-        section = BlastTableViewSection(headerXibName: XIBHeader)
+        section = BlastSection(headerXibName: XIBHeader)
         section.headerTitle = "Just one"
         self.addSection(section)
         
-        row = BlastTableViewRow(xibName: XIBCellOneButton)
-        row.button1 = ButtonConfiguration()
+        row = BlastRow(xibName: XIBCellOneButton)
+        row.button1 = ButtonConfig()
             .title("Tap me")
             .tapped {
                 print("XIBCellOneButton Button tapped!")
             }
         section.addRow(row)
         
-        section = BlastTableViewSection(headerXibName: XIBHeader)
+        section = BlastSection(headerXibName: XIBHeader)
         section.headerTitle = "Want more?"
         self.addSection(section)
         
-        row = BlastTableViewRow(xibName: XIBCellTwoButtons)
-        row.button1 = ButtonConfiguration()
+        row = BlastRow(xibName: XIBCellTwoButtons)
+        row.button1 = ButtonConfig()
             .title("First button")
             .tapped {
                 print("XIBCellTwoButtons Button 1 tapped!")
             }
-        row.button2 = ButtonConfiguration()
+        row.button2 = ButtonConfig()
             .title("Second button")
             .tapped {
                 print("XIBCellTwoButtons Button 2 tapped!")
@@ -57,24 +54,24 @@ class Buttons: BlastTableViewController {
         section.addRow(row)
         
         
-        section = BlastTableViewSection(headerXibName: XIBHeader)
+        section = BlastSection(headerXibName: XIBHeader)
         section.headerTitle = "Style with color & attributedStrings"
         self.addSection(section)
         
-        row = BlastTableViewRow(xibName: XIBCellThreeButtons)
-        row.button1 = ButtonConfiguration()
+        row = BlastRow(xibName: XIBCellThreeButtons)
+        row.button1 = ButtonConfig()
             .attributedTitle(.init(string: "Bold black",
                                    attributes: [.font: UIFont.boldSystemFont(ofSize: 16), .foregroundColor: UIColor.black]))
             .tapped {
                 print("XIBCellThreeButtons Button 1 tapped!")
             }
-        row.button2 = ButtonConfiguration()
+        row.button2 = ButtonConfig()
             .attributedTitle(.init(string: "Large colored",
                                    attributes: [.font: UIFont.boldSystemFont(ofSize: 22), .foregroundColor: UIColor.green]))
             .tapped({
                 print("XIBCellThreeButtons Button 2 tapped!")
             })
-        row.button3 = ButtonConfiguration()
+        row.button3 = ButtonConfig()
             .backgroundColor(.blue)
             .attributedTitle(.init(string: "Background color",
                                    attributes: [.font: UIFont.boldSystemFont(ofSize: 16), .foregroundColor: UIColor.white]))

@@ -1,13 +1,10 @@
 //
 //  TextViews.swift
-//  BlastExample
-//
-//  Created by Bob de Graaf on 27/02/2024.
 //
 
 import UIKit
 
-class TextViews: BlastTableViewController {
+class TextViews: BlastController {
     class MyObject {
         var textString: String = "Text to update"
     }
@@ -16,29 +13,29 @@ class TextViews: BlastTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Styling
+        // Styling
         self.navigationItem.title = "TextViews"
         
-        //Register XIBs
+        // Register XIBs
         self.registerHeaderFooters([XIBHeader])
         self.registerCells([XIBCellTextView])
         
-        //Load
+        // Load
         self.loadContent()
     }
     
     func loadContent() {
-        var row: BlastTableViewRow
-        var section: BlastTableViewSection
+        var row: BlastRow
+        var section: BlastSection
         
-        section = BlastTableViewSection(headerXibName: XIBHeader)
+        section = BlastSection(headerXibName: XIBHeader)
         section.headerTitle = "Basic"
         self.addSection(section)
         
-        row = BlastTableViewRow(xibName: XIBCellTextView)
-        row.label1 = LabelConfiguration()
+        row = BlastRow(xibName: XIBCellTextView)
+        row.label1 = LabelConfig()
             .text("A cool uitextview with a custom font that should automatically resize to become longer")
-        row.textView1 = TextViewConfiguration()
+        row.textView1 = TextViewConfig()
             .text("Try it out and see that the cell grows when necessary!")
             .isEditable(true)
             .font(.systemFont(ofSize: 18.0))

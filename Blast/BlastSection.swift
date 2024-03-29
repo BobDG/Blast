@@ -1,30 +1,27 @@
 //
-//  BlastTableViewSection.swift
-//  BlastExample
-//
-//  Created by Bob de Graaf on 02/02/2024.
+//  BlastSection.swift
 //
 
-open class BlastTableViewSection {
-    //XIBs
+open class BlastSection {
+    // XIBs
     public var headerXibName: String?
     public var footerXibName: String?
     
-    //Rows
-    public var rows:[BlastTableViewRow] = []
+    // Rows
+    public var rows:[BlastRow] = []
     
-    //Labels
+    // Labels
     public var headerTitle: String?
     public var footerTitle: String?
     
-    //Heights
+    // Heights
     public var headerHeight: Int?
     public var footerHeight: Int?
     
     // MARK: - Lifecycle
     
     public init() {
-        //Only here because default swift init is private...
+        // Only here because default swift init is private...
     }
     
     public convenience init(headerXibName: String?, footerXibName:String? = nil) {
@@ -35,7 +32,7 @@ open class BlastTableViewSection {
     
     // MARK: - Adding rows
     
-    public func addRow(_ row: BlastTableViewRow) {
+    public func addRow(_ row: BlastRow) {
         self.rows.append(row)
         row.section = self
     }

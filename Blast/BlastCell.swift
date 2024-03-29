@@ -1,96 +1,101 @@
 //
-//  BlastTableViewCell.swift
-//  BlastExample
-//
-//  Created by Bob de Graaf on 02/02/2024.
+//  BlastCell.swift
 //
 
 import UIKit
 
-open class BlastTableViewCell: UITableViewCell {    
-    //Labels
+open class BlastCell: UITableViewCell {    
+    // Labels
     @IBOutlet public weak var label1: UILabel?
     @IBOutlet public weak var label2: UILabel?
     @IBOutlet public weak var label3: UILabel?
     @IBOutlet public weak var label4: UILabel?
     @IBOutlet public weak var label5: UILabel?
     
-    //Imageviews
+    // Imageviews
     @IBOutlet public weak var imageView1: UIImageView?
     @IBOutlet public weak var imageView2: UIImageView?
     @IBOutlet public weak var imageView3: UIImageView?
     
-    //Buttons
+    // Buttons
     @IBOutlet public weak var button1: UIButton?
     @IBOutlet public weak var button2: UIButton?
     @IBOutlet public weak var button3: UIButton?
+    @IBOutlet public weak var button4: UIButton?
+    @IBOutlet public weak var button5: UIButton?
     
-    //Textfields
+    // Textfields
     @IBOutlet public weak var textField1: BlastTextField?
     @IBOutlet public weak var textField2: BlastTextField?
     
-    //Views
+    // Views
     @IBOutlet public weak var view1: UIView?
     @IBOutlet public weak var view2: UIView?
     @IBOutlet public weak var view3: UIView?
     
-    //TextViews
+    // TextViews
     @IBOutlet public weak var textView1: BlastTextView?
     
-    //Switch
+    // Switch
     @IBOutlet public weak var switch1: UISwitch?
     
-    //Row
-    public var row: BlastTableViewRow? {
+    // Row
+    public var row: BlastRow? {
         didSet {
             guard let row else { return }
             
-            //Link back (weak)
+            // Link back (weak)
             row.cell = self
             
-            //Labels
+            // Labels
             self.setupLabel(label1, row.label1)
             self.setupLabel(label2, row.label2)
             self.setupLabel(label3, row.label3)
             self.setupLabel(label4, row.label4)
             self.setupLabel(label5, row.label5)
             
-            //Buttons
+            // Buttons
             self.setupButton(button1, row.button1)
             self.setupButton(button2, row.button2)
             self.setupButton(button3, row.button3)
+            self.setupButton(button4, row.button4)
+            self.setupButton(button5, row.button5)
             
-            //ImageViews
-            self.imageView1?.image = row.image1
-            self.imageView2?.image = row.image2
-            self.imageView3?.image = row.image3
+            // ImageViews
+            self.setupImageView(imageView1, row.image1)
+            self.setupImageView(imageView2, row.image2)
+            self.setupImageView(imageView3, row.image3)
             
-            //Switch
+            // Switch
             self.setupSwitch(switch1, row.switch1)
             
-            //TextFields
+            // TextFields
             self.setupTextField(textField1, row.textField1)
             self.setupTextField(textField2, row.textField2)
 
-            //TextViews
+            // TextViews
             self.setupTextView(textView1, row.textView1)
             
-            //Additional configuration
+            // Additional configuration
             self.configure()
         }
     }
     
     open func configure() {
-        //To be overriden
+        // To be overriden
     }
     
     // MARK: - Labels
     
-    func setupLabel(_ label: UILabel?, _ config: LabelConfiguration?) {
+    func setupLabel(_ label: UILabel?, _ config: LabelConfig?) {
         guard let label,
               let config
         else { return }
         
+        // Link for automatic updates
+        config.label = label
+        
+        // Update
         if let attributedText = config.attributedText {
             label.attributedText = attributedText
         }
@@ -104,11 +109,15 @@ open class BlastTableViewCell: UITableViewCell {
     
     // MARK: - Buttons
     
-    func setupButton(_ button: UIButton?, _ config: ButtonConfiguration?) {
+    func setupButton(_ button: UIButton?, _ config: ButtonConfig?) {
         guard let button,
               let config
         else { return }
         
+        // Link for automatic updates
+        config.button = button
+        
+        // Update
         if let attributedTitle = config.attributedTitle {
             button.setAttributedTitle(attributedTitle, for: .normal)
         }
@@ -124,41 +133,65 @@ open class BlastTableViewCell: UITableViewCell {
     }
     
     @objc func buttonTapped(_ sender: UIButton) {
-        if sender == button1, let tapped = self.row?.button1?.tapped {
-            tapped()
-        } else if sender == button2, let tapped = self.row?.button2?.tapped {
-            tapped()
-        } else if sender == button3, let tapped = self.row?.button3?.tapped {
-            tapped()
+        if sender == button1 {
+            self.row?.button1?.tapped?()
+        } else if sender == button2 {
+            self.row?.button2?.tapped?()
+        } else if sender == button3 {
+            self.row?.button3?.tapped?()
+        } else if sender == button4 {
+            self.row?.button4?.tapped?()
+        } else if sender == button5 {
+            self.row?.button5?.tapped?()
+        }
+    }
+    
+    // MARK: - ImageView
+    
+    func setupImageView(_ imageView: UIImageView?, _ config: ImageViewConfig?) {
+        guard let imageView,
+              let config
+        else { return }
+        
+        // Link for automatic updates
+        config.imageView = imageView
+        
+        // Update
+        if let image = config.image {
+            imageView.image = image
         }
     }
     
     // MARK: - Switch
     
-    func setupSwitch(_ rowSwitch: UISwitch?, _ config: SwitchConfiguration?) {
-        guard let rowSwitch,
+    func setupSwitch(_ toggleSwitch: UISwitch?, _ config: SwitchConfig?) {
+        guard let toggleSwitch,
               let config
         else { return }
         
-        rowSwitch.isOn = config.isOn
+        // Link for automatic updates
+        config.toggleSwitch = toggleSwitch
+        
+        // Update
+        toggleSwitch.isOn = config.isOn
         
         if let color = config.color {
-            rowSwitch.onTintColor = color
+            toggleSwitch.onTintColor = color
         }
         
-        rowSwitch.addTarget(self, action: #selector(switchTapped(_:)), for: .valueChanged)
+        toggleSwitch.addTarget(self, action: #selector(switchTapped(_:)), for: .valueChanged)
     }
     
     @objc func switchTapped(_ sender: UISwitch) {
-        if sender == switch1, let tapped = self.row?.switch1?.tapped {
+        if sender == switch1 {
             self.row?.switch1?.isOn = sender.isOn
-            tapped(sender.isOn)
+            self.row?.switch1?.tapped?(sender.isOn)
         }
     }
     
     // MARK: - TextFields
     
-    func setupTextField(_ textField: BlastTextField?, _ config: TextFieldConfiguration?) {
+    func setupTextField(_ textField: BlastTextField?, _ config: TextFieldConfig?) {
         guard let textField,
               let config
         else { return }
@@ -180,8 +213,8 @@ open class BlastTableViewCell: UITableViewCell {
             textField.textContentType = textContentType
         }
         
-        //Update config value, otherwise it will be reset when cell disappears from view and then appears again
-        //This will automatically work for shouldChangeCharactersIn as well
+        // Update config value, otherwise it will be reset when cell disappears from view and then appears again
+        // This will automatically work for shouldChangeCharactersIn as well
         textField.textChanged = { [weak config] value in
             guard let config else { return }
             config.text = value
@@ -196,7 +229,7 @@ open class BlastTableViewCell: UITableViewCell {
     
     // MARK: - TextViews
     
-    func setupTextView(_ textView: BlastTextView?, _ config: TextViewConfiguration?) {
+    func setupTextView(_ textView: BlastTextView?, _ config: TextViewConfig?) {
         guard let textView,
               let config
         else { return }
@@ -209,8 +242,8 @@ open class BlastTableViewCell: UITableViewCell {
         
         textView.doneTapped = config.doneTapped
         
-        //Update config value, otherwise it will be reset when cell disappears from view and then appears again
-        //This will automatically work for shouldChangeCharactersIn as well
+        // Update config value, otherwise it will be reset when cell disappears from view and then appears again
+        // This will automatically work for shouldChangeCharactersIn as well
         textView.textChanged = { [weak config] value in
             guard let config else { return }
             config.text = value

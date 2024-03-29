@@ -1,13 +1,10 @@
 //
-//  BlastTextViewConfiguration.swift
-//  BlastExample
-//
-//  Created by Bob de Graaf on 27/02/2024.
+//  BlastTextViewConfig.swift
 //
 
 import UIKit
 
-public class TextViewConfiguration {
+public class TextViewConfig {
     public var text: String = ""
     public var font: UIFont?
     
@@ -21,7 +18,7 @@ public class TextViewConfiguration {
     // MARK: - Lifecycle
     
     public init() {
-        //Only here because default swift init is private...
+        // Only here because default swift init is private...
     }
     
     // MARK: - SwiftUI style parameters

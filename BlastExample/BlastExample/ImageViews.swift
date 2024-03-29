@@ -1,57 +1,54 @@
 //
 //  ImageViews.swift
-//  BlastExample
-//
-//  Created by Bob de Graaf on 02/02/2024.
 //
 
 import UIKit
 
-class ImageViews: BlastTableViewController {
+class ImageViews: BlastController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Styling
+        // Styling
         self.navigationItem.title = "ImageViews"
         
-        //Register XIBs
+        // Register XIBs
         self.registerCells([XIBCellOneImageView, XIBCellTwoImageViews, XIBCellThreeImageViews])
         self.registerHeaderFooters([XIBHeader])
         
-        //Load
+        // Load
         self.loadContent()
     }
     
     func loadContent() {
-        var row: BlastTableViewRow
-        var section: BlastTableViewSection
+        var row: BlastRow
+        var section: BlastSection
         
-        section = BlastTableViewSection(headerXibName: XIBHeader)
+        section = BlastSection(headerXibName: XIBHeader)
         section.headerTitle = "One"
         self.addSection(section)
         
-        row = BlastTableViewRow(xibName: XIBCellOneImageView)
-        row.image1 = .init(named: "Image1")
+        row = BlastRow(xibName: XIBCellOneImageView)
+        row.image1 = ImageViewConfig().image(UIImage(named: "Image1")!)
         section.addRow(row)
         
-        section = BlastTableViewSection(headerXibName: XIBHeader)
+        section = BlastSection(headerXibName: XIBHeader)
         section.headerTitle = "Two"
         self.addSection(section)
         
-        row = BlastTableViewRow(xibName: XIBCellTwoImageViews)
-        row.image1 = .init(named: "Image1")
-        row.image2 = .init(named: "Image2")
+        row = BlastRow(xibName: XIBCellTwoImageViews)
+        row.image1 = ImageViewConfig().image(UIImage(named: "Image1")!)
+        row.image2 = ImageViewConfig().image(UIImage(named: "Image2")!)
         section.addRow(row)
         
-        section = BlastTableViewSection(headerXibName: XIBHeader)
+        section = BlastSection(headerXibName: XIBHeader)
         section.headerTitle = "Three"
         self.addSection(section)
         
-        row = BlastTableViewRow(xibName: XIBCellThreeImageViews)
-        row.image1 = .init(named: "Image1")
-        row.image2 = .init(named: "Image2")
-        row.image3 = .init(named: "Image3")
+        row = BlastRow(xibName: XIBCellThreeImageViews)
+        row.image1 = ImageViewConfig().image(UIImage(named: "Image1")!)
+        row.image2 = ImageViewConfig().image(UIImage(named: "Image2")!)
+        row.image3 = ImageViewConfig().image(UIImage(named: "Image3")!)
         section.addRow(row)
         
     }
