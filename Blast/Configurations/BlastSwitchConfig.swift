@@ -23,7 +23,7 @@ public class SwitchConfig {
         }
     }
     
-    public var tapped: ((Bool) -> Void)?
+    public var tapped: ((_ isOn:Bool) -> Void)?
     
     // MARK: - Lifecycle
     
@@ -46,7 +46,7 @@ public class SwitchConfig {
     }
 
     @discardableResult
-    public func tapped(_ tapped: ((Bool) -> Void)?) -> Self {
+    public func tapped(_ tapped: ((_ isOn:Bool) -> Void)?) -> Self {
         self.tapped = tapped
         return self
     }

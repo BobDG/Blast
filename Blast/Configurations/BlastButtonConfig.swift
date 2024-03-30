@@ -31,6 +31,14 @@ public class ButtonConfig {
         }
     }    
     
+    public var tintColor: UIColor? {
+        didSet {
+            if let button = self.button {
+                DispatchQueue.main.async { button.tintColor = self.tintColor }
+            }
+        }
+    }
+    
     public var tapped: (() -> Void)?
     
     // MARK: - Lifecycle
@@ -56,6 +64,12 @@ public class ButtonConfig {
     @discardableResult
     public func backgroundColor(_ backgroundColor: UIColor?) -> Self {
         self.backgroundColor = backgroundColor
+        return self
+    }
+    
+    @discardableResult
+    public func tintColor(_ tintColor: UIColor?) -> Self {
+        self.tintColor = tintColor
         return self
     }
     

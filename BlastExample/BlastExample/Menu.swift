@@ -59,6 +59,13 @@ class Menu: BlastController {
         section.addRow(row)
         
         row = BlastRow(xibName: XIBCellMenuItem)
+        row.label1 = LabelConfig().text("Segmented controls")
+        row.cellTapped = { [weak self] in
+            self?.navigationController?.pushViewController(SegmentedControls.init(style: .insetGrouped), animated: true)
+        }
+        section.addRow(row)
+        
+        row = BlastRow(xibName: XIBCellMenuItem)
         row.label1 = LabelConfig().text("TextFields")
         row.cellTapped = { [weak self] in
             self?.navigationController?.pushViewController(TextFields.init(style: .insetGrouped), animated: true)

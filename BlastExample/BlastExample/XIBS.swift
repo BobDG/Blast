@@ -29,6 +29,9 @@ let XIBCellThreeImageViews = "CellThreeImageViews"
 // Switches
 let XIBCellOneSwitch = "CellOneSwitch"
 
+// SegmentedControls
+let XIBCellOneSegmentedControl = "CellOneSegmentedControl"
+
 // TextFields
 let XIBCellOneTextField = "CellOneTextField"
 let XIBCellTwoTextFields = "CellTwoTextFields"

@@ -24,20 +24,23 @@ open class BlastCell: UITableViewCell {
     @IBOutlet public weak var button4: UIButton?
     @IBOutlet public weak var button5: UIButton?
     
+    // Switches
+    @IBOutlet public weak var switch1: UISwitch?
+    
+    // SegmentedControls
+    @IBOutlet public weak var segmentedControl1: UISegmentedControl?
+    
     // Textfields
     @IBOutlet public weak var textField1: BlastTextField?
     @IBOutlet public weak var textField2: BlastTextField?
+    
+    // TextViews
+    @IBOutlet public weak var textView1: BlastTextView?
     
     // Views
     @IBOutlet public weak var view1: UIView?
     @IBOutlet public weak var view2: UIView?
     @IBOutlet public weak var view3: UIView?
-    
-    // TextViews
-    @IBOutlet public weak var textView1: BlastTextView?
-    
-    // Switch
-    @IBOutlet public weak var switch1: UISwitch?
     
     // Row
     public var row: BlastRow? {
@@ -66,8 +69,11 @@ open class BlastCell: UITableViewCell {
             self.setupImageView(imageView2, row.image2)
             self.setupImageView(imageView3, row.image3)
             
-            // Switch
+            // Switches
             self.setupSwitch(switch1, row.switch1)
+            
+            // SegmentedControls
+            self.setupSegmentedControl(segmentedControl1, row.segmentedControl1)
             
             // TextFields
             self.setupTextField(textField1, row.textField1)
@@ -129,6 +135,10 @@ open class BlastCell: UITableViewCell {
             button.backgroundColor = backgroundColor
         }
         
+        if let tintColor = config.tintColor {
+            button.tintColor = tintColor
+        }
+        
         button.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
     }
     
@@ -186,6 +196,45 @@ open class BlastCell: UITableViewCell {
         if sender == switch1 {
             self.row?.switch1?.isOn = sender.isOn
             self.row?.switch1?.tapped?(sender.isOn)
+        }
+    }
+    
+    // MARK: - SegmentedControl
+    
+    func setupSegmentedControl(_ segmentedControl: UISegmentedControl?, _ config: SegmentedControlConfig?) {
+        guard let segmentedControl,
+              let config
+        else { return }
+        
+        // Link for automatic updates
+        config.segmentedControl = segmentedControl
+        
+        // Update
+        segmentedControl.removeAllSegments()
+        for (index, title) in config.titles.enumerated() {
+            segmentedControl.insertSegment(withTitle: title, at: index, animated: false)
+        }
+        
+        if let attributes = config.titleAttributes {
+            segmentedControl.setTitleTextAttributes(attributes, for: .normal)
+        }
+        
+        if let backgroundColor = config.backgroundColor {
+            segmentedControl.backgroundColor = backgroundColor
+        }
+        
+        if let tintColor = config.tintColor {
+            segmentedControl.selectedSegmentTintColor = tintColor
+        }
+        
+        segmentedControl.selectedSegmentIndex = config.selectedIndex
+        segmentedControl.addTarget(self, action: #selector(segmentValueChanged(_:)), for: .valueChanged)
+    }
+    
+    @objc func segmentValueChanged(_ sender: UISegmentedControl) {
+        if sender == segmentedControl1 {
+            self.row?.segmentedControl1?.selectedIndex = sender.selectedSegmentIndex
+            self.row?.segmentedControl1?.valueChanged?(sender.selectedSegmentIndex)
         }
     }
     

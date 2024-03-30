@@ -44,6 +44,10 @@ public class BlastRow {
     
     public var switch1: SwitchConfig?
     
+    // MARK: - SegmentedControls
+    
+    public var segmentedControl1: SegmentedControlConfig?
+    
     // MARK: - TextFields
     
     public var textField1: TextFieldConfig?
