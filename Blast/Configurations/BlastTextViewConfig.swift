@@ -8,6 +8,9 @@ public class TextViewConfig {
     public var text: String = ""
     public var font: UIFont?
     
+    public var placeholder: String?
+    public var attributedPlaceholder: NSAttributedString?
+    
     public var isEditable: Bool = true
     public var isSelectable: Bool = true
     public var isScrollEnabled: Bool = false
@@ -32,6 +35,18 @@ public class TextViewConfig {
     @discardableResult
     public func font(_ font: UIFont?) -> Self {
         self.font = font
+        return self
+    }
+    
+    @discardableResult
+    public func placeholder(_ placeholder: String) -> Self {
+        self.placeholder = placeholder
+        return self
+    }
+    
+    @discardableResult
+    public func attributedPlaceholder(_ attributedPlaceholder: NSAttributedString?) -> Self {
+        self.attributedPlaceholder = attributedPlaceholder
         return self
     }
     

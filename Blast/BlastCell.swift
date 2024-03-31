@@ -285,6 +285,8 @@ open class BlastCell: UITableViewCell {
         
         textView.text = config.text
         textView.font = config.font
+        textView.placeholder = config.placeholder
+        textView.attributedPlaceholder = config.attributedPlaceholder
         textView.isEditable = config.isEditable
         textView.isSelectable = config.isSelectable
         textView.isScrollEnabled = config.isScrollEnabled

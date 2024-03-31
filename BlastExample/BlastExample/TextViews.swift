@@ -37,7 +37,6 @@ class TextViews: BlastController {
             .text("A cool uitextview with a custom font that should automatically resize to become longer")
         row.textView1 = TextViewConfig()
             .text("Try it out and see that the cell grows when necessary!")
-            .isEditable(true)
             .font(.systemFont(ofSize: 18.0))
             .textChanged { [weak self] text in
                 print("Callback text  changed: \(text)")
@@ -47,6 +46,31 @@ class TextViews: BlastController {
             .doneTapped {
                 print("Done tapped!")
             }
+        section.addRow(row)
+        
+        section = BlastSection(headerXibName: XIBHeader)
+        section.headerTitle = "With placeholder"
+        self.addSection(section)
+        
+        row = BlastRow(xibName: XIBCellTextView)
+        row.label1 = LabelConfig()
+            .text("Now you see a custom placeholder below")
+        row.textView1 = TextViewConfig()
+            .placeholder("Type here to try it out")
+            .font(.systemFont(ofSize: 18.0))
+        section.addRow(row)
+        
+        section = BlastSection(headerXibName: XIBHeader)
+        section.headerTitle = "Custom placeholder"
+        self.addSection(section)
+        
+        row = BlastRow(xibName: XIBCellTextView)
+        row.label1 = LabelConfig()
+            .text("Of course, attributed is possible")
+        row.textView1 = TextViewConfig()
+            .attributedPlaceholder(.init(string: "Go nuts",
+                                         attributes: [.font: UIFont.italicSystemFont(ofSize: 21), .foregroundColor: UIColor.blue]))
+            .font(.systemFont(ofSize: 18.0))
         section.addRow(row)
     }
     
