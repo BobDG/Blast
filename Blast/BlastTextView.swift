@@ -9,16 +9,9 @@ public class BlastTextView: UITextView, UITextViewDelegate {
     public var height: Int = 0
     
     // Placeholder
-    public var placeholder: String? {
-        didSet {
-            self.setupPlaceholderLabel()
-        }
-    }
-    public var attributedPlaceholder: NSAttributedString? {
-        didSet {
-            self.setupPlaceholderLabel()
-        }
-    }
+    public var placeholder: String?
+    public var placeholderFont: UIFont?
+    public var attributedPlaceholder: NSAttributedString?
     private var placeholderLabel:UILabel?
     
     // Closures for row
@@ -83,8 +76,8 @@ public class BlastTextView: UITextView, UITextViewDelegate {
     
     // MARK: - Placeholder
     
-    private func setupPlaceholderLabel() {
-        // Check if we need to create the placeholder label
+    public func setupPlaceholderLabel() {
+        // Create the placeholder label
         if self.placeholderLabel == nil {
             let label = UILabel()
             label.textColor = UIColor.lightGray
@@ -109,7 +102,7 @@ public class BlastTextView: UITextView, UITextViewDelegate {
             self.placeholderLabel?.attributedText = attributedText
         } else if let text = placeholder {
             self.placeholderLabel?.text = text
-            self.placeholderLabel?.font = self.font
+            self.placeholderLabel?.font = self.placeholderFont
         }
     }
     
