@@ -2,6 +2,8 @@
 //  BlastSection.swift
 //
 
+import UIKit
+
 open class BlastSection {
     // XIBs
     public var headerXibName: String?
