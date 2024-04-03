@@ -12,7 +12,9 @@ open class BlastSection {
     
     // Labels
     public var headerTitle: String?
+    public var headerFont: UIFont?
     public var footerTitle: String?
+    public var footerFont: UIFont?
     
     // Heights
     public var headerHeight: Int?
@@ -46,8 +48,20 @@ open class BlastSection {
     }
     
     @discardableResult
+    public func headerFont(_ headerFont: UIFont) -> Self {
+        self.headerFont = headerFont
+        return self
+    }
+    
+    @discardableResult
     public func footerTitle(_ footerTitle: String) -> Self {
         self.footerTitle = footerTitle
+        return self
+    }
+    
+    @discardableResult
+    public func footerFont(_ footerFont: UIFont) -> Self {
+        self.footerFont = footerFont
         return self
     }
     

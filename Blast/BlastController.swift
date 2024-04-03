@@ -9,12 +9,12 @@ open class BlastController: UITableViewController {
     public var sections:[BlastSection] = []
     public var retainedSections: [BlastSection] = []
     public var sectionDefaultHeaderHeight = 20
-    public var sectionDefaultFooterHeight = 10
+    public var sectionDefaultFooterHeight = CGFloat.leastNonzeroMagnitude
     
     // Estimated heights (setting these can improve scrolling performance)
     public var estimatedRowHeight = 44
     public var estimatedHeaderHeight = 20
-    public var estimatedFooterHeight = 10
+    public var estimatedFooterHeight = CGFloat.leastNonzeroMagnitude
     
     // Textfields
     public var textViewsArray: [UITextView] = []

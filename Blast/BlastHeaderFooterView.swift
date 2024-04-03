@@ -14,7 +14,9 @@ open class BlastHeaderFooterView: UITableViewHeaderFooterView {
         didSet {
             guard let section else { return }
             headerLabel?.text = section.headerTitle
-            footerLabel?.text = section.footerTitle            
+            headerLabel?.font = section.headerFont
+            footerLabel?.text = section.footerTitle
+            footerLabel?.font = section.footerFont
         }
     }
     
