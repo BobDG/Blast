@@ -252,6 +252,7 @@ open class BlastCell: UITableViewCell {
         textField.nextFieldOnReturn = config.nextFieldOnReturn
         
         textField.keyboardType = config.keyboardType
+        textField.returnKeyType = config.returnKeyType
         textField.autocorrectionType = config.autoCorrectionType
         textField.autocapitalizationType = config.capitalizationType
         

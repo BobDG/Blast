@@ -16,6 +16,7 @@ public class TextFieldConfig {
     
     public var textContentType: UITextContentType?
     public var keyboardType: UIKeyboardType = .default
+    public var returnKeyType: UIReturnKeyType = .default
     public var autoCorrectionType: UITextAutocorrectionType = .default
     public var capitalizationType: UITextAutocapitalizationType = .sentences
     
@@ -68,14 +69,20 @@ public class TextFieldConfig {
     }
     
     @discardableResult
-    public func textContentType(_ textContentType: UITextContentType?) -> Self {
-        self.textContentType = textContentType
+    public func keyboardType(_ keyboardType: UIKeyboardType) -> Self {
+        self.keyboardType = keyboardType
         return self
     }
     
     @discardableResult
-    public func keyboardType(_ keyboardType: UIKeyboardType) -> Self {
-        self.keyboardType = keyboardType
+    public func returnKeyType(_ returnKeyType: UIReturnKeyType) -> Self {
+        self.returnKeyType = returnKeyType
+        return self
+    }
+    
+    @discardableResult
+    public func textContentType(_ textContentType: UITextContentType?) -> Self {
+        self.textContentType = textContentType
         return self
     }
     
