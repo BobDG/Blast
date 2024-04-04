@@ -29,9 +29,8 @@ class SegmentedControls: BlastController {
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneSegmentedControl)
-        row.label1 = LabelConfig().text("Test and check the console!")
-        row.segmentedControl1 = SegmentedControlConfig()
-            .titles(["How", "Awesome", "Is", "This?"])
+        row.label1.text("Test and check the console!")
+        row.segmentedControl1.titles(["How", "Awesome", "Is", "This?"])
             .selectedIndex(1)
             .valueChanged({ selectedIndex in
                 print("Index now: \(selectedIndex)")
@@ -43,9 +42,8 @@ class SegmentedControls: BlastController {
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneSegmentedControl)
-        row.label1 = LabelConfig().text("Go nuts again!")
-        row.segmentedControl1 = SegmentedControlConfig()
-            .titles(["Color", "Textstyle", "And so on"])
+        row.label1.text("Go nuts again!")
+        row.segmentedControl1.titles(["Color", "Textstyle", "And so on"])
             .backgroundColor(.green)
             .tintColor(.yellow)
             .titleAttributes([.font: UIFont.italicSystemFont(ofSize: 14), .backgroundColor: UIColor.systemPink])

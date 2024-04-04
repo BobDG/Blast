@@ -37,8 +37,7 @@ class ReplaceSections: BlastController {
         self.addSection(newSectionReplace)
         
         let replaceWithCreateRow = BlastRow(xibName: XIBCellOneButton)
-        replaceWithCreateRow.button1 = ButtonConfig()
-            .title("Replace by a new section")
+        replaceWithCreateRow.button1.title("Replace by a new section")
             .tapped { [weak self] in
                 guard let self else { return }
                 if let oldSection = self.nextSection(after: newSectionReplace) {
@@ -61,14 +60,12 @@ class ReplaceSections: BlastController {
         
         // Replace row
         row = BlastRow(xibName: XIBCellTwoButtons)
-        row.button1 = ButtonConfig()
-            .title("Replace section 1 with 2")
+        row.button1.title("Replace section 1 with 2")
             .tapped { [weak self] in
                 guard let self else { return }
                 self.replaceSection(self.singleSection1, with: self.singleSection2, useReloadSections: true, animation: .right)
             }
-        row.button2 = ButtonConfig()
-            .title("Replace section 2 with 1")
+        row.button2.title("Replace section 2 with 1")
             .tapped { [weak self] in
                 guard let self else { return }
                 self.replaceSection(self.singleSection2, with: self.singleSection1, animation: .middle)
@@ -89,14 +86,12 @@ class ReplaceSections: BlastController {
                 
         // Replace row
         row = BlastRow(xibName: XIBCellTwoButtons)
-        row.button1 = ButtonConfig()
-            .title("Replace section 1 & 2 with 3 & 4")
+        row.button1.title("Replace section 1 & 2 with 3 & 4")
             .tapped { [weak self] in
                 guard let self else { return }
                 self.replaceSections(deleting: [self.pluralSection1, self.pluralSection2], with: [self.pluralSection3, self.pluralSection4], animation: .left)
             }
-        row.button2 = ButtonConfig()
-            .title("Replace section 3 & 4 with 1 & 2")
+        row.button2.title("Replace section 3 & 4 with 1 & 2")
             .tapped { [weak self] in
                 guard let self else { return }
                 self.replaceSections(deleting: [self.pluralSection3, self.pluralSection4], with: [self.pluralSection1, self.pluralSection2], animation: .right)
@@ -117,14 +112,12 @@ class ReplaceSections: BlastController {
                 
         // Replace
         row = BlastRow(xibName: XIBCellTwoButtons)
-        row.button1 = ButtonConfig()
-            .title("Replace section 1 with 2 & 3")
+        row.button1.title("Replace section 1 with 2 & 3")
             .tapped { [weak self] in
                 guard let self else { return }
                 self.replaceSections(deleting: [self.customSection1], with: [self.customSection2, self.customSection3], animation: .left)
             }
-        row.button2 = ButtonConfig()
-            .title("Replace section 2 & 3 with 1")
+        row.button2.title("Replace section 2 & 3 with 1")
             .tapped { [weak self] in
                 guard let self else { return }
                 self.replaceSections(deleting: [self.customSection2, self.customSection3], with: [self.customSection1], animation: .bottom)
@@ -136,7 +129,7 @@ class ReplaceSections: BlastController {
     
     func creatSection(title: String) -> BlastSection {
         let row: BlastRow = .init(xibName: XIBCellOneLabel)
-        row.label1 = LabelConfig().text(title)
+        row.label1.text(title)
         let section = BlastSection.init(headerXibName: XIBHeader)
         section.headerHeight = 0
         section.addRow(row)
@@ -145,7 +138,7 @@ class ReplaceSections: BlastController {
     
     lazy var singleSection1: BlastSection = {
         var row: BlastRow = .init(xibName: XIBCellOneLabel)
-        row.label1 = LabelConfig().text("Lazy single section 1 - replace uses reloadIndexPath")
+        row.label1.text("Lazy single section 1 - replace uses reloadIndexPath")
         let section = BlastSection.init(headerXibName: XIBHeader)
         section.headerHeight = 0
         section.addRow(row)
@@ -155,7 +148,7 @@ class ReplaceSections: BlastController {
     
     lazy var singleSection2: BlastSection = {
         var row: BlastRow = .init(xibName: XIBCellOneLabel)
-        row.label1 = LabelConfig().text("Lazy single section 2 - replace uses reloadIndexPath")
+        row.label1.text("Lazy single section 2 - replace uses reloadIndexPath")
         let section = BlastSection.init(headerXibName: XIBHeader)
         section.headerHeight = 0
         section.addRow(row)
@@ -165,7 +158,7 @@ class ReplaceSections: BlastController {
     
     lazy var pluralSection1: BlastSection = {
         var row: BlastRow = .init(xibName: XIBCellOneLabel)
-        row.label1 = LabelConfig().text("Lazy plural section 1")
+        row.label1.text("Lazy plural section 1")
         let section = BlastSection.init(headerXibName: XIBHeader)
         section.headerHeight = 0
         section.addRow(row)
@@ -175,7 +168,7 @@ class ReplaceSections: BlastController {
     
     lazy var pluralSection2: BlastSection = {
         var row: BlastRow = .init(xibName: XIBCellOneLabel)
-        row.label1 = LabelConfig().text("Lazy plural section 2")
+        row.label1.text("Lazy plural section 2")
         let section = BlastSection.init(headerXibName: XIBHeader)
         section.headerHeight = 0
         section.addRow(row)
@@ -185,7 +178,7 @@ class ReplaceSections: BlastController {
     
     lazy var pluralSection3: BlastSection = {
         var row: BlastRow = .init(xibName: XIBCellOneLabel)
-        row.label1 = LabelConfig().text("Lazy plural section 3")
+        row.label1.text("Lazy plural section 3")
         let section = BlastSection.init(headerXibName: XIBHeader)
         section.headerHeight = 0
         section.addRow(row)
@@ -195,7 +188,7 @@ class ReplaceSections: BlastController {
     
     lazy var pluralSection4: BlastSection = {
         var row: BlastRow = .init(xibName: XIBCellOneLabel)
-        row.label1 = LabelConfig().text("Lazy plural section 4")
+        row.label1.text("Lazy plural section 4")
         let section = BlastSection.init(headerXibName: XIBHeader)
         section.headerHeight = 0
         section.addRow(row)
@@ -205,7 +198,7 @@ class ReplaceSections: BlastController {
     
     lazy var customSection1: BlastSection = {
         var row: BlastRow = .init(xibName: XIBCellOneLabel)
-        row.label1 = LabelConfig().text("Lazy custom section 1")
+        row.label1.text("Lazy custom section 1")
         let section = BlastSection.init(headerXibName: XIBHeader)
         section.headerHeight = 0
         section.addRow(row)
@@ -215,7 +208,7 @@ class ReplaceSections: BlastController {
     
     lazy var customSection2: BlastSection = {
         var row: BlastRow = .init(xibName: XIBCellOneLabel)
-        row.label1 = LabelConfig().text("Lazy custom section 2")
+        row.label1.text("Lazy custom section 2")
         let section = BlastSection.init(headerXibName: XIBHeader)
         section.headerHeight = 0
         section.addRow(row)
@@ -225,7 +218,7 @@ class ReplaceSections: BlastController {
     
     lazy var customSection3: BlastSection = {
         var row: BlastRow = .init(xibName: XIBCellOneLabel)
-        row.label1 = LabelConfig().text("Lazy custom section 3")
+        row.label1.text("Lazy custom section 3")
         let section = BlastSection.init(headerXibName: XIBHeader)
         section.headerHeight = 0
         section.addRow(row)

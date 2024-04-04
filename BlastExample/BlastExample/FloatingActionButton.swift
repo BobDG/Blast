@@ -35,8 +35,7 @@ class FloatingActionButton: BlastController {
         }
         
         let addRow = BlastRow(xibName: XIBCellOneButton)
-        addRow.button1 = ButtonConfig()
-            .title("Tap to add a row")
+        addRow.button1.title("Tap to add a row")
             .tapped { [weak self] in
                 guard let self else { return }
                 self.addRows([self.createRow(title:"Added to the bottom", index: section.rows.count)], toSection: section, atTheBottom: true)
@@ -46,7 +45,7 @@ class FloatingActionButton: BlastController {
     
     func createRow(title: String, index:Int) -> BlastRow {
         let row: BlastRow = .init(xibName: XIBCellOneLabel)
-        row.label1 = LabelConfig().text(title)
+        row.label1.text(title)
         row.cellTapped = {
             print("Row \(index) tapped")
         }

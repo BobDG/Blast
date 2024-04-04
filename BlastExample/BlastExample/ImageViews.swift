@@ -29,7 +29,7 @@ class ImageViews: BlastController {
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneImageView)
-        row.image1 = ImageViewConfig().image(UIImage(named: "Image1")!)
+        row.image1.image(UIImage(named: "Image1")!)
         section.addRow(row)
         
         section = BlastSection(headerXibName: XIBHeader)
@@ -37,8 +37,8 @@ class ImageViews: BlastController {
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellTwoImageViews)
-        row.image1 = ImageViewConfig().image(UIImage(named: "Image1")!)
-        row.image2 = ImageViewConfig().image(UIImage(named: "Image2")!)
+        row.image1.image(UIImage(named: "Image1")!)
+        row.image2.image(UIImage(named: "Image2")!)
         section.addRow(row)
         
         section = BlastSection(headerXibName: XIBHeader)
@@ -46,9 +46,9 @@ class ImageViews: BlastController {
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellThreeImageViews)
-        row.image1 = ImageViewConfig().image(UIImage(named: "Image1")!)
-        row.image2 = ImageViewConfig().image(UIImage(named: "Image2")!)
-        row.image3 = ImageViewConfig().image(UIImage(named: "Image3")!)
+        row.image1.image(UIImage(named: "Image1")!)
+        row.image2.image(UIImage(named: "Image2")!)
+        row.image3.image(UIImage(named: "Image3")!)
         section.addRow(row)
         
     }

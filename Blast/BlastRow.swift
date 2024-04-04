@@ -18,46 +18,79 @@ public class BlastRow {
     public var cellTapped:(() -> Void)?
     public var configureCell:((BlastCell) -> Void)?
     
-    // MARK: - Labels
+    /**
+     The lazy vars means you don't need to use 'row.label1 = LabelConfig()', you can simply type row.label1.text("Text"
+     */
     
-    public var label1: LabelConfig?
-    public var label2: LabelConfig?
-    public var label3: LabelConfig?
-    public var label4: LabelConfig?
-    public var label5: LabelConfig?
+    // Labels
+    public lazy var label1: LabelConfig = {
+        return LabelConfig()
+    }()
+    public lazy var label2: LabelConfig = {
+        return LabelConfig()
+    }()
+    public lazy var label3: LabelConfig = {
+        return LabelConfig()
+    }()
+    public lazy var label4: LabelConfig = {
+        return LabelConfig()
+    }()
+    public lazy var label5: LabelConfig = {
+        return LabelConfig()
+    }()
     
-    // MARK: - Buttons
+    // Buttons
+    public lazy var button1: ButtonConfig = {
+        return ButtonConfig()
+    }()
+    public lazy var button2: ButtonConfig = {
+        return ButtonConfig()
+    }()
+    public lazy var button3: ButtonConfig = {
+        return ButtonConfig()
+    }()
+    public lazy var button4: ButtonConfig = {
+        return ButtonConfig()
+    }()
+    public lazy var button5: ButtonConfig = {
+        return ButtonConfig()
+    }()
     
-    public var button1: ButtonConfig?
-    public var button2: ButtonConfig?
-    public var button3: ButtonConfig?
-    public var button4: ButtonConfig?
-    public var button5: ButtonConfig?
+    // Images
+    public lazy var image1: ImageViewConfig = {
+        return ImageViewConfig()
+    }()
+    public lazy var image2: ImageViewConfig = {
+        return ImageViewConfig()
+    }()
+    public lazy var image3: ImageViewConfig = {
+        return ImageViewConfig()
+    }()
     
-    // MARK: - Images
+    // Switches
+    public lazy var switch1: SwitchConfig = {
+        return SwitchConfig()
+    }()
     
-    public var image1: ImageViewConfig?
-    public var image2: ImageViewConfig?
-    public var image3: ImageViewConfig?
+    // SegmentedControls
+    public lazy var segmentedControl1: SegmentedControlConfig = {
+        return SegmentedControlConfig()
+    }()
     
-    // MARK: - Switches
+    // TextFields
+    public lazy var textField1: TextFieldConfig = {
+        return TextFieldConfig()
+    }()
+    public lazy var textField2: TextFieldConfig = {
+        return TextFieldConfig()
+    }()
     
-    public var switch1: SwitchConfig?
+    // TextViews
+    public lazy var textView1: TextViewConfig = {
+        return TextViewConfig()
+    }()
     
-    // MARK: - SegmentedControls
-    
-    public var segmentedControl1: SegmentedControlConfig?
-    
-    // MARK: - TextFields
-    
-    public var textField1: TextFieldConfig?
-    public var textField2: TextFieldConfig?
-    
-    // MARK: - TextViews
-    
-    public var textView1: TextViewConfig?
-    
-    // MARK: - Lifecycle
+    // Lifecycle
     
     public init(xibName: String) {
         self.xibName = xibName

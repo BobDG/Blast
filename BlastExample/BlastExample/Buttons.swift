@@ -29,8 +29,7 @@ class Buttons: BlastController {
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneButton)
-        row.button1 = ButtonConfig()
-            .title("Tap me")
+        row.button1.title("Tap me")
             .tapped {
                 print("XIBCellOneButton Button tapped!")
             }
@@ -41,13 +40,11 @@ class Buttons: BlastController {
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellTwoButtons)
-        row.button1 = ButtonConfig()
-            .title("First button")
+        row.button1.title("First button")
             .tapped {
                 print("XIBCellTwoButtons Button 1 tapped!")
             }
-        row.button2 = ButtonConfig()
-            .title("Second button")
+        row.button2.title("Second button")
             .tapped {
                 print("XIBCellTwoButtons Button 2 tapped!")
             }
@@ -59,20 +56,17 @@ class Buttons: BlastController {
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellThreeButtons)
-        row.button1 = ButtonConfig()
-            .attributedTitle(.init(string: "Bold black",
+        row.button1.attributedTitle(.init(string: "Bold black",
                                    attributes: [.font: UIFont.boldSystemFont(ofSize: 16), .foregroundColor: UIColor.black]))
             .tapped {
                 print("XIBCellThreeButtons Button 1 tapped!")
             }
-        row.button2 = ButtonConfig()
-            .attributedTitle(.init(string: "Large colored",
+        row.button2.attributedTitle(.init(string: "Large colored",
                                    attributes: [.font: UIFont.boldSystemFont(ofSize: 22), .foregroundColor: UIColor.green]))
             .tapped({
                 print("XIBCellThreeButtons Button 2 tapped!")
             })
-        row.button3 = ButtonConfig()
-            .backgroundColor(.blue)
+        row.button3.backgroundColor(.blue)
             .attributedTitle(.init(string: "Background color",
                                    attributes: [.font: UIFont.boldSystemFont(ofSize: 16), .foregroundColor: UIColor.white]))
             .tapped {

@@ -51,36 +51,36 @@ open class BlastCell: UITableViewCell {
             row.cell = self
             
             // Labels
-            self.setupLabel(label1, row.label1)
-            self.setupLabel(label2, row.label2)
-            self.setupLabel(label3, row.label3)
-            self.setupLabel(label4, row.label4)
-            self.setupLabel(label5, row.label5)
+            if let label = label1 { self.setupLabel(label, row.label1) }
+            if let label = label2 { self.setupLabel(label, row.label2) }
+            if let label = label3 { self.setupLabel(label, row.label3) }
+            if let label = label4 { self.setupLabel(label, row.label4) }
+            if let label = label5 { self.setupLabel(label, row.label5) }
             
             // Buttons
-            self.setupButton(button1, row.button1)
-            self.setupButton(button2, row.button2)
-            self.setupButton(button3, row.button3)
-            self.setupButton(button4, row.button4)
-            self.setupButton(button5, row.button5)
-            
+            if let button = button1 { self.setupButton(button, row.button1) }
+            if let button = button2 { self.setupButton(button, row.button2) }
+            if let button = button3 { self.setupButton(button, row.button3) }
+            if let button = button4 { self.setupButton(button, row.button4) }
+            if let button = button5 { self.setupButton(button, row.button5) }
+                        
             // ImageViews
-            self.setupImageView(imageView1, row.image1)
-            self.setupImageView(imageView2, row.image2)
-            self.setupImageView(imageView3, row.image3)
+            if let imageView = imageView1 { self.setupImageView(imageView, row.image1) }
+            if let imageView = imageView2 { self.setupImageView(imageView, row.image1) }
+            if let imageView = imageView3 { self.setupImageView(imageView, row.image1) }
             
             // Switches
-            self.setupSwitch(switch1, row.switch1)
+            if let toggleSwitch = switch1 { self.setupSwitch(toggleSwitch, row.switch1) }
             
             // SegmentedControls
-            self.setupSegmentedControl(segmentedControl1, row.segmentedControl1)
+            if let segmentedControl = segmentedControl1 { self.setupSegmentedControl(segmentedControl, row.segmentedControl1) }
             
             // TextFields
-            self.setupTextField(textField1, row.textField1)
-            self.setupTextField(textField2, row.textField2)
+            if let textField = textField1 { self.setupTextField(textField, row.textField1) }
+            if let textField = textField2 { self.setupTextField(textField, row.textField2) }
 
             // TextViews
-            self.setupTextView(textView1, row.textView1)
+            if let textView = textView1 { self.setupTextView(textView, row.textView1) }
             
             // Additional configuration
             self.configure()
@@ -93,11 +93,7 @@ open class BlastCell: UITableViewCell {
     
     // MARK: - Labels
     
-    func setupLabel(_ label: UILabel?, _ config: LabelConfig?) {
-        guard let label,
-              let config
-        else { return }
-        
+    func setupLabel(_ label: UILabel, _ config: LabelConfig) {
         // Link for automatic updates
         config.label = label
         
@@ -115,11 +111,7 @@ open class BlastCell: UITableViewCell {
     
     // MARK: - Buttons
     
-    func setupButton(_ button: UIButton?, _ config: ButtonConfig?) {
-        guard let button,
-              let config
-        else { return }
-        
+    func setupButton(_ button: UIButton, _ config: ButtonConfig) {
         // Link for automatic updates
         config.button = button
         
@@ -144,25 +136,21 @@ open class BlastCell: UITableViewCell {
     
     @objc func buttonTapped(_ sender: UIButton) {
         if sender == button1 {
-            self.row?.button1?.tapped?()
+            self.row?.button1.tapped?()
         } else if sender == button2 {
-            self.row?.button2?.tapped?()
+            self.row?.button2.tapped?()
         } else if sender == button3 {
-            self.row?.button3?.tapped?()
+            self.row?.button3.tapped?()
         } else if sender == button4 {
-            self.row?.button4?.tapped?()
+            self.row?.button4.tapped?()
         } else if sender == button5 {
-            self.row?.button5?.tapped?()
+            self.row?.button5.tapped?()
         }
     }
     
     // MARK: - ImageView
     
-    func setupImageView(_ imageView: UIImageView?, _ config: ImageViewConfig?) {
-        guard let imageView,
-              let config
-        else { return }
-        
+    func setupImageView(_ imageView: UIImageView, _ config: ImageViewConfig) {
         // Link for automatic updates
         config.imageView = imageView
         
@@ -174,11 +162,7 @@ open class BlastCell: UITableViewCell {
     
     // MARK: - Switch
     
-    func setupSwitch(_ toggleSwitch: UISwitch?, _ config: SwitchConfig?) {
-        guard let toggleSwitch,
-              let config
-        else { return }
-        
+    func setupSwitch(_ toggleSwitch: UISwitch, _ config: SwitchConfig) {
         // Link for automatic updates
         config.toggleSwitch = toggleSwitch
         
@@ -194,18 +178,14 @@ open class BlastCell: UITableViewCell {
     
     @objc func switchTapped(_ sender: UISwitch) {
         if sender == switch1 {
-            self.row?.switch1?.isOn = sender.isOn
-            self.row?.switch1?.tapped?(sender.isOn)
+            self.row?.switch1.isOn = sender.isOn
+            self.row?.switch1.tapped?(sender.isOn)
         }
     }
     
     // MARK: - SegmentedControl
     
-    func setupSegmentedControl(_ segmentedControl: UISegmentedControl?, _ config: SegmentedControlConfig?) {
-        guard let segmentedControl,
-              let config
-        else { return }
-        
+    func setupSegmentedControl(_ segmentedControl: UISegmentedControl, _ config: SegmentedControlConfig) {
         // Link for automatic updates
         config.segmentedControl = segmentedControl
         
@@ -233,18 +213,14 @@ open class BlastCell: UITableViewCell {
     
     @objc func segmentValueChanged(_ sender: UISegmentedControl) {
         if sender == segmentedControl1 {
-            self.row?.segmentedControl1?.selectedIndex = sender.selectedSegmentIndex
-            self.row?.segmentedControl1?.valueChanged?(sender.selectedSegmentIndex)
+            self.row?.segmentedControl1.selectedIndex = sender.selectedSegmentIndex
+            self.row?.segmentedControl1.valueChanged?(sender.selectedSegmentIndex)
         }
     }
     
     // MARK: - TextFields
     
-    func setupTextField(_ textField: BlastTextField?, _ config: TextFieldConfig?) {
-        guard let textField,
-              let config
-        else { return }
-        
+    func setupTextField(_ textField: BlastTextField, _ config: TextFieldConfig) {
         textField.text = config.text
         textField.font = config.font
         textField.placeholder = config.placeholder
@@ -279,11 +255,7 @@ open class BlastCell: UITableViewCell {
     
     // MARK: - TextViews
     
-    func setupTextView(_ textView: BlastTextView?, _ config: TextViewConfig?) {
-        guard let textView,
-              let config
-        else { return }
-        
+    func setupTextView(_ textView: BlastTextView, _ config: TextViewConfig) {
         textView.text = config.text
         textView.font = config.font
         textView.placeholder = config.placeholder

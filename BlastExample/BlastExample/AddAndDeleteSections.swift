@@ -34,8 +34,7 @@ class AddAndDeleteSections: BlastController {
         self.addSection(section)
         
         let addRow = BlastRow(xibName: XIBCellOneButton)
-        addRow.button1 = ButtonConfig()
-            .title("Tap to add a section")
+        addRow.button1.title("Tap to add a section")
             .tapped { [weak self] in
                 guard let self else { return }
                 self.addSections([self.createSection(title:"Added to the top")], atTheTop: true)
@@ -43,24 +42,21 @@ class AddAndDeleteSections: BlastController {
         section.addRow(addRow)
         
         let deleteRow = BlastRow(xibName: XIBCellThreeButtons)
-        deleteRow.button1 = ButtonConfig()
-            .title("Delete first")
+        deleteRow.button1.title("Delete first")
             .tapped { [weak self] in
                 guard let self else { return }
                 if self.previousSection(before: section) != nil {
                     self.deleteSections([self.sections.first!])
                 }
             }
-        deleteRow.button2 = ButtonConfig()
-            .title("Delete last")
+        deleteRow.button2.title("Delete last")
             .tapped { [weak self] in
                 guard let self else { return }
                 if let lastSection = self.previousSection(before: section) {
                     self.deleteSections([lastSection], animation: .middle)
                 }
             }
-        deleteRow.button3 = ButtonConfig()
-            .title("Delete all")
+        deleteRow.button3.title("Delete all")
             .tapped { [weak self] in
                 guard let self else { return }
                 self.deleteSections(self.previousSections(before: section))
@@ -76,8 +72,7 @@ class AddAndDeleteSections: BlastController {
         self.addSection(addSection)
         
         let addRow = BlastRow(xibName: XIBCellOneButton)
-        addRow.button1 = ButtonConfig()
-            .title("Tap to add a section")
+        addRow.button1.title("Tap to add a section")
             .tapped { [weak self] in
                 guard let self else { return }
                 self.addSections([self.createSection(title:"Added in between")], afterSection: addSection)
@@ -89,8 +84,7 @@ class AddAndDeleteSections: BlastController {
         self.addSection(deleteSection)
         
         let deleteRow = BlastRow(xibName: XIBCellThreeButtons)
-        deleteRow.button1 = ButtonConfig()
-            .title("Delete first")
+        deleteRow.button1.title("Delete first")
             .tapped { [weak self] in
                 guard let self else { return }
                 let sectionsBetween = self.sectionsBetween(startSection: addSection, endSection: deleteSection)
@@ -98,8 +92,7 @@ class AddAndDeleteSections: BlastController {
                     self.deleteSections([sectionsBetween.first!])
                 }
             }
-        deleteRow.button2 = ButtonConfig()
-            .title("Delete last")
+        deleteRow.button2.title("Delete last")
             .tapped { [weak self] in
                 guard let self else { return }
                 let sectionsBetween = self.sectionsBetween(startSection: addSection, endSection: deleteSection)
@@ -107,8 +100,7 @@ class AddAndDeleteSections: BlastController {
                     self.deleteSections([sectionsBetween.last!])
                 }
             }
-        deleteRow.button3 = ButtonConfig()
-            .title("Delete all")
+        deleteRow.button3.title("Delete all")
             .tapped { [weak self] in
                 guard let self else { return }
                 self.deleteSections(self.sectionsBetween(startSection: addSection, endSection: deleteSection))
@@ -124,8 +116,7 @@ class AddAndDeleteSections: BlastController {
         self.addSection(section)
         
         let addRow = BlastRow(xibName: XIBCellOneButton)
-        addRow.button1 = ButtonConfig()
-            .title("Tap to add a section")
+        addRow.button1.title("Tap to add a section")
             .tapped { [weak self] in
                 guard let self else { return }
                 self.addSections([self.createSection(title:"Added to the bottom")], atTheBottom: true)
@@ -133,24 +124,21 @@ class AddAndDeleteSections: BlastController {
         section.addRow(addRow)
         
         let deleteRow = BlastRow(xibName: XIBCellThreeButtons)
-        deleteRow.button1 = ButtonConfig()
-            .title("Delete first")
+        deleteRow.button1.title("Delete first")
             .tapped { [weak self] in
                 guard let self else { return }
                 if let firstSection = self.nextSection(after: section) {
                     self.deleteSections([firstSection], animation: .middle)
                 }
             }
-        deleteRow.button2 = ButtonConfig()
-            .title("Delete last")
+        deleteRow.button2.title("Delete last")
             .tapped { [weak self] in
                 guard let self else { return }
                 if self.nextSection(after: section) != nil {
                     self.deleteSections([self.sections.last!])
                 }
             }
-        deleteRow.button3 = ButtonConfig()
-            .title("Delete all")
+        deleteRow.button3.title("Delete all")
             .tapped { [weak self] in
                 guard let self else { return }
                 self.deleteSections(self.nextSections(after: section))
@@ -163,7 +151,7 @@ class AddAndDeleteSections: BlastController {
         section.headerHeight = 5
         section.footerHeight = 5
         let row: BlastRow = .init(xibName: XIBCellOneLabel)
-        row.label1 = LabelConfig().text("Basic section")
+        row.label1.text("Basic section")
         section.addRow(row)
         return section
     }

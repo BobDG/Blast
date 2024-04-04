@@ -29,8 +29,9 @@ class Switches: BlastController {
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneSwitch)
-        row.switch1 = SwitchConfig()
-            .tapped { isOn in
+        row.label1.text("Switch 1")
+            .font(.systemFont(ofSize: 30))
+        row.switch1.tapped { isOn in
                 print("Switch 1 isOn value: \(isOn)")
             }
         section.addRow(row)
@@ -40,12 +41,12 @@ class Switches: BlastController {
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneSwitch)
-        row.switch1 = SwitchConfig()
-            .isOn(true)
+        row.label1.text("Switch 2")
+        row.switch1.isOn(true)
             .color(.purple)
             .tapped { isOn in
                 print("Switch 2 isOn value: \(isOn)")
-                print("Row value isOn: \(String(describing: row.switch1?.isOn))")
+                print("Row value isOn: \(String(describing: row.switch1.isOn))")
             }
         section.addRow(row)
         

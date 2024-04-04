@@ -36,8 +36,7 @@ class TextFields: BlastController {
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneTextField)
-        row.textField1 = TextFieldConfig()
-            .placeholder("Simple placeholder".capitalized)
+        row.textField1.placeholder("Simple placeholder".capitalized)
         section.addRow(row)
         
         section = BlastSection(headerXibName: XIBHeader)
@@ -45,8 +44,7 @@ class TextFields: BlastController {
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneTextField)
-        row.textField1 = TextFieldConfig()
-            .attributedPlaceholder(.init(string: "Italic & background", 
+        row.textField1.attributedPlaceholder(.init(string: "Italic & background", 
                                          attributes: [.font: UIFont.italicSystemFont(ofSize: 14), .backgroundColor: UIColor.systemPink]))
         section.addRow(row)
         
@@ -55,8 +53,7 @@ class TextFields: BlastController {
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneTextField)
-        row.textField1 = TextFieldConfig()
-            .font(UIFont.boldSystemFont(ofSize: 20))
+        row.textField1.font(UIFont.boldSystemFont(ofSize: 20))
             .attributedPlaceholder(.init(string: "Type to see it",
                                          attributes: [.font: UIFont.systemFont(ofSize: 12), .foregroundColor: UIColor.gray]))
         section.addRow(row)
@@ -67,8 +64,7 @@ class TextFields: BlastController {
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneTextField)
-        row.textField1 = TextFieldConfig()
-            .placeholder("And capitalize everything".capitalized)
+        row.textField1.placeholder("And capitalize everything".capitalized)
             .capitalizationType(.allCharacters)
             .nextFieldOnReturn(false)
         section.addRow(row)
@@ -79,8 +75,7 @@ class TextFields: BlastController {
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneTextField)
-        row.textField1 = TextFieldConfig()
-            .placeholder("Only numbers (with decimals) allowed")
+        row.textField1.placeholder("Only numbers (with decimals) allowed")
             .keyboardType(.decimalPad)
         section.addRow(row)
         
@@ -90,8 +85,7 @@ class TextFields: BlastController {
         self.addSection(section)
         
         let cRow = BlastRow(xibName: XIBCellOneTextField)
-        cRow.textField1 = TextFieldConfig()
-            .text(self.object.textString3)
+        cRow.textField1.text(self.object.textString3)
             .placeholder("No numbers allowed".capitalized)
             .shouldChangeCharactersIn({ textField, range, replacementString in
                 let originalText = textField.text ?? ""
@@ -105,10 +99,10 @@ class TextFields: BlastController {
                 let lettersCharacterSet = CharacterSet.letters
                 if replacementString.rangeOfCharacter(from: lettersCharacterSet.inverted) != nil {
                     print("Nothing besides letters I said!")
-                    print("Returning false - Row text value: \(String(describing: cRow.textField1?.text))")
+                    print("Returning false - Row text value: \(String(describing: cRow.textField1.text))")
                     return false
                 }
-                print("Returning true - Row text value: \(String(describing: cRow.textField1?.text))")
+                print("Returning true - Row text value: \(String(describing: cRow.textField1.text))")
                 self.object.textString3 = finalText
                 return true
             })
@@ -122,21 +116,19 @@ class TextFields: BlastController {
         self.addSection(section)
         
         let tRow = BlastRow(xibName: XIBCellTwoTextFields)
-        tRow.textField1 = TextFieldConfig()
-            .text(self.object.textString1)
+        tRow.textField1.text(self.object.textString1)
             .font(UIFont.boldSystemFont(ofSize: 24))
             .attributedPlaceholder(.init(string: "Two textFields",
                                          attributes: [.font: UIFont.systemFont(ofSize: 12), .foregroundColor: UIColor.gray]))
             .textChanged { [weak self] text in
                 print("Callback text 1 changed: \(text)")
-                print("Row text value: \(String(describing: tRow.textField1?.text))")
+                print("Row text value: \(String(describing: tRow.textField1.text))")
                 self?.object.textString1 = text
             }
             .returnTapped {
                 print("Textfield 1 return tapped!")
             }
-        tRow.textField2 = TextFieldConfig()
-            .text(self.object.textString2)
+        tRow.textField2.text(self.object.textString2)
             .font(UIFont.italicSystemFont(ofSize: 14))
             .attributedPlaceholder(.init(string: "Go nuts", 
                                          attributes: [.font: UIFont.italicSystemFont(ofSize: 21), .foregroundColor: UIColor.blue]))
@@ -150,8 +142,7 @@ class TextFields: BlastController {
         section.addRow(tRow)
         
         row = BlastRow(xibName: XIBCellOneButton)
-        row.button1 = ButtonConfig()
-            .title("Tap to print values in console")
+        row.button1.title("Tap to print values in console")
             .tapped { [weak self] in
                 print("Object text 1: \(String(describing: self?.object.textString1))")
                 print("Object text 2: \(String(describing: self?.object.textString2))")

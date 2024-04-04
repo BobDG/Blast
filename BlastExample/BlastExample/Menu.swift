@@ -31,84 +31,84 @@ class Menu: BlastController {
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellMenuItem)
-        row.label1 = LabelConfig().text("Labels")
+        row.label1.text("Labels")
         row.cellTapped = { [weak self] in
             self?.navigationController?.pushViewController(Labels.init(style: .insetGrouped), animated: true)
         }
         section.addRow(row)
         
         row = BlastRow(xibName: XIBCellMenuItem)
-        row.label1 = LabelConfig().text("Buttons")
+        row.label1.text("Buttons")
         row.cellTapped = { [weak self] in
             self?.navigationController?.pushViewController(Buttons.init(style: .insetGrouped), animated: true)
         }
         section.addRow(row)
         
         row = BlastRow(xibName: XIBCellMenuItem)
-        row.label1 = LabelConfig().text("ImageViews")
+        row.label1.text("ImageViews")
         row.cellTapped = { [weak self] in
             self?.navigationController?.pushViewController(ImageViews.init(style: .insetGrouped), animated: true)
         }
         section.addRow(row)
         
         row = BlastRow(xibName: XIBCellMenuItem)
-        row.label1 = LabelConfig().text("Switches")
+        row.label1.text("Switches")
         row.cellTapped = { [weak self] in
             self?.navigationController?.pushViewController(Switches.init(style: .insetGrouped), animated: true)
         }
         section.addRow(row)
         
         row = BlastRow(xibName: XIBCellMenuItem)
-        row.label1 = LabelConfig().text("Segmented controls")
+        row.label1.text("Segmented controls")
         row.cellTapped = { [weak self] in
             self?.navigationController?.pushViewController(SegmentedControls.init(style: .insetGrouped), animated: true)
         }
         section.addRow(row)
         
         row = BlastRow(xibName: XIBCellMenuItem)
-        row.label1 = LabelConfig().text("TextFields")
+        row.label1.text("TextFields")
         row.cellTapped = { [weak self] in
             self?.navigationController?.pushViewController(TextFields.init(style: .insetGrouped), animated: true)
         }
         section.addRow(row)
         
         row = BlastRow(xibName: XIBCellMenuItem)
-        row.label1 = LabelConfig().text("TextViews")
+        row.label1.text("TextViews")
         row.cellTapped = { [weak self] in
             self?.navigationController?.pushViewController(TextViews.init(style: .insetGrouped), animated: true)
         }
         section.addRow(row)
         
         row = BlastRow(xibName: XIBCellMenuItem)
-        row.label1 = LabelConfig().text("Floating action button")
+        row.label1.text("Floating action button")
         row.cellTapped = { [weak self] in
             self?.navigationController?.pushViewController(FloatingActionButton.init(style: .insetGrouped), animated: true)
         }
         section.addRow(row)
         
         row = BlastRow(xibName: XIBCellMenuItem)
-        row.label1 = LabelConfig().text("Add & delete rows")
+        row.label1.text("Add & delete rows")
         row.cellTapped = { [weak self] in
             self?.navigationController?.pushViewController(AddAndDeleteRows.init(style: .insetGrouped), animated: true)
         }
         section.addRow(row)
         
         row = BlastRow(xibName: XIBCellMenuItem)
-        row.label1 = LabelConfig().text("Add & delete sections")
+        row.label1.text("Add & delete sections")
         row.cellTapped = { [weak self] in
             self?.navigationController?.pushViewController(AddAndDeleteSections.init(style: .insetGrouped), animated: true)
         }
         section.addRow(row)
         
         row = BlastRow(xibName: XIBCellMenuItem)
-        row.label1 = LabelConfig().text("Replace rows")
+        row.label1.text("Replace rows")
         row.cellTapped = { [weak self] in
             self?.navigationController?.pushViewController(ReplaceRows.init(style: .insetGrouped), animated: true)
         }
         section.addRow(row)
         
         row = BlastRow(xibName: XIBCellMenuItem)
-        row.label1 = LabelConfig().text("Replace sections")
+        row.label1.text("Replace sections")
         row.cellTapped = { [weak self] in
             self?.navigationController?.pushViewController(ReplaceSections.init(style: .insetGrouped), animated: true)
         }
