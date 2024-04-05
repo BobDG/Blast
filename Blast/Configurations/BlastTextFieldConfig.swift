@@ -5,23 +5,98 @@
 import UIKit
 
 public class TextFieldConfig {
-    public var text: String = ""
-    public var font: UIFont?
+    public weak var textField: BlastTextField?
     
-    public var placeholder: String = ""
-    public var attributedPlaceholder: NSAttributedString?
+    public var text: String = "" {
+        didSet {
+            if let textField = self.textField {
+                DispatchQueue.main.async { textField.text = self.text }
+            }
+        }
+    }
     
-    public var secureTextEntry: Bool = false
-    public var nextFieldOnReturn: Bool = true
+    public var font: UIFont? = nil {
+        didSet {
+            if let textField = self.textField {
+                DispatchQueue.main.async { textField.font = self.font }
+            }
+        }
+    }
     
-    public var textContentType: UITextContentType?
-    public var keyboardType: UIKeyboardType = .default
-    public var returnKeyType: UIReturnKeyType = .default
-    public var autoCorrectionType: UITextAutocorrectionType = .default
-    public var capitalizationType: UITextAutocapitalizationType = .sentences
+    public var placeholder: String = "" {
+        didSet {
+            if let textField = self.textField {
+                DispatchQueue.main.async { textField.placeholder = self.placeholder }
+            }
+        }
+    }
+    
+    public var attributedPlaceholder: NSAttributedString? = nil {
+        didSet {
+            if let textField = self.textField {
+                DispatchQueue.main.async { textField.attributedPlaceholder = self.attributedPlaceholder }
+            }
+        }
+    }
+    
+    public var secureTextEntry: Bool = false {
+        didSet {
+            if let textField = self.textField {
+                DispatchQueue.main.async { textField.isSecureTextEntry = self.secureTextEntry }
+            }
+        }
+    }
+    public var nextFieldOnReturn: Bool = true {
+        didSet {
+            if let textField = self.textField {
+                DispatchQueue.main.async { textField.nextFieldOnReturn = self.nextFieldOnReturn }
+            }
+        }
+    }
+    
+    public var textContentType: UITextContentType? = nil {
+        didSet {
+            if let textField = self.textField {
+                DispatchQueue.main.async { textField.textContentType = self.textContentType }
+            }
+        }
+    }
+    
+    public var keyboardType: UIKeyboardType = .default {
+        didSet {
+            if let textField = self.textField {
+                DispatchQueue.main.async { textField.textContentType = self.textContentType }
+            }
+        }
+    }
+    
+    public var returnKeyType: UIReturnKeyType = .default {
+        didSet {
+            if let textField = self.textField {
+                DispatchQueue.main.async { textField.returnKeyType = self.returnKeyType }
+            }
+        }
+    }
+    
+    public var autocorrectionType: UITextAutocorrectionType = .default {
+        didSet {
+            if let textField = self.textField {
+                DispatchQueue.main.async { textField.autocorrectionType = self.autocorrectionType }
+            }
+        }
+    }
+    
+    public var autocapitalizationType: UITextAutocapitalizationType = .sentences {
+        didSet {
+            if let textField = self.textField {
+                DispatchQueue.main.async { textField.autocapitalizationType = self.autocapitalizationType }
+            }
+        }
+    }
     
     public var returnTapped: (() -> Void)?
     public var textChanged: ((String) -> Void)?
+    public var textFieldDidEndEditing: ((UITextField) -> Void)?
     public var shouldChangeCharactersIn:((UITextField, NSRange, String) -> Bool)?
     
     // MARK: - Lifecycle
@@ -87,14 +162,14 @@ public class TextFieldConfig {
     }
     
     @discardableResult
-    public func autoCorrectionType(_ autoCorrectionType: UITextAutocorrectionType) -> Self {
-        self.autoCorrectionType = autoCorrectionType
+    public func autocorrectionType(_ autoCorrectionType: UITextAutocorrectionType) -> Self {
+        self.autocorrectionType = autoCorrectionType
         return self
     }
     
     @discardableResult
-    public func capitalizationType(_ capitalizationType: UITextAutocapitalizationType) -> Self {
-        self.capitalizationType = capitalizationType
+    public func autocapitalizationType(_ capitalizationType: UITextAutocapitalizationType) -> Self {
+        self.autocapitalizationType = autocapitalizationType
         return self
     }
     
@@ -107,6 +182,12 @@ public class TextFieldConfig {
     @discardableResult
     public func textChanged(_ textChanged: ((String) -> Void)?) -> Self {
         self.textChanged = textChanged
+        return self
+    }
+    
+    @discardableResult
+    public func textFieldDidEndEditing(_ textFieldDidEndEditing: ((UITextField) -> Void)?) -> Self {
+        self.textFieldDidEndEditing = textFieldDidEndEditing
         return self
     }
     

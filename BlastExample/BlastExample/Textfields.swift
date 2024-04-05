@@ -65,7 +65,7 @@ class TextFields: BlastController {
         
         row = BlastRow(xibName: XIBCellOneTextField)
         row.textField1.placeholder("And capitalize everything".capitalized)
-            .capitalizationType(.allCharacters)
+            .autocapitalizationType(.allCharacters)
             .nextFieldOnReturn(false)
         section.addRow(row)
         
