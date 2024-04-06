@@ -7,6 +7,8 @@ import UIKit
 public class LabelConfig {
     public weak var label: UILabel?
     
+    // These didSet methods will update any linked view immediately when the row value changes
+    
     public var text: String = "" {
         didSet {
             if let label = self.label {

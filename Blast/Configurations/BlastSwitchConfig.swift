@@ -7,6 +7,8 @@ import UIKit
 public class SwitchConfig {
     public weak var toggleSwitch: UISwitch?
     
+    // These didSet methods will update any linked view immediately when the row value changes
+    
     public var isOn: Bool = false {
         didSet {
             if let toggleSwitch = self.toggleSwitch {

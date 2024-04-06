@@ -233,11 +233,9 @@ open class BlastCell: UITableViewCell {
         textField.keyboardType = config.keyboardType
         textField.returnKeyType = config.returnKeyType
         textField.autocorrectionType = config.autocorrectionType
+        textField.attributedPlaceholder = config.attributedPlaceholder
         textField.autocapitalizationType = config.autocapitalizationType
         
-        if let attributedPlaceholder = config.attributedPlaceholder {
-            textField.attributedPlaceholder = attributedPlaceholder
-        }
         if let textContentType = config.textContentType {
             textField.textContentType = textContentType
         }
@@ -260,6 +258,9 @@ open class BlastCell: UITableViewCell {
     // MARK: - TextViews
     
     func setupTextView(_ textView: BlastTextView, _ config: TextViewConfig) {
+        // Link for automatic updates
+        config.textView = textView
+        
         textView.text = config.text
         textView.font = config.font
         textView.placeholder = config.placeholder

@@ -7,6 +7,8 @@ import UIKit
 public class TextFieldConfig {
     public weak var textField: BlastTextField?
     
+    // These didSet methods will update any linked view immediately when the row value changes
+    
     public var text: String = "" {
         didSet {
             if let textField = self.textField {
@@ -46,6 +48,7 @@ public class TextFieldConfig {
             }
         }
     }
+    
     public var nextFieldOnReturn: Bool = true {
         didSet {
             if let textField = self.textField {

@@ -7,6 +7,8 @@ import UIKit
 public class ImageViewConfig {
     public weak var imageView: UIImageView?
     
+    // These didSet methods will update any linked view immediately when the row value changes
+    
     public var image: UIImage? = nil {
         didSet {
             if let imageView = self.imageView {

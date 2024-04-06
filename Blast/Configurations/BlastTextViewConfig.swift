@@ -5,16 +5,73 @@
 import UIKit
 
 public class TextViewConfig {
-    public var text: String = ""
-    public var font: UIFont?
+    public weak var textView: BlastTextView?
     
-    public var placeholder: String?
-    public var placeholderFont: UIFont?
-    public var attributedPlaceholder: NSAttributedString?
+    // These didSet methods will update any linked view immediately when the row value changes
     
-    public var isEditable: Bool = true
-    public var isSelectable: Bool = true
-    public var isScrollEnabled: Bool = false
+    public var text: String = "" {
+        didSet {
+            if let textView = self.textView {
+                DispatchQueue.main.async { textView.text = self.text }
+            }
+        }
+    }
+    
+    public var font: UIFont? = nil {
+        didSet {
+            if let textView = self.textView {
+                DispatchQueue.main.async { textView.font = self.font }
+            }
+        }
+    }
+    
+    public var placeholder: String = "" {
+        didSet {
+            if let textView = self.textView {
+                DispatchQueue.main.async { textView.placeholder = self.placeholder }
+            }
+        }
+    }
+    
+    public var placeholderFont: UIFont? = nil {
+        didSet {
+            if let textView = self.textView {
+                DispatchQueue.main.async { textView.placeholderFont = self.placeholderFont }
+            }
+        }
+    }
+    
+    public var attributedPlaceholder: NSAttributedString? = nil {
+        didSet {
+            if let textView = self.textView {
+                DispatchQueue.main.async { textView.attributedPlaceholder = self.attributedPlaceholder }
+            }
+        }
+    }
+    
+    public var isEditable: Bool = true {
+        didSet {
+            if let textView = self.textView {
+                DispatchQueue.main.async { textView.isEditable = self.isEditable }
+            }
+        }
+    }
+    
+    public var isSelectable: Bool = true {
+        didSet {
+            if let textView = self.textView {
+                DispatchQueue.main.async { textView.isSelectable = self.isSelectable }
+            }
+        }
+    }
+    
+    public var isScrollEnabled: Bool = false {
+        didSet {
+            if let textView = self.textView {
+                DispatchQueue.main.async { textView.isScrollEnabled = self.isScrollEnabled }
+            }
+        }
+    }
     
     public var doneTapped: (() -> Void)?
     public var textChanged: ((String) -> Void)?

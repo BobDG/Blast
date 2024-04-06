@@ -7,6 +7,8 @@ import UIKit
 public class ButtonConfig {
     public weak var button: UIButton?
     
+    // These didSet methods will update any linked view immediately when the row value changes
+    
     public var title: String = "" {
         didSet {
             if let button = self.button {
