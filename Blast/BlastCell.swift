@@ -233,11 +233,15 @@ open class BlastCell: UITableViewCell {
         textField.keyboardType = config.keyboardType
         textField.returnKeyType = config.returnKeyType
         textField.autocorrectionType = config.autocorrectionType
-        textField.attributedPlaceholder = config.attributedPlaceholder
         textField.autocapitalizationType = config.autocapitalizationType
         
         if let textContentType = config.textContentType {
             textField.textContentType = textContentType
+        }
+        
+        // Without checking existence it will overwrite a basic placeholder with an empty string
+        if let attributedPlaceholder = config.attributedPlaceholder {
+            textField.attributedPlaceholder = attributedPlaceholder
         }
         
         // Update config value, otherwise it will be reset when cell disappears from view and then appears again
