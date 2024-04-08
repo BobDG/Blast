@@ -268,12 +268,16 @@ open class BlastCell: UITableViewCell {
         textView.text = config.text
         textView.font = config.font
         textView.placeholder = config.placeholder
-        textView.placeholderFont = config.placeholderFont
-        textView.attributedPlaceholder = config.attributedPlaceholder
+        textView.placeholderFont = config.placeholderFont        
         textView.isEditable = config.isEditable
         textView.isSelectable = config.isSelectable
         textView.isScrollEnabled = config.isScrollEnabled
         textView.setupPlaceholderLabel()
+        
+        // Without checking existence it will overwrite a basic placeholder with an empty string
+        if let attributedPlaceholder = config.attributedPlaceholder {
+            textView.attributedPlaceholder = attributedPlaceholder
+        }
         
         textView.doneTapped = config.doneTapped
         

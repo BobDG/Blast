@@ -12,7 +12,11 @@ public class TextViewConfig {
     public var text: String = "" {
         didSet {
             if let textView = self.textView {
-                DispatchQueue.main.async { textView.text = self.text }
+                DispatchQueue.main.async {
+                    textView.text = self.text
+                    // Custom placeholder reset
+                    textView.textViewDidChange(textView)
+                }
             }
         }
     }
