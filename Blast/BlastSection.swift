@@ -18,6 +18,11 @@ open class BlastSection {
     public var footerTitle: String?
     public var footerFont: UIFont?
     
+    // Buttons
+    public lazy var button1: ButtonConfig = {
+        return ButtonConfig()
+    }()
+    
     // Heights
     public var headerHeight: Int?
     public var footerHeight: Int?
