@@ -4,7 +4,7 @@
 
 import UIKit
 
-public class SwitchConfig {
+public class BlastSwitchConfig {
     public weak var toggleSwitch: UISwitch?
     
     // These didSet methods will update any linked view immediately when the row value changes

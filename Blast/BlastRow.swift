@@ -23,71 +23,79 @@ public class BlastRow {
      */
     
     // Labels
-    public lazy var label1: LabelConfig = {
-        return LabelConfig()
+    public lazy var label1: BlastLabelConfig = {
+        return BlastLabelConfig()
     }()
-    public lazy var label2: LabelConfig = {
-        return LabelConfig()
+    public lazy var label2: BlastLabelConfig = {
+        return BlastLabelConfig()
     }()
-    public lazy var label3: LabelConfig = {
-        return LabelConfig()
+    public lazy var label3: BlastLabelConfig = {
+        return BlastLabelConfig()
     }()
-    public lazy var label4: LabelConfig = {
-        return LabelConfig()
+    public lazy var label4: BlastLabelConfig = {
+        return BlastLabelConfig()
     }()
-    public lazy var label5: LabelConfig = {
-        return LabelConfig()
+    public lazy var label5: BlastLabelConfig = {
+        return BlastLabelConfig()
     }()
     
     // Buttons
-    public lazy var button1: ButtonConfig = {
-        return ButtonConfig()
+    public lazy var button1: BlastButtonConfig = {
+        return BlastButtonConfig()
     }()
-    public lazy var button2: ButtonConfig = {
-        return ButtonConfig()
+    public lazy var button2: BlastButtonConfig = {
+        return BlastButtonConfig()
     }()
-    public lazy var button3: ButtonConfig = {
-        return ButtonConfig()
+    public lazy var button3: BlastButtonConfig = {
+        return BlastButtonConfig()
     }()
-    public lazy var button4: ButtonConfig = {
-        return ButtonConfig()
+    public lazy var button4: BlastButtonConfig = {
+        return BlastButtonConfig()
     }()
-    public lazy var button5: ButtonConfig = {
-        return ButtonConfig()
+    public lazy var button5: BlastButtonConfig = {
+        return BlastButtonConfig()
     }()
     
     // Images
-    public lazy var image1: ImageViewConfig = {
-        return ImageViewConfig()
+    public lazy var image1: BlastImageViewConfig = {
+        return BlastImageViewConfig()
     }()
-    public lazy var image2: ImageViewConfig = {
-        return ImageViewConfig()
+    public lazy var image2: BlastImageViewConfig = {
+        return BlastImageViewConfig()
     }()
-    public lazy var image3: ImageViewConfig = {
-        return ImageViewConfig()
+    public lazy var image3: BlastImageViewConfig = {
+        return BlastImageViewConfig()
     }()
     
     // Switches
-    public lazy var switch1: SwitchConfig = {
-        return SwitchConfig()
+    public lazy var switch1: BlastSwitchConfig = {
+        return BlastSwitchConfig()
     }()
     
     // SegmentedControls
-    public lazy var segmentedControl1: SegmentedControlConfig = {
-        return SegmentedControlConfig()
+    public lazy var segmentedControl1: BlastSegmentedControlConfig = {
+        return BlastSegmentedControlConfig()
     }()
     
     // TextFields
-    public lazy var textField1: TextFieldConfig = {
-        return TextFieldConfig()
+    public lazy var textField1: BlastTextFieldConfig = {
+        return BlastTextFieldConfig()
     }()
-    public lazy var textField2: TextFieldConfig = {
-        return TextFieldConfig()
+    public lazy var textField2: BlastTextFieldConfig = {
+        return BlastTextFieldConfig()
+    }()
+    
+    // DatePickers
+    public lazy var datePicker1: BlastDatePickerFieldConfig = {
+        return BlastDatePickerFieldConfig()
+    }()
+    public lazy var datePicker2: BlastDatePickerFieldConfig = {
+        return BlastDatePickerFieldConfig()
     }()
     
     // TextViews
-    public lazy var textView1: TextViewConfig = {
-        return TextViewConfig()
+    public lazy var textView1: BlastTextViewConfig = {
+        return BlastTextViewConfig()
     }()
     
     // Lifecycle

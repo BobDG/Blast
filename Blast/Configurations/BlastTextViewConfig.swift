@@ -4,7 +4,7 @@
 
 import UIKit
 
-public class TextViewConfig {
+public class BlastTextViewConfig {
     public weak var textView: BlastTextView?
     
     // These didSet methods will update any linked view immediately when the row value changes

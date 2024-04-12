@@ -73,6 +73,13 @@ class Menu: BlastController {
         section.addRow(row)
         
         row = BlastRow(xibName: XIBCellMenuItem)
+        row.label1.text("DatePickers")
+        row.cellTapped = { [weak self] in
+            self?.navigationController?.pushViewController(DatePickers.init(style: .insetGrouped), animated: true)
+        }
+        section.addRow(row)
+        
+        row = BlastRow(xibName: XIBCellMenuItem)
         row.label1.text("TextViews")
         row.cellTapped = { [weak self] in
             self?.navigationController?.pushViewController(TextViews.init(style: .insetGrouped), animated: true)

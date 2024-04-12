@@ -4,7 +4,7 @@
 
 import UIKit
 
-public class SegmentedControlConfig {
+public class BlastSegmentedControlConfig {
     public weak var segmentedControl: UISegmentedControl?
     
     // These didSet methods will update any linked view immediately when the row value changes

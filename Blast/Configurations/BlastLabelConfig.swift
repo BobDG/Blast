@@ -4,7 +4,7 @@
 
 import UIKit
 
-public class LabelConfig {
+public class BlastLabelConfig {
     public weak var label: UILabel?
     
     // These didSet methods will update any linked view immediately when the row value changes

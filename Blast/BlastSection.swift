@@ -19,8 +19,8 @@ open class BlastSection {
     public var footerFont: UIFont?
     
     // Buttons
-    public lazy var button1: ButtonConfig = {
-        return ButtonConfig()
+    public lazy var button1: BlastButtonConfig = {
+        return BlastButtonConfig()
     }()
     
     // Heights

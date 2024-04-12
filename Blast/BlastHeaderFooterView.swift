@@ -27,7 +27,7 @@ open class BlastHeaderFooterView: UITableViewHeaderFooterView {
     
     // MARK: - Buttons
     
-    func setupButton(_ button: UIButton, _ config: ButtonConfig) {
+    func setupButton(_ button: UIButton, _ config: BlastButtonConfig) {
         // Link for automatic updates
         config.button = button
         

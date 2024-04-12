@@ -34,6 +34,10 @@ open class BlastCell: UITableViewCell {
     @IBOutlet public weak var textField1: BlastTextField?
     @IBOutlet public weak var textField2: BlastTextField?
     
+    // Textfields
+    @IBOutlet public weak var datePicker1: BlastDatePickerField?
+    @IBOutlet public weak var datePicker2: BlastDatePickerField?
+    
     // TextViews
     @IBOutlet public weak var textView1: BlastTextView?
     
@@ -78,6 +82,10 @@ open class BlastCell: UITableViewCell {
             // TextFields
             if let textField = textField1 { self.setupTextField(textField, row.textField1) }
             if let textField = textField2 { self.setupTextField(textField, row.textField2) }
+            
+            // DatePickers
+            if let datePicker = datePicker1 { self.setupDatePicker(datePicker, row.datePicker1) }
+            if let datePicker = datePicker2 { self.setupDatePicker(datePicker, row.datePicker2) }
 
             // TextViews
             if let textView = textView1 { self.setupTextView(textView, row.textView1) }
@@ -93,7 +101,7 @@ open class BlastCell: UITableViewCell {
     
     // MARK: - Labels
     
-    func setupLabel(_ label: UILabel, _ config: LabelConfig) {
+    func setupLabel(_ label: UILabel, _ config: BlastLabelConfig) {
         // Link for automatic updates
         config.label = label
         
@@ -111,7 +119,7 @@ open class BlastCell: UITableViewCell {
     
     // MARK: - Buttons
     
-    func setupButton(_ button: UIButton, _ config: ButtonConfig) {
+    func setupButton(_ button: UIButton, _ config: BlastButtonConfig) {
         // Link for automatic updates
         config.button = button
         
@@ -150,7 +158,7 @@ open class BlastCell: UITableViewCell {
     
     // MARK: - ImageView
     
-    func setupImageView(_ imageView: UIImageView, _ config: ImageViewConfig) {
+    func setupImageView(_ imageView: UIImageView, _ config: BlastImageViewConfig) {
         // Link for automatic updates
         config.imageView = imageView
         
@@ -162,7 +170,7 @@ open class BlastCell: UITableViewCell {
     
     // MARK: - Switch
     
-    func setupSwitch(_ toggleSwitch: UISwitch, _ config: SwitchConfig) {
+    func setupSwitch(_ toggleSwitch: UISwitch, _ config: BlastSwitchConfig) {
         // Link for automatic updates
         config.toggleSwitch = toggleSwitch
         
@@ -185,7 +193,7 @@ open class BlastCell: UITableViewCell {
     
     // MARK: - SegmentedControl
     
-    func setupSegmentedControl(_ segmentedControl: UISegmentedControl, _ config: SegmentedControlConfig) {
+    func setupSegmentedControl(_ segmentedControl: UISegmentedControl, _ config: BlastSegmentedControlConfig) {
         // Link for automatic updates
         config.segmentedControl = segmentedControl
         
@@ -220,7 +228,7 @@ open class BlastCell: UITableViewCell {
     
     // MARK: - TextFields
     
-    func setupTextField(_ textField: BlastTextField, _ config: TextFieldConfig) {
+    func setupTextField(_ textField: BlastTextField, _ config: BlastTextFieldConfig) {
         // Link for automatic updates
         config.textField = textField
         
@@ -246,11 +254,11 @@ open class BlastCell: UITableViewCell {
         
         // Update config value, otherwise it will be reset when cell disappears from view and then appears again
         // This will automatically work for shouldChangeCharactersIn as well
-        textField.textChanged = { [weak config] value in
+        textField.textChanged = { [weak config] text in
             guard let config else { return }
-            config.text = value
+            config.text = text
             if let rowTextChanged = config.textChanged {
-                rowTextChanged(value)
+                rowTextChanged(text)
             }
         }
         
@@ -259,9 +267,39 @@ open class BlastCell: UITableViewCell {
         textField.shouldChangeCharactersIn = config.shouldChangeCharactersIn
     }
     
+    // MARK: - DatePickers
+    
+    func setupDatePicker(_ datePickerField: BlastDatePickerField, _ config: BlastDatePickerFieldConfig) {
+        // Link for automatic updates
+        config.datePickerField = datePickerField
+        
+        datePickerField.datePicker?.minimumDate = config.minimumDate
+        datePickerField.datePicker?.maximumDate = config.maximumDate
+        datePickerField.datePicker?.datePickerMode = config.datePickerMode
+        
+        if let dateFormatter = config.dateFormatter {
+            datePickerField.dateFormatter = dateFormatter
+        }
+        
+        if let date = config.date {                        
+            datePickerField.datePicker?.date = date
+            datePickerField.text = datePickerField.dateFormatter.string(from: date)
+        }
+        
+        // Update config value, otherwise it will be reset when cell disappears from view and then appears again
+        datePickerField.dateChanged = { [weak config] date in
+            guard let config else { return }
+            config.date = date
+            if let rowDateChanged = config.dateChanged {
+                rowDateChanged(date)
+            }
+        }
+        datePickerField.doneTapped = config.doneTapped
+    }
+    
     // MARK: - TextViews
     
-    func setupTextView(_ textView: BlastTextView, _ config: TextViewConfig) {
+    func setupTextView(_ textView: BlastTextView, _ config: BlastTextViewConfig) {
         // Link for automatic updates
         config.textView = textView
         
@@ -283,11 +321,11 @@ open class BlastCell: UITableViewCell {
         
         // Update config value, otherwise it will be reset when cell disappears from view and then appears again
         // This will automatically work for shouldChangeCharactersIn as well
-        textView.textChanged = { [weak config] value in
+        textView.textChanged = { [weak config] text in
             guard let config else { return }
-            config.text = value
+            config.text = text
             if let rowTextChanged = config.textChanged {
-                rowTextChanged(value)
+                rowTextChanged(text)
             }
         }
     }

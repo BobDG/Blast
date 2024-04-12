@@ -36,5 +36,8 @@ let XIBCellOneSegmentedControl = "CellOneSegmentedControl"
 let XIBCellOneTextField = "CellOneTextField"
 let XIBCellTwoTextFields = "CellTwoTextFields"
 
+// DatePickers
+let XIBCellOneDatePickerField = "CellOneDatePickerField"
+
 // TextViews
 let XIBCellTextView = "CellTextView"

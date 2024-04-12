@@ -4,7 +4,7 @@
 
 import UIKit
 
-public class ImageViewConfig {
+public class BlastImageViewConfig {
     public weak var imageView: UIImageView?
     
     // These didSet methods will update any linked view immediately when the row value changes
