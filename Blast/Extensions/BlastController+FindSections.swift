@@ -54,7 +54,5 @@ public extension BlastController {
         }
         return Array(self.sections[(sectionIndex + 1)...])
     }
-
     
 }
-

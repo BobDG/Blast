@@ -67,6 +67,8 @@
 		C4AA879F2B877AA500D719A5 /* CellOneSwitch.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4AA879E2B877AA500D719A5 /* CellOneSwitch.xib */; };
 		C4AA87A12B877E1B00D719A5 /* Switches.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AA87A02B877E1B00D719A5 /* Switches.swift */; };
 		C4AA87A32B87AE6600D719A5 /* BlastSwitchConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AA87A22B87AE6600D719A5 /* BlastSwitchConfig.swift */; };
+		C4CDB3D42BD652D0001109C3 /* BlastController+Reload.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDB3D32BD652D0001109C3 /* BlastController+Reload.swift */; };
+		C4CDB3D92BDBFB46001109C3 /* Reload.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CDB3D82BDBFB46001109C3 /* Reload.swift */; };
 		C4E7A8392B9F3B930041AF8C /* BlastController+FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E7A8382B9F3B930041AF8C /* BlastController+FloatingActionButton.swift */; };
 		C4E7A83B2B9F3CA30041AF8C /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E7A83A2B9F3CA30041AF8C /* FloatingActionButton.swift */; };
 		C4FC68DA2B95DAF500E7D03E /* AddAndDeleteRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FC68D92B95DAF500E7D03E /* AddAndDeleteRows.swift */; };
@@ -137,6 +139,8 @@
 		C4AA879E2B877AA500D719A5 /* CellOneSwitch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellOneSwitch.xib; sourceTree = "<group>"; };
 		C4AA87A02B877E1B00D719A5 /* Switches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switches.swift; sourceTree = "<group>"; };
 		C4AA87A22B87AE6600D719A5 /* BlastSwitchConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlastSwitchConfig.swift; sourceTree = "<group>"; };
+		C4CDB3D32BD652D0001109C3 /* BlastController+Reload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BlastController+Reload.swift"; sourceTree = "<group>"; };
+		C4CDB3D82BDBFB46001109C3 /* Reload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reload.swift; sourceTree = "<group>"; };
 		C4E7A8382B9F3B930041AF8C /* BlastController+FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlastController+FloatingActionButton.swift"; sourceTree = "<group>"; };
 		C4E7A83A2B9F3CA30041AF8C /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
 		C4FC68D92B95DAF500E7D03E /* AddAndDeleteRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAndDeleteRows.swift; sourceTree = "<group>"; };
@@ -189,6 +193,7 @@
 				C49145052B99DBC500BE9B58 /* AddAndDeleteSections.swift */,
 				C4187A3B2B97598700190BAC /* ReplaceRows.swift */,
 				C42B56FD2B9B56560073D055 /* ReplaceSections.swift */,
+				C4CDB3D82BDBFB46001109C3 /* Reload.swift */,
 				C41938D42B6D2D870033D6F0 /* Headers */,
 				C49145072B99DC5A00BE9B58 /* Footers */,
 				C412278C2B6CF29400626D72 /* Cells */,
@@ -255,6 +260,7 @@
 		C4609FE02B90F88E007D6D10 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C4CDB3D32BD652D0001109C3 /* BlastController+Reload.swift */,
 				C4187A3D2B975E4400190BAC /* BlastController+FindRows.swift */,
 				C42B56FB2B9B27970073D055 /* BlastController+FindSections.swift */,
 				C4609FE12B90F8C7007D6D10 /* BlastController+AddRows.swift */,
@@ -382,6 +388,7 @@
 			files = (
 				C41938F72B6FDA0D0033D6F0 /* BlastTextField.swift in Sources */,
 				C45FC29F2BB876E500D25A62 /* BlastSegmentedControlConfig.swift in Sources */,
+				C4CDB3D92BDBFB46001109C3 /* Reload.swift in Sources */,
 				C41938CF2B6D2AD40033D6F0 /* XIBS.swift in Sources */,
 				C4FC68DA2B95DAF500E7D03E /* AddAndDeleteRows.swift in Sources */,
 				C41938D32B6D2D180033D6F0 /* TextFields.swift in Sources */,
@@ -390,6 +397,7 @@
 				C459E0492BC8264F00F89652 /* BlastDatePickerField.swift in Sources */,
 				C459E04B2BC82AF000F89652 /* BlastDatePickerFieldConfig.swift in Sources */,
 				C41227792B6CEE2F00626D72 /* Menu.swift in Sources */,
+				C4CDB3D42BD652D0001109C3 /* BlastController+Reload.swift in Sources */,
 				C4E7A83B2B9F3CA30041AF8C /* FloatingActionButton.swift in Sources */,
 				C444709E2B8E3A6400F274E3 /* BlastButtonConfig.swift in Sources */,
 				C4AA87A32B87AE6600D719A5 /* BlastSwitchConfig.swift in Sources */,

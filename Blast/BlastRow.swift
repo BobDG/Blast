@@ -11,6 +11,9 @@ public class BlastRow {
     // Section
     public weak var section: BlastSection?
     
+    // Object
+    public weak var object:AnyObject?
+    
     // Cell
     public weak var cell: BlastCell?
     

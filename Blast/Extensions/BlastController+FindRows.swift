@@ -6,6 +6,32 @@ import UIKit
 
 public extension BlastController {
     
+    // MARK: - IndexPath
+    
+    func indexPath(for row: BlastRow) -> IndexPath? {
+        for (sectionIndex, section) in sections.enumerated() {
+            if let rowIndex = section.rows.firstIndex(where: { $0 === row }) {
+                return IndexPath(row: rowIndex, section: sectionIndex)
+            }
+        }
+        return nil
+    }
+    
+    func row(at indexPath: IndexPath) -> BlastRow? {
+        guard indexPath.section < sections.count else {
+            print("BlastController -> row(at indexPath) -> Section index out of range")
+            return nil
+        }
+        let section = sections[indexPath.section]
+        guard indexPath.row < section.rows.count else {
+            print("BlastController -> row(at indexPath) -> Row index out of range")
+            return nil
+        }
+        return section.rows[indexPath.row]
+    }
+    
+    // MARK: - Previous
+    
     func previousRow(before row: BlastRow) -> BlastRow? {
         guard let section = row.section,
               let rowIndex = section.rows.firstIndex(where: { $0 === row }),
@@ -25,23 +51,7 @@ public extension BlastController {
         return Array(section.rows[0..<rowIndex])
     }
     
-    func rowsBetween(startRow: BlastRow, endRow: BlastRow) -> [BlastRow] {
-        guard let startSection = startRow.section, startSection === endRow.section else {
-            print("BlastController -> rowsBetween -> Start and end rows are not in the same section.")
-            return []
-        }
-        guard let startIndex = startSection.rows.firstIndex(where: { $0 === startRow }),
-              let endIndex = startSection.rows.firstIndex(where: { $0 === endRow }),
-              startIndex < endIndex else {
-            print("BlastController -> rowsBetween -> Invalid start or end row, or end row comes before start row.")
-            return []
-        }
-        if (endIndex - startIndex) < 2 {
-            print("BlastController -> rowsBetween -> No rows found between the provided start and end rows.")
-            return []
-        }
-        return Array(startSection.rows[(startIndex + 1)..<endIndex])
-    }
+    // MARK: - Next
     
     func nextRow(after row: BlastRow) -> BlastRow? {
         guard let section = row.section,
@@ -61,6 +71,26 @@ public extension BlastController {
             return []
         }
         return Array(section.rows[(rowIndex + 1)...])
+    }
+    
+    // MARK: - Between
+    
+    func rowsBetween(startRow: BlastRow, endRow: BlastRow) -> [BlastRow] {
+        guard let startSection = startRow.section, startSection === endRow.section else {
+            print("BlastController -> rowsBetween -> Start and end rows are not in the same section.")
+            return []
+        }
+        guard let startIndex = startSection.rows.firstIndex(where: { $0 === startRow }),
+              let endIndex = startSection.rows.firstIndex(where: { $0 === endRow }),
+              startIndex < endIndex else {
+            print("BlastController -> rowsBetween -> Invalid start or end row, or end row comes before start row.")
+            return []
+        }
+        if (endIndex - startIndex) < 2 {
+            print("BlastController -> rowsBetween -> No rows found between the provided start and end rows.")
+            return []
+        }
+        return Array(startSection.rows[(startIndex + 1)..<endIndex])
     }
     
 }

@@ -125,16 +125,6 @@ open class BlastController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    // MARK: - Clear & Reload
-    
-    public func clear() {
-        self.sections.removeAll()
-    }
-    
-    public func reload() {
-        self.tableView.reloadData()
-    }
-    
     // MARK: - Registering sections
     
     public func addSection(_ section: BlastSection) {
@@ -178,8 +168,8 @@ open class BlastController: UITableViewController {
     }
     
     public func moveToNextTextField(currentTextField: BlastTextField) {
-        if let currentIndex = textFieldsArray.firstIndex(of: currentTextField), currentIndex < (textFieldsArray.count - 1) {
-            let nextTextField = textFieldsArray[currentIndex + 1]
+        if let currentIndex = self.textFieldsArray.firstIndex(of: currentTextField), currentIndex < (self.textFieldsArray.count - 1) {
+            let nextTextField = self.textFieldsArray[currentIndex + 1]
             nextTextField.becomeFirstResponder()
         }
         else {
@@ -191,8 +181,8 @@ open class BlastController: UITableViewController {
     
     public func registerTextViews(_ cell: BlastCell) {
         if let textView = cell.textView1 {
-            if !textViewsArray.contains(textView) {
-                textViewsArray.append(textView)
+            if !self.textViewsArray.contains(textView) {
+                self.textViewsArray.append(textView)
                 
                 textView.heightChanged = { [weak self] in
                     guard let self else { return }

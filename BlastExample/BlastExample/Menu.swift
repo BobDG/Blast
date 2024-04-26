@@ -120,6 +120,13 @@ class Menu: BlastController {
             self?.navigationController?.pushViewController(ReplaceSections.init(style: .insetGrouped), animated: true)
         }
         section.addRow(row)
+        
+        row = BlastRow(xibName: XIBCellMenuItem)
+        row.label1.text("Reload rows/sections")
+        row.cellTapped = { [weak self] in
+            self?.navigationController?.pushViewController(Reload.init(style: .insetGrouped), animated: true)
+        }
+        section.addRow(row)
     }
     
 }
