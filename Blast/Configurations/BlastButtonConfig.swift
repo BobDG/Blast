@@ -41,6 +41,14 @@ public class BlastButtonConfig {
         }
     }
     
+    public var image: UIImage? {
+        didSet {
+            if let button = self.button {
+                DispatchQueue.main.async { button.setImage(self.image, for: .normal) }
+            }
+        }
+    }
+    
     public var tapped: (() -> Void)?
     
     // MARK: - Lifecycle
@@ -72,6 +80,12 @@ public class BlastButtonConfig {
     @discardableResult
     public func tintColor(_ tintColor: UIColor?) -> Self {
         self.tintColor = tintColor
+        return self
+    }
+    
+    @discardableResult
+    public func image(_ image: UIImage?) -> Self {
+        self.image = image
         return self
     }
     

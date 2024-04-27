@@ -18,6 +18,9 @@ public class BlastDatePickerField: UITextField, UITextFieldDelegate {
     public var dateChanged: ((Date) -> Void)?
     public var doneTapped:((UITextField) -> Void)?
     public var datePickerDidEndEditing:((UITextField) -> Void)?
+    
+    // Closures for controller
+    public var moveToNextTextField:((BlastTextField) -> Void)?
 
     // MARK: - Lifecycle for Interface Builder
     

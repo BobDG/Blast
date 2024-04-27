@@ -16,7 +16,7 @@ open class BlastController: UITableViewController {
     public var estimatedHeaderHeight = 20
     public var estimatedFooterHeight = CGFloat.leastNonzeroMagnitude
     
-    // Textfields
+    // TextFields/Views
     public var textViewsArray: [UITextView] = []
     public var textFieldsArray: [UITextField] = []
     
@@ -35,8 +35,8 @@ open class BlastController: UITableViewController {
         cell.row = row
         row.configureCell?(cell)
         
-        // Register textFields & textViews
-        self.registerTextfields(cell)
+        // Register TextFields & TextViews
+        self.registerTextFields(cell)
         self.registerTextViews(cell)
         
         return cell
@@ -154,15 +154,28 @@ open class BlastController: UITableViewController {
         }
     }
     
-    // MARK: - Textfields
+    // MARK: - TextFields
     
-    public func registerTextfields(_ cell: BlastCell) {
+    public func registerTextFields(_ cell: BlastCell) {
+        // Regular
         [cell.textField1, cell.textField2].forEach { textField in
             if let textField = textField, !self.textFieldsArray.contains(textField) {
                 self.textFieldsArray.append(textField)
                 textField.moveToNextTextField = { [weak self] textField in
                     self?.moveToNextTextField(currentTextField: textField)
                 }
+            }
+        }
+        
+        // DatePickers
+        /** 
+         These don't support moveToNextTextField as they don't have a return button, but they
+         should be added to the textFieldsArray so that it will become active after a return
+         from a textField before this datepickerField
+        **/
+        [cell.datePicker1, cell.datePicker2].forEach { textField in
+            if let textField = textField, !self.textFieldsArray.contains(textField) {
+                self.textFieldsArray.append(textField)
             }
         }
     }
@@ -177,7 +190,7 @@ open class BlastController: UITableViewController {
         }
     }
     
-    // MARK: - Textviews
+    // MARK: - TextViews
     
     public func registerTextViews(_ cell: BlastCell) {
         if let textView = cell.textView1 {

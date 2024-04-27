@@ -30,11 +30,11 @@ open class BlastCell: UITableViewCell {
     // SegmentedControls
     @IBOutlet public weak var segmentedControl1: UISegmentedControl?
     
-    // Textfields
+    // TextFields
     @IBOutlet public weak var textField1: BlastTextField?
     @IBOutlet public weak var textField2: BlastTextField?
     
-    // Textfields
+    // DatePickers
     @IBOutlet public weak var datePicker1: BlastDatePickerField?
     @IBOutlet public weak var datePicker2: BlastDatePickerField?
     
@@ -95,10 +95,6 @@ open class BlastCell: UITableViewCell {
         }
     }
     
-    open func configure() {
-        // To be overriden
-    }
-    
     // MARK: - Labels
     
     func setupLabel(_ label: UILabel, _ config: BlastLabelConfig) {
@@ -137,6 +133,10 @@ open class BlastCell: UITableViewCell {
         
         if let tintColor = config.tintColor {
             button.tintColor = tintColor
+        }
+        
+        if let image = config.image {
+            button.setImage(image, for: .normal)
         }
         
         button.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
@@ -329,5 +329,56 @@ open class BlastCell: UITableViewCell {
             }
         }
     }
+    
+    // MARK: - Prepare for reuse
+    
+    override open func prepareForReuse() {
+        super.prepareForReuse()
+        
+        // Invalidate previous links, absolutely necessary to avoid cell reuse issues
+        guard let row = self.row else { return }
+        
+        // Labels
+        row.label1.label = nil
+        row.label2.label = nil
+        row.label3.label = nil
+        row.label4.label = nil
+        row.label5.label = nil
+        
+        // ImageViews
+        row.image1.imageView = nil
+        row.image2.imageView = nil
+        row.image3.imageView = nil
+        
+        // Buttons
+        row.button1.button = nil
+        row.button2.button = nil
+        row.button3.button = nil
+        row.button4.button = nil
+        row.button5.button = nil
+        
+        // Switches
+        row.switch1.toggleSwitch = nil
+        
+        // Segmented Control
+        row.segmentedControl1.segmentedControl = nil
+        
+        // TextFields
+        row.textField1.textField = nil
+        row.textField2.textField = nil
+        
+        // DatePickers
+        row.datePicker1.datePickerField = nil
+        row.datePicker2.datePickerField = nil
+        
+        // TextViews
+        row.textView1.textView = nil
+    }
 
+    // MARK: - Configure
+    
+    open func configure() {
+        // To be overriden
+    }
+    
 }

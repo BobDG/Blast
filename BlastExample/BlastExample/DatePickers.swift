@@ -19,7 +19,7 @@ class DatePickers: BlastController {
         
         // Register XIBs
         self.registerHeaderFooters([XIBHeader])
-        self.registerCells([XIBCellOneDatePickerField])
+        self.registerCells([XIBCellOneDatePickerField, XIBCellOneTextField])
         
         // Load
         self.loadContent()
@@ -66,6 +66,18 @@ class DatePickers: BlastController {
         row = BlastRow(xibName: XIBCellOneDatePickerField)
         row.datePicker1.datePickerMode(.dateAndTime)
             .dateFormatter(dateFormatter)
+        section.addRow(row)
+        
+        section = BlastSection(headerXibName: XIBHeader)
+        section.headerTitle = "Becomes active after textfield"
+        self.addSection(section)
+        
+        row = BlastRow(xibName: XIBCellOneTextField)
+        row.textField1.placeholder("Tap 'Next' on the keyboard".capitalized)
+        section.addRow(row)
+        
+        row = BlastRow(xibName: XIBCellOneDatePickerField)
+        row.datePicker1.datePickerMode(.date)
         section.addRow(row)
     }
     
