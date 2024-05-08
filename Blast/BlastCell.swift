@@ -262,6 +262,7 @@ open class BlastCell: UITableViewCell {
             }
         }
         
+        // Closures
         textField.returnTapped = config.returnTapped
         textField.textFieldDidEndEditing = config.textFieldDidEndEditing
         textField.shouldChangeCharactersIn = config.shouldChangeCharactersIn
@@ -294,6 +295,8 @@ open class BlastCell: UITableViewCell {
                 rowDateChanged(date)
             }
         }
+        
+        // Closures
         datePickerField.doneTapped = config.doneTapped
     }
     
@@ -310,14 +313,14 @@ open class BlastCell: UITableViewCell {
         textView.isEditable = config.isEditable
         textView.isSelectable = config.isSelectable
         textView.isScrollEnabled = config.isScrollEnabled
-        textView.setupPlaceholderLabel()
         
         // Without checking existence it will overwrite a basic placeholder with an empty string
         if let attributedPlaceholder = config.attributedPlaceholder {
             textView.attributedPlaceholder = attributedPlaceholder
         }
         
-        textView.doneTapped = config.doneTapped
+        // Final configuration (for placeholder & keyboard-buttons, etc.)
+        textView.configureTextView()
         
         // Update config value, otherwise it will be reset when cell disappears from view and then appears again
         // This will automatically work for shouldChangeCharactersIn as well
@@ -328,6 +331,9 @@ open class BlastCell: UITableViewCell {
                 rowTextChanged(text)
             }
         }
+        
+        // Closures
+        textView.doneTapped = config.doneTapped
     }
     
     // MARK: - Prepare for reuse

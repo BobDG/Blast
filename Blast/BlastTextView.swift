@@ -5,6 +5,7 @@
 import UIKit
 
 public class BlastTextView: UITextView, UITextViewDelegate {
+    
     // Default values
     public var height: Int = 0
     
@@ -30,11 +31,6 @@ public class BlastTextView: UITextView, UITextViewDelegate {
         
         // Remove default padding
         self.textContainer.lineFragmentPadding = 0
-        
-        // Done button (only when editable)
-        if self.isEditable {
-            self.addDoneButtonOnKeyboard()
-        }
     }
     
     // MARK: - Done Button
@@ -58,10 +54,10 @@ public class BlastTextView: UITextView, UITextViewDelegate {
     // MARK: - Delegate methods
     
     public func textViewDidChange(_ textView: UITextView) {
-        self.textChanged?(text ?? "")
+        self.textChanged?(textView.text ?? "")
         
         // Placeholder
-        self.placeholderLabel?.isHidden = !text.isEmpty
+        self.placeholderLabel?.isHidden = !textView.text.isEmpty
         
         // Automatically resize cell if scrolling is disabled
         if self.isScrollEnabled {
@@ -74,9 +70,14 @@ public class BlastTextView: UITextView, UITextViewDelegate {
         }
     }
     
-    // MARK: - Placeholder
+    // MARK: - Configure
     
-    public func setupPlaceholderLabel() {
+    public func configureTextView() {
+        // Done button (only when editable)
+        if self.isEditable {
+            self.addDoneButtonOnKeyboard()
+        }
+        
         // Create the placeholder label
         if self.placeholderLabel == nil {
             let label = UILabel()
