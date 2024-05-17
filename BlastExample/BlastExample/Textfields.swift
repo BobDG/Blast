@@ -58,7 +58,6 @@ class TextFields: BlastController {
                                          attributes: [.font: UIFont.systemFont(ofSize: 12), .foregroundColor: UIColor.gray]))
         section.addRow(row)
         
-        
         section = BlastSection(headerXibName: XIBHeader)
         section.headerTitle = "No next-field on return"
         self.addSection(section)
@@ -69,7 +68,6 @@ class TextFields: BlastController {
             .nextFieldOnReturn(false)
         section.addRow(row)
         
-        
         section = BlastSection(headerXibName: XIBHeader)
         section.headerTitle = "Number pad"
         self.addSection(section)
@@ -78,7 +76,6 @@ class TextFields: BlastController {
         row.textField1.placeholder("Only numbers (with decimals) allowed")
             .keyboardType(.decimalPad)
         section.addRow(row)
-        
         
         section = BlastSection(headerXibName: XIBHeader)
         section.headerTitle = "Using shouldChangeCharactersIn"
@@ -108,8 +105,6 @@ class TextFields: BlastController {
             })
             
         section.addRow(cRow)
-        
-        
         
         section = BlastSection(headerXibName: XIBHeader)
         section.headerTitle = "Two textFields? Sure"

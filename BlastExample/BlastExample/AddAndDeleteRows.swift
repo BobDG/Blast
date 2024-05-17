@@ -26,7 +26,7 @@ class AddAndDeleteRows: BlastController {
         self.addRowsToTheBottom()
     }
     
-    // -MARK: Top
+    // MARK: Top
     
     func addRowsToTheTop() {
         let section = BlastSection(headerXibName: XIBHeader)
@@ -37,7 +37,7 @@ class AddAndDeleteRows: BlastController {
         addRow.button1.title("Tap to add a row")
             .tapped { [weak self] in
                 guard let self else { return }
-                self.addRows([self.createRow(title:"Added to the top")], toSection: section, atTheTop: true)
+                self.addRows([self.createRow(title: "Added to the top")], toSection: section, atTheTop: true)
             }
         section.addRow(addRow)
         
@@ -64,7 +64,7 @@ class AddAndDeleteRows: BlastController {
         section.addRow(deleteRow)
     }
     
-    // -MARK: In between
+    // MARK: In between
     
     func addRowsInBetween() {
         let section = BlastSection(headerXibName: XIBHeader)
@@ -75,7 +75,7 @@ class AddAndDeleteRows: BlastController {
         addRow.button1.title("Tap to add a row")
             .tapped { [weak self] in
                 guard let self else { return }
-                self.addRows([self.createRow(title:"Added in between")], afterRow: addRow)
+                self.addRows([self.createRow(title: "Added in between")], afterRow: addRow)
             }
         section.addRow(addRow)
         
@@ -104,7 +104,7 @@ class AddAndDeleteRows: BlastController {
         section.addRow(deleteRow)
     }
     
-    // -MARK: Bottom
+    // MARK: Bottom
     
     func addRowsToTheBottom() {
         let section = BlastSection(headerXibName: XIBHeader)
@@ -115,7 +115,7 @@ class AddAndDeleteRows: BlastController {
         addRow.button1.title("Tap to add a row")
             .tapped { [weak self] in
                 guard let self else { return }
-                self.addRows([self.createRow(title:"Added to the bottom")], toSection: section, atTheBottom: true)
+                self.addRows([self.createRow(title: "Added to the bottom")], toSection: section, atTheBottom: true)
             }
         section.addRow(addRow)
         

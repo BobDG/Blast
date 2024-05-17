@@ -26,7 +26,7 @@ class AddAndDeleteSections: BlastController {
         self.addSectionsToTheBottom()
     }
     
-    // -MARK: Top
+    // MARK: Top
     
     func addSectionsToTheTop() {
         let section = BlastSection(headerXibName: XIBHeader)
@@ -37,7 +37,7 @@ class AddAndDeleteSections: BlastController {
         addRow.button1.title("Tap to add a section")
             .tapped { [weak self] in
                 guard let self else { return }
-                self.addSections([self.createSection(title:"Added to the top")], atTheTop: true)
+                self.addSections([self.createSection(title: "Added to the top")], atTheTop: true)
             }
         section.addRow(addRow)
         
@@ -64,7 +64,7 @@ class AddAndDeleteSections: BlastController {
         section.addRow(deleteRow)
     }
     
-    // -MARK: In between
+    // MARK: In between
     
     func addSectionsInBetween() {
         let addSection = BlastSection(headerXibName: XIBHeader)
@@ -75,7 +75,7 @@ class AddAndDeleteSections: BlastController {
         addRow.button1.title("Tap to add a section")
             .tapped { [weak self] in
                 guard let self else { return }
-                self.addSections([self.createSection(title:"Added in between")], afterSection: addSection)
+                self.addSections([self.createSection(title: "Added in between")], afterSection: addSection)
             }
         addSection.addRow(addRow)
         
@@ -108,7 +108,7 @@ class AddAndDeleteSections: BlastController {
         deleteSection.addRow(deleteRow)
     }
     
-    // -MARK: Bottom
+    // MARK: Bottom
     
     func addSectionsToTheBottom() {
         let section = BlastSection(headerXibName: XIBHeader)
@@ -119,7 +119,7 @@ class AddAndDeleteSections: BlastController {
         addRow.button1.title("Tap to add a section")
             .tapped { [weak self] in
                 guard let self else { return }
-                self.addSections([self.createSection(title:"Added to the bottom")], atTheBottom: true)
+                self.addSections([self.createSection(title: "Added to the bottom")], atTheBottom: true)
             }
         section.addRow(addRow)
         

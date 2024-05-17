@@ -50,7 +50,6 @@ class Buttons: BlastController {
             }
         section.addRow(row)
         
-        
         section = BlastSection(headerXibName: XIBHeader)
         section.headerTitle = "Style with color & attributedStrings"
         self.addSection(section)
