@@ -1,7 +1,11 @@
 # Blast
 ========
 
-## Best practice
+## What is it?
+Blast is the evolved Swift version of Blaze, the Objective-C framework to speed up app development.
+[See the medium-article here!](https://medium.com/@graafict/blaze-fast-flexible-and-awesome-3a7a73374de7#.20gp2rll3)
+
+## Register cells
 The BlastController requires you to register all your headers/footers & cells.
 You could do this lazily but if it reloads before you did the App wil crash, so you can run into issues with if you're not careful. Registering cells is not computationally expensive so it's best practice to simply register all possible XIBs in viewDidLoad.
 
@@ -38,5 +42,4 @@ Open the example project, and you'll see all the options for each possibility:
 - Replace sections
 - Reload rows/sections
 
-![Example in simulator](./assets/Example.gif)
-
+![Example in simulator](./Assets/Example.gif)
