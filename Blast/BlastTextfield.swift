@@ -11,6 +11,7 @@ public class BlastTextField: UITextField, UITextFieldDelegate {
     // Closures for row
     public var returnTapped:(() -> Void)?
     public var textChanged:((String) -> Void)?
+    public var doneTapped:((UITextField) -> Void)?
     public var textFieldDidEndEditing:((UITextField) -> Void)?
     public var shouldChangeCharactersIn:((UITextField, NSRange, String) -> Bool)?
     
@@ -24,8 +25,9 @@ public class BlastTextField: UITextField, UITextFieldDelegate {
         
         self.delegate = self
         self.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        self.addDoneButtonOnKeyboard()
     }
-    
+
     // MARK: - Custom target actions
     
     @objc private func textFieldDidChange() {
@@ -87,5 +89,25 @@ public class BlastTextField: UITextField, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-    
+
+    // MARK: - Done Button
+
+    private func addDoneButtonOnKeyboard() {
+        let doneToolbar: UIToolbar = UIToolbar()
+        doneToolbar.barStyle = .default
+
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let done = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonAction))
+
+        doneToolbar.items = [flexSpace, done]
+        doneToolbar.sizeToFit()
+
+        self.inputAccessoryView = doneToolbar
+    }
+
+    @objc private func doneButtonAction() {
+        self.resignFirstResponder()
+        self.doneTapped?(self)
+    }
+
 }

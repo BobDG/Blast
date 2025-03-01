@@ -214,7 +214,15 @@ open class BlastCell: UITableViewCell {
         if let tintColor = config.tintColor {
             segmentedControl.selectedSegmentTintColor = tintColor
         }
-        
+
+        if let selectedTextColor = config.selectedTextColor {
+            segmentedControl.setTitleTextAttributes([.foregroundColor: selectedTextColor], for: .selected)
+        }
+
+        if let unselectedTextColor = config.unselectedTextColor {
+            segmentedControl.setTitleTextAttributes([.foregroundColor: unselectedTextColor], for: .normal)
+        }
+
         segmentedControl.selectedSegmentIndex = config.selectedIndex
         segmentedControl.addTarget(self, action: #selector(segmentValueChanged(_:)), for: .valueChanged)
     }
@@ -263,6 +271,7 @@ open class BlastCell: UITableViewCell {
         }
         
         // Closures
+        textField.doneTapped = config.doneTapped
         textField.returnTapped = config.returnTapped
         textField.textFieldDidEndEditing = config.textFieldDidEndEditing
         textField.shouldChangeCharactersIn = config.shouldChangeCharactersIn
@@ -277,7 +286,8 @@ open class BlastCell: UITableViewCell {
         datePickerField.datePicker?.minimumDate = config.minimumDate
         datePickerField.datePicker?.maximumDate = config.maximumDate
         datePickerField.datePicker?.datePickerMode = config.datePickerMode
-        
+        datePickerField.capitalizeString = config.capitalizeString
+
         if let dateFormatter = config.dateFormatter {
             datePickerField.dateFormatter = dateFormatter
         }
@@ -285,8 +295,12 @@ open class BlastCell: UITableViewCell {
         if let date = config.date {                        
             datePickerField.datePicker?.date = date
             datePickerField.text = datePickerField.dateFormatter.string(from: date)
+
+            if datePickerField.capitalizeString {
+                datePickerField.text = datePickerField.text?.capitalized
+            }
         }
-        
+
         // Update config value, otherwise it will be reset when cell disappears from view and then appears again
         datePickerField.dateChanged = { [weak config] date in
             guard let config else { return }

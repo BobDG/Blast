@@ -58,7 +58,29 @@ public class BlastSegmentedControlConfig {
             }
         }
     }
-    
+
+    public var selectedTextColor: UIColor? {
+        didSet {
+            if let segmentedControl = self.segmentedControl,
+               let textColor = selectedTextColor {
+                DispatchQueue.main.async {
+                    segmentedControl.setTitleTextAttributes([.foregroundColor: textColor], for: .selected)
+                }
+            }
+        }
+    }
+
+    public var unselectedTextColor: UIColor? {
+        didSet {
+            if let segmentedControl = self.segmentedControl,
+               let textColor = unselectedTextColor {
+                DispatchQueue.main.async {
+                    segmentedControl.setTitleTextAttributes([.foregroundColor: textColor], for: .normal)
+                }
+            }
+        }
+    }
+
     public var valueChanged: ((_ selectedIndex: Int) -> Void)?
     
     // MARK: - Lifecycle
@@ -98,7 +120,19 @@ public class BlastSegmentedControlConfig {
         self.tintColor = tintColor
         return self
     }
-    
+
+    @discardableResult
+    public func selectedTextColor(_ selectedTextColor: UIColor?) -> Self {
+        self.selectedTextColor = selectedTextColor
+        return self
+    }
+
+    @discardableResult
+    public func unselectedTextColor(_ unselectedTextColor: UIColor?) -> Self {
+        self.unselectedTextColor = unselectedTextColor
+        return self
+    }
+
     @discardableResult
     public func valueChanged(_ valueChanged: ((_ selectedIndex: Int) -> Void)?) -> Self {
         self.valueChanged = valueChanged

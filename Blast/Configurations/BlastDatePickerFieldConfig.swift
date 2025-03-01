@@ -50,7 +50,15 @@ public class BlastDatePickerFieldConfig {
             }
         }
     }
-    
+
+    public var capitalizeString: Bool = false {
+        didSet {
+            if let datePickerField = self.datePickerField {
+                DispatchQueue.main.async { datePickerField.capitalizeString = self.capitalizeString }
+            }
+        }
+    }
+
     // Closures
     public var dateChanged: ((Date) -> Void)?    
     public var doneTapped: ((UITextField) -> Void)?
@@ -92,7 +100,13 @@ public class BlastDatePickerFieldConfig {
         self.dateFormatter = dateFormatter
         return self
     }
-    
+
+    @discardableResult
+    public func capitalizeString(_ capitalizeString: Bool) -> Self {
+        self.capitalizeString = capitalizeString
+        return self
+    }
+
     @discardableResult
     public func dateChanged(_ dateChanged: ((Date) -> Void)?) -> Self {
         self.dateChanged = dateChanged
@@ -104,4 +118,5 @@ public class BlastDatePickerFieldConfig {
         self.doneTapped = doneTapped
         return self
     }
+
 }

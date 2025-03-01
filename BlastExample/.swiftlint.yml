@@ -1,0 +1,41 @@
+#disabled_rules:
+#  - line_length
+#  - trailing_whitespace
+#  - identifier_name
+#  - type_name
+#  - type_body_length
+#  - function_body_length
+#  - cyclomatic_complexity
+#  - force_cast
+#  - unused_closure_parameter
+#  - missing_docs
+#  - inclusive_language
+#  - empty_count
+#  - orphaned_doc_comment
+#  - implicit_getter
+#  - unused_optional_binding
+#  - file_length
+#
+#analyzer_rules:
+#  - unused_import
+#
+#opt_in_rules:
+#  - empty_count
+#  - missing_docs
+
+only_rules:
+ - comment_spacing
+ - colon
+ - return_arrow_whitespace
+ - vertical_whitespace
+ - opening_brace
+ - trailing_newline
+ - statement_position
+ - switch_case_alignment
+ - trailing_semicolon
+ - mark
+
+#excluded:
+#  - Pods
+
+reporter: "xcode"

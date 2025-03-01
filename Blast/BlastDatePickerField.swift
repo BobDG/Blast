@@ -13,6 +13,7 @@ public class BlastDatePickerField: UITextField, UITextFieldDelegate {
         formatter.timeStyle = .none
         return formatter
     }()
+    var capitalizeString: Bool = false
 
     // Closures
     public var dateChanged: ((Date) -> Void)?
@@ -44,6 +45,9 @@ public class BlastDatePickerField: UITextField, UITextFieldDelegate {
 
     @objc private func datePickerChanged(picker: UIDatePicker) {
         self.text = self.dateFormatter.string(from: picker.date)
+        if self.capitalizeString {
+            self.text = self.text?.capitalized
+        }
         self.dateChanged?(picker.date)
     }
 

@@ -100,6 +100,7 @@ public class BlastTextFieldConfig {
     // Closures
     public var returnTapped: (() -> Void)?
     public var textChanged: ((String) -> Void)?
+    public var doneTapped: ((UITextField) -> Void)?
     public var textFieldDidEndEditing: ((UITextField) -> Void)?
     public var shouldChangeCharactersIn:((UITextField, NSRange, String) -> Bool)?
     
@@ -200,6 +201,12 @@ public class BlastTextFieldConfig {
         self.shouldChangeCharactersIn = shouldChangeCharactersIn
         return self
     }
-    
+
+    @discardableResult
+    public func doneTapped(_ doneTapped: ((UITextField) -> Void)?) -> Self {
+        self.doneTapped = doneTapped
+        return self
+    }
+
 }
 
