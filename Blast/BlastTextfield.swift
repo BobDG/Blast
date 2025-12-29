@@ -13,6 +13,7 @@ public class BlastTextField: UITextField, UITextFieldDelegate {
     public var textChanged:((String) -> Void)?
     public var doneTapped:((UITextField) -> Void)?
     public var textFieldDidEndEditing:((UITextField) -> Void)?
+    public var textFieldDidBeginEditing:((UITextField) -> Void)?
     public var shouldChangeCharactersIn:((UITextField, NSRange, String) -> Bool)?
     
     // Closures for controller
@@ -41,7 +42,9 @@ public class BlastTextField: UITextField, UITextFieldDelegate {
     }
     
     public func textFieldDidBeginEditing(_ textField: UITextField) {
-        
+        if let textFieldDidBeginEditingInClosure = self.textFieldDidBeginEditing {
+            textFieldDidBeginEditingInClosure(textField)
+        }
     }
     
     public func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {

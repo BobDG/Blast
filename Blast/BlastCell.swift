@@ -274,6 +274,7 @@ open class BlastCell: UITableViewCell {
         textField.doneTapped = config.doneTapped
         textField.returnTapped = config.returnTapped
         textField.textFieldDidEndEditing = config.textFieldDidEndEditing
+        textField.textFieldDidBeginEditing = config.textFieldDidBeginEditing
         textField.shouldChangeCharactersIn = config.shouldChangeCharactersIn
     }
     

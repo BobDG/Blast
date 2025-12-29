@@ -102,6 +102,7 @@ public class BlastTextFieldConfig {
     public var textChanged: ((String) -> Void)?
     public var doneTapped: ((UITextField) -> Void)?
     public var textFieldDidEndEditing: ((UITextField) -> Void)?
+    public var textFieldDidBeginEditing: ((UITextField) -> Void)?
     public var shouldChangeCharactersIn:((UITextField, NSRange, String) -> Bool)?
     
     // MARK: - Lifecycle
@@ -195,7 +196,13 @@ public class BlastTextFieldConfig {
         self.textFieldDidEndEditing = textFieldDidEndEditing
         return self
     }
-    
+
+    @discardableResult
+    public func textFieldDidBeginEditing(_ textFieldDidBeginEditing: ((UITextField) -> Void)?) -> Self {
+        self.textFieldDidBeginEditing = textFieldDidBeginEditing
+        return self
+    }
+
     @discardableResult
     public func shouldChangeCharactersIn(_ shouldChangeCharactersIn: ((UITextField, NSRange, String) -> Bool)?) -> Self {
         self.shouldChangeCharactersIn = shouldChangeCharactersIn
