@@ -11,7 +11,7 @@ let package = Package(
     targets: [
         .target(
             name: "Blast",
-            path: "."
+            path: "Blast"
         )
     ]
 )

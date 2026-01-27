@@ -138,7 +138,7 @@
 		C4AA879E2B877AA500D719A5 /* CellOneSwitch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellOneSwitch.xib; sourceTree = "<group>"; };
 		C4AA87A02B877E1B00D719A5 /* Switches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switches.swift; sourceTree = "<group>"; };
 		C4AA87A22B87AE6600D719A5 /* BlastSwitchConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlastSwitchConfig.swift; sourceTree = "<group>"; };
-		C4C7FF2F2F2917F1008B7DA8 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		C4C7FF302F291BA1008B7DA8 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Package.swift; sourceTree = SOURCE_ROOT; };
 		C4CDB3D32BD652D0001109C3 /* BlastController+Reload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BlastController+Reload.swift"; sourceTree = "<group>"; };
 		C4CDB3D82BDBFB46001109C3 /* Reload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reload.swift; sourceTree = "<group>"; };
 		C4E7A8382B9F3B930041AF8C /* BlastController+FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlastController+FloatingActionButton.swift"; sourceTree = "<group>"; };
@@ -210,7 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				C41938F52B6FB6750033D6F0 /* README.md */,
-				C4C7FF2F2F2917F1008B7DA8 /* Package.swift */,
+				C4C7FF302F291BA1008B7DA8 /* Package.swift */,
 				C412278F2B6CF5E500626D72 /* BlastCell.swift */,
 				C41938D72B6D2E170033D6F0 /* BlastHeaderFooterView.swift */,
 				C41227932B6CF80600626D72 /* BlastRow.swift */,
