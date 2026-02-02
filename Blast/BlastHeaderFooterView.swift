@@ -15,11 +15,19 @@ open class BlastHeaderFooterView: UITableViewHeaderFooterView {
     public var section: BlastSection? {
         didSet {
             guard let section else { return }
+
+            // Header text & font
             headerLabel?.text = section.headerTitle
-            headerLabel?.font = section.headerFont
+            if let headerFont = section.headerFont {
+                headerLabel?.font = headerFont
+            }
+
+            // Footer text & font
             footerLabel?.text = section.footerTitle
-            footerLabel?.font = section.footerFont
-            
+            if let footerFont = section.footerFont {
+                footerLabel?.font = footerFont
+            }
+
             // Buttons
             if let button = button1 { self.setupButton(button, section.button1) }
         }
