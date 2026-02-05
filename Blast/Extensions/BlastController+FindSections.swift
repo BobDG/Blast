@@ -5,7 +5,11 @@
 import UIKit
 
 public extension BlastController {
-    
+
+    func sectionIndex(_ section: BlastSection) -> Int? {
+        return self.sections.firstIndex { $0 === section }
+    }
+
     func previousSection(before section: BlastSection) -> BlastSection? {
         guard let sectionIndex = self.sections.firstIndex(where: { $0 === section }),
               sectionIndex > 0 else {

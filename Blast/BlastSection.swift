@@ -11,7 +11,7 @@ open class BlastSection {
     
     // Rows
     public var rows:[BlastRow] = []
-    
+
     // Labels
     public var headerTitle: String?
     public var headerFont: UIFont?

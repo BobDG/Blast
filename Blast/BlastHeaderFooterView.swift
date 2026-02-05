@@ -6,10 +6,10 @@ import UIKit
 
 open class BlastHeaderFooterView: UITableViewHeaderFooterView {
     // Labels
-    @IBOutlet weak var headerLabel: UILabel?
-    @IBOutlet weak var footerLabel: UILabel?
-    
-    @IBOutlet weak var button1: UIButton?
+    @IBOutlet public weak var headerLabel: UILabel?
+    @IBOutlet public weak var footerLabel: UILabel?
+
+    @IBOutlet public weak var button1: UIButton?
     
     // Section
     public var section: BlastSection? {
