@@ -118,7 +118,7 @@ open class BlastCell: UITableViewCell {
     func setupButton(_ button: UIButton, _ config: BlastButtonConfig) {
         // Link for automatic updates
         config.button = button
-        
+
         // Update
         if let attributedTitle = config.attributedTitle {
             button.setAttributedTitle(attributedTitle, for: .normal)
@@ -126,19 +126,24 @@ open class BlastCell: UITableViewCell {
         else {
             button.setTitle(config.title, for: .normal)
         }
-        
+
         if let backgroundColor = config.backgroundColor {
             button.backgroundColor = backgroundColor
         }
-        
+
         if let tintColor = config.tintColor {
             button.tintColor = tintColor
         }
-        
+
         if let image = config.image {
             button.setImage(image, for: .normal)
         }
-        
+
+        if let cornerRadius = config.cornerRadius {
+            button.layer.cornerRadius = cornerRadius
+            button.layer.masksToBounds = true
+        }
+
         button.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
     }
     

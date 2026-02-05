@@ -48,7 +48,20 @@ public class BlastButtonConfig {
             }
         }
     }
-    
+
+    public var cornerRadius: CGFloat? {
+        didSet {
+            if let cornerRadius = self.cornerRadius {
+                if let button = self.button {
+                    DispatchQueue.main.async {
+                        button.layer.cornerRadius = cornerRadius
+                        button.layer.masksToBounds = true
+                    }
+                }
+            }
+        }
+    }
+
     public var tapped: (() -> Void)?
     
     // MARK: - Lifecycle
@@ -88,7 +101,13 @@ public class BlastButtonConfig {
         self.image = image
         return self
     }
-    
+
+    @discardableResult
+    public func cornerRadius(_ cornerRadius: CGFloat?) -> Self {
+        self.cornerRadius = cornerRadius
+        return self
+    }
+
     @discardableResult
     public func tapped(_ tapped: (() -> Void)?) -> Self {
         self.tapped = tapped
