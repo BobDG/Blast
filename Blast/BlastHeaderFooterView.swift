@@ -21,11 +21,17 @@ open class BlastHeaderFooterView: UITableViewHeaderFooterView {
             if let headerFont = section.headerFont {
                 headerLabel?.font = headerFont
             }
+            if let headerTitleColor = section.headerTitleColor {
+                headerLabel?.textColor = headerTitleColor
+            }
 
             // Footer text & font
             footerLabel?.text = section.footerTitle
             if let footerFont = section.footerFont {
                 footerLabel?.font = footerFont
+            }
+            if let footerTitleColor = section.footerTitleColor {
+                footerLabel?.textColor = footerTitleColor
             }
 
             // Buttons

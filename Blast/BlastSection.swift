@@ -15,8 +15,10 @@ open class BlastSection {
     // Labels
     public var headerTitle: String?
     public var headerFont: UIFont?
+    public var headerTitleColor: UIColor?
     public var footerTitle: String?
     public var footerFont: UIFont?
+    public var footerTitleColor: UIColor?
     
     // Buttons
     public lazy var button1: BlastButtonConfig = {
@@ -61,6 +63,12 @@ open class BlastSection {
     }
     
     @discardableResult
+    public func headerTitleColor(_ color: UIColor) -> Self {
+        self.headerTitleColor = color
+        return self
+    }
+    
+    @discardableResult
     public func footerTitle(_ footerTitle: String) -> Self {
         self.footerTitle = footerTitle
         return self
@@ -69,6 +77,12 @@ open class BlastSection {
     @discardableResult
     public func footerFont(_ footerFont: UIFont) -> Self {
         self.footerFont = footerFont
+        return self
+    }
+    
+    @discardableResult
+    public func footerTitleColor(_ color: UIColor) -> Self {
+        self.footerTitleColor = color
         return self
     }
     
