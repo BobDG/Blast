@@ -90,6 +90,11 @@ open class BlastCell: UITableViewCell {
             // TextViews
             if let textView = textView1 { self.setupTextView(textView, row.textView1) }
             
+            // Views
+            if let view = view1 { self.setupView(view, row.view1) }
+            if let view = view2 { self.setupView(view, row.view2) }
+            if let view = view3 { self.setupView(view, row.view3) }
+            
             // Additional configuration
             self.configure()
         }
@@ -320,6 +325,34 @@ open class BlastCell: UITableViewCell {
         datePickerField.doneTapped = config.doneTapped
     }
     
+    // MARK: - Views
+    
+    func setupView(_ view: UIView, _ config: BlastViewConfig) {
+        // Link for automatic updates
+        config.view = view
+        
+        // Update
+        if let backgroundColor = config.backgroundColor {
+            view.backgroundColor = backgroundColor
+        }
+        
+        view.isHidden = config.isHidden
+        view.alpha = config.alpha
+        
+        if let cornerRadius = config.cornerRadius {
+            view.layer.cornerRadius = cornerRadius
+            view.layer.masksToBounds = true
+        }
+        
+        if let borderWidth = config.borderWidth {
+            view.layer.borderWidth = borderWidth
+        }
+        
+        if let borderColor = config.borderColor {
+            view.layer.borderColor = borderColor.cgColor
+        }
+    }
+    
     // MARK: - TextViews
     
     func setupTextView(_ textView: BlastTextView, _ config: BlastTextViewConfig) {
@@ -399,6 +432,11 @@ open class BlastCell: UITableViewCell {
         
         // TextViews
         row.textView1.textView = nil
+        
+        // Views
+        row.view1.view = nil
+        row.view2.view = nil
+        row.view3.view = nil
     }
 
     // MARK: - Configure

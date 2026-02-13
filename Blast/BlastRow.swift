@@ -101,6 +101,17 @@ public class BlastRow {
         return BlastTextViewConfig()
     }()
     
+    // Views
+    public lazy var view1: BlastViewConfig = {
+        return BlastViewConfig()
+    }()
+    public lazy var view2: BlastViewConfig = {
+        return BlastViewConfig()
+    }()
+    public lazy var view3: BlastViewConfig = {
+        return BlastViewConfig()
+    }()
+    
     // Lifecycle
     
     public init(xibName: String) {
