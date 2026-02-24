@@ -30,7 +30,7 @@ class AddAndDeleteSections: BlastController {
     
     func addSectionsToTheTop() {
         let section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Add to the top"
+        section.headerLabel1.text("Add to the top")
         self.addSection(section)
         
         let addRow = BlastRow(xibName: XIBCellOneButton)
@@ -68,7 +68,7 @@ class AddAndDeleteSections: BlastController {
     
     func addSectionsInBetween() {
         let addSection = BlastSection(headerXibName: XIBHeader)
-        addSection.headerTitle = "Add in between"
+        addSection.headerLabel1.text("Add in between")
         self.addSection(addSection)
         
         let addRow = BlastRow(xibName: XIBCellOneButton)
@@ -80,7 +80,7 @@ class AddAndDeleteSections: BlastController {
         addSection.addRow(addRow)
         
         let deleteSection = BlastSection(headerXibName: XIBHeader)
-        deleteSection.headerTitle = "Delete in between"
+        deleteSection.headerLabel1.text("Delete in between")
         self.addSection(deleteSection)
         
         let deleteRow = BlastRow(xibName: XIBCellThreeButtons)
@@ -112,7 +112,7 @@ class AddAndDeleteSections: BlastController {
     
     func addSectionsToTheBottom() {
         let section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Add to the bottom"
+        section.headerLabel1.text("Add to the bottom")
         self.addSection(section)
         
         let addRow = BlastRow(xibName: XIBCellOneButton)

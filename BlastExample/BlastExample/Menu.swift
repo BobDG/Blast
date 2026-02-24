@@ -26,8 +26,8 @@ class Menu: BlastController {
         
         section = BlastSection(headerXibName: XIBHeader)        
         section.footerXibName = XIBFooter
-        section.headerTitle = "Select an example"
-        section.footerTitle = "And be astounded"
+        section.headerLabel1.text("Select an example")
+        section.footerLabel1.text("And be astounded")
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellMenuItem)

@@ -32,7 +32,7 @@ class TextFields: BlastController {
         var section: BlastSection
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Basic"
+        section.headerLabel1.text("Basic")
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneTextField)
@@ -40,7 +40,7 @@ class TextFields: BlastController {
         section.addRow(row)
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Attributed"
+        section.headerLabel1.text("Attributed")
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneTextField)
@@ -51,7 +51,7 @@ class TextFields: BlastController {
         section.addRow(row)
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Custom fonts for placeholder & text "
+        section.headerLabel1.text("Custom fonts for placeholder & text ")
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneTextField)
@@ -61,7 +61,7 @@ class TextFields: BlastController {
         section.addRow(row)
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "No next-field on return"
+        section.headerLabel1.text("No next-field on return")
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneTextField)
@@ -71,7 +71,7 @@ class TextFields: BlastController {
         section.addRow(row)
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Number pad"
+        section.headerLabel1.text("Number pad")
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneTextField)
@@ -80,7 +80,7 @@ class TextFields: BlastController {
         section.addRow(row)
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Using shouldChangeCharactersIn"
+        section.headerLabel1.text("Using shouldChangeCharactersIn")
         self.addSection(section)
         
         let cRow = BlastRow(xibName: XIBCellOneTextField)
@@ -109,7 +109,7 @@ class TextFields: BlastController {
         section.addRow(cRow)
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Two textFields? Sure"
+        section.headerLabel1.text("Two textFields? Sure")
         self.addSection(section)
         
         let tRow = BlastRow(xibName: XIBCellTwoTextFields)

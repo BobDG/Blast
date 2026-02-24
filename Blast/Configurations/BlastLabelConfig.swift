@@ -25,6 +25,14 @@ public class BlastLabelConfig {
         }
     }
     
+    public var color: UIColor? = nil {
+        didSet {
+            if let label = self.label, let color = self.color {
+                DispatchQueue.main.async { label.textColor = color }
+            }
+        }
+    }
+    
     public var attributedText: NSAttributedString? = nil {
         didSet {
             if let label = self.label {
@@ -50,6 +58,12 @@ public class BlastLabelConfig {
     @discardableResult
     public func font(_ font: UIFont?) -> Self {
         self.font = font
+        return self
+    }
+    
+    @discardableResult
+    public func color(_ color: UIColor?) -> Self {
+        self.color = color
         return self
     }
     

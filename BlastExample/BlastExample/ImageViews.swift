@@ -25,7 +25,7 @@ class ImageViews: BlastController {
         var section: BlastSection
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "One"
+        section.headerLabel1.text("One")
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneImageView)
@@ -33,7 +33,7 @@ class ImageViews: BlastController {
         section.addRow(row)
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Two"
+        section.headerLabel1.text("Two")
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellTwoImageViews)
@@ -42,7 +42,7 @@ class ImageViews: BlastController {
         section.addRow(row)
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Three"
+        section.headerLabel1.text("Three")
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellThreeImageViews)

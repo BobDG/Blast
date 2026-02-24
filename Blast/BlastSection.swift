@@ -12,13 +12,39 @@ open class BlastSection {
     // Rows
     public var rows:[BlastRow] = []
 
-    // Labels
-    public var headerTitle: String?
-    public var headerFont: UIFont?
-    public var headerTitleColor: UIColor?
-    public var footerTitle: String?
-    public var footerFont: UIFont?
-    public var footerTitleColor: UIColor?
+    // Header Labels
+    public lazy var headerLabel1: BlastLabelConfig = {
+        return BlastLabelConfig()
+    }()
+    public lazy var headerLabel2: BlastLabelConfig = {
+        return BlastLabelConfig()
+    }()
+    public lazy var headerLabel3: BlastLabelConfig = {
+        return BlastLabelConfig()
+    }()
+    public lazy var headerLabel4: BlastLabelConfig = {
+        return BlastLabelConfig()
+    }()
+    public lazy var headerLabel5: BlastLabelConfig = {
+        return BlastLabelConfig()
+    }()
+    
+    // Footer Labels
+    public lazy var footerLabel1: BlastLabelConfig = {
+        return BlastLabelConfig()
+    }()
+    public lazy var footerLabel2: BlastLabelConfig = {
+        return BlastLabelConfig()
+    }()
+    public lazy var footerLabel3: BlastLabelConfig = {
+        return BlastLabelConfig()
+    }()
+    public lazy var footerLabel4: BlastLabelConfig = {
+        return BlastLabelConfig()
+    }()
+    public lazy var footerLabel5: BlastLabelConfig = {
+        return BlastLabelConfig()
+    }()
     
     // Buttons
     public lazy var button1: BlastButtonConfig = {
@@ -49,42 +75,6 @@ open class BlastSection {
     }
     
     // MARK: - SwiftUI style parameters
-    
-    @discardableResult
-    public func headerTitle(_ headerTitle: String) -> Self {
-        self.headerTitle = headerTitle
-        return self
-    }
-    
-    @discardableResult
-    public func headerFont(_ headerFont: UIFont) -> Self {
-        self.headerFont = headerFont
-        return self
-    }
-    
-    @discardableResult
-    public func headerTitleColor(_ color: UIColor) -> Self {
-        self.headerTitleColor = color
-        return self
-    }
-    
-    @discardableResult
-    public func footerTitle(_ footerTitle: String) -> Self {
-        self.footerTitle = footerTitle
-        return self
-    }
-    
-    @discardableResult
-    public func footerFont(_ footerFont: UIFont) -> Self {
-        self.footerFont = footerFont
-        return self
-    }
-    
-    @discardableResult
-    public func footerTitleColor(_ color: UIColor) -> Self {
-        self.footerTitleColor = color
-        return self
-    }
     
     @discardableResult
     public func headerHeight(_ headerHeight: Int) -> Self {

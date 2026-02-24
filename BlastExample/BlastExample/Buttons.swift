@@ -25,7 +25,7 @@ class Buttons: BlastController {
         var section: BlastSection
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Just one"
+        section.headerLabel1.text("Just one")
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneButton)
@@ -36,7 +36,7 @@ class Buttons: BlastController {
         section.addRow(row)
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Want more?"
+        section.headerLabel1.text("Want more?")
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellTwoButtons)
@@ -51,7 +51,7 @@ class Buttons: BlastController {
         section.addRow(row)
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Style with color & attributedStrings"
+        section.headerLabel1.text("Style with color & attributedStrings")
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellThreeButtons)

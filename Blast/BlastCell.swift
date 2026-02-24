@@ -115,6 +115,9 @@ open class BlastCell: UITableViewCell {
             if let font = config.font {
                 label.font = font
             }
+            if let color = config.color {
+                label.textColor = color
+            }
         }
     }
     

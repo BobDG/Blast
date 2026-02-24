@@ -33,7 +33,7 @@ class ReplaceSections: BlastController {
         var section: BlastSection
         
         let newSectionReplace = BlastSection(headerXibName: XIBHeader)
-        newSectionReplace.headerTitle = "Single - new Sections"
+        newSectionReplace.headerLabel1.text("Single - new Sections")
         self.addSection(newSectionReplace)
         
         let replaceWithCreateRow = BlastRow(xibName: XIBCellOneButton)
@@ -52,7 +52,7 @@ class ReplaceSections: BlastController {
         self.addSection(self.creatSection(title: "Section 1"))
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Single - lazy Sections"
+        section.headerLabel1.text("Single - lazy Sections")
         self.addSection(section)
                 
         // First section
@@ -78,7 +78,7 @@ class ReplaceSections: BlastController {
         var section: BlastSection
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Plural"
+        section.headerLabel1.text("Plural")
         self.addSection(section)
         
         // First Sections
@@ -104,7 +104,7 @@ class ReplaceSections: BlastController {
         var section: BlastSection
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Custom (2 by 1 or vice versa)"
+        section.headerLabel1.text("Custom (2 by 1 or vice versa)")
         self.addSection(section)
         
         // First Section

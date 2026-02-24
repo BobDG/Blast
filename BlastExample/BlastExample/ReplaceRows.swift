@@ -33,7 +33,7 @@ class ReplaceRows: BlastController {
         var section: BlastSection
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Single - new rows"
+        section.headerLabel1.text("Single - new rows")
         self.addSection(section)
                 
         // First row
@@ -52,7 +52,7 @@ class ReplaceRows: BlastController {
         section.addRow(replaceWithCreateRow)
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Single - lazy rows"
+        section.headerLabel1.text("Single - lazy rows")
         self.addSection(section)
                 
         // First row
@@ -78,7 +78,7 @@ class ReplaceRows: BlastController {
         var section: BlastSection
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Plural"
+        section.headerLabel1.text("Plural")
         self.addSection(section)
         
         // First rows
@@ -105,7 +105,7 @@ class ReplaceRows: BlastController {
         var section: BlastSection
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Custom (2 by 1 or vice versa)"
+        section.headerLabel1.text("Custom (2 by 1 or vice versa)")
         self.addSection(section)
         
         // First rows

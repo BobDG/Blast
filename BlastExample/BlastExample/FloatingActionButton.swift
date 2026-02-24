@@ -6,6 +6,8 @@ import UIKit
 
 class FloatingActionButton: BlastController {
 
+    var section1:BlastSection!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,14 +22,16 @@ class FloatingActionButton: BlastController {
         self.loadContent()
         
         // Floating action button
-        self.addFloatingActionButton(image: .init(named: "FloatingActionButton")!, position: .right, paddingBottom: 40, paddingSide: 120, action: {
+        self.addFloatingActionButton(image: .init(named: "FloatingActionButton")!, position: .right, paddingBottom: 40, paddingSide: 40, action: {
             print("Floating action button tapped!")
+            self.addRows([self.createRow(title: "Added to the bottom", index: self.section1.rows.count)], toSection: self.section1, atTheBottom: true)
         })
     }
     
     func loadContent() {
         let section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Some random rows"
+        section.headerLabel1.text("Some random rows")
+        self.section1 = section
         self.addSection(section)
         for index in 1...20 {
             let row = createRow(title: "Random row \(index)", index: index)

@@ -30,7 +30,7 @@ class DatePickers: BlastController {
         var section: BlastSection
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Basic"
+        section.headerLabel1.text("Basic")
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneDatePickerField)
@@ -38,7 +38,7 @@ class DatePickers: BlastController {
         section.addRow(row)
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Min/max date & provided date"
+        section.headerLabel1.text("Min/max date & provided date")
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneDatePickerField)
@@ -56,7 +56,7 @@ class DatePickers: BlastController {
         section.addRow(row)
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Time & custom dateformatter"
+        section.headerLabel1.text("Time & custom dateformatter")
         self.addSection(section)
         
         let dateFormatter = DateFormatter()
@@ -69,7 +69,7 @@ class DatePickers: BlastController {
         section.addRow(row)
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Becomes active after textfield"
+        section.headerLabel1.text("Becomes active after textfield")
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneTextField)

@@ -29,7 +29,7 @@ class TextViews: BlastController {
         var section: BlastSection
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Basic"
+        section.headerLabel1.text("Basic")
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellTextView)
@@ -47,7 +47,7 @@ class TextViews: BlastController {
         section.addRow(row)
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "With placeholder"
+        section.headerLabel1.text("With placeholder")
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellTextView)
@@ -57,7 +57,7 @@ class TextViews: BlastController {
         section.addRow(row)
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Custom placeholder"
+        section.headerLabel1.text("Custom placeholder")
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellTextView)

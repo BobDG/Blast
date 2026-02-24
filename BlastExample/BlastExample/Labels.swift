@@ -25,7 +25,7 @@ class Labels: BlastController {
         var section: BlastSection
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Basic"
+        section.headerLabel1.text("Basic")
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneLabel)
@@ -45,7 +45,7 @@ class Labels: BlastController {
         section.addRow(row)
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Attributed Strings"
+        section.headerLabel1.text("Attributed Strings")
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneLabel)

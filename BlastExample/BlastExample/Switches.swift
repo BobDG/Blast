@@ -25,7 +25,7 @@ class Switches: BlastController {
         var section: BlastSection
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Simple switch - off by default"
+        section.headerLabel1.text("Simple switch - off by default")
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneSwitch)
@@ -37,7 +37,7 @@ class Switches: BlastController {
         section.addRow(row)
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Default on and colored"
+        section.headerLabel1.text("Default on and colored")
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneSwitch)

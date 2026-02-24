@@ -27,7 +27,7 @@ class Reload: BlastController {
         // Reload row
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Reload row"
+        section.headerLabel1.text("Reload row")
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneButton)
@@ -43,7 +43,7 @@ class Reload: BlastController {
         // Reload rows
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Reload row"
+        section.headerLabel1.text("Reload row")
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneLabel)
@@ -69,7 +69,7 @@ class Reload: BlastController {
         // Reload section
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Reload section"
+        section.headerLabel1.text("Reload section")
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneButton)
@@ -85,7 +85,7 @@ class Reload: BlastController {
         // Reload sections
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Reload sections"
+        section.headerLabel1.text("Reload sections")
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneButton)
@@ -100,7 +100,7 @@ class Reload: BlastController {
         section.addRow(row)
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Reload section 1"
+        section.headerLabel1.text("Reload section 1")
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneLabel)
@@ -108,7 +108,7 @@ class Reload: BlastController {
         section.addRow(row)
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Reload section 2"
+        section.headerLabel1.text("Reload section 2")
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneLabel)

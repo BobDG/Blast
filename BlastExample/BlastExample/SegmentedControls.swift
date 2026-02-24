@@ -25,7 +25,7 @@ class SegmentedControls: BlastController {
         var section: BlastSection
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Simple"
+        section.headerLabel1.text("Simple")
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneSegmentedControl)
@@ -38,7 +38,7 @@ class SegmentedControls: BlastController {
         section.addRow(row)
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerTitle = "Customized"
+        section.headerLabel1.text("Customized")
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneSegmentedControl)
