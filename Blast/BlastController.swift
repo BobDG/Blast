@@ -207,4 +207,15 @@ open class BlastController: UITableViewController {
             }
         }
     }
+    
+    // MARK: - Update Header/Footer
+    
+    // Updates section header/footer immediately without reload animation (useful when labels go from empty to filled)
+    public func updateHeaderFooter(for section: BlastSection) {
+        guard let sectionIndex = self.sectionIndex(section),
+              let headerView = self.tableView.headerView(forSection: sectionIndex) as? BlastHeaderFooterView else {
+            return
+        }
+        headerView.section = section
+    }
 }
