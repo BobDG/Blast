@@ -16,7 +16,10 @@ class DatePickers: BlastController {
         
         // Styling
         self.navigationItem.title = "DatePickers"
-        
+
+        // Toolbar color
+        BlastDatePickerField.globalToolbarDoneButtonColor = .systemGreen
+
         // Register XIBs
         self.registerHeaderFooters([XIBHeader])
         self.registerCells([XIBCellOneDatePickerField, XIBCellOneTextField])

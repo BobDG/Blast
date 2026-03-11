@@ -23,7 +23,7 @@ class TextFields: BlastController {
         self.registerHeaderFooters([XIBHeader])
         self.registerCells([XIBCellOneTextField, XIBCellTwoTextFields, XIBCellOneButton])
 
-        // Colors
+        // Toolbar color
         BlastTextField.globalToolbarDoneButtonColor = .systemBlue
 
         // Load

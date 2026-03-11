@@ -174,14 +174,18 @@ open class BlastController: UITableViewController {
         }
         
         // DatePickers
-        /** 
-         These don't support moveToNextTextField as they don't have a return button, but they
-         should be added to the textFieldsArray so that it will become active after a return
-         from a textField before this datepickerField
-        **/
-        [cell.datePicker1, cell.datePicker2].forEach { textField in
-            if let textField = textField, !self.textFieldsArray.contains(textField) {
-                self.textFieldsArray.append(textField)
+        [cell.datePicker1, cell.datePicker2].forEach { datePickerField in
+            if let datePickerField = datePickerField, !self.textFieldsArray.contains(datePickerField) {
+                self.textFieldsArray.append(datePickerField)
+                datePickerField.moveToNextTextField = { [weak self] textField in
+                    self?.moveToNextTextField(currentTextField: textField)
+                }
+                datePickerField.moveToPreviousTextField = { [weak self] textField in
+                    self?.moveToPreviousTextField(currentTextField: textField)
+                }
+                datePickerField.datePickerDidBeginEditing = { [weak self] _ in
+                    self?.updateToolbarButtonStates(for: datePickerField)
+                }
             }
         }
     }
@@ -203,6 +207,23 @@ open class BlastController: UITableViewController {
         }
     }
     
+    public func moveToNextTextField(currentTextField: BlastDatePickerField) {
+        if let currentIndex = self.textFieldsArray.firstIndex(of: currentTextField), currentIndex < (self.textFieldsArray.count - 1) {
+            let nextTextField = self.textFieldsArray[currentIndex + 1]
+            nextTextField.becomeFirstResponder()
+        }
+        else {
+            currentTextField.resignFirstResponder()
+        }
+    }
+    
+    public func moveToPreviousTextField(currentTextField: BlastDatePickerField) {
+        if let currentIndex = self.textFieldsArray.firstIndex(of: currentTextField), currentIndex > 0 {
+            let previousTextField = self.textFieldsArray[currentIndex - 1]
+            previousTextField.becomeFirstResponder()
+        }
+    }
+    
     public func updateToolbarButtonStates(for textField: BlastTextField) {
         guard let currentIndex = self.textFieldsArray.firstIndex(of: textField) else { return }
         
@@ -210,6 +231,15 @@ open class BlastController: UITableViewController {
         let canMoveNext = currentIndex < (self.textFieldsArray.count - 1)
         
         textField.updateToolbarButtonStates(canMovePrevious: canMovePrevious, canMoveNext: canMoveNext)
+    }
+    
+    public func updateToolbarButtonStates(for datePickerField: BlastDatePickerField) {
+        guard let currentIndex = self.textFieldsArray.firstIndex(of: datePickerField) else { return }
+        
+        let canMovePrevious = currentIndex > 0
+        let canMoveNext = currentIndex < (self.textFieldsArray.count - 1)
+        
+        datePickerField.updateToolbarButtonStates(canMovePrevious: canMovePrevious, canMoveNext: canMoveNext)
     }
     
     // MARK: - TextViews

@@ -307,6 +307,10 @@ open class BlastCell: UITableViewCell {
         datePickerField.datePicker?.maximumDate = config.maximumDate
         datePickerField.datePicker?.datePickerMode = config.datePickerMode
         datePickerField.capitalizeString = config.capitalizeString
+        datePickerField.showToolbar = config.showToolbar
+        datePickerField.toolbarPreviousButtonColor = config.toolbarPreviousButtonColor
+        datePickerField.toolbarNextButtonColor = config.toolbarNextButtonColor
+        datePickerField.toolbarDoneButtonColor = config.toolbarDoneButtonColor
 
         if let dateFormatter = config.dateFormatter {
             datePickerField.dateFormatter = dateFormatter
@@ -332,6 +336,8 @@ open class BlastCell: UITableViewCell {
         
         // Closures
         datePickerField.doneTapped = config.doneTapped
+        datePickerField.previousTapped = config.previousTapped
+        datePickerField.nextTapped = config.nextTapped
     }
     
     // MARK: - Views

@@ -58,10 +58,44 @@ public class BlastDatePickerFieldConfig {
             }
         }
     }
+    
+    public var showToolbar: Bool = true {
+        didSet {
+            if let datePickerField = self.datePickerField {
+                DispatchQueue.main.async { datePickerField.showToolbar = self.showToolbar }
+            }
+        }
+    }
+    
+    public var toolbarPreviousButtonColor: UIColor? = nil {
+        didSet {
+            if let datePickerField = self.datePickerField {
+                DispatchQueue.main.async { datePickerField.toolbarPreviousButtonColor = self.toolbarPreviousButtonColor }
+            }
+        }
+    }
+    
+    public var toolbarNextButtonColor: UIColor? = nil {
+        didSet {
+            if let datePickerField = self.datePickerField {
+                DispatchQueue.main.async { datePickerField.toolbarNextButtonColor = self.toolbarNextButtonColor }
+            }
+        }
+    }
+    
+    public var toolbarDoneButtonColor: UIColor? = nil {
+        didSet {
+            if let datePickerField = self.datePickerField {
+                DispatchQueue.main.async { datePickerField.toolbarDoneButtonColor = self.toolbarDoneButtonColor }
+            }
+        }
+    }
 
     // Closures
     public var dateChanged: ((Date) -> Void)?    
     public var doneTapped: ((UITextField) -> Void)?
+    public var previousTapped: (() -> Void)?
+    public var nextTapped: (() -> Void)?
     
     // MARK: - Lifecycle
     
@@ -106,6 +140,30 @@ public class BlastDatePickerFieldConfig {
         self.capitalizeString = capitalizeString
         return self
     }
+    
+    @discardableResult
+    public func showToolbar(_ showToolbar: Bool) -> Self {
+        self.showToolbar = showToolbar
+        return self
+    }
+    
+    @discardableResult
+    public func toolbarPreviousButtonColor(_ color: UIColor?) -> Self {
+        self.toolbarPreviousButtonColor = color
+        return self
+    }
+    
+    @discardableResult
+    public func toolbarNextButtonColor(_ color: UIColor?) -> Self {
+        self.toolbarNextButtonColor = color
+        return self
+    }
+    
+    @discardableResult
+    public func toolbarDoneButtonColor(_ color: UIColor?) -> Self {
+        self.toolbarDoneButtonColor = color
+        return self
+    }
 
     @discardableResult
     public func dateChanged(_ dateChanged: ((Date) -> Void)?) -> Self {
@@ -116,6 +174,18 @@ public class BlastDatePickerFieldConfig {
     @discardableResult
     public func doneTapped(_ doneTapped: ((UITextField) -> Void)?) -> Self {
         self.doneTapped = doneTapped
+        return self
+    }
+    
+    @discardableResult
+    public func previousTapped(_ previousTapped: (() -> Void)?) -> Self {
+        self.previousTapped = previousTapped
+        return self
+    }
+    
+    @discardableResult
+    public func nextTapped(_ nextTapped: (() -> Void)?) -> Self {
+        self.nextTapped = nextTapped
         return self
     }
 
