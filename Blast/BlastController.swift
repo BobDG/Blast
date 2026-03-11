@@ -233,6 +233,9 @@ open class BlastController: UITableViewController {
                 textView.moveToPreviousTextView = { [weak self] textView in
                     self?.moveToPreviousTextView(currentTextView: textView)
                 }
+                textView.textViewDidBeginEditing = { [weak self] _ in
+                    self?.updateToolbarButtonStates(for: textView)
+                }
             }
         }
     }

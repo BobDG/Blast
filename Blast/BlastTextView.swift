@@ -21,6 +21,7 @@ public class BlastTextView: UITextView, UITextViewDelegate {
     public var textChanged:((String) -> Void)?
     public var previousTapped:(() -> Void)?
     public var nextTapped:(() -> Void)?
+    public var textViewDidBeginEditing:((UITextView) -> Void)?
     
     // Closures for controller
     public var heightChanged:(() -> Void)?
@@ -162,6 +163,10 @@ public class BlastTextView: UITextView, UITextViewDelegate {
     }
     
     // MARK: - Delegate methods
+    
+    public func textViewDidBeginEditing(_ textView: UITextView) {
+        self.textViewDidBeginEditing?(textView)
+    }
     
     public func textViewDidChange(_ textView: UITextView) {
         // Don't trigger callbacks if we're programmatically setting the text
