@@ -258,6 +258,7 @@ open class BlastCell: UITableViewCell {
         textField.placeholder = config.placeholder
         textField.isSecureTextEntry = config.secureTextEntry
         textField.nextFieldOnReturn = config.nextFieldOnReturn
+        textField.showToolbar = config.showToolbar
         
         textField.keyboardType = config.keyboardType
         textField.returnKeyType = config.returnKeyType
@@ -289,6 +290,8 @@ open class BlastCell: UITableViewCell {
         textField.textFieldDidEndEditing = config.textFieldDidEndEditing
         textField.textFieldDidBeginEditing = config.textFieldDidBeginEditing
         textField.shouldChangeCharactersIn = config.shouldChangeCharactersIn
+        textField.previousTapped = config.previousTapped
+        textField.nextTapped = config.nextTapped
     }
     
     // MARK: - DatePickers

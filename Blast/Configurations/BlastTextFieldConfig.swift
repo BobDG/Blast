@@ -57,6 +57,14 @@ public class BlastTextFieldConfig {
         }
     }
     
+    public var showToolbar: Bool = true {
+        didSet {
+            if let textField = self.textField {
+                DispatchQueue.main.async { textField.showToolbar = self.showToolbar }
+            }
+        }
+    }
+    
     public var textContentType: UITextContentType? = nil {
         didSet {
             if let textField = self.textField {
@@ -104,6 +112,8 @@ public class BlastTextFieldConfig {
     public var textFieldDidEndEditing: ((UITextField) -> Void)?
     public var textFieldDidBeginEditing: ((UITextField) -> Void)?
     public var shouldChangeCharactersIn:((UITextField, NSRange, String) -> Bool)?
+    public var previousTapped: (() -> Void)?
+    public var nextTapped: (() -> Void)?
     
     // MARK: - Lifecycle
     
@@ -146,6 +156,12 @@ public class BlastTextFieldConfig {
     @discardableResult
     public func nextFieldOnReturn(_ nextFieldOnReturn: Bool) -> Self {
         self.nextFieldOnReturn = nextFieldOnReturn
+        return self
+    }
+    
+    @discardableResult
+    public func showToolbar(_ showToolbar: Bool) -> Self {
+        self.showToolbar = showToolbar
         return self
     }
     
@@ -212,6 +228,18 @@ public class BlastTextFieldConfig {
     @discardableResult
     public func doneTapped(_ doneTapped: ((UITextField) -> Void)?) -> Self {
         self.doneTapped = doneTapped
+        return self
+    }
+    
+    @discardableResult
+    public func previousTapped(_ previousTapped: (() -> Void)?) -> Self {
+        self.previousTapped = previousTapped
+        return self
+    }
+    
+    @discardableResult
+    public func nextTapped(_ nextTapped: (() -> Void)?) -> Self {
+        self.nextTapped = nextTapped
         return self
     }
 

@@ -164,6 +164,12 @@ open class BlastController: UITableViewController {
                 textField.moveToNextTextField = { [weak self] textField in
                     self?.moveToNextTextField(currentTextField: textField)
                 }
+                textField.moveToPreviousTextField = { [weak self] textField in
+                    self?.moveToPreviousTextField(currentTextField: textField)
+                }
+                textField.textFieldDidBeginEditing = { [weak self] _ in
+                    self?.updateToolbarButtonStates(for: textField)
+                }
             }
         }
         
@@ -188,6 +194,22 @@ open class BlastController: UITableViewController {
         else {
             currentTextField.resignFirstResponder()
         }
+    }
+    
+    public func moveToPreviousTextField(currentTextField: BlastTextField) {
+        if let currentIndex = self.textFieldsArray.firstIndex(of: currentTextField), currentIndex > 0 {
+            let previousTextField = self.textFieldsArray[currentIndex - 1]
+            previousTextField.becomeFirstResponder()
+        }
+    }
+    
+    public func updateToolbarButtonStates(for textField: BlastTextField) {
+        guard let currentIndex = self.textFieldsArray.firstIndex(of: textField) else { return }
+        
+        let canMovePrevious = currentIndex > 0
+        let canMoveNext = currentIndex < (self.textFieldsArray.count - 1)
+        
+        textField.updateToolbarButtonStates(canMovePrevious: canMovePrevious, canMoveNext: canMoveNext)
     }
     
     // MARK: - TextViews

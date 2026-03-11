@@ -7,6 +7,7 @@ import UIKit
 public class BlastTextField: UITextField, UITextFieldDelegate {
     // Default values
     public var nextFieldOnReturn: Bool = true
+    public var showToolbar: Bool = true
     
     // Closures for row
     public var returnTapped:(() -> Void)?
@@ -15,9 +16,16 @@ public class BlastTextField: UITextField, UITextFieldDelegate {
     public var textFieldDidEndEditing:((UITextField) -> Void)?
     public var textFieldDidBeginEditing:((UITextField) -> Void)?
     public var shouldChangeCharactersIn:((UITextField, NSRange, String) -> Bool)?
+    public var previousTapped:(() -> Void)?
+    public var nextTapped:(() -> Void)?
     
     // Closures for controller
     public var moveToNextTextField:((BlastTextField) -> Void)?
+    public var moveToPreviousTextField:((BlastTextField) -> Void)?
+    
+    // Toolbar buttons
+    private var previousButton: UIBarButtonItem?
+    private var nextButton: UIBarButtonItem?
     
     // MARK: - Lifecycle for Interface Builder
     
@@ -26,7 +34,7 @@ public class BlastTextField: UITextField, UITextFieldDelegate {
         
         self.delegate = self
         self.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-        self.addDoneButtonOnKeyboard()
+        self.addToolbarToKeyboard()
     }
 
     // MARK: - Custom target actions
@@ -93,24 +101,108 @@ public class BlastTextField: UITextField, UITextFieldDelegate {
         return true
     }
 
-    // MARK: - Done Button
-
-    private func addDoneButtonOnKeyboard() {
-        let doneToolbar: UIToolbar = UIToolbar()
-        doneToolbar.barStyle = .default
-
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let done = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonAction))
-
-        doneToolbar.items = [flexSpace, done]
-        doneToolbar.sizeToFit()
-
-        self.inputAccessoryView = doneToolbar
+    // MARK: - Toolbar
+    
+    private func addToolbarToKeyboard() {
+        guard showToolbar else {
+            self.inputAccessoryView = nil
+            return
+        }
+        
+        // Create a container view with proper sizing
+        let containerHeight: CGFloat = 58
+        let containerView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: containerHeight))
+        containerView.backgroundColor = UIColor.systemGroupedBackground
+        
+        // Create the rounded background view
+        let buttonContainer = UIView()
+        buttonContainer.backgroundColor = UIColor.tertiarySystemBackground
+        buttonContainer.layer.cornerRadius = 25 // Half of the height (50 / 2)
+        buttonContainer.translatesAutoresizingMaskIntoConstraints = false
+        containerView.addSubview(buttonContainer)
+        
+        // Create previous button (up arrow)
+        let previousBtn = UIButton(type: .system)
+        previousBtn.setImage(UIImage(systemName: "chevron.up"), for: .normal)
+        previousBtn.tintColor = .label
+        previousBtn.addTarget(self, action: #selector(previousButtonAction), for: .touchUpInside)
+        previousBtn.translatesAutoresizingMaskIntoConstraints = false
+        buttonContainer.addSubview(previousBtn)
+        self.previousButton = UIBarButtonItem(customView: previousBtn)
+        
+        // Create next button (down arrow)
+        let nextBtn = UIButton(type: .system)
+        nextBtn.setImage(UIImage(systemName: "chevron.down"), for: .normal)
+        nextBtn.tintColor = .label
+        nextBtn.addTarget(self, action: #selector(nextButtonAction), for: .touchUpInside)
+        nextBtn.translatesAutoresizingMaskIntoConstraints = false
+        buttonContainer.addSubview(nextBtn)
+        self.nextButton = UIBarButtonItem(customView: nextBtn)
+        
+        // Create done button (checkmark)
+        let doneBtn = UIButton(type: .system)
+        doneBtn.setImage(UIImage(systemName: "checkmark"), for: .normal)
+        doneBtn.tintColor = .label
+        doneBtn.addTarget(self, action: #selector(doneButtonAction), for: .touchUpInside)
+        doneBtn.translatesAutoresizingMaskIntoConstraints = false
+        buttonContainer.addSubview(doneBtn)
+        
+        // Set up constraints
+        NSLayoutConstraint.activate([
+            // Button container constraints
+            buttonContainer.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 24),
+            buttonContainer.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -24),
+            buttonContainer.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 4),
+            buttonContainer.heightAnchor.constraint(equalToConstant: 50),
+            
+            // Previous button constraints
+            previousBtn.leadingAnchor.constraint(equalTo: buttonContainer.leadingAnchor, constant: 12),
+            previousBtn.centerYAnchor.constraint(equalTo: buttonContainer.centerYAnchor),
+            previousBtn.widthAnchor.constraint(equalToConstant: 44),
+            previousBtn.heightAnchor.constraint(equalToConstant: 44),
+            
+            // Next button constraints
+            nextBtn.leadingAnchor.constraint(equalTo: previousBtn.trailingAnchor),
+            nextBtn.centerYAnchor.constraint(equalTo: buttonContainer.centerYAnchor),
+            nextBtn.widthAnchor.constraint(equalToConstant: 44),
+            nextBtn.heightAnchor.constraint(equalToConstant: 44),
+            
+            // Done button constraints
+            doneBtn.trailingAnchor.constraint(equalTo: buttonContainer.trailingAnchor, constant: -12),
+            doneBtn.centerYAnchor.constraint(equalTo: buttonContainer.centerYAnchor),
+            doneBtn.widthAnchor.constraint(equalToConstant: 44),
+            doneBtn.heightAnchor.constraint(equalToConstant: 44)
+        ])
+        
+        self.inputAccessoryView = containerView
+    }
+    
+    @objc private func previousButtonAction() {
+        self.previousTapped?()
+        self.moveToPreviousTextField?(self)
+    }
+    
+    @objc private func nextButtonAction() {
+        self.nextTapped?()
+        self.moveToNextTextField?(self)
     }
 
     @objc private func doneButtonAction() {
         self.resignFirstResponder()
         self.doneTapped?(self)
+    }
+    
+    // MARK: - Public methods
+    
+    public func updateToolbarButtonStates(canMovePrevious: Bool, canMoveNext: Bool) {
+        if let previousBtn = previousButton?.customView as? UIButton {
+            previousBtn.isEnabled = canMovePrevious
+            previousBtn.alpha = canMovePrevious ? 1.0 : 0.3
+        }
+        if let nextBtn = nextButton?.customView as? UIButton {
+            nextBtn.isEnabled = canMoveNext
+            nextBtn.alpha = canMoveNext ? 1.0 : 0.3
+        }
     }
 
 }
