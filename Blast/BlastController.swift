@@ -226,8 +226,41 @@ open class BlastController: UITableViewController {
                     self.tableView.endUpdates()
                     UIView.setAnimationsEnabled(true)
                 }
+                
+                textView.moveToNextTextView = { [weak self] textView in
+                    self?.moveToNextTextView(currentTextView: textView)
+                }
+                textView.moveToPreviousTextView = { [weak self] textView in
+                    self?.moveToPreviousTextView(currentTextView: textView)
+                }
             }
         }
+    }
+    
+    public func moveToNextTextView(currentTextView: BlastTextView) {
+        if let currentIndex = self.textViewsArray.firstIndex(of: currentTextView), currentIndex < (self.textViewsArray.count - 1) {
+            let nextTextView = self.textViewsArray[currentIndex + 1]
+            nextTextView.becomeFirstResponder()
+        }
+        else {
+            currentTextView.resignFirstResponder()
+        }
+    }
+    
+    public func moveToPreviousTextView(currentTextView: BlastTextView) {
+        if let currentIndex = self.textViewsArray.firstIndex(of: currentTextView), currentIndex > 0 {
+            let previousTextView = self.textViewsArray[currentIndex - 1]
+            previousTextView.becomeFirstResponder()
+        }
+    }
+    
+    public func updateToolbarButtonStates(for textView: BlastTextView) {
+        guard let currentIndex = self.textViewsArray.firstIndex(of: textView) else { return }
+        
+        let canMovePrevious = currentIndex > 0
+        let canMoveNext = currentIndex < (self.textViewsArray.count - 1)
+        
+        textView.updateToolbarButtonStates(canMovePrevious: canMovePrevious, canMoveNext: canMoveNext)
     }
     
     // MARK: - Update Header/Footer

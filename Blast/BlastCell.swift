@@ -380,6 +380,7 @@ open class BlastCell: UITableViewCell {
         textView.isEditable = config.isEditable
         textView.isSelectable = config.isSelectable
         textView.isScrollEnabled = config.isScrollEnabled
+        textView.showToolbar = config.showToolbar
         
         // Without checking existence it will overwrite a basic placeholder with an empty string
         if let attributedPlaceholder = config.attributedPlaceholder {
@@ -401,6 +402,8 @@ open class BlastCell: UITableViewCell {
         
         // Closures
         textView.doneTapped = config.doneTapped
+        textView.previousTapped = config.previousTapped
+        textView.nextTapped = config.nextTapped
     }
     
     // MARK: - Prepare for reuse

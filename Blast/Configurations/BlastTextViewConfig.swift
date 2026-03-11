@@ -77,8 +77,18 @@ public class BlastTextViewConfig {
         }
     }
     
+    public var showToolbar: Bool = true {
+        didSet {
+            if let textView = self.textView {
+                DispatchQueue.main.async { textView.showToolbar = self.showToolbar }
+            }
+        }
+    }
+    
     public var doneTapped: (() -> Void)?
     public var textChanged: ((String) -> Void)?
+    public var previousTapped: (() -> Void)?
+    public var nextTapped: (() -> Void)?
     
     // MARK: - Lifecycle
     
@@ -137,6 +147,12 @@ public class BlastTextViewConfig {
     }
     
     @discardableResult
+    public func showToolbar(_ showToolbar: Bool) -> Self {
+        self.showToolbar = showToolbar
+        return self
+    }
+    
+    @discardableResult
     public func doneTapped(_ doneTapped: (() -> Void)?) -> Self {
         self.doneTapped = doneTapped
         return self
@@ -145,6 +161,18 @@ public class BlastTextViewConfig {
     @discardableResult
     public func textChanged(_ textChanged: ((String) -> Void)?) -> Self {
         self.textChanged = textChanged
+        return self
+    }
+    
+    @discardableResult
+    public func previousTapped(_ previousTapped: (() -> Void)?) -> Self {
+        self.previousTapped = previousTapped
+        return self
+    }
+    
+    @discardableResult
+    public func nextTapped(_ nextTapped: (() -> Void)?) -> Self {
+        self.nextTapped = nextTapped
         return self
     }
     
