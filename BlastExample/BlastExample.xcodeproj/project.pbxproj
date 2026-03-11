@@ -61,6 +61,7 @@
 		C45FC2A32BB87B4100D25A62 /* CellOneSegmentedControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = C45FC2A22BB87B4100D25A62 /* CellOneSegmentedControl.xib */; };
 		C46046812BC8603F00136776 /* CellOneDatePickerField.xib in Resources */ = {isa = PBXBuildFile; fileRef = C46046802BC8603F00136776 /* CellOneDatePickerField.xib */; };
 		C4609FE22B90F8C7007D6D10 /* BlastController+AddRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4609FE12B90F8C7007D6D10 /* BlastController+AddRows.swift */; };
+		C467ACF72F61858300A814F4 /* ToolbarTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C467ACF62F61858300A814F4 /* ToolbarTest.swift */; };
 		C46E3AFA2BB5F538004F4023 /* BlastImageViewConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46E3AF92BB5F538004F4023 /* BlastImageViewConfig.swift */; };
 		C49145062B99DBC500BE9B58 /* AddAndDeleteSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49145052B99DBC500BE9B58 /* AddAndDeleteSections.swift */; };
 		C49CBCC12F3F1A8E00B823F9 /* BlastViewConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49CBCC02F3F1A8E00B823F9 /* BlastViewConfig.swift */; };
@@ -133,6 +134,7 @@
 		C45FC2A22BB87B4100D25A62 /* CellOneSegmentedControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellOneSegmentedControl.xib; sourceTree = "<group>"; };
 		C46046802BC8603F00136776 /* CellOneDatePickerField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellOneDatePickerField.xib; sourceTree = "<group>"; };
 		C4609FE12B90F8C7007D6D10 /* BlastController+AddRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlastController+AddRows.swift"; sourceTree = "<group>"; };
+		C467ACF62F61858300A814F4 /* ToolbarTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarTest.swift; sourceTree = "<group>"; };
 		C46E3AF92BB5F538004F4023 /* BlastImageViewConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlastImageViewConfig.swift; sourceTree = "<group>"; };
 		C49145052B99DBC500BE9B58 /* AddAndDeleteSections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAndDeleteSections.swift; sourceTree = "<group>"; };
 		C49CBCC02F3F1A8E00B823F9 /* BlastViewConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlastViewConfig.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				C412277D2B6CEE3000626D72 /* Assets.xcassets */,
 				C412277F2B6CEE3000626D72 /* LaunchScreen.storyboard */,
 				C41227822B6CEE3000626D72 /* Info.plist */,
+				C467ACF62F61858300A814F4 /* ToolbarTest.swift */,
 			);
 			path = BlastExample;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C41938F72B6FDA0D0033D6F0 /* BlastTextField.swift in Sources */,
+				C467ACF72F61858300A814F4 /* ToolbarTest.swift in Sources */,
 				C45FC29F2BB876E500D25A62 /* BlastSegmentedControlConfig.swift in Sources */,
 				C4CDB3D92BDBFB46001109C3 /* Reload.swift in Sources */,
 				C41938CF2B6D2AD40033D6F0 /* XIBS.swift in Sources */,
