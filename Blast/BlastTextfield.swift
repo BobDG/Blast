@@ -5,11 +5,16 @@
 import UIKit
 
 public class BlastTextField: UITextField, UITextFieldDelegate {
+    // Global default colors (shared across all instances)
+    public static var globalToolbarPreviousButtonColor: UIColor?
+    public static var globalToolbarNextButtonColor: UIColor?
+    public static var globalToolbarDoneButtonColor: UIColor?
+    
     // Default values
     public var nextFieldOnReturn: Bool = true
     public var showToolbar: Bool = true
     
-    // Toolbar button colors
+    // Toolbar button colors (instance-specific, overrides global)
     public var toolbarPreviousButtonColor: UIColor? {
         didSet {
             if showToolbar {
@@ -151,7 +156,7 @@ public class BlastTextField: UITextField, UITextFieldDelegate {
         // Create previous button (up arrow)
         let previousBtn = UIButton(type: .system)
         previousBtn.setImage(UIImage(systemName: "chevron.up"), for: .normal)
-        previousBtn.tintColor = toolbarPreviousButtonColor ?? .label
+        previousBtn.tintColor = toolbarPreviousButtonColor ?? BlastTextField.globalToolbarPreviousButtonColor ?? .label
         previousBtn.addTarget(self, action: #selector(previousButtonAction), for: .touchUpInside)
         previousBtn.translatesAutoresizingMaskIntoConstraints = false
         buttonContainer.addSubview(previousBtn)
@@ -160,7 +165,7 @@ public class BlastTextField: UITextField, UITextFieldDelegate {
         // Create next button (down arrow)
         let nextBtn = UIButton(type: .system)
         nextBtn.setImage(UIImage(systemName: "chevron.down"), for: .normal)
-        nextBtn.tintColor = toolbarNextButtonColor ?? .label
+        nextBtn.tintColor = toolbarNextButtonColor ?? BlastTextField.globalToolbarNextButtonColor ?? .label
         nextBtn.addTarget(self, action: #selector(nextButtonAction), for: .touchUpInside)
         nextBtn.translatesAutoresizingMaskIntoConstraints = false
         buttonContainer.addSubview(nextBtn)
@@ -169,7 +174,7 @@ public class BlastTextField: UITextField, UITextFieldDelegate {
         // Create done button (checkmark)
         let doneBtn = UIButton(type: .system)
         doneBtn.setImage(UIImage(systemName: "checkmark"), for: .normal)
-        doneBtn.tintColor = toolbarDoneButtonColor ?? .label
+        doneBtn.tintColor = toolbarDoneButtonColor ?? BlastTextField.globalToolbarDoneButtonColor ?? .label
         doneBtn.addTarget(self, action: #selector(doneButtonAction), for: .touchUpInside)
         doneBtn.translatesAutoresizingMaskIntoConstraints = false
         buttonContainer.addSubview(doneBtn)

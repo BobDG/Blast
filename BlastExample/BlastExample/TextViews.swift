@@ -16,6 +16,11 @@ class TextViews: BlastController {
         // Styling
         self.navigationItem.title = "TextViews"
         
+        // Set global toolbar colors for all TextViews
+        BlastTextView.globalToolbarPreviousButtonColor = .systemIndigo
+        BlastTextView.globalToolbarNextButtonColor = .systemIndigo
+        BlastTextView.globalToolbarDoneButtonColor = .systemMint
+        
         // Register XIBs
         self.registerHeaderFooters([XIBHeader])
         self.registerCells([XIBCellTextView])
@@ -29,16 +34,13 @@ class TextViews: BlastController {
         var section: BlastSection
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerLabel1.text("Basic with custom toolbar colors")
+        section.headerLabel1.text("Using global toolbar colors (indigo & mint)")
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellTextView)
         row.label1.text("A cool uitextview with a custom font that should automatically resize")
         row.textView1.text("Try it out and see that the cell grows or shrinks when necessary!")
             .font(.systemFont(ofSize: 18.0))
-            .toolbarPreviousButtonColor(.systemPurple)
-            .toolbarNextButtonColor(.systemRed)
-            .toolbarDoneButtonColor(.systemTeal)
             .textChanged { [weak self] text in
                 print("Callback text  changed: \(text)")
                 self?.object.textString = text
@@ -50,13 +52,16 @@ class TextViews: BlastController {
         section.addRow(row)
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerLabel1.text("With placeholder")
+        section.headerLabel1.text("Overriding global with custom colors (purple, red, teal)")
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellTextView)
         row.label1.text("UITextViews don't support placeholders. But Blast has one.")
         row.textView1.placeholder("Type here to try it out")
             .font(.systemFont(ofSize: 18.0))
+            .toolbarPreviousButtonColor(.systemPurple)
+            .toolbarNextButtonColor(.systemRed)
+            .toolbarDoneButtonColor(.systemTeal)
         section.addRow(row)
         
         section = BlastSection(headerXibName: XIBHeader)
