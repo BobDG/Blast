@@ -18,8 +18,15 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cfG-3V-yGb">
                         <rect key="frame" x="0.0" y="0.0" width="516.66666666666663" height="65"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="img-1-icon">
+                                <rect key="frame" x="20" y="20.5" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="img-w-1"/>
+                                    <constraint firstAttribute="height" constant="24" id="img-h-1"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qm4-52-FlE">
-                                <rect key="frame" x="20.000000000000028" y="20" width="476.66666666666674" height="25"/>
+                                <rect key="frame" x="56" y="20" width="440.66666666666674" height="25"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -27,8 +34,10 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="img-1-icon" firstAttribute="leading" secondItem="cfG-3V-yGb" secondAttribute="leading" constant="20" id="img-lead-1"/>
+                            <constraint firstItem="img-1-icon" firstAttribute="centerY" secondItem="cfG-3V-yGb" secondAttribute="centerY" id="img-cy-1"/>
                             <constraint firstItem="qm4-52-FlE" firstAttribute="top" secondItem="cfG-3V-yGb" secondAttribute="top" constant="20" id="PPc-74-b2r"/>
-                            <constraint firstItem="qm4-52-FlE" firstAttribute="leading" secondItem="cfG-3V-yGb" secondAttribute="leading" constant="20" id="dNO-Ok-isH"/>
+                            <constraint firstItem="qm4-52-FlE" firstAttribute="leading" secondItem="img-1-icon" secondAttribute="trailing" constant="12" id="dNO-Ok-isH"/>
                             <constraint firstAttribute="bottom" secondItem="qm4-52-FlE" secondAttribute="bottom" constant="20" id="elL-IE-H6S"/>
                             <constraint firstAttribute="trailing" secondItem="qm4-52-FlE" secondAttribute="trailing" constant="20" id="v3R-Uf-aOF"/>
                         </constraints>
@@ -42,6 +51,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="imageView1" destination="img-1-icon" id="img-out-1"/>
                 <outlet property="label1" destination="qm4-52-FlE" id="qJ5-39-BFk"/>
             </connections>
             <point key="canvasLocation" x="-344.27480916030532" y="-180.63380281690141"/>
