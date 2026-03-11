@@ -363,9 +363,17 @@ open class BlastCell: UITableViewCell {
         config.textView = textView
         
         textView.text = config.text
-        textView.font = config.font
+        
+        if let font = config.font {
+            textView.font = font
+        }
+        
         textView.placeholder = config.placeholder
-        textView.placeholderFont = config.placeholderFont        
+        
+        if let placeholderFont = config.placeholderFont {
+            textView.placeholderFont = placeholderFont
+        }
+        
         textView.isEditable = config.isEditable
         textView.isSelectable = config.isSelectable
         textView.isScrollEnabled = config.isScrollEnabled

@@ -14,8 +14,8 @@ public class BlastTextViewConfig {
             if let textView = self.textView {
                 DispatchQueue.main.async {
                     textView.text = self.text
-                    // Custom placeholder reset
-                    textView.textViewDidChange(textView)
+                    // Update placeholder visibility without triggering callbacks
+                    textView.placeholderLabel?.isHidden = !textView.text.isEmpty
                 }
             }
         }

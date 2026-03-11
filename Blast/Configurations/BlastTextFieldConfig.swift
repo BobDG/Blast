@@ -19,8 +19,8 @@ public class BlastTextFieldConfig {
     
     public var font: UIFont? = nil {
         didSet {
-            if let textField = self.textField {
-                DispatchQueue.main.async { textField.font = self.font }
+            if let textField = self.textField, let font = self.font {
+                DispatchQueue.main.async { textField.font = font }
             }
         }
     }

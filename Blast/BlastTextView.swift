@@ -13,7 +13,7 @@ public class BlastTextView: UITextView, UITextViewDelegate {
     public var placeholder: String?
     public var placeholderFont: UIFont?
     public var attributedPlaceholder: NSAttributedString?
-    private var placeholderLabel:UILabel?
+    public var placeholderLabel:UILabel?
     
     // Closures for row
     public var doneTapped:(() -> Void)?
@@ -21,6 +21,21 @@ public class BlastTextView: UITextView, UITextViewDelegate {
     
     // Closures for controller
     public var heightChanged:(() -> Void)?
+    
+    // Track if we're programmatically setting text to avoid triggering textViewDidChange
+    private var isProgrammaticallySettingText = false
+    
+    // Override text property to track programmatic changes
+    public override var text: String! {
+        get {
+            return super.text
+        }
+        set {
+            isProgrammaticallySettingText = true
+            super.text = newValue
+            isProgrammaticallySettingText = false
+        }
+    }
     
     // MARK: - Lifecycle for Interface Builder
     
@@ -54,6 +69,11 @@ public class BlastTextView: UITextView, UITextViewDelegate {
     // MARK: - Delegate methods
     
     public func textViewDidChange(_ textView: UITextView) {
+        // Don't trigger callbacks if we're programmatically setting the text
+        if isProgrammaticallySettingText {
+            return
+        }
+        
         self.textChanged?(textView.text ?? "")
         
         // Placeholder
