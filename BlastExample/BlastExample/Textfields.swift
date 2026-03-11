@@ -40,14 +40,17 @@ class TextFields: BlastController {
         section.addRow(row)
         
         section = BlastSection(headerXibName: XIBHeader)
-        section.headerLabel1.text("Attributed")
+        section.headerLabel1.text("Attributed with custom toolbar colors")
         self.addSection(section)
         
         row = BlastRow(xibName: XIBCellOneTextField)
         row.textField1.attributedPlaceholder(.init(string: "Italic & background", attributes: [.font: UIFont.italicSystemFont(ofSize: 14), .backgroundColor: UIColor.systemPink]))
-        row.textField1.doneTapped { textfield in
-            print("Done tapped!")
-        }
+            .toolbarPreviousButtonColor(.systemBlue)
+            .toolbarNextButtonColor(.systemOrange)
+            .toolbarDoneButtonColor(.systemGreen)
+            .doneTapped { textfield in
+                print("Done tapped!")
+            }
         section.addRow(row)
         
         section = BlastSection(headerXibName: XIBHeader)

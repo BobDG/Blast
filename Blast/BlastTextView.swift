@@ -10,6 +10,29 @@ public class BlastTextView: UITextView, UITextViewDelegate {
     public var height: Int = 0
     public var showToolbar: Bool = true
     
+    // Toolbar button colors
+    public var toolbarPreviousButtonColor: UIColor? {
+        didSet {
+            if showToolbar && isEditable {
+                addToolbarToKeyboard()
+            }
+        }
+    }
+    public var toolbarNextButtonColor: UIColor? {
+        didSet {
+            if showToolbar && isEditable {
+                addToolbarToKeyboard()
+            }
+        }
+    }
+    public var toolbarDoneButtonColor: UIColor? {
+        didSet {
+            if showToolbar && isEditable {
+                addToolbarToKeyboard()
+            }
+        }
+    }
+    
     // Placeholder
     public var placeholder: String?
     public var placeholderFont: UIFont?
@@ -31,6 +54,10 @@ public class BlastTextView: UITextView, UITextViewDelegate {
     // Toolbar buttons
     private var previousButton: UIBarButtonItem?
     private var nextButton: UIBarButtonItem?
+    
+    // Track button states
+    private var canMoveToPrevious: Bool = true
+    private var canMoveToNext: Bool = true
     
     // Track if we're programmatically setting text to avoid triggering textViewDidChange
     private var isProgrammaticallySettingText = false
@@ -81,7 +108,7 @@ public class BlastTextView: UITextView, UITextViewDelegate {
         // Create previous button (up arrow)
         let previousBtn = UIButton(type: .system)
         previousBtn.setImage(UIImage(systemName: "chevron.up"), for: .normal)
-        previousBtn.tintColor = .label
+        previousBtn.tintColor = toolbarPreviousButtonColor ?? .label
         previousBtn.addTarget(self, action: #selector(previousButtonAction), for: .touchUpInside)
         previousBtn.translatesAutoresizingMaskIntoConstraints = false
         buttonContainer.addSubview(previousBtn)
@@ -90,7 +117,7 @@ public class BlastTextView: UITextView, UITextViewDelegate {
         // Create next button (down arrow)
         let nextBtn = UIButton(type: .system)
         nextBtn.setImage(UIImage(systemName: "chevron.down"), for: .normal)
-        nextBtn.tintColor = .label
+        nextBtn.tintColor = toolbarNextButtonColor ?? .label
         nextBtn.addTarget(self, action: #selector(nextButtonAction), for: .touchUpInside)
         nextBtn.translatesAutoresizingMaskIntoConstraints = false
         buttonContainer.addSubview(nextBtn)
@@ -99,7 +126,7 @@ public class BlastTextView: UITextView, UITextViewDelegate {
         // Create done button (checkmark)
         let doneBtn = UIButton(type: .system)
         doneBtn.setImage(UIImage(systemName: "checkmark"), for: .normal)
-        doneBtn.tintColor = .label
+        doneBtn.tintColor = toolbarDoneButtonColor ?? .label
         doneBtn.addTarget(self, action: #selector(doneButtonAction), for: .touchUpInside)
         doneBtn.translatesAutoresizingMaskIntoConstraints = false
         buttonContainer.addSubview(doneBtn)
@@ -132,6 +159,9 @@ public class BlastTextView: UITextView, UITextViewDelegate {
         ])
         
         self.inputAccessoryView = containerView
+        
+        // Apply saved button states
+        updateToolbarButtonStates(canMovePrevious: canMoveToPrevious, canMoveNext: canMoveToNext)
     }
     
     @objc private func previousButtonAction() {
@@ -152,6 +182,11 @@ public class BlastTextView: UITextView, UITextViewDelegate {
     // MARK: - Public methods
     
     public func updateToolbarButtonStates(canMovePrevious: Bool, canMoveNext: Bool) {
+        // Save states
+        self.canMoveToPrevious = canMovePrevious
+        self.canMoveToNext = canMoveNext
+        
+        // Apply to buttons
         if let previousBtn = previousButton?.customView as? UIButton {
             previousBtn.isEnabled = canMovePrevious
             previousBtn.alpha = canMovePrevious ? 1.0 : 0.3

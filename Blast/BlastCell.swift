@@ -259,6 +259,9 @@ open class BlastCell: UITableViewCell {
         textField.isSecureTextEntry = config.secureTextEntry
         textField.nextFieldOnReturn = config.nextFieldOnReturn
         textField.showToolbar = config.showToolbar
+        textField.toolbarPreviousButtonColor = config.toolbarPreviousButtonColor
+        textField.toolbarNextButtonColor = config.toolbarNextButtonColor
+        textField.toolbarDoneButtonColor = config.toolbarDoneButtonColor
         
         textField.keyboardType = config.keyboardType
         textField.returnKeyType = config.returnKeyType
@@ -381,6 +384,9 @@ open class BlastCell: UITableViewCell {
         textView.isSelectable = config.isSelectable
         textView.isScrollEnabled = config.isScrollEnabled
         textView.showToolbar = config.showToolbar
+        textView.toolbarPreviousButtonColor = config.toolbarPreviousButtonColor
+        textView.toolbarNextButtonColor = config.toolbarNextButtonColor
+        textView.toolbarDoneButtonColor = config.toolbarDoneButtonColor
         
         // Without checking existence it will overwrite a basic placeholder with an empty string
         if let attributedPlaceholder = config.attributedPlaceholder {

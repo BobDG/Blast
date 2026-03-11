@@ -85,6 +85,30 @@ public class BlastTextViewConfig {
         }
     }
     
+    public var toolbarPreviousButtonColor: UIColor? = nil {
+        didSet {
+            if let textView = self.textView {
+                DispatchQueue.main.async { textView.toolbarPreviousButtonColor = self.toolbarPreviousButtonColor }
+            }
+        }
+    }
+    
+    public var toolbarNextButtonColor: UIColor? = nil {
+        didSet {
+            if let textView = self.textView {
+                DispatchQueue.main.async { textView.toolbarNextButtonColor = self.toolbarNextButtonColor }
+            }
+        }
+    }
+    
+    public var toolbarDoneButtonColor: UIColor? = nil {
+        didSet {
+            if let textView = self.textView {
+                DispatchQueue.main.async { textView.toolbarDoneButtonColor = self.toolbarDoneButtonColor }
+            }
+        }
+    }
+    
     public var doneTapped: (() -> Void)?
     public var textChanged: ((String) -> Void)?
     public var previousTapped: (() -> Void)?
@@ -149,6 +173,24 @@ public class BlastTextViewConfig {
     @discardableResult
     public func showToolbar(_ showToolbar: Bool) -> Self {
         self.showToolbar = showToolbar
+        return self
+    }
+    
+    @discardableResult
+    public func toolbarPreviousButtonColor(_ color: UIColor?) -> Self {
+        self.toolbarPreviousButtonColor = color
+        return self
+    }
+    
+    @discardableResult
+    public func toolbarNextButtonColor(_ color: UIColor?) -> Self {
+        self.toolbarNextButtonColor = color
+        return self
+    }
+    
+    @discardableResult
+    public func toolbarDoneButtonColor(_ color: UIColor?) -> Self {
+        self.toolbarDoneButtonColor = color
         return self
     }
     

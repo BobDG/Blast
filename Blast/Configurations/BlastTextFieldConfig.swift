@@ -65,6 +65,30 @@ public class BlastTextFieldConfig {
         }
     }
     
+    public var toolbarPreviousButtonColor: UIColor? = nil {
+        didSet {
+            if let textField = self.textField {
+                DispatchQueue.main.async { textField.toolbarPreviousButtonColor = self.toolbarPreviousButtonColor }
+            }
+        }
+    }
+    
+    public var toolbarNextButtonColor: UIColor? = nil {
+        didSet {
+            if let textField = self.textField {
+                DispatchQueue.main.async { textField.toolbarNextButtonColor = self.toolbarNextButtonColor }
+            }
+        }
+    }
+    
+    public var toolbarDoneButtonColor: UIColor? = nil {
+        didSet {
+            if let textField = self.textField {
+                DispatchQueue.main.async { textField.toolbarDoneButtonColor = self.toolbarDoneButtonColor }
+            }
+        }
+    }
+    
     public var textContentType: UITextContentType? = nil {
         didSet {
             if let textField = self.textField {
@@ -162,6 +186,24 @@ public class BlastTextFieldConfig {
     @discardableResult
     public func showToolbar(_ showToolbar: Bool) -> Self {
         self.showToolbar = showToolbar
+        return self
+    }
+    
+    @discardableResult
+    public func toolbarPreviousButtonColor(_ color: UIColor?) -> Self {
+        self.toolbarPreviousButtonColor = color
+        return self
+    }
+    
+    @discardableResult
+    public func toolbarNextButtonColor(_ color: UIColor?) -> Self {
+        self.toolbarNextButtonColor = color
+        return self
+    }
+    
+    @discardableResult
+    public func toolbarDoneButtonColor(_ color: UIColor?) -> Self {
+        self.toolbarDoneButtonColor = color
         return self
     }
     
