@@ -82,7 +82,7 @@ public class BlastTextField: UITextField, UITextFieldDelegate {
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Return tapped
         self.returnTapped?()
-        
+
         // Next field
         if self.nextFieldOnReturn {
             self.moveToNextTextField?(self)

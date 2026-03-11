@@ -23,8 +23,8 @@ public class BlastTextViewConfig {
     
     public var font: UIFont? = nil {
         didSet {
-            if let textView = self.textView {
-                DispatchQueue.main.async { textView.font = self.font }
+            if let textView = self.textView, let font = self.font {
+                DispatchQueue.main.async { textView.font = font }
             }
         }
     }
