@@ -31,11 +31,19 @@ public extension BlastController {
         // Reload
         if useReloadRows {
             self.tableView.reloadRows(at: [indexPath], with: animation)
+            // Rebuild input fields after reload
+            DispatchQueue.main.async { [weak self] in
+                self?.rebuildInputFields()
+            }
         } else {
             self.tableView.performBatchUpdates({
                 self.tableView.deleteRows(at: [indexPath], with: animation)
                 self.tableView.insertRows(at: [indexPath], with: animation)
-            }, completion: completion)
+            }, completion: { [weak self] finished in
+                // Rebuild input fields after replacing row
+                self?.rebuildInputFields()
+                completion?(finished)
+            })
         }
     }
     
@@ -80,7 +88,11 @@ public extension BlastController {
             section.rows.insert(contentsOf: newRows, at: insertionIndex)
             newRows.forEach { $0.section = section }
             self.tableView.insertRows(at: indexPathsToInsert, with: animation)
-        }, completion: completion)
+        }, completion: { [weak self] finished in
+            // Rebuild input fields after replacing rows
+            self?.rebuildInputFields()
+            completion?(finished)
+        })
     }
     
 }

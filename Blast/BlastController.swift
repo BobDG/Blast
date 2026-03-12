@@ -157,6 +157,25 @@ open class BlastController: UITableViewController {
         }
     }
     
+    // MARK: - Rebuild Input Fields
+    
+    /// Rebuilds the unified input fields array by scanning all visible cells
+    /// Call this after adding, deleting, or replacing rows to ensure toolbar navigation works correctly
+    public func rebuildInputFields() {
+        // Clear existing arrays
+        self.textFieldsArray.removeAll()
+        self.textViewsArray.removeAll()
+        self.allInputFields.removeAll()
+        
+        // Rebuild by scanning all visible cells
+        for cell in self.tableView.visibleCells {
+            if let blastCell = cell as? BlastCell {
+                self.registerTextFields(blastCell)
+                self.registerTextViews(blastCell)
+            }
+        }
+    }
+    
     // MARK: - TextFields
     
     public func registerTextFields(_ cell: BlastCell) {

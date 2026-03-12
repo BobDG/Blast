@@ -14,6 +14,10 @@ public extension BlastController {
     
     func reload() {
         self.tableView.reloadData()
+        // Rebuild input fields after reloading table
+        DispatchQueue.main.async { [weak self] in
+            self?.rebuildInputFields()
+        }
     }
     
     // MARK: - Rows

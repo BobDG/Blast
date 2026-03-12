@@ -35,7 +35,11 @@ public extension BlastController {
             
             // Delete from 
             self.tableView.deleteRows(at: sortedIndexPathsToDelete, with: animation)
-        }, completion: completion)
+        }, completion: { [weak self] finished in
+            // Rebuild input fields after deleting rows
+            self?.rebuildInputFields()
+            completion?(finished)
+        })
     }
     
     // MARK: - Specific first row & optional last
@@ -82,7 +86,11 @@ public extension BlastController {
             
             // Delete from 
             self.tableView.deleteRows(at: indexPaths, with: animation)
-        }, completion: completion)
+        }, completion: { [weak self] finished in
+            // Rebuild input fields after deleting rows
+            self?.rebuildInputFields()
+            completion?(finished)
+        })
     }
     
     // MARK: - Using starting index
@@ -108,7 +116,11 @@ public extension BlastController {
             
             // Delete from 
             self.tableView.deleteRows(at: indexPaths, with: animation)
-        }, completion: completion)
+        }, completion: { [weak self] finished in
+            // Rebuild input fields after deleting rows
+            self?.rebuildInputFields()
+            completion?(finished)
+        })
     }
     
 }

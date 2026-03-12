@@ -54,7 +54,11 @@ public extension BlastController {
             
             // Insert into 
             self.tableView.insertRows(at: indexPaths, with: animation)
-        }, completion: completion)
+        }, completion: { [weak self] finished in
+            // Rebuild input fields after adding rows
+            self?.rebuildInputFields()
+            completion?(finished)
+        })
     }
 
     func addRows(_ newRows: [BlastRow],
@@ -100,7 +104,11 @@ public extension BlastController {
             
             // Insert into 
             self.tableView.insertRows(at: indexPaths, with: animation)
-        }, completion: completion)
+        }, completion: { [weak self] finished in
+            // Rebuild input fields after adding rows
+            self?.rebuildInputFields()
+            completion?(finished)
+        })
     }
 
 }
