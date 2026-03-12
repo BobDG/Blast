@@ -34,7 +34,11 @@ public extension BlastController {
         // Let's go
         self.tableView.performBatchUpdates({
             self.tableView.reloadRows(at: [indexPath], with: animation)
-        }, completion: completion)
+        }, completion: { [weak self] finished in
+            // Rebuild input fields after reloading row
+            self?.rebuildInputFields()
+            completion?(finished)
+        })
     }
     
     func reload(rows: [BlastRow],
@@ -53,7 +57,11 @@ public extension BlastController {
         // Let's go
         self.tableView.performBatchUpdates({
             self.tableView.reloadRows(at: indexPathsToReload, with: animation)
-        }, completion: completion)
+        }, completion: { [weak self] finished in
+            // Rebuild input fields after reloading rows
+            self?.rebuildInputFields()
+            completion?(finished)
+        })
     }
  
     // MARK: - Sections
@@ -70,7 +78,11 @@ public extension BlastController {
         // Let's go
         self.tableView.performBatchUpdates({
             self.tableView.reloadSections([sectionIndex], with: animation)
-        }, completion: completion)
+        }, completion: { [weak self] finished in
+            // Rebuild input fields after reloading section
+            self?.rebuildInputFields()
+            completion?(finished)
+        })
     }
     
     func reload(sections: [BlastSection],
@@ -90,7 +102,11 @@ public extension BlastController {
         // Let's go
         self.tableView.performBatchUpdates({
             self.tableView.reloadSections(indexesToReload, with: animation)
-        }, completion: completion)
+        }, completion: { [weak self] finished in
+            // Rebuild input fields after reloading sections
+            self?.rebuildInputFields()
+            completion?(finished)
+        })
     }
     
 }

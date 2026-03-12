@@ -29,7 +29,11 @@ public extension BlastController {
             
             // Delete from 
             self.tableView.deleteSections(indexesToDelete, with: animation)
-        }, completion: completion)
+        }, completion: { [weak self] finished in
+            // Rebuild input fields after deleting sections
+            self?.rebuildInputFields()
+            completion?(finished)
+        })
     }
 
     
@@ -67,7 +71,11 @@ public extension BlastController {
             
             // Delete from 
             self.tableView.deleteSections(indexSet, with: animation)
-        }, completion: completion)
+        }, completion: { [weak self] finished in
+            // Rebuild input fields after deleting sections
+            self?.rebuildInputFields()
+            completion?(finished)
+        })
     }
     
     // MARK: - Using starting index
@@ -92,7 +100,11 @@ public extension BlastController {
             
             // Delete from 
             self.tableView.deleteSections(indexSet, with: animation)
-        }, completion: completion)
+        }, completion: { [weak self] finished in
+            // Rebuild input fields after deleting sections
+            self?.rebuildInputFields()
+            completion?(finished)
+        })
     }
 
 }

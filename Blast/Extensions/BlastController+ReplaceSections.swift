@@ -26,11 +26,19 @@ public extension BlastController {
         // Reload
         if useReloadSections {
             self.tableView.reloadSections(indexSet, with: animation)
+            // Rebuild input fields after reload
+            DispatchQueue.main.async { [weak self] in
+                self?.rebuildInputFields()
+            }
         } else {
             self.tableView.performBatchUpdates({
                 self.tableView.deleteSections(indexSet, with: animation)
                 self.tableView.insertSections(indexSet, with: animation)
-            }, completion: completion)
+            }, completion: { [weak self] finished in
+                // Rebuild input fields after replacing section
+                self?.rebuildInputFields()
+                completion?(finished)
+            })
         }
     }
     
@@ -68,7 +76,11 @@ public extension BlastController {
             // Insert into 
             let insertIndexSet = IndexSet(integersIn: startIndex..<(startIndex + newSections.count))
             self.tableView.insertSections(insertIndexSet, with: animation)
-        }, completion: completion)
+        }, completion: { [weak self] finished in
+            // Rebuild input fields after replacing sections
+            self?.rebuildInputFields()
+            completion?(finished)
+        })
     }
     
 }

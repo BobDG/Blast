@@ -50,7 +50,11 @@ public extension BlastController {
             
             // Insert into 
             self.tableView.insertSections(indexSet, with: animation)
-        }, completion: completion)
+        }, completion: { [weak self] finished in
+            // Rebuild input fields after adding sections
+            self?.rebuildInputFields()
+            completion?(finished)
+        })
     }
     
     func addSections(_ newSections: [BlastSection],
@@ -87,7 +91,11 @@ public extension BlastController {
             
             // Insert into 
             self.tableView.insertSections(indexSet, with: animation)
-        }, completion: completion)
+        }, completion: { [weak self] finished in
+            // Rebuild input fields after adding sections
+            self?.rebuildInputFields()
+            completion?(finished)
+        })
     }
     
 }
