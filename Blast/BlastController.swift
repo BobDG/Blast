@@ -200,13 +200,9 @@ open class BlastController: UITableViewController {
         if let currentIndex = self.allInputFields.firstIndex(where: { $0 === currentField }), 
            currentIndex < (self.allInputFields.count - 1) {
             let nextField = self.allInputFields[currentIndex + 1]
-            if let responder = nextField as? UIResponder {
-                responder.becomeFirstResponder()
-            }
+            nextField.becomeFirstResponder()
         } else {
-            if let responder = currentField as? UIResponder {
-                responder.resignFirstResponder()
-            }
+            currentField.resignFirstResponder()
         }
     }
     
@@ -214,9 +210,7 @@ open class BlastController: UITableViewController {
         if let currentIndex = self.allInputFields.firstIndex(where: { $0 === currentField }), 
            currentIndex > 0 {
             let previousField = self.allInputFields[currentIndex - 1]
-            if let responder = previousField as? UIResponder {
-                responder.becomeFirstResponder()
-            }
+            previousField.becomeFirstResponder()
         }
     }
     
