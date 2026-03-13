@@ -190,8 +190,10 @@ open class BlastController: UITableViewController {
                 textField.moveToPreviousTextField = { [weak self] textField in
                     self?.moveToPreviousInputField(currentField: textField)
                 }
-                textField.textFieldDidBeginEditing = { [weak self] _ in
-                    self?.updateToolbarButtonStates(for: textField)
+                let existingBeginEditingClosure = textField.textFieldDidBeginEditing
+                textField.textFieldDidBeginEditing = { [weak self] textField in
+                    existingBeginEditingClosure?(textField)
+                    self?.updateToolbarButtonStates(for: textField as! BlastTextField)
                 }
             }
         }
@@ -207,8 +209,10 @@ open class BlastController: UITableViewController {
                 datePickerField.moveToPreviousTextField = { [weak self] textField in
                     self?.moveToPreviousInputField(currentField: textField)
                 }
-                datePickerField.datePickerDidBeginEditing = { [weak self] _ in
-                    self?.updateToolbarButtonStates(for: datePickerField)
+                let existingBeginEditingClosure = datePickerField.datePickerDidBeginEditing
+                datePickerField.datePickerDidBeginEditing = { [weak self] datePickerField in
+                    existingBeginEditingClosure?(datePickerField)
+                    self?.updateToolbarButtonStates(for: datePickerField as! BlastDatePickerField)
                 }
             }
         }
@@ -290,8 +294,10 @@ open class BlastController: UITableViewController {
                 textView.moveToPreviousTextView = { [weak self] textView in
                     self?.moveToPreviousInputField(currentField: textView)
                 }
-                textView.textViewDidBeginEditing = { [weak self] _ in
-                    self?.updateToolbarButtonStates(for: textView)
+                let existingBeginEditingClosure = textView.textViewDidBeginEditing
+                textView.textViewDidBeginEditing = { [weak self] textView in
+                    existingBeginEditingClosure?(textView)
+                    self?.updateToolbarButtonStates(for: textView as! BlastTextView)
                 }
             }
         }
