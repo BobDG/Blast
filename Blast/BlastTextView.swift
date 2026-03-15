@@ -76,6 +76,9 @@ public class BlastTextView: UITextView, UITextViewDelegate {
             isProgrammaticallySettingText = true
             super.text = newValue
             isProgrammaticallySettingText = false
+            
+            // Update placeholder visibility when text is set programmatically
+            self.placeholderLabel?.isHidden = !newValue.isEmpty
         }
     }
     
