@@ -29,7 +29,13 @@ class TextFields: BlastController {
         // Load
         self.loadContent()
     }
-    
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        self.forceLoadAllCells()
+    }
+
     func loadContent() {
         var row: BlastRow
         var section: BlastSection
@@ -152,6 +158,21 @@ class TextFields: BlastController {
                 print("Object text 3: \(String(describing: self?.object.textString3))")
             }
         section.addRow(row)
+
+//        // Log all detected input fields
+//        print("\n========== INPUT FIELDS DETECTION ==========")
+//        for (sectionIndex, section) in self.sections.enumerated() {
+//            print("Section \(sectionIndex):")
+//            for (rowIndex, row) in section.rows.enumerated() {
+//                if row.hasInputFields() {
+//                    let fields = row.getInputFieldIdentifiers()
+//                    print("  Row \(rowIndex): \(fields.joined(separator: ", "))")
+//                } else {
+//                    print("  Row \(rowIndex): No input fields")
+//                }
+//            }
+//        }
+//        print("===========================================\n")
     }
     
 }

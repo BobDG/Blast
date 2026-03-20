@@ -40,6 +40,7 @@ class TextViews: BlastController {
         row = BlastRow(xibName: XIBCellTextView)
         row.label1.text("A cool uitextview with a custom font that should automatically resize")
         row.textView1.text("Try it out and see that the cell grows or shrinks when necessary!")
+            .placeholder("Placeholders are cool")
             .font(.systemFont(ofSize: 18.0))
             .textChanged { [weak self] text in
                 print("Callback text  changed: \(text)")

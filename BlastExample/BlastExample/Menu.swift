@@ -77,7 +77,15 @@ class Menu: BlastController {
             self?.navigationController?.pushViewController(TextFields.init(style: .insetGrouped), animated: true)
         }
         section.addRow(row)
-        
+
+        row = BlastRow(xibName: XIBCellMenuItem)
+        row.label1.text("Many TextFields")
+        row.image1.image(UIImage(systemName: "rectangle.and.pencil.and.ellipsis")!)
+        row.cellTapped = { [weak self] in
+            self?.navigationController?.pushViewController(ManyTextFields.init(style: .insetGrouped), animated: true)
+        }
+        section.addRow(row)
+
         row = BlastRow(xibName: XIBCellMenuItem)
         row.label1.text("Toolbar Test")
         row.image1.image = UIImage(systemName: "keyboard")

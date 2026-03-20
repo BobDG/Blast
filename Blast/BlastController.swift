@@ -159,7 +159,7 @@ open class BlastController: UITableViewController {
     
     // MARK: - Rebuild Input Fields
     
-    /// Rebuilds the unified input fields array by scanning all visible cells
+    /// Rebuilds the unified input fields array by scanning all cells (visible and loaded)
     /// Call this after adding, deleting, or replacing rows to ensure toolbar navigation works correctly
     public func rebuildInputFields() {
         // Clear existing arrays
@@ -167,12 +167,36 @@ open class BlastController: UITableViewController {
         self.textViewsArray.removeAll()
         self.allInputFields.removeAll()
         
-        // Rebuild by scanning all visible cells
-        for cell in self.tableView.visibleCells {
-            if let blastCell = cell as? BlastCell {
-                self.registerTextFields(blastCell)
-                self.registerTextViews(blastCell)
+        // Rebuild by scanning all cells (not just visible ones)
+        for section in 0..<sections.count {
+            for row in 0..<sections[section].rows.count {
+                let indexPath = IndexPath(row: row, section: section)
+                // Get cell if it exists (either visible or already loaded)
+                if let cell = tableView.cellForRow(at: indexPath) as? BlastCell {
+                    self.registerTextFields(cell)
+                    self.registerTextViews(cell)
+                }
             }
+        }
+        
+        print("🔄 rebuildInputFields: Found \(self.textFieldsArray.count) text fields, \(self.textViewsArray.count) text views, \(self.allInputFields.count) total input fields")
+    }
+    
+    /// Forces all cells to be instantiated and configured, even those not currently visible
+    /// Useful in edge cases where you need to ensure all cells are initialized before performing an operation
+    /// Note: Cells won't be added to the view hierarchy until they scroll into view
+    /// Automatically rebuilds input fields after a delay to ensure toolbar navigation works correctly
+    public func forceLoadAllCells() {
+        for section in 0..<tableView.numberOfSections {
+            for row in 0..<tableView.numberOfRows(inSection: section) {
+                let indexPath = IndexPath(row: row, section: section)
+                _ = tableView.cellForRow(at: indexPath) ?? tableView.dataSource?.tableView(tableView, cellForRowAt: indexPath)
+            }
+        }
+        
+        // Rebuild input fields after a short delay to ensure all cells are processed
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
+            self?.rebuildInputFields()
         }
     }
     

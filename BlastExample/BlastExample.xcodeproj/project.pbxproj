@@ -46,6 +46,7 @@
 		C41938F92B6FDDC20033D6F0 /* CellOneTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41938F82B6FDDC20033D6F0 /* CellOneTextField.xib */; };
 		C42B56FC2B9B27970073D055 /* BlastController+FindSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42B56FB2B9B27970073D055 /* BlastController+FindSections.swift */; };
 		C42B56FE2B9B56560073D055 /* ReplaceSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42B56FD2B9B56560073D055 /* ReplaceSections.swift */; };
+		C430D3292F6D45C0007C2CE3 /* ManyTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = C430D3282F6D45C0007C2CE3 /* ManyTextFields.swift */; };
 		C43CE24C2B8B3FB200283FC7 /* BlastLabelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43CE24B2B8B3FB200283FC7 /* BlastLabelConfig.swift */; };
 		C444709E2B8E3A6400F274E3 /* BlastButtonConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C444709D2B8E3A6400F274E3 /* BlastButtonConfig.swift */; };
 		C44470A02B8E3D0900F274E3 /* BlastTextFieldConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C444709F2B8E3D0900F274E3 /* BlastTextFieldConfig.swift */; };
@@ -119,6 +120,7 @@
 		C41938F82B6FDDC20033D6F0 /* CellOneTextField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellOneTextField.xib; sourceTree = "<group>"; };
 		C42B56FB2B9B27970073D055 /* BlastController+FindSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlastController+FindSections.swift"; sourceTree = "<group>"; };
 		C42B56FD2B9B56560073D055 /* ReplaceSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplaceSections.swift; sourceTree = "<group>"; };
+		C430D3282F6D45C0007C2CE3 /* ManyTextFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManyTextFields.swift; sourceTree = "<group>"; };
 		C43CE24B2B8B3FB200283FC7 /* BlastLabelConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlastLabelConfig.swift; sourceTree = "<group>"; };
 		C444709D2B8E3A6400F274E3 /* BlastButtonConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlastButtonConfig.swift; sourceTree = "<group>"; };
 		C444709F2B8E3D0900F274E3 /* BlastTextFieldConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlastTextFieldConfig.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				C4AA87A02B877E1B00D719A5 /* Switches.swift */,
 				C45FC2A02BB87B0100D25A62 /* SegmentedControls.swift */,
 				C41938D22B6D2D180033D6F0 /* TextFields.swift */,
+				C430D3282F6D45C0007C2CE3 /* ManyTextFields.swift */,
 				C459E04C2BC8411400F89652 /* DatePickers.swift */,
 				C44470A12B8E415700F274E3 /* TextViews.swift */,
 				C4E7A83A2B9F3CA30041AF8C /* FloatingActionButton.swift */,
@@ -422,6 +425,7 @@
 				C40581F12B986EB4000C93FD /* BlastController+ReplaceSections.swift in Sources */,
 				C49145062B99DBC500BE9B58 /* AddAndDeleteSections.swift in Sources */,
 				C41938E22B6E8F7E0033D6F0 /* Buttons.swift in Sources */,
+				C430D3292F6D45C0007C2CE3 /* ManyTextFields.swift in Sources */,
 				C42B56FC2B9B27970073D055 /* BlastController+FindSections.swift in Sources */,
 				C4AA87A12B877E1B00D719A5 /* Switches.swift in Sources */,
 				C40581ED2B986308000C93FD /* BlastController+DeleteSections.swift in Sources */,
