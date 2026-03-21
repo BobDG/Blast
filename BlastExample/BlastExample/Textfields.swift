@@ -33,7 +33,7 @@ class TextFields: BlastController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        self.forceLoadAllCells()
+        self.printAllTextFields()
     }
 
     func loadContent() {
@@ -46,6 +46,7 @@ class TextFields: BlastController {
         
         row = BlastRow(xibName: XIBCellOneTextField)
         row.textField1.placeholder("Simple placeholder".capitalized)
+        row.textField1.text("Setting text already")
         section.addRow(row)
         
         section = BlastSection(headerXibName: XIBHeader)

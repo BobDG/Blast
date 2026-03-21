@@ -32,6 +32,13 @@ class ManyTextFields: BlastController {
     }
     var formData = FormData()
 
+    class MyObject {
+        var textString1: String = "Var1"
+        var textString2: String = "Var2"
+        var textString3: String = "abc"
+    }
+    var object = MyObject()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,7 +47,7 @@ class ManyTextFields: BlastController {
         
         // Register XIBs
         self.registerHeaderFooters([XIBHeader])
-        self.registerCells([XIBCellOneTextField])
+        self.registerCells([XIBCellOneTextField, XIBCellTextView, XIBCellOneDatePickerField, XIBCellTwoTextFields])
 
         // Toolbar color
         BlastTextField.globalToolbarDoneButtonColor = .systemBlue
@@ -52,7 +59,7 @@ class ManyTextFields: BlastController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        self.forceLoadAllCells()
+        self.printAllTextFields()
     }
 
     func loadContent() {
@@ -102,7 +109,33 @@ class ManyTextFields: BlastController {
             self?.formData.emailAddress = text
         }
         section.addRow(row)
-        
+
+        let tRow = BlastRow(xibName: XIBCellTwoTextFields)
+        tRow.textField1.text(self.object.textString1)
+            .font(UIFont.boldSystemFont(ofSize: 24))
+            .attributedPlaceholder(.init(string: "Two textFields",
+                                         attributes: [.font: UIFont.systemFont(ofSize: 12), .foregroundColor: UIColor.gray]))
+            .textChanged { [weak self] text in
+                print("Callback text 1 changed: \(text)")
+                print("Row text value: \(String(describing: tRow.textField1.text))")
+                self?.object.textString1 = text
+            }
+            .returnTapped {
+                print("Textfield 1 return tapped!")
+            }
+        tRow.textField2.text(self.object.textString2)
+            .font(UIFont.italicSystemFont(ofSize: 14))
+            .attributedPlaceholder(.init(string: "Go nuts",
+                                         attributes: [.font: UIFont.italicSystemFont(ofSize: 21), .foregroundColor: UIColor.blue]))
+            .textChanged { [weak self] text in
+                print("Callback text 2 changed: \(text)")
+                self?.object.textString2 = text
+            }
+            .returnTapped {
+                print("Textfield 2 return tapped!")
+            }
+        section.addRow(tRow)
+
         // Telephone number
         row = BlastRow(xibName: XIBCellOneTextField)
         row.textField1.placeholder("+31 6 12345678")
@@ -213,7 +246,7 @@ class ManyTextFields: BlastController {
             self?.formData.website = text
         }
         section.addRow(row)
-        
+
         // Notes
         row = BlastRow(xibName: XIBCellOneTextField)
         row.textField1.placeholder("Additional information")
@@ -221,6 +254,38 @@ class ManyTextFields: BlastController {
         row.textField1.textChanged { [weak self] text in
             self?.formData.notes = text
         }
+        section.addRow(row)
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .long
+
+        // Section 4: Additional Information
+        section = BlastSection(headerXibName: XIBHeader)
+        section.headerLabel1.text("Some TextViews and dates")
+        self.addSection(section)
+
+        row = BlastRow(xibName: XIBCellTextView)
+        row.label1.text("Textview 1")
+        row.textView1.text("Some textview 1")
+        section.addRow(row)
+
+        row = BlastRow(xibName: XIBCellOneDatePickerField)
+        row.datePicker1.datePickerMode(.dateAndTime)
+            .dateFormatter(dateFormatter)
+        section.addRow(row)
+
+        row = BlastRow(xibName: XIBCellTextView)
+        row.label1.text("Tetview 2")
+        row.textView1.attributedPlaceholder(.init(string: "Go nuts",
+                                         attributes: [.font: UIFont.italicSystemFont(ofSize: 21), .foregroundColor: UIColor.blue]))
+            .font(.systemFont(ofSize: 18.0))
+        section.addRow(row)
+
+        row = BlastRow(xibName: XIBCellOneDatePickerField)
+        row.datePicker1.datePickerMode(.dateAndTime)
+            .date(Date())
+            .dateFormatter(dateFormatter)
         section.addRow(row)
 
         // Reload to display the table

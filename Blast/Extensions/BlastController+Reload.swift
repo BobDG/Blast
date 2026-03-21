@@ -13,11 +13,9 @@ public extension BlastController {
     }
     
     func reload() {
+        // Rebuild input fields BEFORE reloading (we're using data model now, not cells)
+        self.rebuildInputFields()
         self.tableView.reloadData()
-        // Rebuild input fields after reloading table
-        DispatchQueue.main.async { [weak self] in
-            self?.rebuildInputFields()
-        }
     }
     
     // MARK: - Rows

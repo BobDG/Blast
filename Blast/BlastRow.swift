@@ -21,6 +21,12 @@ public class BlastRow {
     public var cellTapped:(() -> Void)?
     public var configureCell:((BlastCell) -> Void)?
     
+    // Tracking which input fields are configured
+    private var _configuredInputFields = Set<String>()
+    public var configuredInputFields: Set<String> {
+        return _configuredInputFields
+    }
+    
     /**
      The lazy vars means you don't need to use 'row.label1 = LabelConfig()', you can simply type row.label1.text("Text"
      */
@@ -82,22 +88,27 @@ public class BlastRow {
     
     // TextFields
     public lazy var textField1: BlastTextFieldConfig = {
+        self._configuredInputFields.insert("textField1")
         return BlastTextFieldConfig()
     }()
     public lazy var textField2: BlastTextFieldConfig = {
+        self._configuredInputFields.insert("textField2")
         return BlastTextFieldConfig()
     }()
     
     // DatePickers
     public lazy var datePicker1: BlastDatePickerFieldConfig = {
+        self._configuredInputFields.insert("datePicker1")
         return BlastDatePickerFieldConfig()
     }()
     public lazy var datePicker2: BlastDatePickerFieldConfig = {
+        self._configuredInputFields.insert("datePicker2")
         return BlastDatePickerFieldConfig()
     }()
     
     // TextViews
     public lazy var textView1: BlastTextViewConfig = {
+        self._configuredInputFields.insert("textView1")
         return BlastTextViewConfig()
     }()
     
