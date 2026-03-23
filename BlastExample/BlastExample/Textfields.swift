@@ -32,8 +32,6 @@ class TextFields: BlastController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
-        self.printAllTextFields()
     }
 
     func loadContent() {
