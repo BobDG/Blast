@@ -31,10 +31,8 @@ public extension BlastController {
         // Reload
         if useReloadRows {
             self.tableView.reloadRows(at: [indexPath], with: animation)
-            // Rebuild input fields after reload
-            DispatchQueue.main.async { [weak self] in
-                self?.rebuildInputFields()
-            }
+            // Rebuild input fields immediately after reload
+            self.rebuildInputFields()
         } else {
             self.tableView.performBatchUpdates({
                 self.tableView.deleteRows(at: [indexPath], with: animation)
