@@ -178,13 +178,6 @@ open class BlastController: UITableViewController {
         // Clear existing location tracking
         self.inputFieldLocations.removeAll()
 
-        // Reset configured input fields in all rows to clear old state
-        for section in sections {
-            for row in section.rows {
-                row._configuredInputFields.removeAll()
-            }
-        }
-
         // Build input field locations from data model (scans configured fields)
         for (sectionIndex, section) in sections.enumerated() {
             for (rowIndex, row) in section.rows.enumerated() {
