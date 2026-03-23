@@ -22,7 +22,7 @@ public class BlastRow {
     public var configureCell:((BlastCell) -> Void)?
     
     // Tracking which input fields are configured
-    private var _configuredInputFields = Set<String>()
+    public var _configuredInputFields = Set<String>()
     public var configuredInputFields: Set<String> {
         return _configuredInputFields
     }

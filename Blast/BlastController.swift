@@ -200,48 +200,6 @@ open class BlastController: UITableViewController {
         }
         print("[BLAST] ================================\n")
     }
-
-//    public func rebuildInputFields() {
-//        // Small delay to ensure tableview is fully updated
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
-//            guard let self = self else { return }
-//
-//            // Clear existing location tracking
-//            self.inputFieldLocations.removeAll()
-//
-//            // Build input field locations by actually creating cells and checking what input fields exist
-//            for (sectionIndex, section) in self.sections.enumerated() {
-//                for (rowIndex, _) in section.rows.enumerated() {
-//                    let indexPath = IndexPath(row: rowIndex, section: sectionIndex)
-//
-//                    // Force-load the cell to see what input fields it actually has
-//                    guard let cell = self.tableView.dataSource?.tableView(self.tableView, cellForRowAt: indexPath) as? BlastCell else {
-//                        continue
-//                    }
-//
-//                    // Check which input fields exist in this cell (in order: textField1, textField2, datePicker1, datePicker2, textView1)
-//                    let fieldChecks: [(String, UIView?)] = [
-//                        ("textField1", cell.textField1),
-//                        ("textField2", cell.textField2),
-//                        ("datePicker1", cell.datePicker1),
-//                        ("datePicker2", cell.datePicker2),
-//                        ("textView1", cell.textView1)
-//                    ]
-//
-//                    for (fieldName, field) in fieldChecks {
-//                        if let field = field, !field.isHidden {
-//                            let location = InputFieldLocation(
-//                                sectionIndex: sectionIndex,
-//                                rowIndex: rowIndex,
-//                                fieldName: fieldName
-//                            )
-//                            self.inputFieldLocations.append(location)
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
     
     /// Forces all cells to be instantiated and configured, even those not currently visible
     /// Note: With the new data-driven approach, this is rarely needed since navigation
