@@ -41,7 +41,6 @@ open class BlastController: UITableViewController {
         
         // Rebuild input fields data model to ensure navigation works correctly
         // This is needed because users may configure data in viewDidLoad without calling reload()
-//        print("[BLAST] 🔄 viewWillAppear: Rebuilding input fields data model")
         self.rebuildInputFields()
     }
     
@@ -174,37 +173,6 @@ open class BlastController: UITableViewController {
     }
     
     // MARK: - Rebuild Input Fields
-    
-    /// Rebuilds the input field data model by scanning all sections/rows
-    /// This knows about ALL input fields from the data model, regardless of cell visibility
-    /// Call this after adding, deleting, or replacing rows to ensure toolbar navigation works correctly
-    /// LEGACY FUNCTION, working well except when replacing sections and such
-//    public func rebuildInputFields() {
-//        // Clear existing location tracking
-//        self.inputFieldLocations.removeAll()
-//        
-//        // Build input field locations from data model (scans configured fields)
-//        for (sectionIndex, section) in sections.enumerated() {
-//            for (rowIndex, row) in section.rows.enumerated() {
-//                // Get all configured input fields for this row (in sorted order for consistency)
-//                for fieldName in row.configuredInputFields.sorted() {
-//                    let location = InputFieldLocation(
-//                        sectionIndex: sectionIndex,
-//                        rowIndex: rowIndex,
-//                        fieldName: fieldName
-//                    )
-//                    self.inputFieldLocations.append(location)
-//                }
-//            }
-//        }
-//        
-//        print("\n[BLAST] 🔄 ===== rebuildInputFields =====")
-//        print("[BLAST]    Found \(self.inputFieldLocations.count) input fields from data model")
-//        for (index, location) in self.inputFieldLocations.enumerated() {
-//            print("[BLAST]    [\(index)] section=\(location.sectionIndex), row=\(location.rowIndex), field=\(location.fieldName)")
-//        }
-//        print("[BLAST] ================================\n")
-//    }
 
     public func rebuildInputFields() {
         // Small delay to ensure tableview is fully updated
@@ -245,67 +213,7 @@ open class BlastController: UITableViewController {
                     }
                 }
             }
-
-            print("\n[BLAST] 🔄 ===== rebuildInputFields =====")
-            print("[BLAST]    Found \(self.inputFieldLocations.count) input fields from data model")
-            for (index, location) in self.inputFieldLocations.enumerated() {
-                print("[BLAST]    [\(index)] section=\(location.sectionIndex), row=\(location.rowIndex), field=\(location.fieldName)")
-            }
-            print("[BLAST] ================================\n")
         }
-    }
-
-    /// Prints a detailed breakdown of all configured input fields in the data model (BlastRow configs)
-    /// This scans the row configurations to detect which fields have been configured
-    public func printAllTextFields() {
-//        print("\n[BLAST] 📋 ===== INPUT FIELDS ANALYSIS =====")
-//
-//        var totalTextFields = 0
-//        var totalDatePickers = 0
-//        var totalTextViews = 0
-//
-//        for (sectionIndex, section) in sections.enumerated() {
-//            var sectionHasFields = false
-//            var sectionFields: [String] = []
-//
-//            for (rowIndex, row) in section.rows.enumerated() {
-//                var rowFields: [String] = []
-//
-//                // Check which input fields are configured using the tracking set
-//                for fieldName in row.configuredInputFields.sorted() {
-//                    if fieldName.starts(with: "textField") {
-//                        rowFields.append("📝 \(fieldName)")
-//                        totalTextFields += 1
-//                    } else if fieldName.starts(with: "datePicker") {
-//                        rowFields.append("📅 \(fieldName)")
-//                        totalDatePickers += 1
-//                    } else if fieldName.starts(with: "textView") {
-//                        rowFields.append("📄 \(fieldName)")
-//                        totalTextViews += 1
-//                    }
-//                }
-//
-//                if !rowFields.isEmpty {
-//                    sectionHasFields = true
-//                    let rowInfo = "[BLAST]   Row \(rowIndex): \(rowFields.joined(separator: ", "))"
-//                    sectionFields.append(rowInfo)
-//                }
-//            }
-//
-//            if sectionHasFields {
-//                print("\n[BLAST] 🗂 Section \(sectionIndex) (\(section.rows.count) rows):")
-//                for fieldInfo in sectionFields {
-//                    print(fieldInfo)
-//                }
-//            }
-//        }
-//
-//        print("\n[BLAST] 📊 SUMMARY:")
-//        print("[BLAST]   📝 TextFields: \(totalTextFields)")
-//        print("[BLAST]   📅 DatePickers: \(totalDatePickers)")
-//        print("[BLAST]   📄 TextViews: \(totalTextViews)")
-//        print("[BLAST]   🔢 Total Input Fields: \(totalTextFields + totalDatePickers + totalTextViews)")
-//        print("[BLAST] ===================================\n")
     }
     
     /// Forces all cells to be instantiated and configured, even those not currently visible
@@ -366,8 +274,6 @@ open class BlastController: UITableViewController {
     
     // Unified navigation using data model
     private func moveToNextInputField(currentField: UIView) {
-//        print("\n[BLAST] 🔵 moveToNextInputField called")
-//        print("[BLAST]    Total input fields in model: \(self.inputFieldLocations.count)")
         
         // Find current field's location in data model
         guard let currentLocation = self.findInputFieldLocation(for: currentField),
@@ -376,28 +282,21 @@ open class BlastController: UITableViewController {
                   $0.rowIndex == currentLocation.rowIndex &&
                   $0.fieldName == currentLocation.fieldName
               }) else {
-//            print("[BLAST]    ❌ Could not find current field in data model, dismissing keyboard")
             currentField.resignFirstResponder()
             return
         }
         
-//        print("[BLAST]    Current field index: \(currentIndex)")
-        
         // Check if there's a next field
         guard currentIndex < (self.inputFieldLocations.count - 1) else {
-//            print("[BLAST]    ℹ️ Already at last field, dismissing keyboard")
             currentField.resignFirstResponder()
             return
         }
         
         // Get next field location and navigate to it
         let nextLocation = self.inputFieldLocations[currentIndex + 1]
-//        print("[BLAST]    Next field: section=\(nextLocation.sectionIndex), row=\(nextLocation.rowIndex), field=\(nextLocation.fieldName)")
         if let nextField = self.getInputField(at: nextLocation) {
-//            print("[BLAST]    ✅ Navigating to next field")
             nextField.becomeFirstResponder()
         } else {
-//            print("[BLAST]    ❌ Could not get next field, dismissing keyboard")
             currentField.resignFirstResponder()
         }
     }
@@ -442,7 +341,6 @@ open class BlastController: UITableViewController {
         guard let cell = cell,
               let row = cell.row,
               let indexPath = self.indexPath(for: row) else {
-//            print("[BLAST] ⚠️ findInputFieldLocation: Could not find cell or row")
             return nil
         }
         
@@ -465,7 +363,6 @@ open class BlastController: UITableViewController {
         }
         
         guard let fieldName = fieldName else {
-//            print("[BLAST] ⚠️ findInputFieldLocation: Could not determine field name")
             return nil
         }
         
@@ -474,7 +371,6 @@ open class BlastController: UITableViewController {
             rowIndex: indexPath.row,
             fieldName: fieldName
         )
-//        print("[BLAST] ✅ Found field location: section=\(location.sectionIndex), row=\(location.rowIndex), field=\(location.fieldName)")
         return location
     }
     
@@ -526,10 +422,7 @@ open class BlastController: UITableViewController {
         moveToPreviousInputField(currentField: currentTextField)
     }
     
-    public func updateToolbarButtonStates(for textField: BlastTextField) {
-//        print("\n[BLAST] 🔧 updateToolbarButtonStates for TextField")
-//        print("[BLAST]    Total fields in model: \(self.inputFieldLocations.count)")
-        
+    public func updateToolbarButtonStates(for textField: BlastTextField) {        
         // Try multiple levels of superview to find the cell
         var currentView: UIView? = textField
         var cell: BlastCell?
@@ -545,7 +438,7 @@ open class BlastController: UITableViewController {
         guard let cell = cell,
               let row = cell.row,
               let indexPath = self.indexPath(for: row) else {
-//            print("[BLAST]    ❌ Could not find cell or row")
+            print("[BLAST]    ❌ Could not find cell or row")
             return
         }
         
@@ -558,32 +451,25 @@ open class BlastController: UITableViewController {
         }
         
         guard let fieldName = fieldName else {
-//            print("[BLAST]    ❌ Could not determine field name")
+            print("[BLAST]    ❌ Could not determine field name")
             return
         }
-        
-//        print("[BLAST]    Field: section=\(indexPath.section), row=\(indexPath.row), field=\(fieldName)")
         
         // Find this field's position in the data model
         guard let currentIndex = self.inputFieldLocations.firstIndex(where: {
             $0.sectionIndex == indexPath.section && $0.rowIndex == indexPath.row && $0.fieldName == fieldName
         }) else {
-//            print("[BLAST]    ❌ Could not find field in data model")
+            print("[BLAST]    ❌ Could not find field in data model")
             return
         }
         
         let canMovePrevious = currentIndex > 0
         let canMoveNext = currentIndex < (self.inputFieldLocations.count - 1)
         
-//        print("[BLAST]    Index: \(currentIndex), canMovePrevious: \(canMovePrevious), canMoveNext: \(canMoveNext)")
-        
         textField.updateToolbarButtonStates(canMovePrevious: canMovePrevious, canMoveNext: canMoveNext)
     }
     
     public func updateToolbarButtonStates(for datePickerField: BlastDatePickerField) {
-//        print("\n[BLAST] 🔧 updateToolbarButtonStates for DatePicker")
-//        print("[BLAST]    Total fields in model: \(self.inputFieldLocations.count)")
-        
         // Try multiple levels of superview to find the cell
         var currentView: UIView? = datePickerField
         var cell: BlastCell?
@@ -599,7 +485,7 @@ open class BlastController: UITableViewController {
         guard let cell = cell,
               let row = cell.row,
               let indexPath = self.indexPath(for: row) else {
-//            print("[BLAST]    ❌ Could not find cell or row")
+            print("[BLAST]    ❌ Could not find cell or row")
             return
         }
         
@@ -612,24 +498,20 @@ open class BlastController: UITableViewController {
         }
         
         guard let fieldName = fieldName else {
-//            print("[BLAST]    ❌ Could not determine field name")
+            print("[BLAST]    ❌ Could not determine field name")
             return
         }
-        
-//        print("[BLAST]    Field: section=\(indexPath.section), row=\(indexPath.row), field=\(fieldName)")
         
         // Find this field's position in the data model
         guard let currentIndex = self.inputFieldLocations.firstIndex(where: {
             $0.sectionIndex == indexPath.section && $0.rowIndex == indexPath.row && $0.fieldName == fieldName
         }) else {
-//            print("[BLAST]    ❌ Could not find field in data model")
+            print("[BLAST]    ❌ Could not find field in data model")
             return
         }
         
         let canMovePrevious = currentIndex > 0
         let canMoveNext = currentIndex < (self.inputFieldLocations.count - 1)
-        
-//        print("[BLAST]    Index: \(currentIndex), canMovePrevious: \(canMovePrevious), canMoveNext: \(canMoveNext)")
         
         datePickerField.updateToolbarButtonStates(canMovePrevious: canMovePrevious, canMoveNext: canMoveNext)
     }
@@ -673,9 +555,6 @@ open class BlastController: UITableViewController {
     }
     
     public func updateToolbarButtonStates(for textView: BlastTextView) {
-//        print("\n[BLAST] 🔧 updateToolbarButtonStates for TextView")
-//        print("[BLAST]    Total fields in model: \(self.inputFieldLocations.count)")
-        
         // Try multiple levels of superview to find the cell
         var currentView: UIView? = textView
         var cell: BlastCell?
@@ -691,27 +570,23 @@ open class BlastController: UITableViewController {
         guard let cell = cell,
               let row = cell.row,
               let indexPath = self.indexPath(for: row) else {
-//            print("[BLAST]    ❌ Could not find cell or row")
+            print("[BLAST]    ❌ Could not find cell or row")
             return
         }
         
         // TextViews only have textView1
         let fieldName = "textView1"
         
-//        print("[BLAST]    Field: section=\(indexPath.section), row=\(indexPath.row), field=\(fieldName)")
-        
         // Find this field's position in the data model
         guard let currentIndex = self.inputFieldLocations.firstIndex(where: {
             $0.sectionIndex == indexPath.section && $0.rowIndex == indexPath.row && $0.fieldName == fieldName
         }) else {
-//            print("[BLAST]    ❌ Could not find field in data model")
+            print("[BLAST]    ❌ Could not find field in data model")
             return
         }
         
         let canMovePrevious = currentIndex > 0
         let canMoveNext = currentIndex < (self.inputFieldLocations.count - 1)
-        
-//        print("[BLAST]    Index: \(currentIndex), canMovePrevious: \(canMovePrevious), canMoveNext: \(canMoveNext)")
         
         textView.updateToolbarButtonStates(canMovePrevious: canMovePrevious, canMoveNext: canMoveNext)
     }
