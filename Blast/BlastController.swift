@@ -193,12 +193,12 @@ open class BlastController: UITableViewController {
             }
         }
 
-        print("\n[BLAST] 🔄 ===== rebuildInputFields =====")
-        print("[BLAST]    Found \(self.inputFieldLocations.count) input fields from data model")
-        for (index, location) in self.inputFieldLocations.enumerated() {
-            print("[BLAST]    [\(index)] section=\(location.sectionIndex), row=\(location.rowIndex), field=\(location.fieldName)")
-        }
-        print("[BLAST] ================================\n")
+//        print("\n[BLAST] 🔄 ===== rebuildInputFields =====")
+//        print("[BLAST]    Found \(self.inputFieldLocations.count) input fields from data model")
+//        for (index, location) in self.inputFieldLocations.enumerated() {
+//            print("[BLAST]    [\(index)] section=\(location.sectionIndex), row=\(location.rowIndex), field=\(location.fieldName)")
+//        }
+//        print("[BLAST] ================================\n")
     }
     
     /// Forces all cells to be instantiated and configured, even those not currently visible
