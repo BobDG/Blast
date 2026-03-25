@@ -175,10 +175,8 @@ open class BlastCell: UITableViewCell {
         // Link for automatic updates
         config.imageView = imageView
         
-        // Update
-        if let image = config.image {
-            imageView.image = image
-        }
+        // Update (also update when nil to clear the image)
+        imageView.image = config.image
     }
     
     // MARK: - Switch
