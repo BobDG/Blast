@@ -11,6 +11,8 @@ open class BlastCell: UITableViewCell {
     @IBOutlet public weak var label3: UILabel?
     @IBOutlet public weak var label4: UILabel?
     @IBOutlet public weak var label5: UILabel?
+    @IBOutlet public weak var label6: UILabel?
+    @IBOutlet public weak var label7: UILabel?
     
     // Imageviews
     @IBOutlet public weak var imageView1: UIImageView?
@@ -60,6 +62,8 @@ open class BlastCell: UITableViewCell {
             if let label = label3 { self.setupLabel(label, row.label3) }
             if let label = label4 { self.setupLabel(label, row.label4) }
             if let label = label5 { self.setupLabel(label, row.label5) }
+            if let label = label6 { self.setupLabel(label, row.label6) }
+            if let label = label7 { self.setupLabel(label, row.label7) }
             
             // Buttons
             if let button = button1 { self.setupButton(button, row.button1) }
@@ -430,6 +434,8 @@ open class BlastCell: UITableViewCell {
         row.label3.label = nil
         row.label4.label = nil
         row.label5.label = nil
+        row.label6.label = nil
+        row.label7.label = nil
         
         // ImageViews
         row.image1.imageView = nil
