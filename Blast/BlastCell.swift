@@ -25,6 +25,8 @@ open class BlastCell: UITableViewCell {
     @IBOutlet public weak var button3: UIButton?
     @IBOutlet public weak var button4: UIButton?
     @IBOutlet public weak var button5: UIButton?
+    @IBOutlet public weak var button6: UIButton?
+    @IBOutlet public weak var button7: UIButton?
     
     // Switches
     @IBOutlet public weak var switch1: UISwitch?
@@ -71,6 +73,8 @@ open class BlastCell: UITableViewCell {
             if let button = button3 { self.setupButton(button, row.button3) }
             if let button = button4 { self.setupButton(button, row.button4) }
             if let button = button5 { self.setupButton(button, row.button5) }
+            if let button = button6 { self.setupButton(button, row.button6) }
+            if let button = button7 { self.setupButton(button, row.button7) }
                         
             // ImageViews
             if let imageView = imageView1 { self.setupImageView(imageView, row.image1) }
@@ -170,6 +174,10 @@ open class BlastCell: UITableViewCell {
             self.row?.button4.tapped?()
         } else if sender == button5 {
             self.row?.button5.tapped?()
+        } else if sender == button6 {
+            self.row?.button6.tapped?()
+        } else if sender == button7 {
+            self.row?.button7.tapped?()
         }
     }
     
@@ -448,6 +456,8 @@ open class BlastCell: UITableViewCell {
         row.button3.button = nil
         row.button4.button = nil
         row.button5.button = nil
+        row.button6.button = nil
+        row.button7.button = nil
         
         // Switches
         row.switch1.toggleSwitch = nil

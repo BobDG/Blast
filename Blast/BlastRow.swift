@@ -70,6 +70,12 @@ public class BlastRow {
     public lazy var button5: BlastButtonConfig = {
         return BlastButtonConfig()
     }()
+    public lazy var button6: BlastButtonConfig = {
+        return BlastButtonConfig()
+    }()
+    public lazy var button7: BlastButtonConfig = {
+        return BlastButtonConfig()
+    }()
     
     // Images
     public lazy var image1: BlastImageViewConfig = {
