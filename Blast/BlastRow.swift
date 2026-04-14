@@ -53,6 +53,15 @@ public class BlastRow {
     public lazy var label7: BlastLabelConfig = {
         return BlastLabelConfig()
     }()
+    public lazy var label8: BlastLabelConfig = {
+        return BlastLabelConfig()
+    }()
+    public lazy var label9: BlastLabelConfig = {
+        return BlastLabelConfig()
+    }()
+    public lazy var label10: BlastLabelConfig = {
+        return BlastLabelConfig()
+    }()
     
     // Buttons
     public lazy var button1: BlastButtonConfig = {

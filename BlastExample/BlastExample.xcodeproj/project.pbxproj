@@ -599,6 +599,8 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BlastExample/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "For testing loading camera images in the cell.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "For testing loading library images in the cell.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -632,6 +634,8 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BlastExample/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "For testing loading camera images in the cell.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "For testing loading library images in the cell.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

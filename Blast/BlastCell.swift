@@ -13,6 +13,9 @@ open class BlastCell: UITableViewCell {
     @IBOutlet public weak var label5: UILabel?
     @IBOutlet public weak var label6: UILabel?
     @IBOutlet public weak var label7: UILabel?
+    @IBOutlet public weak var label8: UILabel?
+    @IBOutlet public weak var label9: UILabel?
+    @IBOutlet public weak var label10: UILabel?
     
     // Imageviews
     @IBOutlet public weak var imageView1: UIImageView?
@@ -66,6 +69,9 @@ open class BlastCell: UITableViewCell {
             if let label = label5 { self.setupLabel(label, row.label5) }
             if let label = label6 { self.setupLabel(label, row.label6) }
             if let label = label7 { self.setupLabel(label, row.label7) }
+            if let label = label8 { self.setupLabel(label, row.label8) }
+            if let label = label9 { self.setupLabel(label, row.label9) }
+            if let label = label10 { self.setupLabel(label, row.label10) }
             
             // Buttons
             if let button = button1 { self.setupButton(button, row.button1) }
@@ -78,8 +84,8 @@ open class BlastCell: UITableViewCell {
                         
             // ImageViews
             if let imageView = imageView1 { self.setupImageView(imageView, row.image1) }
-            if let imageView = imageView2 { self.setupImageView(imageView, row.image1) }
-            if let imageView = imageView3 { self.setupImageView(imageView, row.image1) }
+            if let imageView = imageView2 { self.setupImageView(imageView, row.image2) }
+            if let imageView = imageView3 { self.setupImageView(imageView, row.image3) }
             
             // Switches
             if let toggleSwitch = switch1 { self.setupSwitch(toggleSwitch, row.switch1) }
@@ -444,6 +450,9 @@ open class BlastCell: UITableViewCell {
         row.label5.label = nil
         row.label6.label = nil
         row.label7.label = nil
+        row.label8.label = nil
+        row.label9.label = nil
+        row.label10.label = nil
         
         // ImageViews
         row.image1.imageView = nil
